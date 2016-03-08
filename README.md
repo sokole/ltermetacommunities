@@ -5,6 +5,8 @@
 The purpose of this site is to promote collaboration within the Long Term Ecological Research (LTER) working group on Metacommunities. This working group initially met at the LTER All Scientists Meeting (ASM 2015), which took place from 30 August through 2 September 2015. See the working group description at the ASM 2015 website:
 [link](http://asm2015.lternet.edu/working-groups/using-metacommunity-concept-synthesize-biodiversity-patterns-across-lter-sites)
 
+This page will serve as a repository for code and results for ongoing analyses of LTER metacommunity data sets.
+
 ##Working group organizers:
 ####Eric R. Sokol (MCM, NWT)  
 Institute of Arctic and Alpine Research (INSTAAR)  
