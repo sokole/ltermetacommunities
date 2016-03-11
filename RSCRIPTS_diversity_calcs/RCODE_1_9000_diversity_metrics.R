@@ -21,10 +21,10 @@ fn.divpart.long <- function(
   spp.vect,
   abund.vect,
   ...){
-    df.long <- data.frame(spp.vect, abund.vect)
-    df.wide <- tidyr::spread(df.long, spp.vect, abund.vect,
-                             fill = 0)
-    vegetarian::d(df.wide, ...)
+  df.long <- data.frame(spp.vect, abund.vect)
+  df.wide <- tidyr::spread(df.long, spp.vect, abund.vect,
+                           fill = 0)
+  vegetarian::d(df.wide, wts = rowSums(df.wide), ...)
 }
 
 # ---------------------------------------------------------------
