@@ -21,6 +21,10 @@ niche.positions <-  c(-.5, 0, .5)
 niche.breadths <- c(.2, .2, 5)
 regional.rel.abund <- c(.8, .1, .1)
 
+# -- set random seed
+set.seed(1234)
+
+# -- run simulation
 sim.result <- MCSim::fn.metaSIM(
   landscape = my.landscape,
   trait.Ef = niche.positions,
@@ -34,16 +38,23 @@ sim.result <- MCSim::fn.metaSIM(
   output.dir.path = 'simulated_data' 
 )
 
+# -- write species counts to csv file
 write.csv(sim.result$J.long, 'dat_simulated_species_counts.csv', row.names = FALSE)
 
 d.env <- sim.result$landscape$site.info
-d.env2 <- d.env %>% select(site.ID, area.m2, Ef) %>% 
+d.env.2 <- d.env %>% select(site.ID, area.m2, Ef) %>% 
   rename(env.var = Ef)
 
-write.csv(d.env2, 'dat_simulated_environment.csv',
+# -- make environmental data long format, write to csv
+d.env.long <- tidyr::gather(d.env.2, 'env.var','env.value', -site.ID)
+
+write.csv(d.env.long, 'dat_simulated_environment.csv',
           row.names = FALSE)
 
-write.csv(data.frame(
-  site.ID = d.env2$site.ID,
-  sim.result$landscape$site.coords), 'dat_simulated_site_coords.csv',
+# -- make spatial data long format, write to csv
+d.xy <- data.frame(
+  site.ID = d.env.2$site.ID,
+  sim.result$landscape$site.coords)
+d.spatial.long <- tidyr::gather(d.xy, 'spatial.var','spatial.value', -site.ID)
+write.csv(d.spatial.long, 'dat_simulated_site_coords.csv',
   row.names = FALSE)
