@@ -50,3 +50,4 @@ dat_diversities_by_timestep <- d.comm.long %>% group_by(timestep) %>%
     gamma_q2 = fn.divpart.long(site, spp, count, lev = 'gamma', q = 2)
   )
 
+write.csv(dat_diversities_by_timestep, 'data_out_diversities_by_timestep.csv')
