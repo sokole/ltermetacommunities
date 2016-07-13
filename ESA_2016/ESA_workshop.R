@@ -4,7 +4,6 @@
 
 # Set working environment
 rm(list = ls())
-setwd("~/GitHub/ltermetacommunities/")
 
 # Check for and install required packages
 for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {
@@ -15,8 +14,8 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {
 }
 
 # Read in NWT plant community data and site coordinates 
-nwt.xy <- read.csv("ESA_2016/NWT_coordinates.csv")
-nwt.comm.long <- read.csv("ESA_2016/NWT_plantcomp.csv")[,c(2,4,5,6)]
+nwt.xy <- read.csv("NWT_coordinates.csv")
+nwt.comm.long <- read.csv("NWT_plantcomp.csv")[,c(2,4,5,6)]
 nwt.comm.wide <- tidyr::spread(nwt.comm.long, 
                                USDA_code, abund,
                                fill = 0)
