@@ -21,9 +21,7 @@ nwt.comm.wide <- tidyr::spread(nwt.comm.long,
                                USDA_code, abund,
                                fill = 0)
 
-nwt.comm.wide
-
-group_by(nwt.comm.wide, year)
+dim(nwt.comm.wide)
 
 
 # Function to pass long form data frames to metacom package
@@ -49,8 +47,6 @@ fn.ems.long <- function(
     comm = (df.wide > 0) * 1,...))
 }
 
-
-
 # Create data frame of EMS for each time step
 ems.by.year <- nwt.comm.long %>% group_by(year) %>% summarise(
   ems = fn.ems.long(plot, USDA_code, abund, method = 'r1', sims = 10)
@@ -60,8 +56,28 @@ ems.by.year <- nwt.comm.long %>% group_by(year) %>% summarise(
 nwt.1989 <- filter(nwt.comm.wide, year == 1989)
 head(nwt.1989)
 nwt.1989 <- nwt.1989[,-which(colSums(nwt.1989) == 0)]
-colSums(nwt.1989) == 0
+nwt.1989[,which(colSums(nwt.1989) == 0)]
 ems.1989 <- Metacommunity(
   decostand(nwt.1989[,-c(1:2)], method = "pa"),
-  method = "r1", sims = 10)
+  method = "r1", sims = 100)
 IdentifyStructure(ems.1989)
+
+
+# Implementing by looping, rather than dplyr and tidyr.
+# Seems to work fine, interesting to note that the 
+# site seems to continually display checkerboard patterns
+# for the past 20 years or so.
+
+years <- unique(nwt.comm.wide$year)
+for(year.i in years){
+  comm.year <- filter(nwt.comm.wide, year == year.i)[,-c(1:2)] # remove plot & year cols
+  comm.year.pa <- decostand(comm.year, method = "pa")
+  comm.year.pa <- comm.year.pa[,which(colSums(comm.year.pa) > 0)] # remove empty cols and rows
+  comm.year.pa <- comm.year.pa[which(rowSums(comm.year.pa) > 0),]
+  ems.year <- Metacommunity(
+    comm.year.pa,
+    method = "r1", sims = 10)
+  print(ems.year) # print raw values from EMS analysis
+  print(IdentifyStructure(ems.year))  # prints the structure of the MC
+}
+
