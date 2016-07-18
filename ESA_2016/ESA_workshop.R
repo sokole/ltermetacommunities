@@ -68,16 +68,23 @@ IdentifyStructure(ems.1989)
 # site seems to continually display checkerboard patterns
 # for the past 20 years or so.
 
-years <- unique(nwt.comm.wide$year)
-for(year.i in years){
-  comm.year <- filter(nwt.comm.wide, year == year.i)[,-c(1:2)] # remove plot & year cols
-  comm.year.pa <- decostand(comm.year, method = "pa")
-  comm.year.pa <- comm.year.pa[,which(colSums(comm.year.pa) > 0)] # remove empty cols and rows
-  comm.year.pa <- comm.year.pa[which(rowSums(comm.year.pa) > 0),]
-  ems.year <- Metacommunity(
-    comm.year.pa,
-    method = "r1", sims = 10)
-  print(ems.year) # print raw values from EMS analysis
-  print(IdentifyStructure(ems.year))  # prints the structure of the MC
+
+
+fn.ems.loop <- function(comm.wide){
+  
+  for(year.i in unique(comm.wide$year)){
+    comm.year <- filter(comm.wide, year == year.i)[,-c(1:2)] # remove plot & year cols
+    comm.year.pa <- decostand(comm.year, method = "pa")
+    comm.year.pa <- comm.year.pa[,which(colSums(comm.year.pa) > 0)] # remove empty cols and rows
+    comm.year.pa <- comm.year.pa[which(rowSums(comm.year.pa) > 0),]
+    ems.year <- Metacommunity(
+      comm.year.pa,
+      method = "r1", sims = 100)
+    print(ems.year) # print raw values from EMS analysis
+    print(IdentifyStructure(ems.year))  # prints the structure of the MC
+  }
+
 }
 
+# run function
+fn.ems.loop(nwt.comm.wide)
