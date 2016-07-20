@@ -1,9 +1,17 @@
-# ---------------------------- #
-# ESA Workshop - 8 August 2016 #
-# ---------------------------- #
+---
+title: "ESA Workshop"
+date: "8 August, 2016"
+output:
+  pdf_document:
+    citation_package: natbib
+bibliography: bibliography.bib
+---
 
+## Initial Setup
+```{r}
 # Set working environment
 rm(list = ls())
+setwd("~/GitHub/ltermetacommunities/ESA_2016/")
 
 # Check for and install required packages
 for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {
@@ -12,46 +20,40 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {
     library(package, character.only=T)
   }
 }
+```
 
+## Dataset: NWT Plant Communities
+Brief background on dataset?
+
+```{r}
 # Read in NWT plant community data and site coordinates 
 nwt.xy <- read.csv("NWT_coordinates.csv")
 nwt.comm.long <- read.csv("NWT_plantcomp.csv")[,c(2,4,5,6)]
+dim(nwt.comm.long)
+
+# Convert to wide format
 nwt.comm.wide <- tidyr::spread(nwt.comm.long, 
                                USDA_code, abund,
                                fill = 0)
-
 dim(nwt.comm.wide)
+```
 
 
-# Function to pass long form data frames to metacom package
-fn.ems.long <- function(
-  site.id.vect,
-  spp.vect,
-  abund.vect,
-  ...){
-  df.wide <- tidyr::spread(
-    data.frame(
-      site.id.vect,
-      spp.vect,
-      abund.vect
-  ),
-  spp.vect,
-  abund.vect,
-  fill = 0)[,-1]
-  
-  # df.wide <- df.wide[,-which(colSums(df.wide) == 0)]
-  # df.wide <- df.wide[-which(rowSums(df.wide) == 0),]
+## Three analyses for metacommunity time series datasets:
 
-  IdentifyStructure(metacom::Metacommunity(
-    comm = (df.wide > 0) * 1,...))
-}
+1) Diversity Partitioning [@Jost2007]
 
-# Create data frame of EMS for each time step
-ems.by.year <- nwt.comm.long %>% group_by(year) %>% summarise(
-  ems = fn.ems.long(plot, USDA_code, abund, method = 'r1', sims = 10)
-)
+2) Variation Partitioning [@Borcard1992; @Legendre2005]
 
-# Test on individual year
+3) Elements of Metacommunity Structure [@Leibold2002; @Presley2010]
+
+### Diversity Paritioning
+
+### Variation Partitioning
+
+### Elements of Metacommunity Structure
+```{r}
+# First, we'll test on an individual year
 nwt.1989 <- filter(nwt.comm.wide, year == 1989)
 head(nwt.1989)
 nwt.1989 <- nwt.1989[,-which(colSums(nwt.1989) == 0)]
@@ -60,15 +62,11 @@ ems.1989 <- Metacommunity(
   decostand(nwt.1989[,-c(1:2)], method = "pa"),
   method = "r1", sims = 100)
 IdentifyStructure(ems.1989)
+```
 
-
-# Implementing by looping, rather than dplyr and tidyr.
-# Seems to work fine, interesting to note that the 
-# site seems to continually display checkerboard patterns
-# for the past 20 years or so.
-
-
-
+Now, we'll take advantage of the time series data
+```{r}
+# This function accepts wide-format dataset and prints EMS output
 fn.ems.loop <- function(comm.wide){
   
   for(year.i in unique(comm.wide$year)){
@@ -79,11 +77,14 @@ fn.ems.loop <- function(comm.wide){
     ems.year <- Metacommunity(
       comm.year.pa,
       method = "r1", sims = 100)
-    print(ems.year) # print raw values from EMS analysis
+    #print(ems.year) # print raw values from EMS analysis
     print(IdentifyStructure(ems.year))  # prints the structure of the MC
   }
 
 }
+```
 
-# run function
+Now, call the function:
+```{r}
 fn.ems.loop(nwt.comm.wide)
+```
