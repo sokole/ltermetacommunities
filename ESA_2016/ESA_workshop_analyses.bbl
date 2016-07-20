@@ -1,0 +1,47 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Borcard et~al.(1992)Borcard, Legendre, and Drapeau]{Borcard1992}
+Daniel Borcard, Pierre Legendre, and Pierre Drapeau.
+\newblock {Partialling out the spatial component of ecological variation}.
+\newblock \emph{Ecology}, 73\penalty0 (3):\penalty0 1045--1055, 1992.
+\newblock ISSN 00129658.
+\newblock \doi{10.2307/1940179}.
+\newblock URL \url{http://www.jstor.org/stable/1940179}.
+
+\bibitem[Jost(2007)]{Jost2007}
+Lou Jost.
+\newblock {Partitioning diversity into independent alpha and beta components}.
+\newblock \emph{Ecology}, 88\penalty0 (10):\penalty0 2427--2439, 2007.
+\newblock ISSN 0012-9658.
+\newblock \doi{10.1890/06-1736.1}.
+\newblock URL \url{http://doi.wiley.com/10.1890/06-1736.1}.
+
+\bibitem[Legendre et~al.(2005)Legendre, Borcard, and Peres-Neto]{Legendre2005}
+Pierre Legendre, Daniel Borcard, and Pedro~R. Peres-Neto.
+\newblock {Analyzing beta diversity: partitioning the spatial variation of
+  community composition data}.
+\newblock \emph{Ecological Monographs}, 75\penalty0 (4):\penalty0 435--450,
+  2005.
+
+\bibitem[Leibold and Mikkelson(2002)]{Leibold2002}
+Mathew~A. Leibold and Gregory~M Mikkelson.
+\newblock {Coherence, species turnover, and boundary clumping: elements of
+  meta-community structure}.
+\newblock \emph{Oikos}, 97:\penalty0 237--250, 2002.
+\newblock ISSN 1600-0706.
+\newblock \doi{10.1034/j.1600-0706.2002.970210.x}.
+
+\bibitem[Presley et~al.(2010)Presley, Higgins, and Willig]{Presley2010}
+Steven~J. Presley, Christopher~L. Higgins, and Michael~R. Willig.
+\newblock {A comprehensive framework for the evaluation of metacommunity
+  structure}.
+\newblock \emph{Oikos}, 119\penalty0 (6):\penalty0 908--917, 2010.
+\newblock ISSN 00301299.
+\newblock \doi{10.1111/j.1600-0706.2010.18544.x}.
+
+\end{thebibliography}
