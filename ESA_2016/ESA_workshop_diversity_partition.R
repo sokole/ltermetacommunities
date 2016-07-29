@@ -26,18 +26,11 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {
 # ---------------------------------------------------------------
 # -- Read in NWT plant community data and site coordinates 
 # ---------------------------------------------------------------
+options(stringsAsFactors = FALSE)
 
 #read the data files
 nwt.xy <- read.csv("ESA_2016/NWT_coordinates.csv")
 nwt.comm.long <- read.csv("ESA_2016/NWT_plantcomp.csv")[,c(2,4,5,6)]
-
-#reformat long-matrix to wide-matrix
-nwt.comm.wide <- tidyr::spread(nwt.comm.long, 
-                               USDA_code, abund,
-                               fill = 0)
-
-#check dimensions of the nwt.comm.wide matrix
-dim(nwt.comm.wide)
 
 # ---------------------------------------------------------------
 # -- FUNCTIONS that work on a single long comm matrix
@@ -49,40 +42,56 @@ fn.divpart.long <- function(
   spp.vect,
   abund.vect,
   ...){
+  
+  # combine vectors in a data.frame
   df.long <-  data.frame(
-    site.id.vect,
-    spp.vect,
-    abund.vect
+    site = site.id.vect,
+    spp = spp.vect,
+    abund = abund.vect
   )
   
-  df.grouped.long <- dplyr::group_by(df.long, site.id.vect, spp.vect)
-  df.summarized.long <- summarise(df.grouped.long, 
-                             abund.mean = mean(abund.vect))
+  # average across replicate observations for a site -- if there are multiple observations for a site
+  df.grouped.long <- dplyr::group_by(df.long, site, spp)
+  df.means.long <- dplyr::summarise(df.grouped.long, 
+                             abund.mean = mean(abund))
   
-  df.wide <- tidyr::spread(
-    df.summarized.long$site.id.vect,
-    df.summarized.long$spp.vect,
-    df.summarized.long$abund.mean,
+  # change from long format to wide format data.frame
+  df.wide <- tidyr::spread(df.means.long,
+    key = spp,
+    value = abund.mean,
     fill = 0)[,-1]
   
+  # calculate diversity metric
   vegetarian::d(df.wide, wts = rowSums(df.wide), ...)
 }
 
 # ---------------------------------------------------------------
-# apply the function to the entire data set
-fn.divpart.long(
+# apply the function to the entire data set to calculate gamma diversity
+total_gamma_diversity <- fn.divpart.long(
   site.id.vect = nwt.comm.long$plot, #site identifier
   spp.vect = nwt.comm.long$USDA_code, #species names
-  abund.vect = nwt.comm.long$abund #abundances
+  abund.vect = nwt.comm.long$abund, #abundances
+  lev = 'gamma',
+  q = 0
 )
 
-# -- group by time
+print(total_gamma_diversity)
+
+# -- apply the function to calculate gamma diversity for each year in the record
 dat_diversities_by_timestep <- nwt.comm.long %>% group_by(year) %>% 
   summarise(
-    alpha_q1 = fn.divpart.long(plot, USDA_code, abund, lev = 'alpha', q = 1),
-    beta_q1 = fn.divpart.long(plot, USDA_code, abund, lev = 'beta', q = 1),
-    gamma_q1 = fn.divpart.long(plot, USDA_code, abund, lev = 'gamma', q = 1),
-    alpha_q2 = fn.divpart.long(plot, USDA_code, abund, lev = 'alpha', q = 2),
-    beta_q2 = fn.divpart.long(plot, USDA_code, abund, lev = 'beta', q = 2),
-    gamma_q2 = fn.divpart.long(plot, USDA_code, abund, lev = 'gamma', q = 2)
+    gamma_q0 = fn.divpart.long(plot, USDA_code, abund, lev = 'gamma', q = 0)
   )
+
+print(dat_diversities_by_timestep)
+
+# -- apply the function to each year in the record, calculate alpha, beta, and gamma
+dat_diversities_by_timestep <- nwt.comm.long %>% group_by(year) %>% 
+  summarise(
+    alpha_q0 = fn.divpart.long(plot, USDA_code, abund, lev = 'alpha', q = 0),
+    beta_q0 = fn.divpart.long(plot, USDA_code, abund, lev = 'beta', q = 0),
+    gamma_q0 = fn.divpart.long(plot, USDA_code, abund, lev = 'gamma', q = 0)
+  )
+
+print(dat_diversities_by_timestep)
+
