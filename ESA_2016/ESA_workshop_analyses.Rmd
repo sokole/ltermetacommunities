@@ -84,9 +84,34 @@ Using the vegatarian package, we can partition metacommunity diversity into its 
 ### Variation Partitioning
 We can also partition community variation into proportions explained by variation in spatial (e.g., x and y coordinates) and environmental (e.g., elevation) variables. 
 
-To represent spatial variation 
+To represent spatial variation we'll use the spatial eigenfunction framework, Moran's eigenvector maps (MEMs) [@Dray2006]. In particular, we'll use a special case known as Principal Coordinates of Neighbor Matrices (PCNM), which maps spatial structures from broad to fine scales using a combination of different sine waves [@Borcard2002, @Borcard2004].
+
+```{r}
+# Construct the spatial matrix
+nwt.xy.dist <- dist(nwt.xy[,2:3])
+nwt.pcnm <- vegan::pcnm(nwt.xy.dist, dist.ret = T)
+nwt.pcnm <- scores(nwt.pcnm)[,which(nwt.pcnm$values > 0)]
+nwt.pcnm <- as.data.frame(nwt.pcnm)
+
+# Construct the "environmental" matrix
+nwt.env <- as.data.frame(nwt.xy[,4]) # elevation
+colnames(nwt.env) <- "elevation"
+
+# We can Hellinger-transform the community data for use with RDA
+nwt.2006.hel <- decostand(nwt.2006, method = "hellinger")
+
+# We could also use Bray-Curtis distance and use dbRDA
+nwt.comm.dist.bray <- vegdist(nwt.2006, method = "bray")
+```
+
+Now, we can perform variation partitioning. Let's use the Hellinger-transformed data first and perform a traditional redundancy analysis (RDA). RDA preserves Euclidean distances, and the Hellinger transformation maintains ecological relevance [@Legendre2001]. 
+
+```{r}
+vegan::varpart(nwt.2006.hel, nwt.env, nwt.pcnm)
+```
 
 ### Elements of Metacommunity Structure
+Now, we will use incidence matrices for the EMS framework.
 ```{r}
 
 ems.1989 <- Metacommunity(
