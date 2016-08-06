@@ -18,7 +18,7 @@ In this portion of the workshop, we will demonstrate the approaches we will use 
 ## Initial Setup
 First, we will setup RStudio so it knows where to find our data files. We also load the R packages required to conduct the analyses. The loop below will try to load the packages and install them if needed.
 
-```{r, results='hide'}
+```{r, message=FALSE}
 # Set working environment
 rm(list = ls())
 setwd("~/GitHub/ltermetacommunities/ESA_2016/")
