@@ -49,7 +49,7 @@ dim(nwt.comm.wide) # note wide format
 ```
 
 
-## Three key analyses:
+## Metacommunity analyses at a single time point:
 
 Here, we will demonstrate the analyses at one time point. Here, we'll look at the NWT community during the year 2006. 
 
@@ -57,6 +57,7 @@ Here, we will demonstrate the analyses at one time point. Here, we'll look at th
 # First, we'll select an individual year
 nwt.2006 <- filter(nwt.comm.wide, year == 2006)
 head(nwt.2006)
+nwt.2006 <- nwt.2006[,-c(1:2)] # remove the plot and year columns
 nwt.2006 <- nwt.2006[,-which(colSums(nwt.2006) == 0)] # remove empty columns
 dim(nwt.2006)
 ```
@@ -99,48 +100,89 @@ colnames(nwt.env) <- "elevation"
 
 # We can Hellinger-transform the community data for use with RDA
 nwt.2006.hel <- decostand(nwt.2006, method = "hellinger")
-
-# We could also use Bray-Curtis distance and use dbRDA
-nwt.comm.dist.bray <- vegdist(nwt.2006, method = "bray")
 ```
 
 Now, we can perform variation partitioning. Let's use the Hellinger-transformed data first and perform a traditional redundancy analysis (RDA). RDA preserves Euclidean distances, and the Hellinger transformation maintains ecological relevance [@Legendre2001]. 
 
 ```{r}
-vegan::varpart(nwt.2006.hel, nwt.env, nwt.pcnm)
+nwt.2006.varpart <- vegan::varpart(nwt.2006.hel, nwt.env, nwt.pcnm)
 ```
 
 ### Elements of Metacommunity Structure
-Now, we will use incidence matrices for the EMS framework.
+Now, we will use incidence matrices for the EMS framework. The EMS framework uses co-occurrence patterns to characterize metacommunity structure by identifying coherence (i.e., how discontinuous are species distributions), turnover (i.e., how different is community composition across sites), and boundary clumping (i.e., is turnover gradual or punctuated?). The patterns are then characterized as checkerboard, Clementsian, Gleasonian, nested distributions, and evenly spaced (random) [@Leibold2002, @Presley2010].
 ```{r}
-
-ems.1989 <- Metacommunity(
-  decostand(nwt.1989[,-c(1:2)], method = "pa"),
+ems.2006 <- Metacommunity(
+  decostand(nwt.2006[-which(rowSums(nwt.2006) == 0),], method = "pa"),
   method = "r1", sims = 100)
-IdentifyStructure(ems.1989)
+IdentifyStructure(ems.2006)
 ```
 
-Now, we'll take advantage of the time series data
+
+## Metacommunity analyses across a time series
+
+Now, we can repeat these analyses across the long-term datasets and identify shifts in the local versus among-site diversity, the relative importance of metacommunity processes, and species distribution patterns.
+
 ```{r}
-# This function accepts wide-format dataset and prints EMS output
-fn.ems.loop <- function(comm.wide){
+# This function accepts wide-format dataset and prints analysis output
+fn.mc.loop <- function(comm.wide = comm.wide, output = output){
+  
   
   for(year.i in unique(comm.wide$year)){
     comm.year <- filter(comm.wide, year == year.i)[,-c(1:2)] # remove plot & year cols
+    
+    # Diversity Partitioning
+    comm.year.0.a <- vegetarian::d(comm.year, lev = "alpha", q = 0)
+    comm.year.0.b <- vegetarian::d(comm.year, lev = "beta", q = 0)
+    comm.year.0.g <- vegetarian::d(comm.year, lev = "gamma", q = 0)
+    
+    comm.year.1.a <- vegetarian::d(comm.year, lev = "alpha", q = 1)
+    comm.year.1.b <- vegetarian::d(comm.year, lev = "beta", q = 1)
+    comm.year.1.g <- vegetarian::d(comm.year, lev = "gamma", q = 1)
+    
+    comm.year.2.a <- vegetarian::d(comm.year, lev = "alpha", q = 2)
+    comm.year.2.b <- vegetarian::d(comm.year, lev = "beta", q = 2)
+    comm.year.2.g <- vegetarian::d(comm.year, lev = "gamma", q = 2)
+    
+    # Variation Partitioning
+    comm.year.hel <- decostand(comm.year, method = "hellinger")
+    comm.year.varpart <- vegan::varpart(comm.year.hel, nwt.env, nwt.pcnm)
+    vp <- vector(length = 4)
+    vp <- comm.year.varpart$part$indfract$Adj.R.squared
+    vp.a <- vp[1]
+    vp.b <- vp[2]
+    vp.c <- vp[3]
+    vp.d <- vp[4]
+    
+    # EMS
     comm.year.pa <- decostand(comm.year, method = "pa")
     comm.year.pa <- comm.year.pa[,which(colSums(comm.year.pa) > 0)] # remove empty cols and rows
     comm.year.pa <- comm.year.pa[which(rowSums(comm.year.pa) > 0),]
     ems.year <- Metacommunity(
       comm.year.pa,
       method = "r1", sims = 100)
-    #print(ems.year) # print raw values from EMS analysis
-    print(IdentifyStructure(ems.year))  # prints the structure of the MC
+    comm.year.ems.struc <- (IdentifyStructure(ems.year))  # prints the structure of the MC
+    
+    # Write Output
+    site.index <- which(output$year == year.i)
+    output[which(output$year == site.index),] <- c(site.index,
+                                     comm.year.0.a, comm.year.0.b, comm.year.0.g,
+                                     comm.year.1.a, comm.year.1.b, comm.year.1.g, 
+                                     comm.year.2.a, comm.year.2.b, comm.year.2.g,
+                                     vp.a, vp.b, vp.c, vp.d, comm.year.ems.struc)
   }
-
+  return(output)
 }
 ```
 
 Now, call the function:
 ```{r}
-fn.ems.loop(nwt.comm.wide)
+# Create summary data frame
+nwt.time.series <- data.frame(year = unique(nwt.comm.wide$year), 
+                             d.0.a = NA, d.0.b = NA, d.0.g = NA,
+                             d.1.a = NA, d.1.b = NA, d.1.g = NA,
+                             d.2.a = NA, d.2.b = NA, d.2.g = NA,
+                             vp.a = NA, vp.b = NA, vp.c = NA, vp.d = NA,
+                             ems.struc = NA)
+
+mc.time.series.summary <- fn.mc.loop(comm.wide = nwt.comm.wide, out = nwt.time.series)
 ```
