@@ -4,7 +4,7 @@
 
 The purpose of this site is to promote collaboration within the Long Term Ecological Research (LTER) working group on Metacommunities. This page will serve as a repository for code and results for ongoing analyses of LTER metacommunity data sets.  
 ####Background
-This working group initially met at the LTER All Scientists Meeting (ASM 2015), which took place from 30 August through 2 September 2015. We are currently supported (2016-2018) by the LTER National Communications Office (NCO) ([link](http://intranet2.lternet.edu/content/congratulations-2016-round-1-synthesis-working-groups)) 
+This working group initially met at the LTER All Scientists Meeting (ASM 2015), which took place from 30 August through 2 September 2015. We are currently supported (2016-2018, [link](http://intranet2.lternet.edu/content/congratulations-2016-round-1-synthesis-working-groups)) by the LTER National Communications Office (NCO).   
 ####Useful links and related projects
 
 * We are a working group supported by the LTER NCO ([view proposal here](https://drive.google.com/open?id=0B2P104M94skvUTlVRWUxVmVXRmM))
