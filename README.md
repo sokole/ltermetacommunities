@@ -7,7 +7,8 @@ The purpose of this site is to promote collaboration within the Long Term Ecolog
 This working group initially met at the LTER All Scientists Meeting (ASM 2015), which took place from 30 August through 2 September 2015. We are currently supported (2016-2018, [link](http://intranet2.lternet.edu/content/congratulations-2016-round-1-synthesis-working-groups)) by the LTER National Communications Office (NCO).   
 ####Useful links and related projects
 
-* Working google drive with LTER data ([link](https://drive.google.com/drive/folders/0B2P104M94skvdzlDb2p2WTVYa00))
+* Google Drive DATA ([link](https://drive.google.com/drive/folders/0B2P104M94skvdzlDb2p2WTVYa00))
+* Google Drive NCO collaborative documents ([link](https://drive.google.com/open?id=0B_UCMSc6G1YdTU5iMVVHdmYtTlk))
 * We are a working group supported by the LTER NCO ([view proposal here](https://drive.google.com/open?id=0B2P104M94skvUTlVRWUxVmVXRmM))
 * [ESA 2016 workshop](https://eco.confex.com/eco/2016/webprogrampreliminary/Session11862.html)
 * See the working group description at the [ASM 2015 website](http://asm2015.lternet.edu/working-groups/using-metacommunity-concept-synthesize-biodiversity-patterns-across-lter-sites)  
