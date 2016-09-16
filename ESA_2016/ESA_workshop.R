@@ -4,6 +4,7 @@
 
 # Set working environment
 rm(list = ls())
+setwd("ESA_2016")
 
 # Check for and install required packages
 for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {
