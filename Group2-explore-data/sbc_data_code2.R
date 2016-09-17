@@ -1,0 +1,140 @@
+# ------------------------------------- #
+# Reformat SBC data - 17 September 2016 #
+# ------------------------------------- #
+
+# Set working environment
+rm(list = ls())
+setwd("~/Google Drive/LTER-DATA/SBC-Lamy-Castorani/")
+
+# Check for and install required packages
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {
+  if (!require(package, character.only=T, quietly=T)) {
+    install.packages(package)
+    library(package, character.only=T)
+  }
+}
+
+# -----------------------------------------------------------------------------------------------------
+# Read in SBC data
+id.coords <- "0BxUZSA1Gn1HZNUJRb0pEWkpUNFE" # Google Drive file ID
+
+# SBC site coordinates
+sbc.xy <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id.coords)) %>% 
+  tbl_df() %>%
+  gather("VARIABLE_NAME", "VALUE", LAT:LONG) %>%
+  mutate(OBSERVATION_TYPE = "SPATIAL_COORDINATE",
+         VARIABLE_UNITS = "dec. degrees")
+sbc.xy$DATE = NA
+sbc.xy$TAXON_GROUP = NA
+sbc.xy <- sbc.xy[, c("OBSERVATION_TYPE", "SITE_ID", "DATE", "VARIABLE_NAME", "VARIABLE_UNITS", "VALUE", "TAXON_GROUP")] # Reorder columns
+
+# SBC environmental data
+sbc.env <- read.csv("sbc_env.csv") %>% 
+  tbl_df() %>%
+  gather("VARIABLE_NAME", "VALUE", TEMP_MEAN_C:WAVE_HT_WINTER_MEAN) %>%
+  mutate(OBSERVATION_TYPE = "ENV_VAR",
+         VARIABLE_UNITS = NA)
+sbc.env$VARIABLE_UNITS[sbc.env$VARIABLE_NAME=="TEMP_MEAN_C"] <- "degrees C"
+sbc.env$VARIABLE_UNITS[sbc.env$VARIABLE_NAME=="WAVE_HT_MEAN" | sbc.env$VARIABLE_NAME=="WAVE_HT_WINTER_MEAN"] <- "m"
+sbc.env$TAXON_GROUP = NA
+sbc.env <- sbc.env[, c("OBSERVATION_TYPE", "SITE_ID", "DATE", "VARIABLE_NAME", "VARIABLE_UNITS", "VALUE", "TAXON_GROUP")] # Reorder columns
+
+# SBC community data
+sbc.comm.raw <- read.csv("sbc_comm.csv")%>% 
+  tbl_df()
+sbc.comm.long <- sbc.comm.raw %>% 
+  tbl_df() %>%
+  mutate(VARIABLE_NAME = TAXON_CODE,
+         OBSERVATION_TYPE = "TAXON_COUNT",
+         VALUE = BIOMASS_DENS,
+         VARIABLE_UNITS = "g dry per m2") %>%
+  select(-TAXON_GENUS, -TAXON_SPECIES, -BIOMASS_DENS, -TAXON_CODE) 
+sbc.comm.long <- sbc.comm.long[, c("OBSERVATION_TYPE", "SITE_ID", "DATE", "VARIABLE_NAME", "VARIABLE_UNITS", "VALUE", "TAXON_GROUP")] # Reorder columns
+
+# Bind data together in a single long data frame
+sbc.long <- rbind(sbc.xy, sbc.env, sbc.comm.long)
+dim(sbc.long)
+
+# Save long-form combined data
+#write.csv(sbc.long, file="sbc_long_dat.csv")
+
+# -----------------------------------------------------------------------------------------------------
+# Developing summary metrics for SBC LTER data
+
+# Rename data
+dat.long <- sbc.long
+
+# Check types of taxa
+unique(dat.long$TAXON_GROUP)
+
+# Remove mobile groups
+dat.long.2 <- subset(dat.long, dat.long$TAXON_GROUP != "FISH" & dat.long$TAXON_GROUP != "MOBILE INVERT" & dat.long$TAXON_GROUP != "")
+dat.long.2 <- droplevels(dat.long.2)
+
+# Check the structure of the data
+str(dat.long.2)
+
+# Check sites
+unique(dat.long.2$SITE_ID)
+
+# Check dates
+unique(dat.long.2$DATE)
+
+# Check for numbers of observations at each site and year
+tapply(dat.long.2$VALUE, list(dat.long.2$SITE_ID,dat.long.2$DATE), length)
+# Are all taxa propagated throughout the data? In other words, when there were no individuals found, was a zero recorded in the data frame?
+
+# Check temporal nature of the data
+# Add information here if needed for non-annual data
+
+# Subset long data to community data only
+comm.dat <- dat.long.2[dat.long.2$OBSERVATION_TYPE == "TAXON_COUNT", ]
+
+# Make a function that returns the cumulative number of taxa observed for a given set of community data
+cuml.taxa.fun <- function(community.data){
+  taxa.t.list <- list() # Make empty list
+  
+  # Loop over each year, creating a list that contains the unique taxa found in each year
+  for(t in 1:length(unique(community.data$DATE))){
+    tmp.dat <- subset(community.data, community.data$DATE == t + (min(community.data$DATE) - 1))
+    tmp.dat.pres <- subset(tmp.dat, tmp.dat$VALUE > 0) 
+    taxa.t.list[[t]] <- unique(tmp.dat.pres$VARIABLE_NAME)
+  }
+  
+  # Make cumulative list of taxa through time
+  cuml.taxa <- list() # Empty list
+  cuml.taxa[[1]] <- taxa.t.list[[1]] # Add the taxa from the first time step 
+  
+  # Run for-loop to create list of the cumulative taxa, with duplicates
+  for(t in 2:length(unique(community.data$DATE))){ 
+    cuml.taxa[[t]] <- c(cuml.taxa[[t - 1]], taxa.t.list[[t]])
+  }
+  
+  # Remove duplicates
+  cuml.taxa <- lapply(cuml.taxa, function(x){unique(x)})
+  
+  # Return the number of total unique taxa through time
+  cuml.no.taxa <- data.frame("year" = unique(community.data$DATE))
+  cuml.no.taxa$no.taxa <- unlist(lapply(cuml.taxa, function(x){length(x)}))
+  
+  return(cuml.no.taxa)
+  }
+
+cuml.taxa.by.site <- lapply(unique(comm.dat$SITE_ID), 
+                            function(site){cuml.taxa.fun(community.data = comm.dat[comm.dat$SITE_ID==site, ])})
+
+
+
+
+
+library(ggplot2)
+
+cuml.plot <- ggplot(data=cuml.no.taxa, aes(x=year, y=no.taxa)) +
+  geom_line() +
+  scale_x_continuous(breaks=seq(min(cuml.no.taxa$year), max(cuml.no.taxa$year), 2), 
+                     name="Year") +
+  scale_y_continuous(limits=c(0, max(cuml.no.taxa$no.taxa)),
+                     breaks=seq(0, max(cuml.no.taxa$no.taxa), by=20),
+                     name="Cumulative number of taxa") +
+  theme_bw()
+
