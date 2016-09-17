@@ -1,0 +1,439 @@
+BTBW <- read.csv("/Users/Nina/Dropbox/Hubbard Brook/BTBW phenology paper/Oikos submission/revisions/data and code/BTBW_data_Oikos.csv")
+str(BTBW)
+AICc <- function (object) #
+{#
+    logLikelihood <- logLik(object)#
+    df <- attr(logLikelihood, "df")#
+    nobs <- nobs(object)#
+    AIC(object) + 2 * df * (df + 1)/(nobs - df - 1)#
+}
+plot(BTBW$Acsa.90,BTBW$clutch.init.50, pch=19,xlab="Day of full canopy expansion",ylab="Day of median clutch init.",pty="s", bty="l",cex.lab=1.25)#
+m2 <- lm(BTBW$clutch.init.50 ~ BTBW$Acsa.90)#
+hist(resid(m2))#
+summary(m2)#
+abline(m2,lwd=2)#
+text(150,144,expression(m==0.56 %+-%0.08))#
+text(135,160,"B",font=2,cex=2)#
+mismatch.resids <- residuals(m2)#
+mismatch.resids.sq <- mismatch.resids^2
+plot(BTBW$mean.fledged ~ BTBW$high_day)
+summary(lm(BTBW$mean.fledged ~ BTBW$high_day))
+summary(lm(BTBW$mean.fledged ~ BTBW$preds + BTBW$high_day))
+AICc <- function (object) #
+{#
+    logLikelihood <- logLik(object)#
+    df <- attr(logLikelihood, "df")#
+    nobs <- nobs(object)#
+    AIC(object) + 2 * df * (df + 1)/(nobs - df - 1)#
+}
+AICc(lm(BTBW$mean.fledged ~ BTBW$preds + BTBW$high_day))
+AICc(lm(BTBW$mean.fledged ~ BTBW$preds))
+par(mfrow = c(2,1))#
+par(mar=c(0.2,5,0.2,0.2))#
+xlim1 = c(0,650) #
+#plot(maple$Tsum.4.0, maple$score, ylab = "Leaf index", xlab="Thermal Sum (4,0)",bty="l",cex=0.5,cex.lab=1.5)#
+plot(maple$Tsum.4.0, maple$score, ylab = "Leaf index score", xlab="",bty="l",cex=0.5,cex.lab=1.5,xaxt="n", tck = 0.02, xlim=xlim1)#
+modelA <- nls(score~ 4/(1+exp(b-c*Tsum.4.0)), data=maple, start=list(b=100, c=1), algorithm="plinear") #
+tsum <- seq(0,600,1)#
+attach(maple)#
+lines(tsum, predict(modelA,list(Tsum.4.0=tsum)),lwd=2)#
+detach(maple)#
+#
+par(mar=c(4,5,0.2,0.2))#
+plot(Acsa$Tsum.4,Acsa$Obs.prop.adj*100, ylab="% Expansion",bty="l",cex.lab=1.5, xlab=expression(paste("Thermal sum (",4^o,"C base)")), tck = 0.02, xlim=xlim1)#
+xx <- seq(128,297,1)#
+yy<- 0+0.59*(xx-128)#
+points(xx,yy,type="l")#
+xx <- seq(297,650,1)#
+yy <- rep(100,354)#
+points(xx,yy,type="l")
+dev.off()
+par(mfrow = c(2,1))#
+par(mar=c(0.2,5,0.2,0.2))#
+xlim1 = c(0,650) #
+#plot(maple$Tsum.4.0, maple$score, ylab = "Leaf index", xlab="Thermal Sum (4,0)",bty="l",cex=0.5,cex.lab=1.5)#
+plot(maple$Tsum.4.0, maple$score, ylab = "Leaf index score", xlab="",bty="l",cex=0.5,cex.lab=1.5,xaxt="n", tck = 0.02, xlim=xlim1)#
+modelA <- nls(score~ 4/(1+exp(b-c*Tsum.4.0)), data=maple, start=list(b=100, c=1), algorithm="plinear") #
+tsum <- seq(0,600,1)#
+attach(maple)#
+lines(tsum, predict(modelA,list(Tsum.4.0=tsum)),lwd=2)#
+detach(maple)#
+#
+par(mar=c(4,5,0.2,0.2))#
+plot(Acsa$Tsum.4,Acsa$Obs.prop.adj*100, ylab="% Expansion",bty="l",cex.lab=1.5, xlab=expression(paste("Thermal sum (",4^o,"C base)")), tck = 0.02, xlim=xlim1)#
+xx <- seq(128,297,1)#
+yy<- 0+0.59*(xx-128)#
+points(xx,yy,type="l")#
+xx <- seq(297,650,1)#
+yy <- rep(100,354)#
+points(xx,yy,type="l")
+data <- read.delim("/Users/Nina/Dropbox/Hubbard Brook/leaf phenology/leaf_phenology_data.txt")#
+str(data)#
+maple <- subset(data, SPECIES=="Sugar_Maple")#
+maple <- transform(maple, YEAR=as.factor(Year))#
+str(maple)
+E <- read.csv("/Users/Nina/Dropbox/Hubbard Brook/leaf phenology/expansion data/Leaf Expansion.csv")#
+str(E)#
+Acsa <- subset(E, Spp=="Acsa")#
+str(Acsa)
+par(mfrow = c(2,1))#
+par(mar=c(0.2,5,0.2,0.2))#
+xlim1 = c(0,650) #
+#plot(maple$Tsum.4.0, maple$score, ylab = "Leaf index", xlab="Thermal Sum (4,0)",bty="l",cex=0.5,cex.lab=1.5)#
+plot(maple$Tsum.4.0, maple$score, ylab = "Leaf index score", xlab="",bty="l",cex=0.5,cex.lab=1.5,xaxt="n", tck = 0.02, xlim=xlim1)#
+modelA <- nls(score~ 4/(1+exp(b-c*Tsum.4.0)), data=maple, start=list(b=100, c=1), algorithm="plinear") #
+tsum <- seq(0,600,1)#
+attach(maple)#
+lines(tsum, predict(modelA,list(Tsum.4.0=tsum)),lwd=2)#
+detach(maple)
+par(mar=c(4,5,0.2,0.2))#
+plot(Acsa$Tsum.4,Acsa$Obs.prop.adj*100, ylab="% Expansion",bty="l",cex.lab=1.5, xlab=expression(paste("Thermal sum (",4^o,"C base)")), tck = 0.02, xlim=xlim1)#
+xx <- seq(128,297,1)#
+yy<- 0+0.59*(xx-128)#
+points(xx,yy,type="l")#
+xx <- seq(297,650,1)#
+yy <- rep(100,354)#
+points(xx,yy,type="l")
+logistic.tsum <- c(204,259,301,329)
+logistic.score <- c(0,50,75,90)
+points(logistic.tsum,logistic.score,cex=2, pch=18)
+data <- read.delim("/Users/Nina/Dropbox/Hubbard Brook/leaf phenology/leaf_phenology_data.txt")
+str(data)
+maple <- subset(data, SPECIES=="Sugar_Maple")maple <- transform(maple, YEAR=as.factor(Year))str(maple)
+plot(maple$Tsum.4.0, maple$score, ylab = "Leaf index", xlab="",bty="l",cex=0.5,cex.lab=1.5,xaxt="n")
+text(500,1,"A. saccharum", font=3)
+modelA <- nls(score~ 4/(1+exp(b-c*Tsum.4.0)), data=maple, start=list(b=100, c=1), algorithm="plinear")
+summary(modelA)
+data <- read.delim("/Users/Nina/Dropbox/Hubbard Brook/leaf phenology/leaf_phenology_data.txt")#
+str(data)#
+maple <- subset(data, SPECIES=="Sugar_Maple")#
+maple <- transform(maple, YEAR=as.factor(Year))#
+str(maple)#
+#
+#segmented regression o/Users/nina/Dropbox/Hubbard Brook/leaf frost/data and code/frost code.Rn all data:(read in Leaf Expansion.csv in hubbard brook/leaf phenology/expansion data)#
+E <- read.csv("/Users/Nina/Dropbox/Hubbard Brook/leaf phenology/expansion data/Leaf Expansion.csv")#
+str(E)#
+Acsa <- subset(E, Spp=="Acsa")#
+str(Acsa)
+par(mfrow = c(2,1))#
+par(mar=c(0.2,5,0.2,0.2))#
+xlim1 = c(0,650) #
+#plot(maple$Tsum.4.0, maple$score, ylab = "Leaf index", xlab="Thermal Sum (4,0)",bty="l",cex=0.5,cex.lab=1.5)#
+plot(maple$Tsum.4.0, maple$score, ylab = "Leaf index score", xlab="",bty="l",cex=0.5,cex.lab=1.5,xaxt="n", tck = 0.02, xlim=xlim1)#
+modelA <- nls(score~ 4/(1+exp(b-c*Tsum.4.0)), data=maple, start=list(b=100, c=1), algorithm="plinear") #
+tsum <- seq(0,600,1)#
+attach(maple)#
+lines(tsum, predict(modelA,list(Tsum.4.0=tsum)),lwd=2)#
+detach(maple)#
+#
+par(mar=c(4,5,0.2,0.2))#
+plot(Acsa$Tsum.4,Acsa$Obs.prop.adj*100, ylab="% Expansion",bty="l",cex.lab=1.5, xlab=expression(paste("Thermal sum (",4^o,"C base)")), tck = 0.02, xlim=xlim1)#
+xx <- seq(128,297,1)#
+yy<- 0+0.59*(xx-128)#
+points(xx,yy,type="l")#
+xx <- seq(297,650,1)#
+yy <- rep(100,354)#
+points(xx,yy,type="l")
+summary(modelA)
+1028*.06
+data <- read.csv("/Users/Nina/Dropbox/Hubbard Brook/COS phenology/COS phenology data_2012_06_08.csv")
+str(data)
+head(data)
+leaf <- read.delim("/Users/Nina/Dropbox/Hubbard Brook/COS phenology/leaf_phenology_data.txt")
+str(leaf)
+plot(leaf$Tsum.4.0, leaf$score, main="", ylab = "Leaf development index", xlab="Thermal Sum (4,0)",bty="l",cex=0.5)
+model <- nls(score~ 4/(1+exp(b-c*Tsum.4.0)), data=leaf, start=list(b=100, c=1), algorithm="plinear")
+summary(model)
+rm(list=ls())
+str(data)
+data <- read.delim("/Users/Nina/Dropbox/Hubbard Brook/leaf phenology/leaf_phenology_data.txt")
+str(data)
+maple <- subset(data, SPECIES=="Sugar_Maple")
+maple <- transform(maple, YEAR=as.factor(Year))
+str(maple)
+modelA <- nls(score~ 4/(1+exp(b-c*Tsum.4.0)), data=maple, start=list(b=100, c=1), algorithm="plinear")
+summary(modelA)
+scan <- read.csv("/Users/Nina/Dropbox/Hubbard Brook/SCAN data/2069_ALL_YEAR=2003.csv")
+str(scan)
+date <- strptime(scan$Date,format="%m/%d/%y")#
+date.time <- paste(date,scan$Time)#
+date.time <- as.POSIXlt(date.time)#
+str(date.time)
+scan <- cbind(scan,date.time)#
+scan <- subset(scan,STO.I.1..2..degC.>-75 )#
+scan <- subset(scan,SNWD.I.1..in.>-75 )#
+scan$snow_cm <- scan$SNWD.I.1..in.*2.54#
+scan <- scan[1901:3624,]#
+str(scan)#
+par(mfcol=c(2,2))#
+par(mar=c(0.2,4,2,4)+0.1)
+plot(scan$date.time,scan$snow_cm,axes=T,lty=3,type="h",col="gray",bty="n",ylab="Snow depth (cm)",cex.lab=1.25)
+par(new=T)
+plot(scan$date.time,scan$STO.I.1..2..degC.,type="l",lwd=1,ylab="",bty="l",axes=F)
+axis(4, las=1)
+par(new=T)
+plot(scan$date.time,scan$leafout.percent,axes=F,ylab="",cex=1.5,pch=20,col="black")
+mtext(side=4,line=3,expression(paste("Soil temperature (", degree,"C)")))
+data <- read.csv("/Users/Nina/Dropbox/Hubbard Brook/COS phenology/COS phenology data_2012_06_08.csv")
+data <- read.csv("/Users/Nina/Dropbox/Hubbard Brook/COS phenology/Bioscience_final/COS phenology data_2012_06_08.csv")
+str(data)
+head(data)
+ylim1 <- c(70,165)#
+par(mar=c(2,4,2,4)+0.1)#
+plot(data$Year,data$Acsa.90.488m,ylim=ylim1,xlab="Year", ylab="Day of Year",bty="n",pch=20)#,cex.lab=1.5#
+abline(a=362.6,b=-0.11,lty=2) #coeffs from TheilSen Mann Kendall #
+points(data$Year,data$last.snow,pch=22)#
+abline(coef=c(618,-0.26),lty=2) #coeffs from TheilSen Mann Kendall #
+legend("bottomleft",legend=c("Day of nearly full canopy expansion","Day of last snowpack"),pch=c(20,22),bty="n",cex=0.55)
+library(car)#
+m1 <- lm(data$Acsa.90.560 ~ data$Year)#
+m2 <- lm(data$last_snow ~ data$Year)#
+durbin.watson(m1)#
+durbin.watson(m2)
+m1 <- lm(data$Acsa.90.488 ~ data$Year)
+m2 <- lm(data$last.snow ~ data$Year)
+durbin.watson(m1)
+durbinWatsonTest(m1)
+durbinWatsonTest(m2)
+library(openair)
+data$date <- as.POSIXct(strptime(data$Year, format="%Y","GMT"))#
+str(data)#
+m3 <- MannKendall(mydata=data,pollutant="last.snow",avg.time="year")#
+m3$data[[2]]
+?openair
+library(openair)
+data$date <- as.POSIXct(strptime(data$Year, format="%Y","GMT"))
+str(data)
+m3 <- MannKendall(mydata=data,pollutant="last.snow",avg.time="year")
+? MannKendall
+? openair
+m3 <- TheilSen(mydata=data,pollutant="last.snow",avg.time="year")
+m3$data[[2]]
+m5 <- TheilSen(mydata=data,pollutant="Acsa.90.488m",avg.time="year")
+m5$data[[2]]
+m4 <- TheilSen(mydata=data,pollutant="Acsa.90.560m",avg.time="year")
+m4$data[[2]]
+data$window<- data$Acsa.90.488-data$last.snow
+m6 <- TheilSen(mydata=data,pollutant="window",avg.time="year")
+m6$data[[2]]
+library(Kendall)
+Kendall(data$Year,data$window)
+Kendall(data$Year,data$Acsa.90.488m)
+Kendall(data$Year,data$last.snow)
+summary(lm(data$window~data$Year))
+summary(lm(data$last.snow~data$Year))
+(0.261*55)-(0.111*55) #snowpack-canopy.488 1956-2010
+plot(data$Acsa.90.560m~data$Acsa.90.488m)
+BTBW <- read.csv("/Users/Nina/Dropbox/Hubbard Brook/BTBW phenology paper/Oikos_final/Dryad_files/BTBW_downloaded_FROM__Dryad.csv")
+str(BTBW)
+plot(BTBW$Acsa.canopy,BTBW$clutch.init.50, pch=19,xlab="Day of full canopy expansion",ylab="Day of median clutch init.",pty="s", bty="l",cex.lab=1.25)#
+m2 <- lm(BTBW$clutch.init.50 ~ BTBW$Acsa.canopy)#
+summary(m2)#
+abline(m2,lwd=2)#
+text(150,144,expression(m==0.56 %+-%0.08))#
+text(135,160,"B",font=2,cex=2)#
+mismatch.resids <- residuals(m2)#
+mismatch.resids.sq <- mismatch.resids^2
+mismatch.resids
+hist(mismatch.resids)
+abs(mismatch.resids)
+hist(abs(mismatch.resids))
+min(mismatch.resids)
+max(mismatch.resids)
+plot(BTBW$Acsa.canopy,BTBW$clutch.init.50, pch=19,xlab="Day of full canopy expansion",ylab="Day of median clutch init.",pty="s", bty="l",cex.lab=1.25)#
+m2 <- lm(BTBW$clutch.init.50 ~ BTBW$Acsa.canopy)#
+summary(m2)#
+abline(m2,lwd=2)#
+text(150,144,expression(m==0.56 %+-%0.08))#
+text(135,160,"B",font=2,cex=2)#
+mismatch.resids <- residuals(m2)#
+mismatch.resids.sq <- mismatch.resids^2
+BTBW <- read.csv("/Users/Nina/Dropbox/Hubbard Brook/BTBW phenology paper/Oikos_final/Dryad_files/BTBW_downloaded_FROM__Dryad.csv")
+str(BTBW)
+plot(BTBW$Acsa.canopy,BTBW$clutch.init.50, pch=19,xlab="Day of full canopy expansion",ylab="Day of median clutch init.",pty="s", bty="l",cex.lab=1.25)#
+m2 <- lm(BTBW$clutch.init.50 ~ BTBW$Acsa.canopy)#
+summary(m2)#
+abline(m2,lwd=2)#
+text(150,144,expression(m==0.56 %+-%0.08))#
+text(135,160,"B",font=2,cex=2)#
+mismatch.resids <- residuals(m2)#
+mismatch.resids.sq <- mismatch.resids^2
+mean(mismatch.resids.sq)
+min(mismatch.resids.sq)
+max(mismatch.resids.sq)
+order(mismatch.resids.sq)
+sort(mismatch.resids.sq)
+? unlist
+l.ex <- list(a = list(1:5, LETTERS[1:5]), b = "Z", c = NA)
+unlist(l.ex, recursive = FALSE)
+unlist(l.ex, recursive = TRUE)
+? aggregate
+aggregate()
+aggregate
+install.packages(ade4)
+library(ade4)
+str(aravo)
+load(aravo)
+data(aravo)
+? data
+str(aravo)
+1800/60
+8*6+16
+24*365
+15*15
+setwd("~/Dropbox/Metacommunity_LTER/ltermetacommunities/ESA_2016")
+getwd()
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {#
+  if (!require(package, character.only=T, quietly=T)) {#
+    install.packages(package)#
+    library(package, character.only=T)#
+  }#
+}
+nwt.xy <- read.csv("NWT_coordinates.csv")#
+nwt.comm.long <- read.csv("NWT_plantcomp.csv")[,c(2,4,5,6)]#
+nwt.comm.wide <- tidyr::spread(nwt.comm.long, #
+                               USDA_code, abund,#
+                               fill = 0)
+dim(nwt.comm.wide)
+? ,etacom
+? metacom
+nwt.2006 <- filter(nwt.comm.wide, year == 2006)#
+head(nwt.2006)#
+nwt.2006 <- nwt.2006[,-c(1:2)] # remove the plot and year columns#
+nwt.2006 <- nwt.2006[,-which(colSums(nwt.2006) == 0)] # remove empty columns#
+dim(nwt.2006)
+? vegetarian
+(nwt.2006.0.a <- vegetarian::d(nwt.2006, lev = "alpha", q = 0))#
+(nwt.2006.0.b <- vegetarian::d(nwt.2006, lev = "beta", q = 0))#
+(nwt.2006.0.g <- vegetarian::d(nwt.2006, lev = "gamma", q = 0))
+nwt.xy.dist <- dist(nwt.xy[,2:3])#
+nwt.pcnm <- vegan::pcnm(nwt.xy.dist, dist.ret = T)#
+nwt.pcnm <- scores(nwt.pcnm)[,which(nwt.pcnm$values > 0)]#
+nwt.pcnm <- as.data.frame(nwt.pcnm)
+nwt.env <- as.data.frame(nwt.xy[,4]) # elevation#
+colnames(nwt.env) <- "elevation"
+str()
+ls ()
+str(ls())
+nwt.pcnm
+str(nwt.pcnm)
+nwt.xy.dist <- dist(nwt.xy[,2:3])#
+nwt.pcnm <- vegan::pcnm(nwt.xy.dist, dist.ret = T)
+str(nwt.pcnm)
+nwt.pcnm <- scores(nwt.pcnm)[,which(nwt.pcnm$values > 0)]#
+nwt.pcnm <- as.data.frame(nwt.pcnm)#
+#
+# Construct the "environmental" matrix#
+nwt.env <- as.data.frame(nwt.xy[,4]) # elevation#
+colnames(nwt.env) <- "elevation"#
+#
+# We can Hellinger-transform the community data for use with RDA#
+nwt.2006.hel <- decostand(nwt.2006, method = "hellinger")#
+```
+nwt.2006
+nwt.2006.hel <- decostand(nwt.2006, method = "hellinger")
+(nwt.2006.varpart <- vegan::varpart(nwt.2006.hel, nwt.env, nwt.pcnm))
+? varpart
+? Metacommunity
+ems.2006 <- Metacommunity(#
+  decostand(nwt.2006[-which(rowSums(nwt.2006) == 0),], method = "pa"),#
+  method = "r1", sims = 100)#
+str(ems.2006)
+IdentifyStructure(ems.2006)
+? Identify
+? IdentifyStructure
+setwd("Documents/ltermetacommunities")
+setwd("/Documents/ltermetacommunities")
+pwd
+getwd()
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {#
+  if (!require(package, character.only=T, quietly=T)) {#
+    install.packages(package)#
+    library(package, character.only=T)#
+  }#
+}
+nwt.xy <- read.csv("NWT_coordinates.csv")#
+nwt.comm.long <- read.csv("NWT_plantcomp.csv")[,c(2,4,5,6)]#
+nwt.comm.wide <- tidyr::spread(nwt.comm.long, #
+                               USDA_code, abund,#
+                               fill = 0)#
+#
+dim(nwt.comm.wide)
+summary(nwt.comm.wide)
+str(nwt.comm.wide)
+fn.ems.long <- function(#
+  site.id.vect,#
+  spp.vect,#
+  abund.vect,#
+  ...){#
+  df.wide <- tidyr::spread(#
+    data.frame(#
+      site.id.vect,#
+      spp.vect,#
+      abund.vect#
+  ),#
+  spp.vect,#
+  abund.vect,#
+  fill = 0)[,-1]#
+  # df.wide <- df.wide[,-which(colSums(df.wide) == 0)]#
+  # df.wide <- df.wide[-which(rowSums(df.wide) == 0),]#
+#
+  IdentifyStructure(metacom::Metacommunity(#
+    comm = (df.wide > 0) * 1,...))#
+}
+nwt.1989 <- filter(nwt.comm.wide, year == 1989)#
+head(nwt.1989)#
+nwt.1989 <- nwt.1989[,-which(colSums(nwt.1989) == 0)]#
+nwt.1989[,which(colSums(nwt.1989) == 0)]#
+ems.1989 <- Metacommunity(#
+  decostand(nwt.1989[,-c(1:2)], method = "pa"),#
+  method = "r1", sims = 100)#
+IdentifyStructure(ems.1989)
+summary(ems.1989)
+Metacommunity()
+?? Metcacommunity
+ems.1989
+IdentifyStructure(ems.1989)
+nwt.2006 <- filter(nwt.comm.wide, year == 2006)#
+head(nwt.2006)#
+nwt.2006 <- nwt.2006[,-c(1:2)] # remove the plot and year columns#
+nwt.2006 <- nwt.2006[,-which(colSums(nwt.2006) == 0)] # remove empty columns#
+dim(nwt.2006)
+```{r}
+# q = 0, Richness (biased toward rare species)#
+(nwt.2006.0.a <- vegetarian::d(nwt.2006, lev = "alpha", q = 0))#
+(nwt.2006.0.b <- vegetarian::d(nwt.2006, lev = "beta", q = 0))#
+(nwt.2006.0.g <- vegetarian::d(nwt.2006, lev = "gamma", q = 0))#
+#
+# q = 1, Shannon #
+(nwt.2006.1.a <- vegetarian::d(nwt.2006, lev = "alpha", q = 1))#
+(nwt.2006.1.b <- vegetarian::d(nwt.2006, lev = "beta", q = 1))#
+(nwt.2006.1.g <- vegetarian::d(nwt.2006, lev = "gamma", q = 1))#
+#
+# q = 2, Simpson (biased toward common species)#
+(nwt.2006.2.a <- vegetarian::d(nwt.2006, lev = "alpha", q = 2))#
+(nwt.2006.2.b <- vegetarian::d(nwt.2006, lev = "beta", q = 2))#
+(nwt.2006.2.g <- vegetarian::d(nwt.2006, lev = "gamma", q = 2))
+(nwt.2006.varpart <- vegan::varpart(nwt.2006.hel, nwt.env, nwt.pcnm))
+nwt.xy.dist <- dist(nwt.xy[,2:3])#
+nwt.pcnm <- vegan::pcnm(nwt.xy.dist, dist.ret = T)#
+nwt.pcnm <- scores(nwt.pcnm)[,which(nwt.pcnm$values > 0)]#
+nwt.pcnm <- as.data.frame(nwt.pcnm)
+nwt.env <- as.data.frame(nwt.xy[,4]) # elevation#
+colnames(nwt.env) <- "elevation"
+nwt.2006.hel <- decostand(nwt.2006, method = "hellinger")
+(nwt.2006.varpart <- vegan::varpart(nwt.2006.hel, nwt.env, nwt.pcnm))
+rm(list = ls())
+devtools::install_github("AldoCompagnoni/popler", ref="workingGroupNCEAS")
+rm(list=ls())
+install.packages("devtools")#
+devtools::install_github("klutometis/roxygen")#
+#
+install.packages(dplyr)#
+install.packages(RPostgreSQL)
+install. packages("dplyr")
+install.packages("dplyr")
+install.packages("RPostreSQL")
+popler()
+devtools::install_github("klutometis/roxygen")
+popler()
