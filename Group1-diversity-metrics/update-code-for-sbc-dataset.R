@@ -23,3 +23,9 @@ sbc.env.long <- sbc.data[which(sbc.data$OBSERVATION_TYPE == "ENV_VAR"),
 
 sbc.env.wide <- tidyr::spread(sbc.env.long, key = VARIABLE_NAME, value = VALUE)
 
+# Create the species matrix
+sbc.species.long <- sbc.data[which(sbc.data$OBSERVATION_TYPE == "TAXON_COUNT"),
+                         which(colnames(sbc.data) %in% 
+                                 c("SITE_ID", "DATE",
+                                   "VARIABLE_NAME", "VALUE"))]
+sbc.species.wide <- tidyr::spread(sbc.species.long, key = VARIABLE_NAME, value = VALUE, fill = 0)
