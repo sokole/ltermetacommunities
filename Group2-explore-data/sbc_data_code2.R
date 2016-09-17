@@ -7,7 +7,9 @@ rm(list = ls())
 setwd("~/Google Drive/LTER-DATA/SBC-Lamy-Castorani/")
 
 # Check for and install required packages
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {
+library()
+
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
@@ -17,6 +19,8 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom')) {
 # -----------------------------------------------------------------------------------------------------
 # Read in SBC data
 id.coords <- "0BxUZSA1Gn1HZNUJRb0pEWkpUNFE" # Google Drive file ID
+id.env <- "0BxUZSA1Gn1HZZDF5cGpnLWtnWGc" # Google Drive file ID
+id.comm <- "0BxUZSA1Gn1HZUklacVFqNVhxQmM" # Google Drive file ID
 
 # SBC site coordinates
 sbc.xy <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id.coords)) %>% 
@@ -29,7 +33,7 @@ sbc.xy$TAXON_GROUP = NA
 sbc.xy <- sbc.xy[, c("OBSERVATION_TYPE", "SITE_ID", "DATE", "VARIABLE_NAME", "VARIABLE_UNITS", "VALUE", "TAXON_GROUP")] # Reorder columns
 
 # SBC environmental data
-sbc.env <- read.csv("sbc_env.csv") %>% 
+sbc.env <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id.env)) %>% 
   tbl_df() %>%
   gather("VARIABLE_NAME", "VALUE", TEMP_MEAN_C:WAVE_HT_WINTER_MEAN) %>%
   mutate(OBSERVATION_TYPE = "ENV_VAR",
@@ -40,8 +44,9 @@ sbc.env$TAXON_GROUP = NA
 sbc.env <- sbc.env[, c("OBSERVATION_TYPE", "SITE_ID", "DATE", "VARIABLE_NAME", "VARIABLE_UNITS", "VALUE", "TAXON_GROUP")] # Reorder columns
 
 # SBC community data
-sbc.comm.raw <- read.csv("sbc_comm.csv")%>% 
+sbc.comm.raw <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id.comm)) %>% 
   tbl_df()
+
 sbc.comm.long <- sbc.comm.raw %>% 
   tbl_df() %>%
   mutate(VARIABLE_NAME = TAXON_CODE,
@@ -67,8 +72,9 @@ dat.long <- sbc.long
 # Check types of taxa
 unique(dat.long$TAXON_GROUP)
 
-# Remove mobile groups
-dat.long.2 <- subset(dat.long, dat.long$TAXON_GROUP != "FISH" & dat.long$TAXON_GROUP != "MOBILE INVERT" & dat.long$TAXON_GROUP != "")
+# Subset data
+dat.long.2 <- subset(dat.long, dat.long$TAXON_GROUP != "")
+#dat.long.2 <- subset(dat.long, dat.long$TAXON_GROUP != "FISH" & dat.long$TAXON_GROUP != "MOBILE INVERT" & dat.long$TAXON_GROUP != "") # Remove mobile groups
 dat.long.2 <- droplevels(dat.long.2)
 
 # Check the structure of the data
@@ -120,6 +126,23 @@ cuml.taxa.fun <- function(community.data){
   return(cuml.no.taxa)
   }
 
+# Run for all sites
+cuml.taxa.all.sites <- cuml.taxa.fun(community.data = comm.dat)
+
+# Plot for all sites
+ggplot(data=cuml.taxa.all.sites, aes(x=year, y=no.taxa)) +
+  geom_line() +
+  scale_x_continuous(breaks=seq(min(cuml.taxa.all.sites$year), max(cuml.taxa.all.sites$year), 2), 
+                     name="Year") +
+  scale_y_continuous(limits=c(0, max(cuml.taxa.all.sites$no.taxa)),
+                     breaks=seq(0, max(cuml.taxa.all.sites$no.taxa), by=20),
+                     name="Cumulative number of taxa") +
+  theme_bw()
+
+
+
+
+# Examine site-level patterns
 cuml.taxa.by.site <- lapply(unique(comm.dat$SITE_ID), 
                             function(site){cuml.taxa.fun(community.data = comm.dat[comm.dat$SITE_ID==site, ])})
 
@@ -127,14 +150,5 @@ cuml.taxa.by.site <- lapply(unique(comm.dat$SITE_ID),
 
 
 
-library(ggplot2)
 
-cuml.plot <- ggplot(data=cuml.no.taxa, aes(x=year, y=no.taxa)) +
-  geom_line() +
-  scale_x_continuous(breaks=seq(min(cuml.no.taxa$year), max(cuml.no.taxa$year), 2), 
-                     name="Year") +
-  scale_y_continuous(limits=c(0, max(cuml.no.taxa$no.taxa)),
-                     breaks=seq(0, max(cuml.no.taxa$no.taxa), by=20),
-                     name="Cumulative number of taxa") +
-  theme_bw()
 
