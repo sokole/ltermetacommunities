@@ -1,6 +1,6 @@
-# ------------------------------------- #
-# Reformat SBC data - 17 September 2016 #
-# ------------------------------------- #
+# ------------------------------------------------- #
+# Reformat and explor  SBC data - 18 September 2016 #
+# ------------------------------------------------- #
 
 # Set working environment
 rm(list = ls())
@@ -16,7 +16,7 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
   }
 }
 
-# -----------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------
 # Read in SBC data
 id.coords <- "0BxUZSA1Gn1HZNUJRb0pEWkpUNFE" # Google Drive file ID
 id.env <- "0BxUZSA1Gn1HZZDF5cGpnLWtnWGc" # Google Drive file ID
@@ -63,8 +63,8 @@ dim(sbc.long)
 # Save long-form combined data
 #write.csv(sbc.long, file="sbc_long_dat.csv")
 
-# -----------------------------------------------------------------------------------------------------
-# Developing summary metrics for SBC LTER data
+# ---------------------------------------------------------------------------------------------------
+# EXAMINE SPATIOTEMPORAL NATURE OF COMMUNITY DATA
 
 # Rename data
 dat.long <- sbc.long
@@ -96,6 +96,8 @@ tapply(dat.long.2$VALUE, list(dat.long.2$SITE_ID,dat.long.2$DATE), length)
 # Subset long data to community data only
 comm.dat <- dat.long.2[dat.long.2$OBSERVATION_TYPE == "TAXON_COUNT", ]
 
+# ---------------------------------------------------------------------------------------------------
+# NUMBER OF OBSERVED TAXA THROUGH TIME
 
 # Examine temporal patterns in observations of the number of species
 no.taxa.fun <- function(community.data) {
@@ -118,7 +120,6 @@ no.taxa.fun <- function(community.data) {
     summarize(no.taxa = sum(no.taxa))
   
   return(list("no.taxa" = no.taxa, "total.no.taxa" = total.no.taxa))
-  
 }
 
 no.taxa <- no.taxa.fun(comm.dat)
@@ -134,6 +135,9 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   ylab("Number of taxa observed") +
   ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
   theme_bw()
+
+# ---------------------------------------------------------------------------------------------------
+# CUMULATIVE NUMBER OF SPECIES
 
 # Make a function that returns the cumulative number of taxa observed for a given set of community data
 cuml.taxa.fun <- function(community.data){
@@ -168,16 +172,13 @@ cuml.taxa.fun <- function(community.data){
 # Run for all sites
 cuml.taxa.all.sites <- cuml.taxa.fun(community.data = comm.dat)
 
-# Plot for all sites
+# Plot the cumulative number of species observed across all sites
 ggplot(data=cuml.taxa.all.sites, aes(x=year, y=no.taxa)) +
   geom_line() +
   xlab("Year") +
   ylab("Cumulative number of taxa") +
   ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
   theme_bw()
-
-
-
 
 # Examine site-level patterns
 ## sort the comm.dat dataframe to make sure its ordered by site
@@ -199,3 +200,15 @@ cuml.taxa.by.site <- output %>%
   tbl_df() %>%
   separate(rnames, c("SITE_ID", "todrop")) %>%
   select(-todrop)
+
+# Plot the cumulative number of species observed at each site
+ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
+  geom_line(aes(color = SITE_ID)) +
+  geom_line(data = cuml.taxa.all.sites, aes(x=year, y=no.taxa), size = 1.5) +
+  xlab("Year") +
+  ylab("Cumulative number of taxa") +
+  ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
+  theme_bw()
+
+# ---------------------------------------------------------------------------------------------------
+# RANK ABUNDANCE CURVES
