@@ -15,7 +15,8 @@ for (package in c('dplyr', 'tidyr', 'rJava', 'XML', 'sp', 'raster', 'rgdal','map
 }
 
 #read in csv
-data.name <- read.csv("sbc_long_dat.csv") #currently is pulling from working directory, but check change to pull from google doc
+id.long.dat <- "0BxUZSA1Gn1HZYTVfd2FZTWhWbm8"
+data.name <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", id.long.dat))
 
 #check data format
 dim(data.name) 
