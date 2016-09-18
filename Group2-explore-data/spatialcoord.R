@@ -7,7 +7,7 @@ rm(list = ls())
 #setwd("pathname")
 
 # Check for and install required packages
-for (package in c('dplyr', 'tidyr', 'rJava', 'XML', 'sp', 'raster', 'rgdal','maps')) {
+for (package in c('dplyr', 'tidyr', 'XML', 'sp', 'raster', 'rgdal','maps')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
@@ -25,7 +25,7 @@ str(data.name)
 
 #pull out coordinate data and make sure that it is numeric
 cord.data =filter(data.name, OBSERVATION_TYPE=="SPATIAL_COORDINATE");head(cord.data)
-#cord.data$X=NULL #if you have some index that seperates the sites others then site_id
+cord.data$X=NULL #if you have some index that seperates the sites others then site_id
 
 cord.wide = spread(cord.data,VARIABLE_NAME, VALUE);head(cord.wide)
 cord.wide$latitude <- as.numeric(as.character(cord.wide$LAT)) #cord.wide$latitude <- as.numeric(as.character(cord.wide$latitude))
@@ -41,7 +41,8 @@ proj4string(cord.wide) <- crs.geo  # define projection system of our data to WGS
 summary(cord.wide) 
 
 #plot data on map
-windows() #quartz
+windows() 
+quartz()
 
 #plot on world map
 map(database="world", col="gray90", fill=TRUE)
