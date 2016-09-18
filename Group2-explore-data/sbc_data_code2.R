@@ -7,9 +7,9 @@ rm(list = ls())
 setwd("~/Google Drive/LTER-DATA/SBC-Lamy-Castorani/")
 
 # Check for and install required packages
-#library()
+library()
 
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'reshape2')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
@@ -53,7 +53,7 @@ sbc.comm.long <- sbc.comm.raw %>%
          OBSERVATION_TYPE = "TAXON_COUNT",
          VALUE = BIOMASS_DENS,
          VARIABLE_UNITS = "g dry per m2") %>%
-  dplyr::select(-TAXON_GENUS, -TAXON_SPECIES, -BIOMASS_DENS, -TAXON_CODE) 
+  select(-TAXON_GENUS, -TAXON_SPECIES, -BIOMASS_DENS, -TAXON_CODE) 
 sbc.comm.long <- sbc.comm.long[, c("OBSERVATION_TYPE", "SITE_ID", "DATE", "VARIABLE_NAME", "VARIABLE_UNITS", "VALUE", "TAXON_GROUP")] # Reorder columns
 
 # Bind data together in a single long data frame
@@ -96,6 +96,39 @@ tapply(dat.long.2$VALUE, list(dat.long.2$SITE_ID,dat.long.2$DATE), length)
 # Subset long data to community data only
 comm.dat <- dat.long.2[dat.long.2$OBSERVATION_TYPE == "TAXON_COUNT", ]
 
+# Examine temporal patterns in observations of the number of species
+require(plyr)
+
+no.taxa.fun <- function(community.data){
+  get.n.taxa <- function(x){sum(x$VALUE > 0)} # Count only the rows where taxa abundance > 0
+  
+  # Number of taxa at each site through time
+  no.taxa.temp <- as.matrix(daply(community.data, .(SITE_ID, DATE), get.n.taxa)) # Count no of taxa among all site by date combinations
+  no.taxa <- melt(no.taxa.temp, value.name = "no.taxa", na.rm = FALSE) # Convert into long format
+  
+  # Combined number of taxa among all sites through time
+  total.no.taxa1 <- as.matrix(daply(community.data, .(DATE, VARIABLE_NAME), get.n.taxa)) # First, sum the abundance of all taxa among all sites through time
+  total.no.taxa2 <- apply(total.no.taxa1, MARGIN = 1, FUN = function(x){sum(x > 0)})
+  total.no.taxa <- melt(total.no.taxa2, value.name = "no.taxa", na.rm = FALSE)
+  total.no.taxa$DATE <- as.numeric(rownames(total.no.taxa))
+  
+  return(list("no.taxa" = no.taxa, "total.no.taxa" = total.no.taxa))
+}
+
+no.taxa <- no.taxa.fun(comm.dat)
+
+# Check structure of no.taxa
+str(no.taxa)
+
+# Plot number of taxa through time
+ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
+  geom_line(aes(color=SITE_ID)) +
+  geom_line(data=no.taxa$total.no.taxa, aes(x=DATE, y=no.taxa), color="black", size=1) +
+  xlab("Year") +
+  ylab("Number of taxa observed") +
+  ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
+  theme_bw()
+
 # Make a function that returns the cumulative number of taxa observed for a given set of community data
 cuml.taxa.fun <- function(community.data){
   taxa.t.list <- list() # Make empty list
@@ -132,11 +165,9 @@ cuml.taxa.all.sites <- cuml.taxa.fun(community.data = comm.dat)
 # Plot for all sites
 ggplot(data=cuml.taxa.all.sites, aes(x=year, y=no.taxa)) +
   geom_line() +
-  scale_x_continuous(breaks=seq(min(cuml.taxa.all.sites$year), max(cuml.taxa.all.sites$year), 2), 
-                     name="Year") +
-  scale_y_continuous(limits=c(0, max(cuml.taxa.all.sites$no.taxa)),
-                     breaks=seq(0, max(cuml.taxa.all.sites$no.taxa), by=20),
-                     name="Cumulative number of taxa") +
+  xlab("Year") +
+  ylab("Cumulative number of taxa") +
+  ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
   theme_bw()
 
 
