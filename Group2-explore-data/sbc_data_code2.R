@@ -9,7 +9,7 @@ setwd("~/Google Drive/LTER-DATA/SBC-Lamy-Castorani/")
 # Check for and install required packages
 library()
 
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'reshape2')) {
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
@@ -96,23 +96,29 @@ tapply(dat.long.2$VALUE, list(dat.long.2$SITE_ID,dat.long.2$DATE), length)
 # Subset long data to community data only
 comm.dat <- dat.long.2[dat.long.2$OBSERVATION_TYPE == "TAXON_COUNT", ]
 
-# Examine temporal patterns in observations of the number of species
-require(plyr)
 
-no.taxa.fun <- function(community.data){
-  get.n.taxa <- function(x){sum(x$VALUE > 0)} # Count only the rows where taxa abundance > 0
-  
+# Examine temporal patterns in observations of the number of species
+no.taxa.fun <- function(community.data) {
   # Number of taxa at each site through time
-  no.taxa.temp <- as.matrix(daply(community.data, .(SITE_ID, DATE), get.n.taxa)) # Count no of taxa among all site by date combinations
-  no.taxa <- melt(no.taxa.temp, value.name = "no.taxa", na.rm = FALSE) # Convert into long format
+   no.taxa <- community.data %>%
+    filter(VALUE > 0) %>%
+    select(DATE, VARIABLE_NAME, SITE_ID) %>%
+    unique() %>%
+    mutate(no.taxa = 1) %>%
+    group_by(SITE_ID, DATE) %>%
+    summarize(no.taxa = sum(no.taxa))
   
-  # Combined number of taxa among all sites through time
-  total.no.taxa1 <- as.matrix(daply(community.data, .(DATE, VARIABLE_NAME), get.n.taxa)) # First, sum the abundance of all taxa among all sites through time
-  total.no.taxa2 <- apply(total.no.taxa1, MARGIN = 1, FUN = function(x){sum(x > 0)})
-  total.no.taxa <- melt(total.no.taxa2, value.name = "no.taxa", na.rm = FALSE)
-  total.no.taxa$DATE <- as.numeric(rownames(total.no.taxa))
+   # Combined number of taxa among all sites through time
+  total.no.taxa <- community.data %>%
+    filter(VALUE > 0) %>%
+    select(DATE, VARIABLE_NAME) %>%
+    unique() %>%
+    mutate(no.taxa = 1) %>%
+    group_by(DATE) %>%
+    summarize(no.taxa = sum(no.taxa))
   
   return(list("no.taxa" = no.taxa, "total.no.taxa" = total.no.taxa))
+  
 }
 
 no.taxa <- no.taxa.fun(comm.dat)
