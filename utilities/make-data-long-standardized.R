@@ -1,5 +1,12 @@
 ###############################################
-# -- format data from wide to long
+# -- format data from wide to long, use standardized column headers
+# 
+# obs_type_label -- should be "SPATIAL_COORDINATE", "ENV_VAR", or "TAXON_COUNT"
+# site_id_col_name -- indicates site ID column in the data set
+# site_date_col_name -- indicates the column with time data. If NA, then one time per site with a date = NA
+# variable_names -- column names for variables to expand to long format
+# value units -- list of units for each variable name, in same order
+#     
 ###############################################
 make_data_long = function(
   data_in,
