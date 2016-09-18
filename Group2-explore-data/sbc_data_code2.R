@@ -143,12 +143,22 @@ ggplot(data=cuml.taxa.all.sites, aes(x=year, y=no.taxa)) +
 
 
 # Examine site-level patterns
-cuml.taxa.by.site <- lapply(unique(comm.dat$SITE_ID), 
-                            function(site){cuml.taxa.fun(community.data = comm.dat[comm.dat$SITE_ID==site, ])})
+## sort the comm.dat dataframe to make sure its ordered by site
+comm.dat <- comm.dat %>%
+  arrange(SITE_ID)
 
+## split the data frame, and apply the cuml.taxa.fun() for each site
+X <- split(comm.dat, comm.dat$SITE_ID)
+out <- lapply(X, cuml.taxa.fun)
 
+# make the lists a dataframe
+output <- do.call("rbind", out)
 
+# extract rownames to create a SITE_ID column
+output$rnames <- row.names(output)
 
-
-
-
+# clean up the SITE_ID column
+cuml.taxa.by.site <- output %>%
+  tbl_df() %>%
+  separate(rnames, c("SITE_ID", "todrop")) %>%
+  select(-todrop)
