@@ -9,6 +9,7 @@ This working group initially met at the LTER All Scientists Meeting (ASM 2015), 
 
 * Google Drive DATA ([link](https://drive.google.com/drive/folders/0B2P104M94skvdzlDb2p2WTVYa00))
 * Google Drive NCO collaborative documents ([link](https://drive.google.com/open?id=0B_UCMSc6G1YdTU5iMVVHdmYtTlk))
+* DATA STANDARDS document ([link](https://drive.google.com/open?id=1iTh6ghHHZZ_y7SH_Qlh1UoGa0LD0PogGvXLK-T-z5Dg))
 * We are a working group supported by the LTER NCO ([view proposal here](https://drive.google.com/open?id=0B2P104M94skvUTlVRWUxVmVXRmM))
 * [ESA 2016 workshop](https://eco.confex.com/eco/2016/webprogrampreliminary/Session11862.html)
 * See the working group description at the [ASM 2015 website](http://asm2015.lternet.edu/working-groups/using-metacommunity-concept-synthesize-biodiversity-patterns-across-lter-sites)  
