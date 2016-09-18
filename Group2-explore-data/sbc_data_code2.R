@@ -7,7 +7,7 @@ rm(list = ls())
 setwd("~/Google Drive/LTER-DATA/SBC-Lamy-Castorani/")
 
 # Check for and install required packages
-library()
+#library()
 
 for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
   if (!require(package, character.only=T, quietly=T)) {
@@ -53,7 +53,7 @@ sbc.comm.long <- sbc.comm.raw %>%
          OBSERVATION_TYPE = "TAXON_COUNT",
          VALUE = BIOMASS_DENS,
          VARIABLE_UNITS = "g dry per m2") %>%
-  select(-TAXON_GENUS, -TAXON_SPECIES, -BIOMASS_DENS, -TAXON_CODE) 
+  dplyr::select(-TAXON_GENUS, -TAXON_SPECIES, -BIOMASS_DENS, -TAXON_CODE) 
 sbc.comm.long <- sbc.comm.long[, c("OBSERVATION_TYPE", "SITE_ID", "DATE", "VARIABLE_NAME", "VARIABLE_UNITS", "VALUE", "TAXON_GROUP")] # Reorder columns
 
 # Bind data together in a single long data frame
