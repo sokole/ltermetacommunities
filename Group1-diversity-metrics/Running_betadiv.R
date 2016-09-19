@@ -5,6 +5,7 @@ setwd("~/Data/ltermetacomm")
 ## set the working directory 
 source("./Group1-diversity-metrics/betadivLTER.R")
 source("./Group1-diversity-metrics/lcbdLTER.R")
+source("./Group1-diversity-metrics/stiLTER.R")
 
 ## -- Generate random dataset for test -- ##
 ## assumes row blocks corresponding to times
@@ -46,6 +47,9 @@ Y.h = decostand(Y, "hellinger")
 ## need package gplots !
 test1 <- lcbdLTER(Y, s, t, method="%difference", plot=TRUE)
 test2 <- betadivLTER(Y, s=s, t=t, plot=TRUE)
+
+## STI test
+test3 <- varpartSTI(Y.h, s=s, t=t)
 
 
 
