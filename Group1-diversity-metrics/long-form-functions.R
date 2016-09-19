@@ -105,7 +105,9 @@ fn.varpart.long <- function(
                                  value = space.val,
                                  fill = 0)
   
-  gtotal.df.wide <- left_join(left_join(species.df.wide, env.df.wide), space.df.wide)
+
+  total.df.wide <- left_join(left_join(species.df.wide, env.df.wide), space.df.wide)
+
   
   species.df <- (total.df.wide[,colnames(species.df.wide)][,-1])
   env.df <- (total.df.wide[,colnames(env.df.wide)][,-1])
