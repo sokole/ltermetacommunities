@@ -212,3 +212,4 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
 
 # ---------------------------------------------------------------------------------------------------
 # RANK ABUNDANCE CURVES
+

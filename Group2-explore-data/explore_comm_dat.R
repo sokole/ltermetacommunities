@@ -6,9 +6,20 @@
 rm(list = ls())
 
 # Assign data set of interest
-data.set <- "SBC-Lamy-Castorani"
-data.key <- "0BxUZSA1Gn1HZYTVfd2FZTWhWbm8" # Google Drive file ID (different for each dataset)
 
+# CAP LTER (Central Arizona-Phoenix)
+#data.set <- "CAP-birds-CORE"
+#data.key <- "0BzcCZxciOlWgeHJ5SWx1YmplMkE" # Google Drive file ID (different for each dataset)
+
+# NWT LTER (Niwot Ridge)
+#data.set <- "NWT-plants-Hallett-and-Sokol"
+#data.key <- "0B2P104M94skvQVprSnBsYjRzVms" # Google Drive file ID (different for each dataset)
+
+# SBC LTER (Santa Barbara Coastal)
+#data.set <- "SBC-Lamy-Castorani"
+#data.key <- "0BxUZSA1Gn1HZYTVfd2FZTWhWbm8" # Google Drive file ID (different for each dataset)
+
+# ---------------------------------------------------------------------------------------------------
 # Set working environment
 setwd(paste("~/Google Drive/LTER-DATA/", data.set, sep=""))
 
@@ -32,6 +43,14 @@ comm.dat <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ]
 # Subset data if necessary
 #comm.dat <- subset(comm.dat, comm.dat$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
 #comm.dat <- droplevels(comm.dat)
+
+# Ensure that site data is a character, not a string
+class(comm.dat$SITE_ID)
+comm.dat$SITE_ID <- as.character(comm.dat$SITE_ID)
+
+# Ensure that VALUE is numeric
+class(comm.dat$VALUE)
+comm.dat$VALUE <- as.numeric(as.character(comm.dat$VALUE))
 
 # ---------------------------------------------------------------------------------------------------
 # CHECK DATA STRUCTURE AND SPATIOTEMPORAL SAMPLING EFFORT
@@ -90,7 +109,9 @@ ggplot(data = no.taxa$no.taxa, aes(x = DATE, y = SITE_ID, fill = no.taxa)) +
 
 # Plot number of taxa through time
 ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
+  geom_point(aes(color = SITE_ID)) +
   geom_line(aes(color=SITE_ID)) +
+  geom_point(data=no.taxa$total.no.taxa, aes(x=DATE, y=no.taxa), color="black", size=3) +
   geom_line(data=no.taxa$total.no.taxa, aes(x=DATE, y=no.taxa), color="black", size=1) +
   xlab("Year") +
   ylab("Number of taxa observed") +
@@ -158,7 +179,9 @@ cuml.taxa.by.site <- output %>%
 
 # Plot the cumulative number of taxa observed at each site, as well as across all sites together
 ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
+  geom_point(aes(color = SITE_ID)) +
   geom_line(aes(color = SITE_ID)) +
+  geom_point(data = cuml.taxa.all.sites, aes(x=year, y=no.taxa), size = 3) +
   geom_line(data = cuml.taxa.all.sites, aes(x=year, y=no.taxa), size = 1.5) +
   xlab("Year") +
   ylab("Cumulative number of taxa") +
