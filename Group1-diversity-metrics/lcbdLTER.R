@@ -11,8 +11,14 @@ library (gplots)   # plotCI()
 ## load dependancies
 	## -- the following functions are required and need to be loaded
 source("./utilities/beta_diversity_function/beta.div.R")
-source("./utilities/beta_diversity_function/beta.div.comp.R")
-source("./utilities/beta_diversity_function/LCBD.comp.R")
+
+
+	## Time variable
+	T = rep(1,s)
+	for(i in 2:t) T = c(T,rep(i,s))
+
+	## Space variable
+	S = as.factor(rep(1:s,t))
 
 	## Computing LCBD for all space-time combinations
 	res <- beta.div(Y, method=method, sqrt.D=FALSE, samp=TRUE, nperm=999, save.D=TRUE, clock=FALSE)
@@ -20,8 +26,8 @@ source("./utilities/beta_diversity_function/LCBD.comp.R")
 	mean_time = tapply(res$LCBD, as.numeric(T), mean)
 	sd_time = tapply(res$LCBD, as.numeric(T), sd)
 	## mean LCBD per spatial unit
-	mean_site = tapply(res$LCBD, A, mean)
-	sd_site = tapply(res$LCBD, A, sd)
+	mean_site = tapply(res$LCBD, S, mean)
+	sd_site = tapply(res$LCBD, S, sd)
 
 	#rct = raup_crick(Y.t, plot_names_in_col1=FALSE, classic_metric=FALSE, split_ties=TRUE, reps=9999, report_similarity=FALSE)
 	LCBD.spacetime = data.frame(LCBD=res$LCBD, p.LCBD=res$p.LCBD)
