@@ -31,7 +31,7 @@ str(dat.long)
 #make dataframe of site-year data
 #unique(dat.long$OBSERVATION_TYPE)
 site_yr <- subset(dat.long, OBSERVATION_TYPE == "ENV_VAR")
-
+git add G	
 str(site_yr)
 site_yr <- droplevels(site_yr)
 
