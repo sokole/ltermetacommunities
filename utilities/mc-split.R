@@ -11,8 +11,11 @@ fn.mc.split <- function(mc.data = mc.data){
   mc.env.long <<- filter(mc.data, OBSERVATION_TYPE == "ENV_VAR") %>% 
     select(SITE_ID, DATE, VARIABLE_NAME, VALUE)
   
-  mc.env.wide <<- arrange(
-    tidyr::spread(mc.env.long, key = VARIABLE_NAME, value = VALUE), SITE_ID)
+  mc.env.wide <- mc.env.long %>%
+  select(-VARIABLE_UNITS) %>%
+    tidyr::spread(VARIABLE_NAME,  VALUE)
+
+
   
   # Create the species matrix
   mc.species.long <<- filter(na.omit(mc.data), OBSERVATION_TYPE == "TAXON_COUNT") %>%
