@@ -62,59 +62,56 @@ fn.ems.long <- function(
   df.wide.pa <- df.wide.pa[which(rowSums(df.wide.pa) > 0),]
   df.wide.ems <- metacom::Metacommunity(
     df.wide.pa, ...)
-  df.ems.struc <- (metacom::IdentifyStructure(df.wide.ems))  # prints the structure of the MC
+  metacom::IdentifyStructure(df.wide.ems)  # prints the structure of the MC
   
 }
 
 
 
-# # variation partitioning
-# fn.varpart.long <- function(
-#   site.id.vect,
-#   spp.vect,
-#   abund.vect,
-#   env.vect,
-#   spatial.vect,
-#   ...){
-#   
-#   # combine vectors in a data.frame
-#   df.long <-  data.frame(
-#     site = site.id.vect,
-#     spp = spp.vect,
-#     abund = abund.vect
-#     env = env.vect
-#     space = spatial.vect
-#   )
-#   
-#   # average across replicate observations for a site -- if there are multiple observations for a site
-#   df.grouped.long <- dplyr::group_by(df.long, site, spp)
-#   df.means.long <- dplyr::summarise(df.grouped.long, 
-#                                     abund.mean = mean(abund))
-#   
-#   # change from long format to wide format data.frame
-#   df.wide <- tidyr::spread(df.means.long,
-#                            key = spp,
-#                            value = abund.mean,
-#                            fill = 0)[,-1]
-#   
-#   df.wide <- df.wide[,which(colnames(df.wide) != "")] # removing potential blank cols
-#   
-#   # calculate diversity metric
-#   vegetarian::d(df.wide, wts = rowSums(df.wide), ...)
-# }
-# 
-# comm.date <- filter(mc.species.wide, DATE == date.i)
-# common.sites <- dplyr::intersect(dplyr::intersect(comm.date[,1], env.date[,1]), spatial[,1])
-# comm.date <- as.matrix(filter(comm.date, SITE_ID %in% common.sites)[,-c(1:2)])
-# env.date <- as.matrix(filter(env.date, SITE_ID %in% common.sites)[,-c(1:2)])
-# spatial <- as.matrix(filter(spatial, SITE_ID %in% common.sites)[,-1])
-# 
-# 
-# comm.date.hel <- decostand(comm.date, method = "hellinger")
-# comm.date.varpart <- vegan::varpart(comm.date.hel, env.date, spatial)
-# vp <- vector(length = 4)
-# vp <- comm.date.varpart$part$indfract$Adj.R.squared
-# vp.a <- vp[1]
-# vp.b <- vp[2]
-# vp.c <- vp[3]
-# vp.d <- vp[4]
+# variation partitioning
+fn.varpart.long <- function(
+  OBSERVATION_TYPE,
+  SITE_ID,
+  VARIABLE_NAME,
+  VALUE,
+  ...){
+  
+  mc <- tbl_df(data_frame(OBSERVATION_TYPE, SITE_ID, VARIABLE_NAME, VALUE))
+  
+  # combine vectors in a data.frame
+  species.df.long <- select(filter(mc, OBSERVATION_TYPE == "TAXON_COUNT"),
+                            site = SITE_ID, spp = VARIABLE_NAME, abund = VALUE)
+  
+  env.df.long <- select(filter(mc, OBSERVATION_TYPE == "ENV_VAR"),
+                        site = SITE_ID, env.var = VARIABLE_NAME, env.val = VALUE)
+  
+  space.df.long <- select(filter(mc, OBSERVATION_TYPE == "SPATIAL_COORDINATE"),
+                          site = SITE_ID, space.var = VARIABLE_NAME, space.val = VALUE)
+  
+
+  # change from long format to wide format data.frame
+  species.df.wide <- tidyr::spread(na.omit(species.df.long),
+                                   key = spp,
+                                   value = abund,
+                                   fill = 0)
+  
+  env.df.wide <- tidyr::spread(na.omit(env.df.long),
+                               key = env.var,
+                               value = env.val,
+                               fill = 0)
+  
+  space.df.wide <- tidyr::spread(na.omit(space.df.long),
+                                 key = space.var,
+                                 value = space.val,
+                                 fill = 0)
+  
+  gtotal.df.wide <- left_join(left_join(species.df.wide, env.df.wide), space.df.wide)
+  
+  species.df <- (total.df.wide[,colnames(species.df.wide)][,-1])
+  env.df <- (total.df.wide[,colnames(env.df.wide)][,-1])
+  space.df <- (total.df.wide[,colnames(space.df.wide)][,-1])
+  
+  species.hel <- decostand(species.df, method = "hellinger")
+  vegan::varpart(species.hel, env.df, space.df)
+
+}
