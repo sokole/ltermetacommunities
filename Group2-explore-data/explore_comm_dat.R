@@ -16,8 +16,8 @@ rm(list = ls())
 #data.key <- "0B2P104M94skvQVprSnBsYjRzVms" # Google Drive file ID (different for each dataset)
 
 # SBC LTER (Santa Barbara Coastal)
-#data.set <- "SBC-Lamy-Castorani"
-#data.key <- "0BxUZSA1Gn1HZYTVfd2FZTWhWbm8" # Google Drive file ID (different for each dataset)
+data.set <- "SBC-Lamy-Castorani"
+data.key <- "0BxUZSA1Gn1HZYTVfd2FZTWhWbm8" # Google Drive file ID (different for each dataset)
 
 # ---------------------------------------------------------------------------------------------------
 # Set working environment
@@ -193,4 +193,8 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
 # ---------------------------------------------------------------------------------------------------
 # RANK ABUNDANCE CURVES
 
-# More to do here! :)
+# More to do here! 
+
+# ---------------------------------------------------------------------------------------------------
+# RAREFACTION CURVES
+# More to do here! 
