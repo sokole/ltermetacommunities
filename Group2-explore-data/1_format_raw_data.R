@@ -23,7 +23,7 @@ data.key <- "0BxUZSA1Gn1HZYTVfd2FZTWhWbm8" # Google Drive file ID
 
 # ---------------------------------------------------------------------------------------------------
 # Set working environment
-setwd(paste("~/Google Drive/LTER Metacommunities/LTER-DATA/", data.set, sep=""))
+setwd("~/Google Drive/LTER Metacommunities")
 
 # Check for and install required packages
 #library()
@@ -127,7 +127,7 @@ colnames(distancemat) = sites
 
 #add distance matrix to data list
 dat$distancemat <- distancemat
-str(dat)
+#str(dat)
 
 # ENVIRONMENTAL COVARIATES
 env.long <- subset(dat.long, OBSERVATION_TYPE == "ENV_VAR")
@@ -149,10 +149,11 @@ nrow(dat$comm); nrow(dat$env)
 #FILL IN SOME INFO ABOUT THE DATASET THAT WILL BE HELPFUL FOR LOOPS:
 dat$n.years <- length(unique(dat$comm$DATE))
 
+#str(dat)
+summary(dat)
 
-str(dat)
-#write .Rdata object into the directory "intermediate_data"
-setwd()
-write(dat, file = paste(data.set,".Rdata", sep=""))
-getwd()
+#write .Rdata object into an "intermediate_data" directory (not made yet; put in Group 2 folder for now)
+filename <- paste(data.set,".Rdata", sep="")
+save(dat, file = paste("Subgroup 2 - Data exploration group/",filename,sep=""))
+
 #now, explore the data and perform further QA/QC with the script "2_explore_data.R"
