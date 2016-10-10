@@ -46,8 +46,8 @@ dat <- list()
 comm <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ]
 comm <- droplevels(comm)
 # Subset data if necessary
-#dat$comm <- subset(comm, dat$comm$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
-#dat$comm <- droplevels(dat$comm)
+#comm <- subset(comm, comm$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
+comm <- droplevels(comm)
 str(comm)
 
 #Add number of species to data list:
@@ -56,7 +56,7 @@ dat$n.spp <- length(levels(comm$VARIABLE_NAME))
 
 # Ensure that site data is a character, not a string
 class(comm$SITE_ID)
-comm$SITE_ID <- as.character(dat$comm$SITE_ID)
+comm$SITE_ID <- as.character(comm$SITE_ID)
 
 # Ensure that VALUE is numeric
 class(comm$VALUE)
@@ -69,9 +69,10 @@ tapply(comm$VALUE, list(comm$SITE_ID,comm$DATE), length)
 # Convert community data to wide form
   comm <- comm %>%
   select(-VARIABLE_UNITS) %>%
-  select(-TAXON_GROUP) %>%
+#  select(-TAXON_GROUP) %>% #TURN THIS ON ONLY IF NEEDED
     tidyr::spread(VARIABLE_NAME,  VALUE)
-    
+
+dat$TAXON_GROUPS <- unique(comm$TAXON_GROUP)    
 dat$comm <- comm
 summary(dat)
 #str(dat)
@@ -90,6 +91,8 @@ for (package in c('dplyr', 'tidyr', 'XML', 'sp', 'geosphere', 'rgdal','maps','re
 #pull out coordinate data and make sure that it is numeric
 cord =filter(dat.long, OBSERVATION_TYPE=="SPATIAL_COORDINATE");head(cord)
 cord$SITE_ID=toupper(cord$SITE_ID)
+cord <- droplevels(cord)
+str(cord)
 cord.wide = spread(cord,VARIABLE_NAME, VALUE);head(cord.wide) #create rows from lat long
 sites=c(unique(cord.wide$SITE_ID));sites
 
@@ -145,6 +148,7 @@ levels(env.long$VARIABLE_NAME)
 #add environmental covaiates to data list
 dat$n.years <- length(unique(dat$comm$DATE))
 dat$n.covariates <- length(levels(env.long$VARIABLE_NAME))
+dat$cov.names <- levels(env.long$VARIABLE_NAME)
 dat$env <- env.wide
 #NOTE: nrow in dat$comm should be the same as nrow in dat$env should be the same as # of years * # of sites (for a balanced design where each row represents a site-year; important for future analyses) 
 nrow(dat$comm); nrow(dat$env); dat$n.years * dat$n.sites
