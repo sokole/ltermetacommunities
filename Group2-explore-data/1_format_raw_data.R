@@ -73,7 +73,8 @@ tapply(comm$VALUE, list(comm$SITE_ID,comm$DATE), length)
     tidyr::spread(VARIABLE_NAME,  VALUE)
     
 dat$comm <- comm
-str(dat)
+summary(dat)
+#str(dat)
 
 
 # SPATIAL DATA
@@ -142,12 +143,11 @@ levels(env.long$VARIABLE_NAME)
     tidyr::spread(VARIABLE_NAME,  VALUE)
 
 #add environmental covaiates to data list
-dat$env <- env.wide
-#NOTE: nrow in dat$comm should be the same as nrow in dat$env for future analysis (environmental covariates that are specific to each site-year)
-nrow(dat$comm); nrow(dat$env)
-
-#FILL IN SOME INFO ABOUT THE DATASET THAT WILL BE HELPFUL FOR LOOPS:
 dat$n.years <- length(unique(dat$comm$DATE))
+dat$n.covariates <- length(levels(env.long$VARIABLE_NAME))
+dat$env <- env.wide
+#NOTE: nrow in dat$comm should be the same as nrow in dat$env should be the same as # of years * # of sites (for a balanced design where each row represents a site-year; important for future analyses) 
+nrow(dat$comm); nrow(dat$env); dat$n.years * dat$n.sites
 
 #str(dat)
 summary(dat)
