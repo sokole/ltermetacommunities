@@ -1,5 +1,7 @@
 # --------------------------------------------------------- #
-# Format raw data as a list of tables - created 10 Oct 2016 #
+# Format raw data as a list of tables                       #
+#                                                           #
+# Revised 13 Oct 2016 by Max Castorani                      #
 # --------------------------------------------------------- #
 
 # Clear environment
@@ -7,7 +9,6 @@ rm(list = ls())
 
 # Assign data set of interest
 # NOTE: Google Drive file ID is different for each dataset
-
 
 # CAP LTER (Central Arizona-Phoenix)
 #data.set <- "CAP-birds-CORE"
@@ -43,39 +44,38 @@ dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download"
 dat <- list()
 
 # COMMUNITY DATA 
-comm <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ]
-comm <- droplevels(comm)
+comm.long <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ] 
+comm.long <- droplevels(comm.long)
 # Subset data if necessary
-#comm <- subset(comm, comm$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
-comm <- droplevels(comm)
-str(comm)
+#comm.long <- subset(comm.long, comm.long$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
+comm.long <- droplevels(comm.long)
+str(comm.long)  # Check the structure of the community data
 
 #Add number of species to data list:
-dat$n.spp <- length(levels(comm$VARIABLE_NAME))
+dat$n.spp <- length(levels(comm.long$VARIABLE_NAME))
 
+# Ensure that community character columns are coded properly
+char.cols <- c(1, 2, 4, 5, 7)  # Select columns that should be characters
+comm.long[, char.cols] <- apply(comm.long[, char.cols], 2, as.character)  # Recode as characters
+apply(comm.long[, char.cols, ], 2, class) # Check that these columns are coded as characters
 
-# Ensure that site data is a character, not a string
-class(comm$SITE_ID)
-comm$SITE_ID <- as.character(comm$SITE_ID)
+# Ensure that community data VALUE is coded as numeric
+num.cols <- c(3, 6)  # Select columns that should be numeric
+comm.long[, num.cols] <- apply(comm.long[, num.cols], 2, as.numeric)  # Recode as numeric
+apply(comm.long[, num.cols, ], 2, class) # Check that these columns are coded as characters
 
-# Ensure that VALUE is numeric
-class(comm$VALUE)
-comm$VALUE <- as.numeric(as.character(comm$VALUE))
-
-#
-# Balanced sampling of species across space and time? inspect table:
-tapply(comm$VALUE, list(comm$SITE_ID,comm$DATE), length)
+# Check balanced sampling of species across space and time by inspecting table
+tapply(comm.long$VALUE, list(comm.long$SITE_ID, comm.long$DATE), length)
 
 # Convert community data to wide form
-  comm <- comm %>%
+comm.wide <- comm.long %>%
   select(-VARIABLE_UNITS) %>%
-#  select(-TAXON_GROUP) %>% #TURN THIS ON ONLY IF NEEDED
-    tidyr::spread(VARIABLE_NAME,  VALUE)
+  select(-TAXON_GROUP) %>%  #TURN THIS ON ONLY IF NEEDED
+  spread(VARIABLE_NAME,  VALUE)
 
-dat$TAXON_GROUPS <- unique(comm$TAXON_GROUP)    
-dat$comm <- comm
+dat$TAXON_GROUPS <- unique(comm.long$TAXON_GROUP)    
+dat$comm.long <- comm.long
 summary(dat)
-#str(dat)
 
 
 # SPATIAL DATA
@@ -141,9 +141,9 @@ str(env.long)
 levels(env.long$VARIABLE_UNITS)
 levels(env.long$VARIABLE_NAME)
 #convert to wide
-  env.wide <- env.long %>%
+env.wide <- env.long %>%
   select(-VARIABLE_UNITS) %>%
-    tidyr::spread(VARIABLE_NAME,  VALUE)
+  tidyr::spread(VARIABLE_NAME,  VALUE)
 
 #add environmental covaiates to data list
 dat$n.years <- length(unique(dat$comm$DATE))
