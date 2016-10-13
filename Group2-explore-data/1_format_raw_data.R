@@ -15,8 +15,8 @@ rm(list = ls())
 #data.key <- "0BzcCZxciOlWgeHJ5SWx1YmplMkE" # Google Drive file ID 
 
 # NWT LTER (Niwot Ridge)
-data.set <- "NWT-plants-Hallett-and-Sokol"
-data.key <- "0B2P104M94skvQVprSnBsYjRzVms" # Google Drive file ID 
+#data.set <- "NWT-plants-Hallett-and-Sokol"
+#data.key <- "0B2P104M94skvQVprSnBsYjRzVms" # Google Drive file ID 
 
 # SBC LTER (Santa Barbara Coastal)
 data.set <- "SBC-Lamy-Castorani"
@@ -64,8 +64,11 @@ num.cols <- c(3, 6)  # Select columns that should be numeric
 comm.long[, num.cols] <- apply(comm.long[, num.cols], 2, as.numeric)  # Recode as numeric
 apply(comm.long[, num.cols, ], 2, class) # Check that these columns are coded as characters
 
-# Check balanced sampling of species across space and time by inspecting table
+# Check balanced sampling of species across space and time by inspecting table, and add to data list
 tapply(comm.long$VALUE, list(comm.long$SITE_ID, comm.long$DATE), length)
+dat$TAXON_GROUPS <- unique(comm.long$TAXON_GROUP)  
+dat$comm.long <- comm.long
+
 
 # Convert community data to wide form
 comm.wide <- comm.long %>%
@@ -73,8 +76,8 @@ comm.wide <- comm.long %>%
   select(-TAXON_GROUP) %>%  #TURN THIS ON ONLY IF NEEDED
   spread(VARIABLE_NAME,  VALUE)
 
-dat$TAXON_GROUPS <- unique(comm.long$TAXON_GROUP)    
-dat$comm.long <- comm.long
+  
+dat$comm.wide <- comm.wide
 summary(dat)
 
 
@@ -156,8 +159,8 @@ nrow(dat$comm); nrow(dat$env); dat$n.years * dat$n.sites
 #str(dat)
 summary(dat)
 
-#write .Rdata object into an "intermediate_data" directory (not made yet; put in Group 2 folder for now)
+#write .Rdata object into the "Intermediate_data" directory 
 filename <- paste(data.set,".Rdata", sep="")
-save(dat, file = paste("Subgroup 2 - Data exploration group/",filename,sep=""))
+save(dat, file = paste("Intermediate_data/",filename,sep=""))
 
-#now, explore the data and perform further QA/QC with the script "2_explore_data.R"
+#now, explore the data and perform further QA/QC with the scripts "2_explore_spatial_dat.R", "3_explore_comm_dat.R", and "4_explore_environmenral_dat.R"
