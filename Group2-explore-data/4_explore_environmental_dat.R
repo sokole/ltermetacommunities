@@ -2,29 +2,29 @@
 #  Explore environmental data - 19 September 2016 #
 # ----------------------------------------------- #
 
-# Set working environment
+# Clear environment
 rm(list = ls())
 
 # Assign data set of interest
 
 # CAP LTER (Central Arizona-Phoenix)
 #data.set <- "CAP-birds-CORE"
-#data.key <- "0BzcCZxciOlWgeHJ5SWx1YmplMkE" # Google Drive file ID (different for each dataset)
+#data.key <- "" # Google Drive file ID (different for each dataset)
 
 # NWT LTER (Niwot Ridge)
 #data.set <- "NWT-plants-Hallett-and-Sokol"
-#data.key <- "0B2P104M94skvQVprSnBsYjRzVms" # Google Drive file ID (different for each dataset)
+#data.key <- "" # Google Drive file ID (different for each dataset)
 
 # SBC LTER (Santa Barbara Coastal)
 data.set <- "SBC-Lamy-Castorani"
-data.key <- "0BxUZSA1Gn1HZYTVfd2FZTWhWbm8" # Google Drive file ID (different for each dataset)
+data.key <- "0B7o8j0RLpcxiTnB5a01YU2pWdk0" # Google Drive file ID (different for each dataset)
 
-# 
-
+# ---------------------------------------------------------------------------------------------------
 # Set working environment
-setwd(paste("~/Google Drive/LTER-DATA/", data.set, sep=""))
+setwd("~/Google Drive/LTER Metacommunities")
 
-library()
+# Check for and install required packages
+#library()
 
 for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
   if (!require(package, character.only=T, quietly=T)) {
@@ -33,24 +33,19 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
   }
 }
 
+# ---------------------------------------------------------------------------------------------------
 # IMPORT DATA
-dat.long <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key)) 
-
-str(dat.long)
-
-#make dataframe of site-year data
-#unique(dat.long$OBSERVATION_TYPE)
-env.long <- subset(dat.long, OBSERVATION_TYPE == "ENV_VAR")
-env.long <- droplevels(env.long)
-str(env.long)
-
-levels(env.long$VARIABLE_UNITS)
-levels(env.long$VARIABLE_NAME)
-
+#read in .Rdata list
+#Why doesn't this work?  Help!
+#load(sprintf("https://drive.google.com/open?id=", data.key)) 
+load(paste("Intermediate_data/",data.set,".Rdata", sep="")) #workaround
+summary(dat)
+str(dat$env)
+# ---------------------------------------------------------------------------------------------------
 
 #Plot time series of environmental variabLes for ech site
 
-env.plot <- ggplot(data = env.long, aes(x = DATE, y = VALUE)) +
+env.plot <- ggplot(data = dat$env.long, aes(x = DATE, y = VALUE)) +
 geom_line(aes(color = SITE_ID)) +
 facet_wrap(~ VARIABLE_NAME, scales = "free", ncol = 1) +
 theme_bw()
@@ -66,4 +61,4 @@ plot(y = env.long[env.long$VARIABLE_NAME == "WAVE_HT_MEAN", ]$VALUE, x = env.lon
 
 
 str(env.wide)
-pairs(env.wide[,c("TEMP_MEAN_C", "WAVE_HT_MEAN","WAVE_HT_WINTER_MEAN")])
+pairs(dat$env[,c("TEMP_MEAN_C", "WAVE_HT_MEAN","WAVE_HT_WINTER_MEAN")])
