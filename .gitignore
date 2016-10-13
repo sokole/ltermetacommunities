@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 ltermetacommunities.Rproj
+.DS_Store
+.Rapp.history

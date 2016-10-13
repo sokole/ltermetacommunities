@@ -15,8 +15,8 @@ rm(list = ls())
 #data.key <- "0BzcCZxciOlWgeHJ5SWx1YmplMkE" # Google Drive file ID 
 
 # NWT LTER (Niwot Ridge)
-#data.set <- "NWT-plants-Hallett-and-Sokol"
-#data.key <- "0B2P104M94skvQVprSnBsYjRzVms" # Google Drive file ID 
+data.set <- "NWT-plants-Hallett-and-Sokol"
+data.key <- "0B2P104M94skvQVprSnBsYjRzVms" # Google Drive file ID 
 
 # SBC LTER (Santa Barbara Coastal)
 data.set <- "SBC-Lamy-Castorani"
