@@ -1,5 +1,5 @@
 # ---------------------------------------------- #
-# Explore environmental data - 18 September 2016 #
+# Explore community data - 18 September 2016     #
 # ---------------------------------------------- #
 
 # Clear environment

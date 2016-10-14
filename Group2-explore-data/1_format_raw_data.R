@@ -48,19 +48,19 @@ comm.long <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ]
 comm.long <- droplevels(comm.long)
 # Subset data if necessary
 #comm.long <- subset(comm.long, comm.long$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
-comm.long <- droplevels(comm.long)
+#comm.long <- droplevels(comm.long)
 str(comm.long)  # Check the structure of the community data
 
 #Add number of species to data list:
 dat$n.spp <- length(levels(comm.long$VARIABLE_NAME))
 
 # Ensure that community character columns are coded properly
-char.cols <- c(1, 2, 4, 5, 7)  # Select columns that should be characters
+char.cols <- c("OBSERVATION_TYPE", "SITE_ID", "VARIABLE_NAME", "VARIABLE_UNITS", "TAXON_GROUP")  # Select columns that should be characters
 comm.long[, char.cols] <- apply(comm.long[, char.cols], 2, as.character)  # Recode as characters
 apply(comm.long[, char.cols, ], 2, class) # Check that these columns are coded as characters
 
 # Ensure that community data VALUE is coded as numeric
-num.cols <- c(3, 6)  # Select columns that should be numeric
+num.cols <- c("DATE", "VALUE")  # Select columns that should be numeric
 comm.long[, num.cols] <- apply(comm.long[, num.cols], 2, as.numeric)  # Recode as numeric
 apply(comm.long[, num.cols, ], 2, class) # Check that these columns are coded as characters
 
@@ -68,7 +68,6 @@ apply(comm.long[, num.cols, ], 2, class) # Check that these columns are coded as
 tapply(comm.long$VALUE, list(comm.long$SITE_ID, comm.long$DATE), length)
 dat$TAXON_GROUPS <- unique(comm.long$TAXON_GROUP)  
 dat$comm.long <- comm.long
-
 
 # Convert community data to wide form
 comm.wide <- comm.long %>%
