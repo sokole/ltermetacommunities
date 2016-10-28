@@ -26,7 +26,7 @@ setwd("~/Google Drive/LTER Metacommunities")
 # Check for and install required packages
 #library()
 
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'BiodiversityR','iNEXT')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
@@ -176,11 +176,166 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   theme_bw()
 # Note that the thick line indicates the total number of taxa among all sites
 
+# --------------------------------------------------------------------------------------------------
+# Row and column summary statistics for comm.wide data to aid in screening for the amount and pattern of missing data
+# Function for row and column summary statistics of community data
+sum.stats <-
+  function(x,var='',by='',margin='column',...){
+    
+    if(!var==''){
+      y<-subset(x,select=eval(parse(text=var))) #select variables to summarize
+    }
+    else{y<-x}
+    
+    variable<-colnames(y)
+    sample<-rownames(y)
+    
+    #statistical functions
+    nobs<-function(x) length(x)
+    cv<-function(x,na.rm) sd(x,na.rm=TRUE)/mean(x,na.rm=TRUE)*100 
+    zeros<-function(x,na.rm) sum(x==0,na.rm=TRUE)
+    pct.zeros<-function(x,na.rm) sum(x==0,na.rm=TRUE)/length(x)*100
+    nobs.missing<-function(x,na.rm) sum(is.na(x))
+    pct.missing<-function(x,na.rm) sum(is.na(x))/length(x)*100 
+    se<-function(x,na.rm) sd(x,na.rm=TRUE)/sqrt(length(x)-sum(is.na(x)))
+    se.ratio<-function(x,na.rm) se(x)/mean(x,na.rm=TRUE)*100
+    richness<-function(x,na.rm) nobs(x)-zeros(x)-nobs.missing(x)
+    sh.diversity<-function(x,na.rm) -sum(((x)/sum(x,na.rm=TRUE))*log(((x)/sum(x,na.rm=TRUE))),na.rm=TRUE)
+    sh.evenness<-function(x,na.rm) sh.diversity(x)/log(richness(x))
+    si.diversity<-function(x,na.rm){
+      if(richness(x)==0) 0
+      else 1-sum(((x)/sum(x,na.rm=TRUE))*((x)/sum(x,na.rm=TRUE)),na.rm=TRUE)
+    }
+    si.evenness<<-function(x,na.rm) si.diversity(x)/(1-(1/richness(x)))
+    
+    if(by==''){ #summary table w/o groups
+      if(margin=='column'){ #summary table by columns
+        z1<-data.frame(apply(y,2,function(x){ #calculate stats
+          z1<-c(nobs(x),min(x,na.rm=TRUE),max(x,na.rm=TRUE),
+                mean(x,na.rm=TRUE),median(x,na.rm=TRUE),sum(x,na.rm=TRUE),
+                sd(x,na.rm=TRUE),cv(x),zeros(x),pct.zeros(x),nobs.missing(x),
+                pct.missing(x),se(x),se.ratio(x),richness(x),sh.diversity(x),
+                sh.evenness(x),si.diversity(x),si.evenness(x))
+          names(z1)<-c('nobs','min','max','mean',
+                       'median','sum','sd','cv','zeros','pct.zeros',
+                       'nobs.missing','pct.missing','se','se.ratio',
+                       'richness','sh.diversity','sh.evenness',
+                       'si.diversity','si.evenness') #create col names
+          z1<-round(z1,3) #round elements to 3 decimal places
+        }))
+        z2<-data.frame(t(apply(z1,1,function(x){ #calculate stats on stats
+          z2<-c(nobs(x),min(x,na.rm=TRUE),max(x,na.rm=TRUE),
+                mean(x,na.rm=TRUE),median(x,na.rm=TRUE),sd(x,na.rm=TRUE),cv(x))
+          names(z2)<-c('nobs','min','max','mean',
+                       'median','sd','cv') #create row names
+          z2<-round(z2,3) #round elements to 3 decimal places
+        })))
+        z<-list(z1,z2) #create list with col stats and sum stats
+        names(z)<-c('Column.Summary','Table.Summary')
+      } #end summary table by columns
+      
+      else{ #summary table by rows
+        z1<-data.frame(t(apply(y,1,function(x){ #calculate stats
+          z1<-c(nobs(x),min(x,na.rm=TRUE),max(x,na.rm=TRUE),
+                mean(x,na.rm=TRUE),median(x,na.rm=TRUE),sum(x,na.rm=TRUE),
+                sd(x,na.rm=TRUE),cv(x),zeros(x),pct.zeros(x),nobs.missing(x),
+                pct.missing(x),se(x),se.ratio(x),richness(x),sh.diversity(x),
+                sh.evenness(x),si.diversity(x),si.evenness(x))
+          names(z1)<-c('nobs','min','max','mean',
+                       'median','sum','sd','cv','zeros','pct.zeros',
+                       'nobs.missing','pct.missing','se','se.ratio',
+                       'richness','sh.diversity','sh.evenness',
+                       'si.diversity','si.evenness') #create col names
+          z1<-round(z1,3) #round elements to 3 decimal places
+        })))
+        z2<-data.frame(apply(z1,2,function(x){ #calculate stats on stats
+          z2<-c(nobs(x),min(x,na.rm=TRUE),max(x,na.rm=TRUE),
+                mean(x,na.rm=TRUE),median(x,na.rm=TRUE),sd(x,na.rm=TRUE),cv(x))
+          names(z2)<-c('nobs','min','max','mean',
+                       'median','sd','cv') #create row names
+          z2<-round(z2,3) #round elements to 3 decimal places
+        }))
+        z<-list(z1,z2) #create list with row stats and sum stats
+        names(z)<-c('Row.Summary','Table.Summary')
+      } #end summary table by rows
+    } #end summary table w/o groups
+    
+    else{ #summary table w/ groups
+      #	write('',file=paste(outfile,'.csv',sep='')) #empty outfile if it exists
+      fns<-c('nobs','min','max','mean',
+             'median','sum','sd','cv','zeros','pct.zeros',
+             'nobs.missing','pct.missing','se','se.ratio',
+             'richness','sh.diversity','sh.evenness',
+             'si.diversity','si.evenness') #create names vector
+      n<-by.names(x,by) #create by variable
+      for(i in 1:length(fns)){ #loop thru by groups
+        cat(t<-paste(strtrim(paste('--',fns[i],paste(rep('-',80),collapse='')),80),'\n')) #create line break
+        q<-list(n[,2]) #create a list of group names
+        names(q)<-names(n)[2] #assign by name to q
+        z1<-aggregate(y,q,fns[i],na.rm=TRUE) #calculate stats
+        zz1<-round(z1[,2:ncol(z1)],3) #round stats to 3 decimal places
+        g<-z1[,1,,drop=FALSE] #select group variable
+        z1<-cbind(g,zz1) #bind group variable with selected variables
+        z2<-data.frame(t(apply(z1[,-1],1,function(x){ #calculate stats on stats
+          z2<-c(nobs(x),min(x,na.rm=TRUE),max(x,na.rm=TRUE),
+                mean(x,na.rm=TRUE),median(x,na.rm=TRUE),sd(x,na.rm=TRUE),cv(x))
+          names(z2)<-c('nobs','min','max','mean',
+                       'median','sd','cv') #create row names
+          z2<-round(z2,3) #round elements to 3 decimal places
+        })))
+        z<-cbind(z1,z2) #bind col stats with summary stats
+        print(z) #print to console
+      } #end loop thru groups
+    } #end summary table w/ groups
+    return(z)
+  }
+
+# Column summary for each species' abundance data
+# Note this assumes that the first three columns of the comm.wide data are always: OBSERVATION_TYPE, SITE_ID, DATE
+sum.stats(dat$comm.wide[,-c(1:3)])
+# Row summaries for species data
+sum.stats(dat$comm.wide[,-c(1:3)], margin='row')
+
 # ---------------------------------------------------------------------------------------------------
 # RANK ABUNDANCE CURVES
 
-# More to do here! 
+# This section uses code from the BiodiversityR package
+# Create rank abundance curve for all sites over all dates
+ra_allsitestimes <- rankabundance(dat$comm.wide[,-c(1:3)])
+rankabunplot(ra_allsitestimes)
+
+# Plot proportional rank abundance curve for each site.
+# legend is set to false, but set it to true to see legend for each site
+rankabuncomp(x=dat$comm.wide[,-c(1:3)], y=dat$comm.wide[,c(1:3)], factor="SITE_ID", scale='proportion', legend=FALSE)
+
+# Plot proportional rank abundance curve for each date.
+# legend is set to false, but set it to true to see legend for each site
+rankabuncomp(x=dat$comm.wide[,-c(1:3)], y=dat$comm.wide[,c(1:3)], factor="DATE", scale='proportion', legend=FALSE)
 
 # ---------------------------------------------------------------------------------------------------
 # RAREFACTION CURVES
-# More to do here! 
+
+# Note this code is still a bit buggy. I need to talk with the group a bit to figure out what the data represent.
+
+# This section uses code from the iNEXT package
+# Convert dat$comm.wide from a list to a matrix for the iNEXT function
+comm_wide_mat <- matrix(unlist(dat$comm.wide[,-c(1:3)]), ncol = dim(dat$comm.wide)[2]-3, byrow = TRUE)
+
+# Use iNEXT function to interpolate and extrapolate Hill numbers for rarefaction curves of all sites together
+# Note this step takes a while to run.
+rarefaction_all <- iNEXT(comm_wide_mat, q=c(0,1,2), datatype="incidence_freq")
+# Plot rarefaction curves for all sites considered together
+ggiNEXT(rarefaction_all, se=TRUE, color.var="order")
+
+# Loop through each site separately and generate rarefaction curve
+for(i in 1:length(dat$comm.wide$SITE_ID)){
+  # Convert dat$comm.wide from a list to a matrix for the iNEXT function for each site
+  comm_wide_site <- dat$comm.wide[,SITE_ID==names(dat$comm.wide$SITE_ID[i])]
+  comm_wide_sitemat <- matrix(unlist(dat$comm.widesite[,-c(1:3)]), ncol = dim(dat$comm.wide)[2]-3, byrow = TRUE)
+  
+  # Use iNEXT function to interpolate and extrapolate Hill numbers for rarefaction curves of site i
+  rarefaction_site <- iNEXT(comm_wide_sitemat, q=c(0,1,2), datatype="incidence_freq")
+  # Plot rarefaction curves for site i
+  ggiNEXT(rarefaction_site, se=TRUE, color.var="order")
+}
+
