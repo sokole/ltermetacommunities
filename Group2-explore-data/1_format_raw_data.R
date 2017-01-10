@@ -74,11 +74,17 @@ ifelse(FALSE %in%
      class(comm.long$VALUE) == "numeric"
      #class(comm.long$TAXON_GROUP) == "character")
    ),
-  "ERROR: Community columns incorrectly coded", 
-  "OK: Community columns correctly coded")
+  "ERROR: Community columns incorrectly coded.", 
+  "OK: Community columns correctly coded.")
 
+# ---------------------------------------------------------------------------------------------------
 # Check balanced sampling of species across space and time by inspecting table, and add to data list
-tapply(comm.long$VALUE, list(comm.long$SITE_ID, comm.long$DATE), length)
+xtabs(~ SITE_ID + DATE, data = comm.long)
+ifelse(length(unique(xtabs(~ SITE_ID + DATE, data = comm.long))) == 1,
+       "OK: Equal number of taxa recorded across space and time.", 
+       "ERROR: Unequal numbers of observations across space and time, or taxa list not fully propagated across space and time. Inspect contingency table.")
+
+# Add to dat list the unique taxa
 dat$TAXON_GROUPS <- unique(comm.long$TAXON_GROUP)  
 dat$comm.long <- comm.long
 
