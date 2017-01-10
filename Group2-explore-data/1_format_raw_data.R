@@ -1,8 +1,10 @@
 # --------------------------------------------------------- #
 # Format raw data as a list of tables                       #
 #                                                           #
-# Revised 13 Oct 2016 by Max Castorani                      #
+# Revised 10 Jan 2017                                       #
 # --------------------------------------------------------- #
+
+# Contributors: Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
 
 # Clear environment
 rm(list = ls())
