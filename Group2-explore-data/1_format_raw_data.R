@@ -29,8 +29,6 @@ data.key <- "0BxUZSA1Gn1HZYTVfd2FZTWhWbm8" # Google Drive file ID
 setwd("~/Google Drive/LTER Metacommunities")
 
 # Check for and install required packages
-#library()
-
 for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
@@ -48,23 +46,36 @@ dat <- list()
 # COMMUNITY DATA 
 comm.long <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ] 
 comm.long <- droplevels(comm.long)
+
 # Subset data if necessary
 #comm.long <- subset(comm.long, comm.long$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
 #comm.long <- droplevels(comm.long)
-str(comm.long)  # Check the structure of the community data
+str(comm.long)  # Inspect the structure of the community data
 
 #Add number of species to data list:
 dat$n.spp <- length(levels(comm.long$VARIABLE_NAME))
 
-# Ensure that community character columns are coded properly
-char.cols <- c("OBSERVATION_TYPE", "SITE_ID", "VARIABLE_NAME", "VARIABLE_UNITS", "TAXON_GROUP")  # Select columns that should be characters
-comm.long[, char.cols] <- apply(comm.long[, char.cols], 2, as.character)  # Recode as characters
-apply(comm.long[, char.cols, ], 2, class) # Check that these columns are coded as characters
+# Ensure that community data VALUE and DATE are coded as numeric
+comm.long <- comm.long %>%   # Recode if necessary
+  mutate_at(vars(c(DATE, VALUE)), as.numeric)
 
-# Ensure that community data VALUE is coded as numeric
-num.cols <- c("DATE", "VALUE")  # Select columns that should be numeric
-comm.long[, num.cols] <- apply(comm.long[, num.cols], 2, as.numeric)  # Recode as numeric
-apply(comm.long[, num.cols, ], 2, class) # Check that these columns are coded as characters
+# Ensure that community character columns coded as factors are re-coded as characters
+comm.long <- comm.long %>%   # Recode if necessary
+  mutate_if(is.factor, as.character)
+
+# Double-check that all columns are coded properly
+ifelse(FALSE %in% 
+   c(
+     class(comm.long$OBSERVATION_TYPE) == "character",
+     class(comm.long$SITE_ID) == "character",
+     class(comm.long$DATE) == "numeric",
+     class(comm.long$VARIABLE_NAME) == "character",
+     class(comm.long$VARIABLE_UNITS) == "character",
+     class(comm.long$VALUE) == "numeric"
+     #class(comm.long$TAXON_GROUP) == "character")
+   ),
+  "ERROR: Community columns incorrectly coded", 
+  "OK: Community columns correctly coded")
 
 # Check balanced sampling of species across space and time by inspecting table, and add to data list
 tapply(comm.long$VALUE, list(comm.long$SITE_ID, comm.long$DATE), length)
