@@ -1,7 +1,7 @@
 ##################################################
 # -- load function from untilities directory
 ##################################################
-# devtools::source_url('https://raw.githubusercontent.com/sokole/ltermetacommunities/master/utilities/make-data-long-standardized.R')
+devtools::source_url('https://raw.githubusercontent.com/sokole/ltermetacommunities/master/utilities/make-data-long-standardized.R')
 
 ##################################################
 # -- packages
