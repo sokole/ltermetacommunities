@@ -76,14 +76,17 @@ d_SPATIAL_COORDINATE <- make_data_long(
 
 # -- extract "environmental" data, make observations for each time period, eventhough env doesn't vary over time
 d.env.temp <- d_TAXON_COUNT %>% select(SITE_ID, DATE) %>%
-  left_join(sim.result$landscape$site.info, by = c('SITE_ID' = 'site.ID'))
+  left_join(sim.result$landscape$site.info, 
+            by = c('SITE_ID' = 'site.ID')) %>% 
+  mutate(env_fixed = Ef,
+         env_rnd = runif(length(DATE), min = -1, max = 1))
 
 d_ENV_VAR <- make_data_long(
   obs_type_label = 'ENV_VAR',
   site_date_col_name = 'DATE',
   data = d.env.temp,
-  variable_names = c('Ef','m'),
-  value_units = c('env_state','imm_rate')
+  variable_names = c('env_fixed','env_rnd'),
+  value_units = c('scaled_env_state_var')
 ) 
 
 d_complete_data_set <- rbind(
