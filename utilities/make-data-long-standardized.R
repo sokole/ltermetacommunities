@@ -11,11 +11,16 @@
 make_data_long = function(
   data_in,
   obs_type_label,
-  site_id_col_name,
+  site_id_col_name = NA,
   site_date_col_name = NA,
   variable_names,
   value_units
 ){
+  ## use rownames if no site_id_col_name is given
+  if(is.na(site_id_col_name)){
+    data_in$site_id <- row.names(data_in)
+    site_id_col_name <- 'site_id'
+  }
   ## make a key for units
   d.unit.key <- data.frame(variable_names,
                            value_units)
