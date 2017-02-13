@@ -2,6 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-ltermetacommunities.Rproj
+.Rproj
 .DS_Store
 .Rapp.history
+.gitignore
