@@ -2,10 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
-ltermetacommunities.Rproj
+.Rproj
 .DS_Store
 .Rapp.history
-ltermetacommunities-example-data-simulation.Rproj
 .gitignore
 Sokol dev script/
 ESA_2016/NWT_SnowXProdCorrected.csv
