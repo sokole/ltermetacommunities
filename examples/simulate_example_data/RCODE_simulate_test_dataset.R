@@ -83,6 +83,7 @@ d.env.temp <- d_TAXON_COUNT %>% select(SITE_ID, DATE) %>%
 
 d_ENV_VAR <- make_data_long(
   obs_type_label = 'ENV_VAR',
+  site_id_col_name = 'SITE_ID',
   site_date_col_name = 'DATE',
   data = d.env.temp,
   variable_names = c('env_fixed','env_rnd'),
