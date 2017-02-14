@@ -346,7 +346,8 @@ d.varpart.results <- fn.db.varpart(
 )
 
 # -------------------
-
+# -- wrapper function
+# -------------------
 fn.varpart.longform.1.timestep <- function(
   d.in.long,
   select.date = NA,
@@ -414,3 +415,8 @@ fn.varpart.longform.1.timestep(d.in.long,
 
 d.in.long %>% group_by(DATE)
 
+if(is.na(d.in.space)){
+  d.space.long <- subset(d.in.long, OBSERVATION_TYPE == 'SPATIAL_COORDINATE')
+}else{
+  d.space.long <- d.in.space
+}
