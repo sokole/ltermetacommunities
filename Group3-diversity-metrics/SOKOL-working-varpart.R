@@ -498,10 +498,32 @@ fn.varpart.longform(d.in.long,
 ####################################
 # -- wrapper function to apply to long-form data, with temporal resolution
 ####################################
-d.in.long %>% group_by(DATE)
 
-if(is.na(d.in.space)){
-  d.space.long <- subset(d.in.long, OBSERVATION_TYPE == 'SPATIAL_COORDINATE')
-}else{
-  d.space.long <- d.in.space
-}
+d.in.long
+d.in.space.long <- subset(d.in.long, OBSERVATION_TYPE == 'SPATIAL_COORDINATE') %>%
+  select(-DATE)
+d.space.time.obs.matrix <- d.in.long %>% 
+  filter(OBSERVATION_TYPE == 'ENV_VAR') %>%
+  select(SITE_ID, DATE)
+d.in.space.long.propagated <- full_join(d.space.time.obs.matrix,
+                                        d.in.space.long,
+                                        by = c('SITE_ID'))
+col.name.list <- names(d.in.long)
+d.in.long.propagated <- rbind(
+  d.in.space.long.propagated[,col.name.list],
+  subset(d.in.long, OBSERVATION_TYPE != 'SPATIAL_COORDINATE')[,col.name.list]
+)
+
+####################################
+# use dplyr::group_by and dplyr::do to apply by date
+####################################
+d.by.date <- d.in.long.propagated %>% group_by(DATE) 
+  
+d.varpart.stats.by.time <- do(
+  .data = d.by.date, 
+  d.stats = fn.varpart.longform(.,
+                                use.all.env.vars = TRUE,
+                                use.all.space.vars = FALSE))
+
+# returns a list. How shall we format output?
+
