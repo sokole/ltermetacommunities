@@ -344,3 +344,73 @@ d.varpart.results <- fn.db.varpart(
   dat.space,
   dist.method.choice = 'horn'
 )
+
+# -------------------
+
+fn.varpart.longform.1.timestep <- function(
+  d.in.long,
+  select.date = NA,
+  d.in.space = NA,
+  ...
+){
+  #select.date <- 1
+  if(!is.na(select.date)){
+    d.in.long.1 <- subset(d.in.long, DATE%in%c(NA,select.date))
+  }else{
+    d.in.long.1 <- d.in.long
+  }
+  
+  if(is.na(d.in.space)){
+    d.space.long <- subset(d.in.long, OBSERVATION_TYPE == 'SPATIAL_COORDINATE')
+  }else{
+    d.space.long <- d.in.space
+  }
+  
+  
+  #######################################################
+  # -- get community data, make wide
+  #######################################################
+  d.comm.long <- subset(d.in.long.1, OBSERVATION_TYPE == 'TAXON_COUNT')
+  
+  d.comm.wide <- d.comm.long %>% 
+    reshape2::dcast(SITE_ID ~ VARIABLE_NAME,
+                    value.var = 'VALUE',
+                    fun.aggregate = mean)%>% 
+    select(-SITE_ID)
+  
+  #######################################################
+  # -- get env data, make wide
+  #######################################################
+  d.env.long <- subset(d.in.long.1, OBSERVATION_TYPE == 'ENV_VAR')
+  
+  d.env.wide <- d.env.long %>% 
+    reshape2::dcast(SITE_ID ~ VARIABLE_NAME,
+                    value.var = 'VALUE',
+                    fun.aggregate = mean)%>% 
+    select(-SITE_ID)
+  
+  #######################################################
+  # -- extract spatial coords
+  #######################################################
+  
+  d.space.wide <- d.space.long %>% 
+    reshape2::dcast(SITE_ID ~ VARIABLE_NAME,
+                    value.var = 'VALUE',
+                    fun.aggregate = mean)%>% 
+    select(-SITE_ID)
+  
+  
+  d.varpart.results <- fn.db.varpart(
+    dat.comm = d.comm.wide,
+    dat.env = d.env.wide,
+    dat.space = d.space.wide,
+    ...  )
+  
+  return(d.varpart.results)
+}
+
+fn.varpart.longform.1.timestep(d.in.long,
+                               select.date = 1)
+
+d.in.long %>% group_by(DATE)
+
