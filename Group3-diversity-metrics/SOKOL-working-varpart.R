@@ -9,7 +9,7 @@ for(i in package.list){
 library(dplyr)
 
 #######################################################
-# -- download data off google drive using id
+# -- download data off google drive using google-id
 #######################################################
 data_id_googledrive <- "0B2P104M94skvUmtsZmxUek1lQVk" #simulated data
 download.link <- paste0("https://drive.google.com/uc?export=download&id=",data_id_googledrive)
@@ -37,7 +37,7 @@ d.env.wide <- d.env.long %>%
                   fun.aggregate = mean)
 
 #######################################################
-# -- extract spatial coords
+# -- extract spatial coords, make wide
 #######################################################
 d.space.long <- subset(d.in.long, OBSERVATION_TYPE == 'SPATIAL_COORDINATE')
 
@@ -48,7 +48,7 @@ d.space.wide <- d.space.long %>%
 
 #######################################################
 #######################################################
-## -- updated variation partitioning analysis for one timestep
+## -- extract 1 time step to test varpart function
 ######################################################
 ######################################################
 
@@ -81,8 +81,10 @@ fn.db.varpart <- function(
   dat.comm,
   dat.env,
   dat.space,
-  pre.filter.pval = 0.05, #needed to reduce vars going into model selection
+  pre.filter.pval = 0.05, #needed to reduce vars going into model selection if there are too many
   dist.method.choice = 'bray',
+  use.all.env.vars = TRUE,
+  use.all.space.vars = TRUE,
   ...
 ){
   
@@ -92,38 +94,46 @@ fn.db.varpart <- function(
   # -- get PCNM vars
   ####################################
   dat.pcnm <- as.data.frame((dat.space %>%
-               dist() %>%
-               vegan::pcnm())$vectors)
+                               dist() %>%
+                               vegan::pcnm())$vectors)
+  
   
   ####################################
+  ####################################
+  ####################################
+  ####################################
+  # If NOT using ALL ENV VARS
   # pre-screen for environmental vars with a pval < user defined cutoff
   # if no variable has a p value better than the cutoff, then we use the one 
   # with the highest R2 value.
   ####################################
-  
-  E.pvals <- apply(X = dat.env,
-                   MARGIN = 2,
-                   FUN = function(X){
-                     anova(
-                       vegan::capscale(
-                         vegan::vegdist(dat.comm, method = dist.method.choice) ~ X,
-                         na.action = "na.omit",
-                         add = TRUE))[1,"Pr(>F)"]
-                   }
-  )
-  
-  E.keep <- names(E.pvals[E.pvals < pre.filter.pval])
-  
-  # calculate adj R2 values for each env var.
-  E.R2 <- apply(X = dat.env,
-                MARGIN = 2,
-                FUN = function(X){
-                  vegan::RsquareAdj(vegan::capscale(
-                    vegan::vegdist(dat.comm, method = dist.method.choice) ~ X,
-                    na.action="na.omit",
-                    add=TRUE))$adj.r.squared
-                }
-  )
+  if(!use.all.env.vars){
+    E.pvals <- apply(X = dat.env,
+                     MARGIN = 2,
+                     FUN = function(X){
+                       anova(
+                         vegan::capscale(
+                           vegan::vegdist(dat.comm, method = dist.method.choice) ~ X,
+                           na.action = "na.omit",
+                           add = TRUE))[1,"Pr(>F)"]
+                     }
+    )
+    
+    E.keep <- names(E.pvals[E.pvals < pre.filter.pval])
+    
+    # calculate adj R2 values for each env var.
+    E.R2 <- apply(X = dat.env,
+                  MARGIN = 2,
+                  FUN = function(X){
+                    vegan::RsquareAdj(vegan::capscale(
+                      vegan::vegdist(dat.comm, method = dist.method.choice) ~ X,
+                      na.action="na.omit",
+                      add=TRUE))$adj.r.squared
+                  }
+    )
+  }else{
+    E.keep <- names(dat.env)
+  }
   
   # -- if no env vars are significant, keep the one with the highest R2 value
   if(!length(E.keep) > 0) E.keep <- names(E.R2[E.R2==max(E.R2)])
@@ -131,103 +141,131 @@ fn.db.varpart <- function(
   dat.env.sig <- data.frame(dat.env[,E.keep])
   names(dat.env.sig) <- E.keep
   
-  # ---------------------------------------------------------------------------------
+  
+  
+  #####################################################
+  # If NOT using ALL SPATIAL VARS
   # pre-screen for spatial vars with a pval < 0.20
   # if no variable has a p value better than 0.20, then we use the one 
   # with the highest R2 value.
-  # ----------------------------------
-  S.pvals <- apply(X = dat.pcnm,
-                   MARGIN = 2,
-                   FUN = function(X){
-                     anova(
-                       vegan::capscale(
-                         vegan::vegdist(dat.comm, method = dist.method.choice) ~ X,
-                         na.action = "na.omit",
-                         add = TRUE))[1,"Pr(>F)"]
-                   }
-  )
-  
-  S.keep <- names(S.pvals[S.pvals < pre.filter.pval])
-  
-  S.R2 <- apply(X = dat.pcnm,
-                MARGIN = 2,
-                FUN = function(X){
-                  vegan::RsquareAdj(
-                    vegan::capscale(
-                      vegan::vegdist(dat.comm, method = dist.method.choice) ~ X,
-                      na.action = "na.omit",
-                      add = TRUE))$adj.r.squared
-                }
-  )
-  
+  #####################################################
+  if(!use.all.space.vars){
+    S.pvals <- apply(X = dat.pcnm,
+                     MARGIN = 2,
+                     FUN = function(X){
+                       anova(
+                         vegan::capscale(
+                           vegan::vegdist(dat.comm, method = dist.method.choice) ~ X,
+                           na.action = "na.omit",
+                           add = TRUE))[1,"Pr(>F)"]
+                     }
+    )
+    
+    S.keep <- names(S.pvals[S.pvals < pre.filter.pval])
+    
+    S.R2 <- apply(X = dat.pcnm,
+                  MARGIN = 2,
+                  FUN = function(X){
+                    vegan::RsquareAdj(
+                      vegan::capscale(
+                        vegan::vegdist(dat.comm, method = dist.method.choice) ~ X,
+                        na.action = "na.omit",
+                        add = TRUE))$adj.r.squared
+                  }
+    )
+  }else{
+    S.keep <- names(dat.pcnm)
+  }
+    
   if(!length(S.keep) > 0) S.keep <- names(S.R2[S.R2 == max(S.R2)])
   
   dat.pcnm.sig <- data.frame(dat.pcnm[,S.keep])
   names(dat.pcnm.sig) <- S.keep
   
   
-  # ---------------------------------------------------------------------------------
-  # -- Model selection from pre-screened variables using ordiR2step 
-  # ---------------------------------------------------------------------------------
-  # -- ENV [E] - select important environmental variables
-  mod0.env <- vegan::capscale(
-    vegan::vegdist(dat.comm, method = dist.method.choice) ~ 1, 
-    dat.env.sig, 
-    na.action = "na.omit",
-    add = TRUE) #unconstrained RDA (no predictor variables)
+  #####################################################
+  ############ selecting variables for db RDA models
+  #####################################################
+
+  #####################################################
+  # -- ENV model selection, if necessary
+  #####################################################
+  if(use.all.env.vars){
+    varselect.env.list <- names(dat.env.sig)
+  }else{
+    #####################################################
+    # -- if NOT using all vars
+    # -- Model selection from pre-screened variables using ordiR2step 
+    #####################################################
+    
+    #####################################################
+    # -- ENV [E] - select important environmental variables
+    #####################################################
+    mod0.env <- vegan::capscale(
+      vegan::vegdist(dat.comm, method = dist.method.choice) ~ 1, 
+      dat.env.sig, 
+      na.action = "na.omit",
+      add = TRUE) #unconstrained RDA (no predictor variables)
+    
+    mod1.env <- vegan::capscale(
+      vegan::vegdist(dat.comm, method = dist.method.choice) ~ ., 
+      dat.env.sig, 
+      na.action = "na.omit",
+      add = TRUE) #constrained RDA (with all predictor variables) 
+    
+    mod.step.env <- vegan::ordiR2step(mod0.env,
+                                      scope = list(upper = mod1.env,
+                                                   lower = mod0.env),
+                                      perm.max = 999) #model selection
+    
+    varselect.env.list <- names(mod.step.env[[7]]$envcentre) #create a list of names of the predictor variables that were significant
+    
+    if(!length(varselect.env.list) > 0) varselect.env.list<-names(E.R2[E.R2==max(E.R2)]) #if varselect.env.list is empty, keep the var with highest R2
+    
+    dat.env.sig <- data.frame(dat.env.sig[varselect.env.list]) #keep only the significant predictor variables
+  }
   
-  mod1.env <- vegan::capscale(
-    vegan::vegdist(dat.comm, method = dist.method.choice) ~ ., 
-    dat.env.sig, 
-    na.action = "na.omit",
-    add = TRUE) #constrained RDA (with all predictor variables) 
-  
-  mod.step.env <- vegan::ordiR2step(mod0.env,
-                                    scope = list(upper = mod1.env,
-                                                 lower = mod0.env),
-                                    perm.max = 999) #model selection
-  
-  varselect.env.list <- names(mod.step.env[[7]]$envcentre) #create a list of names of the predictor variables that were significant
-  
-  if(!length(varselect.env.list) > 0) varselect.env.list<-names(E.R2[E.R2==max(E.R2)]) #if varselect.env.list is empty, keep the var with highest R2
-  
-  dat.env.sig <- data.frame(dat.env[varselect.env.list]) #keep only the significant predictor variables
-  names(dat.env.sig) <- varselect.env.list
-  
-  # -- SPATIAL [S] - select important spatial variables
-  mod0.pcnm <- vegan::capscale(
-    vegan::vegdist(dat.comm, method = dist.method.choice) ~ 1, 
-    dat.pcnm.sig, 
-    na.action = "na.omit",
-    add = TRUE) #unconstrained RDA (no predictor variables)
-  
-  mod1.pcnm <- vegan::capscale(
-    vegan::vegdist(dat.comm, method = dist.method.choice) ~ ., 
-    dat.pcnm.sig, 
-    na.action = "na.omit",
-    add = TRUE) #constrained RDA (with all predictor variables) 
-  
-  mod.step.pcnm <- vegan::ordiR2step(mod0.pcnm,
-                                     scope = list(upper = mod1.pcnm,
-                                                  lower = mod0.pcnm),
-                                     perm.max = 999) #model selection
-  
-  varselect.pcnm.list <- names(mod.step.pcnm[[7]]$envcentre) #create a list of names of the predictor variables that were significant
-  
-  if(!length(varselect.pcnm.list) > 0) varselect.pcnm.list <- names(S.R2[S.R2==max(S.R2)]) #if varselect.env.list is empty, keep the var with highest R2
-  
-  dat.pcnm.sig <- data.frame(dat.pcnm[varselect.pcnm.list]) #keep only the significant predictor variables
-  names(dat.pcnm.sig) <- varselect.pcnm.list
+  #####################################################
+  # -- SPATIAL model selection, if necessary
+  #####################################################
+  if(use.all.space.vars){
+    varselect.pcnm.list <- names(dat.pcnm.sig)
+  }else{
+    #####################################################
+    # -- SPATIAL [S] - select important spatial variables
+    #####################################################
+    mod0.pcnm <- vegan::capscale(
+      vegan::vegdist(dat.comm, method = dist.method.choice) ~ 1, 
+      dat.pcnm.sig, 
+      na.action = "na.omit",
+      add = TRUE) #unconstrained RDA (no predictor variables)
+    
+    mod1.pcnm <- vegan::capscale(
+      vegan::vegdist(dat.comm, method = dist.method.choice) ~ ., 
+      dat.pcnm.sig, 
+      na.action = "na.omit",
+      add = TRUE) #constrained RDA (with all predictor variables) 
+    
+    mod.step.pcnm <- vegan::ordiR2step(mod0.pcnm,
+                                       scope = list(upper = mod1.pcnm,
+                                                    lower = mod0.pcnm),
+                                       perm.max = 999) #model selection
+    
+    varselect.pcnm.list <- names(mod.step.pcnm[[7]]$envcentre) #create a list of names of the predictor variables that were significant
+    
+    if(!length(varselect.pcnm.list) > 0) varselect.pcnm.list <- names(S.R2[S.R2==max(S.R2)]) #if varselect.env.list is empty, keep the var with highest R2
+    
+    dat.pcnm.sig <- data.frame(dat.pcnm.sig[varselect.pcnm.list]) #keep only the significant predictor variables
+  }
   
   
-  # ---------------------------------------------------------------------------------
+  #####################################################
   # -- variaiton paritioning with selected variables
-  # -----------------------------------------------
+  #####################################################
   #  Note that if no environmetnal variables are siginficant, I think 
   #  use the one with the largest R2. Similarly, I use the PCNM vector
   #  with the largest R2 if none are significant (but two were when I ran the analysis).
-  
-  # as far as I know, we can't use varpart() with capscale, so here's the varpart calcs by hand:
+  #  as far as I know, we can't use varpart() with capscale, so here's the varpart calcs by hand:
   
   # -- the dbRDA models
   mod.ab <- vegan::capscale(
@@ -334,44 +372,73 @@ fn.db.varpart <- function(
   
   dat.varpart[3, 'P.val'] <- anova(mod.c)[1,"Pr(>F)"]
   
+  ###################################################
+  # Return stats similar to varpart output in vegan
+  ###################################################
   return(dat.varpart)
 }
 
+####################################
 # -- test function on one timestep
+####################################
+
+# -- If using sim data, should include 2 env vars and 6 PCNM vars
 d.varpart.results <- fn.db.varpart(
   dat.comm,
   dat.env,
   dat.space,
-  dist.method.choice = 'horn'
+  dist.method.choice = 'horn',
+  use.all.env.vars = TRUE,
+  use.all.space.vars = TRUE
 )
 
-# -------------------
-# -- wrapper function
-# -------------------
-fn.varpart.longform.1.timestep <- function(
+# -- If using sim data, should include 1 env vars and 6 PCNM vars
+d.varpart.results <- fn.db.varpart(
+  dat.comm,
+  dat.env,
+  dat.space,
+  dist.method.choice = 'horn',
+  use.all.env.vars = FALSE,
+  use.all.space.vars = TRUE
+)
+
+# -- should include 2 env vars and 1 PCNM variable
+d.varpart.results <- fn.db.varpart(
+  dat.comm,
+  dat.env,
+  dat.space,
+  dist.method.choice = 'horn',
+  use.all.env.vars = TRUE,
+  use.all.space.vars = FALSE
+)
+
+# -- should include 1 env vars and 1 PCNM variable
+d.varpart.results <- fn.db.varpart(
+  dat.comm,
+  dat.env,
+  dat.space,
+  dist.method.choice = 'horn',
+  use.all.env.vars = FALSE,
+  use.all.space.vars = FALSE
+)
+
+
+
+
+
+####################################
+# -- wrapper function to apply to long-form data, no temporal resolution
+####################################
+fn.varpart.longform <- function(
   d.in.long,
   select.date = NA,
-  d.in.space = NA,
   ...
 ){
-  #select.date <- 1
-  if(!is.na(select.date)){
-    d.in.long.1 <- subset(d.in.long, DATE%in%c(NA,select.date))
-  }else{
-    d.in.long.1 <- d.in.long
-  }
-  
-  if(is.na(d.in.space)){
-    d.space.long <- subset(d.in.long, OBSERVATION_TYPE == 'SPATIAL_COORDINATE')
-  }else{
-    d.space.long <- d.in.space
-  }
-  
-  
+ 
   #######################################################
   # -- get community data, make wide
   #######################################################
-  d.comm.long <- subset(d.in.long.1, OBSERVATION_TYPE == 'TAXON_COUNT')
+  d.comm.long <- subset(d.in.long, OBSERVATION_TYPE == 'TAXON_COUNT')
   
   d.comm.wide <- d.comm.long %>% 
     reshape2::dcast(SITE_ID ~ VARIABLE_NAME,
@@ -382,7 +449,7 @@ fn.varpart.longform.1.timestep <- function(
   #######################################################
   # -- get env data, make wide
   #######################################################
-  d.env.long <- subset(d.in.long.1, OBSERVATION_TYPE == 'ENV_VAR')
+  d.env.long <- subset(d.in.long, OBSERVATION_TYPE == 'ENV_VAR')
   
   d.env.wide <- d.env.long %>% 
     reshape2::dcast(SITE_ID ~ VARIABLE_NAME,
@@ -393,6 +460,7 @@ fn.varpart.longform.1.timestep <- function(
   #######################################################
   # -- extract spatial coords
   #######################################################
+  d.in.space.long <- subset(d.in.long, OBSERVATION_TYPE == 'SPATIAL_COORDINATE')
   
   d.space.wide <- d.space.long %>% 
     reshape2::dcast(SITE_ID ~ VARIABLE_NAME,
@@ -400,7 +468,9 @@ fn.varpart.longform.1.timestep <- function(
                     fun.aggregate = mean)%>% 
     select(-SITE_ID)
   
-  
+  #######################################################
+  # -- call db varpart function, return results
+  #######################################################
   d.varpart.results <- fn.db.varpart(
     dat.comm = d.comm.wide,
     dat.env = d.env.wide,
@@ -410,9 +480,24 @@ fn.varpart.longform.1.timestep <- function(
   return(d.varpart.results)
 }
 
-fn.varpart.longform.1.timestep(d.in.long,
-                               select.date = 1)
+####################################
+# --test wrapper function
+####################################
+fn.varpart.longform(d.in.long,
+                    use.all.env.vars = TRUE,
+                    use.all.space.vars = TRUE)
 
+fn.varpart.longform(d.in.long,
+                    use.all.env.vars = FALSE,
+                    use.all.space.vars = TRUE)
+
+fn.varpart.longform(d.in.long,
+                    use.all.env.vars = TRUE,
+                    use.all.space.vars = FALSE)
+
+####################################
+# -- wrapper function to apply to long-form data, with temporal resolution
+####################################
 d.in.long %>% group_by(DATE)
 
 if(is.na(d.in.space)){
