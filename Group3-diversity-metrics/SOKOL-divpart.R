@@ -11,7 +11,7 @@ library(dplyr)
 #######################################################
 # -- download data off google drive using google-id
 #######################################################
-data_id_googledrive <- "0B2P104M94skvQVprSnBsYjRzVms" #simulated data
+data_id_googledrive <- "0BwguSiR80XFZa0NDckg5RmoyQVk" #JRN Lizards data
 download.link <- paste0("https://drive.google.com/uc?export=download&id=",data_id_googledrive)
 d.in.long <- read.csv(file = download.link, header = T,
                       stringsAsFactors = FALSE)
