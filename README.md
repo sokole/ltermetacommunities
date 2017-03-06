@@ -7,10 +7,10 @@ The purpose of this site is to promote collaboration within the Long Term Ecolog
 This working group initially met at the LTER All Scientists Meeting (ASM 2015), which took place from 30 August through 2 September 2015. We are currently supported (2016-2018, [link](http://intranet2.lternet.edu/content/congratulations-2016-round-1-synthesis-working-groups)) by the LTER National Communications Office (NCO).   
 ####Google Drive Links
 
-* Google Drive parent directory ([LTER Metacommunities](https://drive.google.com/drive/folders/0B2P104M94skvfjJEdnBfelI4dHkzejdWeTdTQnNrNEJadUNXaFREWTRhSU9WaS1iMVFaLWc?usp=sharing))
-* Google Drive DATA ([link](https://drive.google.com/drive/folders/0B2P104M94skvdzlDb2p2WTVYa00))
+* Parent directory ([LTER Metacommunities](https://drive.google.com/drive/folders/0B2P104M94skvfjJEdnBfelI4dHkzejdWeTdTQnNrNEJadUNXaFREWTRhSU9WaS1iMVFaLWc?usp=sharing))  
 * Workshop 1 NCO collaborative documents ([link](https://drive.google.com/open?id=0B_UCMSc6G1YdTU5iMVVHdmYtTlk))  
 * Workshop 2 NCO collaborative documents ([link](https://drive.google.com/open?id=0B2P104M94skvaDZOZENsYktmZkU))  
+* LTER-DATA ([link](https://drive.google.com/drive/folders/0B2P104M94skvdzlDb2p2WTVYa00))
 * DATA STANDARDS document ([link](https://drive.google.com/open?id=1iTh6ghHHZZ_y7SH_Qlh1UoGa0LD0PogGvXLK-T-z5Dg))  
 * QA/QC Data Checks DRAFT document ([link](https://docs.google.com/document/d/16YwjEeQai9PJwN_TbCYi70SDrx8KhGfuVXD1qeecI_s/edit?usp=sharing))  
 
