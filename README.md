@@ -9,7 +9,8 @@ This working group initially met at the LTER All Scientists Meeting (ASM 2015), 
 
 * Google Drive parent directory ([LTER Metacommunities](https://drive.google.com/drive/folders/0B2P104M94skvfjJEdnBfelI4dHkzejdWeTdTQnNrNEJadUNXaFREWTRhSU9WaS1iMVFaLWc?usp=sharing))
 * Google Drive DATA ([link](https://drive.google.com/drive/folders/0B2P104M94skvdzlDb2p2WTVYa00))
-* Google Drive NCO collaborative documents ([link](https://drive.google.com/open?id=0B_UCMSc6G1YdTU5iMVVHdmYtTlk))
+* Workshop 1 NCO collaborative documents ([link](https://drive.google.com/open?id=0B_UCMSc6G1YdTU5iMVVHdmYtTlk))  
+* Workshop 2 NCO collaborative documents ([link](https://drive.google.com/open?id=0B2P104M94skvaDZOZENsYktmZkU))  
 * DATA STANDARDS document ([link](https://drive.google.com/open?id=1iTh6ghHHZZ_y7SH_Qlh1UoGa0LD0PogGvXLK-T-z5Dg))  
 * QA/QC Data Checks DRAFT document ([link](https://docs.google.com/document/d/16YwjEeQai9PJwN_TbCYi70SDrx8KhGfuVXD1qeecI_s/edit?usp=sharing))  
 
