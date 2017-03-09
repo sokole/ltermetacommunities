@@ -36,6 +36,13 @@ d.env.wide <- d.env.long %>%
                   value.var = 'VALUE',
                   fun.aggregate = mean)
 
+## d.env.wide2 <- d.env.long %>%
+##     group_by(SITE_ID, DATE, VARIABLE_NAME) %>%
+##     summarise(VALUE = mean(VALUE)) %>%
+##     tidyr::spread(VARIABLE_NAME, VALUE) %>%
+##     ungroup()
+
+
 #######################################################
 # -- extract spatial coords, make wide
 #######################################################
@@ -45,6 +52,10 @@ d.space.wide <- d.space.long %>%
   reshape2::dcast(SITE_ID ~ VARIABLE_NAME,
                   value.var = 'VALUE',
                   fun.aggregate = mean)
+
+## d.space.wide2 <- d.space.long %>% 
+##     tidyr::spread(VARIABLE_NAME, VALUE) %>%
+##     select(-DATE, -VARIABLE_UNITS, -OBSERVATION_TYPE)
 
 #######################################################
 #######################################################
@@ -260,13 +271,17 @@ fn.db.varpart <- function(
   
   
   #####################################################
-  # -- variaiton paritioning with selected variables
+  # -- variation paritioning with selected variables
   #####################################################
   #  Note that if no environmetnal variables are siginficant, I think 
   #  use the one with the largest R2. Similarly, I use the PCNM vector
   #  with the largest R2 if none are significant (but two were when I ran the analysis).
   #  as far as I know, we can't use varpart() with capscale, so here's the varpart calcs by hand:
-  
+
+  # note from Jono: we could build in here a stop.if.not.sig T/F for the ordR2step
+  # so people can use strict stopping criteria. i.e. stop if no env. vars sig.
+  # and R2 will be 0.
+    
   # -- the dbRDA models
   mod.ab <- vegan::capscale(
     vegan::vegdist(dat.comm, method = dist.method.choice) ~ ., 
@@ -483,15 +498,15 @@ fn.varpart.longform <- function(
 ####################################
 # --test wrapper function
 ####################################
-fn.varpart.longform(d.in.long,
+fn.varpart.longform(d.in.long, select.date = 1,
                     use.all.env.vars = TRUE,
                     use.all.space.vars = TRUE)
 
-fn.varpart.longform(d.in.long,
+fn.varpart.longform(d.in.long, select.date = 1,
                     use.all.env.vars = FALSE,
                     use.all.space.vars = TRUE)
 
-fn.varpart.longform(d.in.long,
+fn.varpart.longform(d.in.long, select.date = 1,
                     use.all.env.vars = TRUE,
                     use.all.space.vars = FALSE)
 
@@ -499,7 +514,6 @@ fn.varpart.longform(d.in.long,
 # -- wrapper function to apply to long-form data, with temporal resolution
 ####################################
 
-d.in.long
 d.in.space.long <- subset(d.in.long, OBSERVATION_TYPE == 'SPATIAL_COORDINATE') %>%
   select(-DATE)
 d.space.time.obs.matrix <- d.in.long %>% 
@@ -527,3 +541,43 @@ d.varpart.stats.by.time <- do(
 
 # returns a list. How shall we format output?
 
+lapply(d.varpart.stats.by.time, function(x) x)
+
+
+
+####################################
+### JONO's addition ----------------
+####################################
+
+fn.varpart.longform.ts <- function(
+  d.in.long,
+  ...
+  ){
+    d.in.space.long <- subset(d.in.long, OBSERVATION_TYPE == 'SPATIAL_COORDINATE') %>%
+  select(-DATE)
+d.space.time.obs.matrix <- d.in.long %>% 
+  filter(OBSERVATION_TYPE == 'ENV_VAR') %>%
+  select(SITE_ID, DATE)
+d.in.space.long.propagated <- full_join(d.space.time.obs.matrix,
+                                        d.in.space.long,
+                                        by = c('SITE_ID'))
+col.name.list <- names(d.in.long)
+d.in.long.propagated <- rbind(
+  d.in.space.long.propagated[,col.name.list],
+  subset(d.in.long, OBSERVATION_TYPE != 'SPATIAL_COORDINATE')[,col.name.list]
+)
+
+####################################
+# use dplyr::group_by and dplyr::do to apply by date
+####################################
+d.by.date <- d.in.long.propagated %>% group_by(DATE) 
+  
+d.varpart.stats.by.time <- do(
+  .data = d.by.date, 
+  d.stats = fn.varpart.longform(.,
+                                use.all.env.vars = TRUE,
+                                use.all.space.vars = FALSE))
+
+return(lapply(d.varpart.stats.by.time, function(x) x))
+}
+fn.varpart.longform.ts(d.in.long)
