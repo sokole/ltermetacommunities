@@ -1,4 +1,6 @@
 setwd("C:/Users/Aldo/MEGA/Projects/LTER/WK_group/data")
+library(dplyr)
+library(tidyr)
 
 # pop data
 fish  <- read.csv("NTL_Fish.csv", stringsAsFactors = F)
@@ -33,8 +35,6 @@ coord <- data.frame( OBSERVATION_TYPE = "SPATIAL_COORDINATE",
   )
 
 
-
-
 # environmental data ---------------------------------------
 
 # select ph and p (phosphorous) data
@@ -45,7 +45,7 @@ e_pph   <- chem %>%
 list_da <- e_pph$sampledate %>%
             strsplit("-") %>%
             unlist() %>% 
-            matrix(nrow(env_pph),3,byrow=T) %>%
+            matrix(nrow(e_pph),3,byrow=T) %>%
             as.data.frame(stringsAsFactors = F) %>%
             lapply(function(x) x = as.numeric(x)) 
            
@@ -86,7 +86,7 @@ env_long <- units %>%
               merge(env_pre)
 
 
-# Population data -----------------------------------------------------
+# Population data (marcoinvertebrates) ----------------------------------------------------
 
 # aggregate data at the lake level, across depths, and readings
 macr_avg <- macr %>%
@@ -111,3 +111,24 @@ data_set <- Reduce(function(...) rbind(...),
 
 write.csv(data_set, "NTL_Macroinvertebrates_long.csv", 
           row.names = F)
+
+
+# Population data (zooplankton) ----------------------------------------------------
+
+# get date
+date_z   <- zoo$sample_date %>%
+              strsplit(" ") %>%
+              unlist() %>%
+              matrix(nrow(zoo),2,byrow=T) %>%
+              as.data.frame() %>%
+              setNames(c("date","time")) %>%
+              select(date)
+
+# get month/day/year columns
+date_col <- date_z[,1] %>%
+              as.character() %>%
+              strsplit("/") %>%
+              unlist() %>%
+              matrix(nrow(zoo),3,byrow=T) %>%
+              as.data.frame() %>%
+              setNames(c("month","day","year"))
