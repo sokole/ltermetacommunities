@@ -7,6 +7,7 @@ library(testthat)
 fec_env      <- read.csv("FCE_env.csv", stringsAsFactors = F)
 fec_diat     <- read.csv("FCE_diatoms.csv", stringsAsFactors = F)
 fec_algae    <- read.csv("FCE_algae.csv", stringsAsFactors = F)
+env_names    <- read.csv("fec_env_var_names.csv",stringsAsFactors = F)
 
 # format diatom data
 vars <- c("OBSERVATION_TYPE","SITE_ID","DATE",
@@ -129,14 +130,37 @@ mean_env <- fec_env %>%
               summarise_each(funs(mean))
 
 # Environment in long form
-env_long  <- mean_env %>%
+env_pre  <- mean_env %>%
               as.data.frame() %>%
               gather(VARIABLE_NAME, VALUE,-Year,-PSU) %>%
               mutate(Year = Year + 2000,
-                     VARIABLE_UNITS = "UNIT",
                      OBSERVATION_TYPE = "ENV_VAR") %>%
               rename(DATE = Year,
-                     SITE_ID = PSU) %>%
+                     SITE_ID = PSU)
+              
+
+# change env_pre variable names to match with file with var. units
+# Change env_names column names
+env_names    <- setNames(env_names, c("VARIABLE_NAME", "VARIABLE_UNITS"))
+# function to update 
+sub_var_name <- function(x, string){
+  x   <- gsub(string,"",x)
+  return(x)
+}
+env_pre$VARIABLE_NAME <- sub_var_name(env_pre$VARIABLE_NAME,"_µs.cm")
+env_pre$VARIABLE_NAME <- sub_var_name(env_pre$VARIABLE_NAME,"_cm")
+#note regular expression trick in following line
+env_pre$VARIABLE_NAME <- sub_var_name(env_pre$VARIABLE_NAME,"_C$") 
+env_pre$VARIABLE_NAME <- sub_var_name(env_pre$VARIABLE_NAME,"_mL")
+env_pre$VARIABLE_NAME <- sub_var_name(env_pre$VARIABLE_NAME,"µg.m2.")
+
+# Test there is not differences
+expect_equal(length(setdiff(unique(env_pre$VARIABLE_NAME), unique(env_names$VARIABLE_NAME))),
+             0)
+
+# finally, env. data in long form 
+env_long <- env_names %>% 
+              merge(env_pre) %>%
               select_(.dots = vars)
 
 
@@ -146,7 +170,3 @@ data_set <- Reduce(function(...) rbind(...),
 
 write.csv(data_set, "FCE_diatoms_long.csv", 
           row.names = F)
-
-#write.csv(names(mean_env)[-c(1:2)], "fec_env_var_names.csv",
-#          row.names=F)
-
