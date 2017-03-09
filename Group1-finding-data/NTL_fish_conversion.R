@@ -10,7 +10,7 @@ library(devtools)
 
 path <- "Group1-finding-data/"
 file_hash <- "0B7AABlvKD6WjSTY3YUVKZ1AwLWs"
-output_file = "ntl_fish_withgear.csv"
+output_file = "NTL_fish_withgear.csv"
 
 ## Functions ----
 
@@ -19,7 +19,7 @@ make_data_long <- function(data) {
     # Name the fields as required by the data format
     rename(EFFORT_COUNT=effort,TAXON_COUNT=total_caught, SITE_ID=lakeid, DATE=year4, VARIABLE_NAME = spname) %>%
     # Computer the catch per unit effort as # of fish caught / effort
-    mutate(VARIABLE_COUNT = TAXON_COUNT/EFFORT_COUNT) %>%
+    mutate(VALUE = TAXON_COUNT/EFFORT_COUNT) %>%
     select(-TAXON_COUNT,-EFFORT_COUNT)
     #Adding the extra columns for observation type and unit
     result <- cbind(OBSERVATION_TYPE =(rep("TAXON_COUNT",length(long$DATE))), long, 
@@ -54,6 +54,10 @@ my_df <- my_df %>%
 
 ## transform the data into the long format
 long_data <- make_data_long(my_df)
+
+## Quick look at the time-series per gear
+ggplot(data=long_data, aes(x=DATE, y=VALUE, group = gearid, colour = gearid)) +
+  +     geom_line()
 
 # write the ouput file
 write.csv(long_data, file=file.path(path,output_file), row.names=FALSE)
