@@ -31,10 +31,10 @@ if(length(tot.bio) != s * t) cat("STOP: sites are not surveyed every years")
 
 # plot total community biomass across sites and years
 cex.x <- 1/10 * tot.bio
-plot(1:t, 1:s,  
-	type="n", ylab="Site", xlab="Time", main="Total community biomass")
-points(1:t, 1:s, pch=16, cex=cex.x, col="steelblue2")
-points(1:t, 1:s, pch=1, cex=cex.x)
+# plot(1:t, 1:s,  
+# 	type="n", ylab="Site", xlab="Time", main="Total community biomass")
+# points(1:t, 1:s, pch=16, cex=cex.x, col="steelblue2")
+# points(1:t, 1:s, pch=1, cex=cex.x)
 
 # matrix of Ni(t) with sites as row and time as colums
 Nit <- matrix(tot.bio, nrow=s, ncol=t, byrow=FALSE)
