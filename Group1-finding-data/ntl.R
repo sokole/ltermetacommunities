@@ -132,3 +132,47 @@ date_col <- date_z[,1] %>%
               matrix(nrow(zoo),3,byrow=T) %>%
               as.data.frame() %>%
               setNames(c("month","day","year"))
+
+# aggregate data at the lake level, across depths, and readings
+zoo_avg <- zoo %>%
+  group_by(lakeid, year4, species_code) %>% 
+  summarise(TAXON_COUNT = mean(density, na.rm=T))
+
+# zooplankton data in long form
+zoo_long <- zoo_avg %>%
+  select(year4, lakeid, TAXON_COUNT, species_code) %>%
+  setNames(c("DATE","SITE_ID","VALUE","VARIABLE_NAME")) %>%
+  mutate(VARIABLE_UNITS = "DENSITY",
+         OBSERVATION_TYPE = "AVERAGE_COUNTS") %>%
+  as.data.frame() %>%
+  select_(.dots = vars)
+
+# put it all together! -------------------------------------------------------------------
+data_set <- Reduce(function(...) rbind(...),
+                   list(coord, zoo_long, env_long))
+
+write.csv(data_set, "NTL_Zooplankton_long.csv", 
+          row.names = F)
+
+# Population data (fish) ----------------------------------------------------
+
+# aggregate data at the lake level, across depths, and readings
+fish_avg <- fish %>%
+  group_by(lakeid, year4, spname) %>%
+  summarise(TAXON_COUNT = mean(total_caught, na.rm=T))
+
+# fish data in long form
+fish_long <- fish_avg %>%
+  select(year4, lakeid, TAXON_COUNT, spname) %>%
+  setNames(c("DATE","SITE_ID","VALUE","VARIABLE_NAME")) %>%
+  mutate(VARIABLE_UNITS = "NUMBER",
+         OBSERVATION_TYPE = "AVERAGE_COUNTS") %>%
+  as.data.frame() %>%
+  select_(.dots = vars)
+
+# put it all together! -------------------------------------------------------------------
+data_set <- Reduce(function(...) rbind(...),
+                   list(coord, fish_long, env_long))
+
+write.csv(data_set, "NTL_Fish_long.csv", 
+          row.names = F)
