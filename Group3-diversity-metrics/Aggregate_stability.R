@@ -31,10 +31,10 @@ if(length(tot.bio) != s * t) cat("STOP: sites are not surveyed every years")
 
 # plot total community biomass across sites and years
 cex.x <- 1/10 * tot.bio
-plot(as.numeric(env$time), as.numeric(env$site),  
+plot(1:t, 1:s,  
 	type="n", ylab="Site", xlab="Time", main="Total community biomass")
-points(as.numeric(env$time), as.numeric(env$site), pch=16, cex=cex.x, col="steelblue2")
-points(as.numeric(env$time), as.numeric(env$site), pch=1, cex=cex.x)
+points(1:t, 1:s, pch=16, cex=cex.x, col="steelblue2")
+points(1:t, 1:s, pch=1, cex=cex.x)
 
 # matrix of Ni(t) with sites as row and time as colums
 Nit <- matrix(tot.bio, nrow=s, ncol=t, byrow=FALSE)
@@ -117,9 +117,6 @@ phi <- Covsum/((sum(sigi))^2)
 Beta1 <- 1/phi ##  spatial asynchrony-related variability
 
 res <- data.frame(cat=c("Gamma", "Alpha", "Beta"), val=c(GammaCV, AlphaCV, Beta1))
-library(ggplot2)
-p1 <- ggplot(res, aes(x=factor(cat), y=val)) + geom_bar(stat = "identity") + theme_bw() +
-	labs(title = "Multiplicative partitionning", x = "", y = "")
 
 res
 }
