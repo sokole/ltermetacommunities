@@ -1,0 +1,25 @@
+"","LTER.site","organism","body.size","trophic.group","biome","google.id","beta_type","gamma_temporal_bd","mean_alpha_temporal_bd","phi_bd","n_locations","n_times"
+"1","SBC","fish","macro","predators","marine","0BxUZSA1Gn1HZZU1vYWJWY0lMc0k","turnover_rate",0.468968574528723,0.707289620350996,0.663050271112412,11,16
+"2","SBC","fish","macro","predators","marine","0BxUZSA1Gn1HZZU1vYWJWY0lMc0k","turnover_rate_repl",0.206753017504387,0.267105160877484,0.774051002328706,11,16
+"3","SBC","fish","macro","predators","marine","0BxUZSA1Gn1HZZU1vYWJWY0lMc0k","turnover_rate_rich",0.262215557024336,0.440184459473511,0.595694717023773,11,16
+"4","SBC","fish","macro","predators","marine","0BxUZSA1Gn1HZZU1vYWJWY0lMc0k","total",0.264034893831394,0.3746501330452,0.704750567376788,11,16
+"5","SBC","fish","macro","predators","marine","0BxUZSA1Gn1HZZU1vYWJWY0lMc0k","total_repl",0.102645228361788,0.142513084579642,0.72025125738139,11,16
+"6","SBC","fish","macro","predators","marine","0BxUZSA1Gn1HZZU1vYWJWY0lMc0k","total_rich",0.161389665469606,0.232137048465557,0.695234416636221,11,16
+"7","NWT","plants","macro","primary producers","terrestrial","0B2P104M94skvQVprSnBsYjRzVms","turnover_rate",0.0884308281191531,0.179949697447677,0.491419709915687,88,11
+"8","NWT","plants","macro","primary producers","terrestrial","0B2P104M94skvQVprSnBsYjRzVms","turnover_rate_repl",0.0387884590742517,0.103858664432612,0.373473501572123,88,11
+"9","NWT","plants","macro","primary producers","terrestrial","0B2P104M94skvQVprSnBsYjRzVms","turnover_rate_rich",0.0496423690449014,0.0760910330150654,0.652407610698,88,11
+"10","NWT","plants","macro","primary producers","terrestrial","0B2P104M94skvQVprSnBsYjRzVms","total",0.066261031422905,0.120779345450325,0.548612274523026,88,11
+"11","NWT","plants","macro","primary producers","terrestrial","0B2P104M94skvQVprSnBsYjRzVms","total_repl",0.0292559352625294,0.0708953573012503,0.412663626733897,88,11
+"12","NWT","plants","macro","primary producers","terrestrial","0B2P104M94skvQVprSnBsYjRzVms","total_rich",0.0370050961603755,0.0498839881490744,0.741823128691891,88,11
+"13","SBC","sessile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZUFdnUGxKNW9ocFE","turnover_rate",0.138364494058908,0.372529978014236,0.371418415227837,11,16
+"14","SBC","sessile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZUFdnUGxKNW9ocFE","turnover_rate_repl",0.05104825108923,0.115451476797583,0.442161958471359,11,16
+"15","SBC","sessile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZUFdnUGxKNW9ocFE","turnover_rate_rich",0.0873162429696784,0.257078501216652,0.339648171886971,11,16
+"16","SBC","sessile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZUFdnUGxKNW9ocFE","total",0.169191637716147,0.234607552600394,0.721168759661928,11,16
+"17","SBC","sessile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZUFdnUGxKNW9ocFE","total_repl",0.0319712352389951,0.0701685281294166,0.455634970424752,11,16
+"18","SBC","sessile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZUFdnUGxKNW9ocFE","total_rich",0.137220402477152,0.164439024470978,0.834475897181998,11,16
+"19","SBC","mobile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZRmZWOGM5c3F5aEE","turnover_rate",0.184698997860754,0.405554358557428,0.455423530689536,11,16
+"20","SBC","mobile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZRmZWOGM5c3F5aEE","turnover_rate_repl",0.0584832183594832,0.149939407432361,0.39004568152549,11,16
+"21","SBC","mobile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZRmZWOGM5c3F5aEE","turnover_rate_rich",0.12621577950127,0.255614951125067,0.493773071354953,11,16
+"22","SBC","mobile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZRmZWOGM5c3F5aEE","total",0.160161555798236,0.276054979481471,0.580179919590931,11,16
+"23","SBC","mobile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZRmZWOGM5c3F5aEE","total_repl",0.0481143469963866,0.0932069885379344,0.516209650704512,11,16
+"24","SBC","mobile invertebrates","meso","primary consumers","marine","0BxUZSA1Gn1HZRmZWOGM5c3F5aEE","total_rich",0.11204720880185,0.182847990943537,0.61278884292718,11,16
