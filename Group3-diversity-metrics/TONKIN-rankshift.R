@@ -31,26 +31,11 @@ d.comm.wide <- d.comm.long %>%
              spread(VARIABLE_NAME, VALUE) %>%
              ungroup()
 
-#######################################################
-#######################################################
-## -- extract 1 time step to test function
-######################################################
-######################################################
-
-dat.comm <- subset(d.comm.wide, SITE_ID == 1) %>%
-    select(-SITE_ID) %>% 
-    data.frame(row.names = NULL) %>% 
-    arrange(DATE) %>% 
-    na.omit() %>%
-    gather(SPP, VALUE, -DATE)
-
-codyn::rank_shift(df = dat.comm,
-                  time.var = 'DATE',
-                  species.var = 'SPP',
-                  abundance.var = 'VALUE',
-                  replicate.var = as.character(NA))
 
 
+
+
+    
 ####################################
 # use dplyr::group_by and dplyr::do to apply by site
 ####################################
@@ -62,16 +47,19 @@ dat.comm.by.site <- d.comm.wide %>%
 
 d.rankshift.stats.by.site <- do(
     .data = dat.comm.by.site,
-    d.stats = codyn::rank_shift(
-                         df = .,
-                         time.var = 'DATE',
-                         species.var = 'SPP',
-                         abundance.var = 'VALUE',
-                         replicate.var = as.character(NA)))
+    codyn::rank_shift(
+               df = .,
+               time.var = 'DATE',
+               species.var = 'SPP',
+               abundance.var = 'VALUE',
+               replicate.var = as.character(NA)))
 
-lapply(d.rankshift.stats.by.site, function(x) x)
- 
+mean.alpha.rankshift <- d.rankshift.stats.by.site %>%
+    summarise(meanMRS = mean(MRS))
 
+mean.mean.alpha.rankshift <- mean.alpha.rankshift %>%
+    summarise(mean_alpha = mean(meanMRS))
+    
 dat.comm.by.all <- d.comm.wide %>%
     data.frame(row.names = NULL) %>% 
     arrange(DATE) %>%
@@ -86,4 +74,36 @@ d.rankshift.stats.by.all <- codyn::rank_shift(
                          species.var = 'SPP',
                          abundance.var = 'VALUE',
                          replicate.var = as.character(NA))
+
+mean.gamma.rankshift <- d.rankshift.stats.by.all %>%
+    summarise(mean_gamma = mean(MRS))
+
+rankshift.results <- cbind(mean.mean.alpha.rankshift, mean.gamma.rankshift) %>%
+    gather(Metric, Value)
+
+
+# ------------------------------------------------------------------
+# Function to make rankshift work on longform
+# This takes longform data, calculates global mean mean rankshift
+# and also the mean of mean local rankshift across the full time
+# period. 
+# ------------------------------------------------------------------
+
+fn.rankshift.long <- function(
+  d.in.long,
+  ...){
+
+#######################################################
+# -- get community data, make wide
+#######################################################
+d.comm.long <- subset(d.in.long, OBSERVATION_TYPE == 'TAXON_COUNT')
+
+d.comm.wide <- d.comm.long %>% 
+    group_by(SITE_ID, DATE, VARIABLE_NAME) %>%
+             summarise(VALUE = mean(VALUE)) %>%
+             spread(VARIABLE_NAME, VALUE) %>%
+             ungroup()
+
+    
+
 
