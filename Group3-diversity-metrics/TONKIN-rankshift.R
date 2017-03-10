@@ -18,6 +18,7 @@ test.dat <- d.in.long
 fn.rankshift.long <- function(d.in.long,
                               ...){
 
+### load required packages
     library(dplyr)
     library(tidyr)
 
