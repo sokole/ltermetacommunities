@@ -3,18 +3,16 @@
 #########################
 library(tidyverse)
 
-source("RFUNC-beta.div.comp.R")
-source("RFUNC-LCBD.comp.R")
+source("Group3-diversity-metrics/FUNCTIONS-metacomm-stability-decomp-20170309.R")
 library(ade4)
 library(vegan)
-
 
 #########################
 # read data
 #########################
 # <<read via google id here>>
 
-dat.in.long <- read.csv('Y1.csv')
+dat.in.long <- read.csv('Group3-diversity-metrics/TEST-DATA-Y1-long.csv')
 
 #########################
 # user specified variables
@@ -33,126 +31,6 @@ dat.in.wide.spp <- dat.in.long[,c(location_name,
                                   time_step_name,
                                   taxon_name,
                                   taxon_count_name)] %>% tidyr::spread(key = variable, value = value)
-
-######################################################
-######################################################
-######################################################
-######################################################
-# functions
-#########################
-
-# -- total beta-diversity
-fn_bd_total <- function(
-  Y, #site by species counts or RAs
-  ...
-){
-  D <- vegan::vegdist(Y, ...)
-  D_mat <- as.matrix(D)
-  D_lower_tri <- D_mat[lower.tri(D_mat, diag = FALSE)]
-  n_obs <- nrow(D_mat)
-  return(sum(D_lower_tri) / (n_obs * (n_obs -1)))
-}
-
-# -- cumulative path-length beta-diversity
-fn_bd_cum_path <- function(
-  Y, #site by species counts or RAs
-  order_vector = 1:nrow(Y),
-  ...
-){
-  D <- as.matrix(vegan::vegdist(Y[order_vector,], ...))
-  D_mat_sequential_obs <- diag(D[-1,-ncol(D)]) #sub-diagonal
-  cumulative_path_bd <- sum(D_mat_sequential_obs)
-  return(cumulative_path_bd)
-}
-
-# -- average inter-annual turnover "rate"
-fn_bd_mean_turnover_rate <- function(
-  Y, #site by species counts or RAs
-  order_vector = 1:nrow(Y),
-  ...
-){
-  D <- as.matrix(vegan::vegdist(Y[order_vector,], ...))
-  D_mat_sequential_obs <- diag(D[-1,-ncol(D)]) #sub-diagonal
-  cumulative_path_bd <- sum(D_mat_sequential_obs)
-  return(cumulative_path_bd/(nrow(Y)-1))
-}
-
-# -- bd component SS for all pairwise observations
-fn_bd_components <- function(
-  Y, #site by species counts or RAs
-  bd_component_name = NULL, #options are 'D' 'repl' or 'rich', default is 'D'
-  coef = "S",
-  quant = TRUE,
-  ...
-){
-  # source('RFUNC-beta.div.comp.R')
-  # requires beta.div.comp -- assume this is in namespace. 
-  # Will be in package as internal function.
-  bd_all <- beta.div.comp(Y, coef = coef, quant = quant)
-  
-  if(is.null(bd_component_name)){
-    D <- bd_all$D
-  } else {
-    D <- bd_all[[bd_component_name]]
-  }
-  
-  D_mat <- as.matrix(D)
-  D_lower_tri <- D_mat[lower.tri(D_mat, diag = FALSE)]
-  n_obs <- nrow(D_mat)
-  return(sum(D_lower_tri) / (n_obs * (n_obs -1)))
-}
-
-
-# -- cumulative path-length beta-diversity compnents
-fn_bd_components_cum_path <- function(
-  Y, #site by species counts or RAs
-  order_vector = 1:nrow(Y),
-  bd_component_name = NULL, #options are 'D' 'repl' or 'rich', default is 'D'
-  coef = "S",
-  quant = TRUE,
-  ...
-){
-  # source('RFUNC-beta.div.comp.R')
-  # requires beta.div.comp -- assume this is in namespace. 
-  # Will be in package as internal function.
-  bd_all <- beta.div.comp(Y, coef = coef, quant = quant)
-  
-  if(is.null(bd_component_name)){
-    D <- bd_all$D
-  } else {
-    D <- bd_all[[bd_component_name]]
-  }
-  
-  D_mat <- as.matrix(D)
-  D_mat_sequential_obs <- diag(D_mat[-1,-ncol(D_mat)]) #sub-diagonal
-  cumulative_path_bd <- sum(D_mat_sequential_obs)
-  return(cumulative_path_bd)
-}
-
-fn_bd_components_mean_turnover_rate <- function(
-  Y, #site by species counts or RAs
-  order_vector = 1:nrow(Y),
-  bd_component_name = NULL, #options are 'D' 'repl' or 'rich', default is 'D'
-  coef = "S",
-  quant = TRUE,
-  ...
-){
-  # source('RFUNC-beta.div.comp.R')
-  # requires beta.div.comp -- assume this is in namespace. 
-  # Will be in package as internal function.
-  bd_all <- beta.div.comp(Y, coef = coef, quant = quant)
-  
-  if(is.null(bd_component_name)){
-    D <- bd_all$D
-  } else {
-    D <- bd_all[[bd_component_name]]
-  }
-  
-  D_mat <- as.matrix(D)
-  D_mat_sequential_obs <- diag(D_mat[-1,-ncol(D_mat)]) #sub-diagonal
-  cumulative_path_bd <- sum(D_mat_sequential_obs)
-  return(cumulative_path_bd/(nrow(Y)-1))
-}
 
 ######################################################
 ######################################################
