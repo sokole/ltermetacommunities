@@ -8,12 +8,19 @@ d.in.long <- read.csv(file = download.link, header = T,
                       stringsAsFactors = FALSE)
 
 test.dat <- d.in.long
-# ------------------------------------------------------------------
-# Function to make rankshift work on longform
-# This takes longform data, calculates global mean mean rankshift
-# and also the mean of mean local rankshift across the full time
-# period. 
-# ------------------------------------------------------------------
+
+### ------------------------------------------------------------------
+### Function to make rankshift work on longform data.
+### This takes longform data, calculates global mean mean rankshift
+### and also the mean of mean local rankshift across the full time
+### period.
+### The result is a list with four components: 'summary' (mean of the
+### mean regional rank shift), 'local.raw' (the raw mean rank shift
+### of all sites in the region at all year_pairs), 'local.mean' (the
+### mean of mean local rank shift per site - taking mean of
+### year_pairs), and 'regional' (the raw mean rank shift at the
+### regional scale). 
+### ------------------------------------------------------------------
 
 fn.rankshift.long <- function(d.in.long,
                               ...){
@@ -32,7 +39,6 @@ fn.rankshift.long <- function(d.in.long,
         spread(VARIABLE_NAME, VALUE) %>%
         ungroup()
 
-    
 ### ------------------------------------------------------------------
 ### use dplyr::group_by and dplyr::do to apply by site
 ### ------------------------------------------------------------------
@@ -83,9 +89,11 @@ fn.rankshift.long <- function(d.in.long,
         summarise(mean_gamma = mean(MRS))
 
 ### calculate the mean of these
-### i.e. the mean of all timesteps    
+### i.e. the mean of all timesteps
+### calculate ratio between local and regional rank shift    
     rankshift.results <- cbind(mean.mean.alpha.rankshift,
                                mean.gamma.rankshift) %>%
+        mutate(ratio = mean_alpha / mean_gamma) %>%
         gather(Metric, Value)
 
     return(list(summary = rankshift.results,
