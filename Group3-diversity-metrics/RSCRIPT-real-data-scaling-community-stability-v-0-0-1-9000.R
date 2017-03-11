@@ -17,14 +17,11 @@ library(vegan)
 #########################
 fn_comp_stability_components <- function(
   # dat.in.long <- read.csv('Group3-diversity-metrics/TEST-DATA-Y1-long.csv')
-  dat.in.long,
-  #########################
-  # user specified variables
-  #########################
-  location_name = 'site',
-  time_step_name = 'time',
-  taxon_name = 'variable',
-  taxon_count_name = 'value',
+  dat.in.long = d.in.long,
+  location_name = 'SITE_ID',
+  time_step_name = 'DATE',
+  taxon_name = 'VARIABLE_NAME',
+  taxon_count_name = 'VALUE',
   ...){
   
   #########################
@@ -33,12 +30,21 @@ fn_comp_stability_components <- function(
   
   #########################
   # make species wide
-  dat.in.wide.spp <- dat.in.long[,c(location_name,
-                                    time_step_name,
-                                    taxon_name,
-                                    taxon_count_name)] %>% 
+  dat.in.long <- dat.in.long[,c(location_name,
+                                 time_step_name,
+                                 taxon_name,
+                                 taxon_count_name)]
+  
+  dat.in.long[,taxon_count_name] <- as.numeric(dat.in.long[,taxon_count_name])
+  
+  dat.in.wide.spp <- dat.in.long %>% 
+    group_by_(.dots = c(location_name, time_step_name, taxon_name)) %>%
+    summarise_all(funs( mean(as.numeric(.), na.rm = TRUE))) %>%
     tidyr::spread_(key_col = taxon_name, 
-                   value_col = taxon_count_name)
+                   value_col = taxon_count_name,
+                   fill = 0) %>%
+    na.omit()
+
   
   ######################################################
   # steps to calculate stability
@@ -47,6 +53,7 @@ fn_comp_stability_components <- function(
   # -- total BD
   ################
   # 1 -- temporal beta-div at each site
+  
   alpha_temporal_bd <- dat.in.wide.spp %>% 
     group_by_(.dots = location_name) %>% 
     do(data.frame(bd_time = fn_bd_components(.[,taxon.list],
@@ -265,7 +272,10 @@ data_list <- read.csv(file = download.link,
 #######################################################
 #######################################################
 
-i_data_record <- data_list[9,] #NWT
+i <- 9 #NWT
+i <- 4 #CAP birds
+
+
 #######################################################
 # -- download data from google drive using google-id 
 # and make massive long-form data frame
@@ -299,5 +309,5 @@ for(i in 1:nrow(data_list)){
   print(i_data_record)
 }
 
-write.csv(data_ALL, 'Group3-diversity-metrics/data-comp-stability-components.csv')
+# write.csv(data_ALL, 'Group3-diversity-metrics/data-comp-stability-components.csv')
     
