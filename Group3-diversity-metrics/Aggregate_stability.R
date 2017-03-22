@@ -31,7 +31,7 @@ tot.bio <- apply(Y, 1, sum)
 if(length(tot.bio) != s * t) cat("STOP: sites are not surveyed every years")
 
 # matrix of Ni(t) with sites as row and time as colums
-Nit <- matrix(tot.bio, nrow=s, ncol=t, byrow=FALSE)
+Nit <- matrix(tot.bio, nrow=s, ncol=t, byrow=TRUE)
 
 # compute the average temporal biomass at each site
 mui <- apply(Nit, 1, mean)
