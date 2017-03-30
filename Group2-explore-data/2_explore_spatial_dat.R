@@ -45,15 +45,26 @@ summary(dat)
 # Create color palette for heatmaps
 heat.pal.spectral <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
 
-#visualize the distance matrix:
+# Visualize the distance matrix:
 dist.bt.sites <- melt(dat$distance.mat)  #windows()
 
+# Distance matrix plot
 ggplot(data = dist.bt.sites, aes(x=Var1, y=Var2, fill=value)) + 
   geom_tile() +
   scale_fill_gradientn(colours = heat.pal.spectral(100), name = "Distance") +
   xlab("Site") +
   ylab("Site")
 
+# ---------------------------------------------------------------------------------------------------
+# Plot sites in geographic space without maps
+ggplot(data = dat$longlat, aes(x=longitude, y=latitude)) + 
+  geom_point(fill = "blue", shape = 21, size = 3) +
+  xlab("Longitude") +
+  ylab("Latitude") +
+  theme_bw()
+
+# ---------------------------------------------------------------------------------------------------
+# Overlay geographic location of sites with maps
 #windows() 
 #quartz()
 #plot on world map
