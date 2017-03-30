@@ -50,7 +50,8 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 
 # ---------------------------------------------------------------------------------------------------
 # IMPORT DATA
-dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
+dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key)) %>%
+  dplyr::select(-X) # Remove column that contains rownames
 
 # MAKE DATA LIST
 dat <- list()
@@ -58,7 +59,6 @@ dat <- list()
 # COMMUNITY DATA 
 comm.long <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ] 
 comm.long <- comm.long %>%
-  dplyr::select(-X) %>%  # Remove column that contains rownames
   droplevels()
 
 # Subset data if necessary
@@ -127,11 +127,11 @@ for (package in c('dplyr', 'tidyr', 'XML', 'sp', 'geosphere', 'rgdal','maps','re
 }
 
 #pull out coordinate data and make sure that it is numeric
-cord =filter(dat.long, OBSERVATION_TYPE=="SPATIAL_COORDINATE");head(cord)
-cord$SITE_ID=toupper(cord$SITE_ID)
+cord <- filter(dat.long, OBSERVATION_TYPE=="SPATIAL_COORDINATE");head(cord)
+cord$SITE_ID <- toupper(cord$SITE_ID)  # Ensure sites are in all caps
 cord <- droplevels(cord)
 str(cord)
-cord.wide = spread(cord,VARIABLE_NAME, VALUE);head(cord.wide) #create rows from lat long
+cord.wide <- spread(cord, VARIABLE_NAME, VALUE);head(cord.wide) #create rows from lat long
 sites=c(unique(cord.wide$SITE_ID));sites
 
 # keep the records that are _not_ duplicated
