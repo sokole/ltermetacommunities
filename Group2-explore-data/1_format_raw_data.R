@@ -37,7 +37,7 @@ data.set <- "SBC-fish-Castorani_Lamy"
 data.key <- "0BxUZSA1Gn1HZZU1vYWJWY0lMc0k" # Google Drive file ID 
 
 # ---------------------------------------------------------------------------------------------------
-# Set working environment
+# Set working environment 
 setwd("~/Google Drive/LTER Metacommunities")
 
 # Check for and install required packages
@@ -132,21 +132,18 @@ cord$SITE_ID <- toupper(cord$SITE_ID)  # Ensure sites are in all caps
 cord <- droplevels(cord)
 str(cord)
 cord.wide <- spread(cord, VARIABLE_NAME, VALUE);head(cord.wide) #create rows from lat long
-sites=c(unique(cord.wide$SITE_ID));sites
+sites <- c(unique(cord.wide$SITE_ID));sites
 
 # keep the records that are _not_ duplicated
-cord.wide =subset(cord.wide, !duplicated(SITE_ID));dim(cord.wide)  # here we selcet rows (1st dimension) that are different from the object dups2 (duplicated records)
+cord.wide <- subset(cord.wide, !duplicated(SITE_ID));dim(cord.wide)  # here we selcet rows (1st dimension) that are different from the object dups2 (duplicated records)
 cord.wide
 cord.wide$latitude <- as.numeric(as.character(cord.wide$LAT)) 
 cord.wide$longitude <- as.numeric(as.character(cord.wide$LONG)) #cord.wide$longitude <- as.numeric(as.character(cord.wide$longitude))
-cord.wide=cord.wide[c("longitude", "latitude")] #pull last two columns and reorder
-
-
+cord.wide <- cord.wide[c("longitude", "latitude")] #pull last two columns and reorder
 
 #add number of sites and long/lat coords to data list:
 dat$n.sites <- length(sites)
 dat$longlat <- cord.wide
-
 
 #make data spatially explicit
 coordinates(cord.wide) = c("longitude", "latitude") #coordinates(cord.wide) <- c("longitude", "latitude") 
@@ -163,14 +160,14 @@ summary(cord.wide)
 #summary(cord.wide) #check transformation
 
 #create a distance matrix between sites, best fit distance function TBD
-distancemat=(distm(cord.wide, fun=distVincentyEllipsoid)/1000);distancemat #km distance
-rownames(distancemat) = sites
-colnames(distancemat) = sites
+distance.mat <- (distm(cord.wide, fun = distVincentyEllipsoid)/1000);distance.mat #km distance
+rownames(distance.mat) <- sites
+colnames(distance.mat) <- sites
 
 #add distance matrix to data list
-dat$distancemat <- distancemat
-#str(dat)
+dat$distance.mat <- distance.mat
 
+# ---------------------------------------------------------------------------------------------------
 # ENVIRONMENTAL COVARIATES
 env.long <- subset(dat.long, OBSERVATION_TYPE == "ENV_VAR")
 env.long <- droplevels(env.long)
@@ -178,24 +175,32 @@ str(env.long)
 
 levels(env.long$VARIABLE_UNITS)
 levels(env.long$VARIABLE_NAME)
-#convert to wide
+
+# Convert from long to wide
 env.wide <- env.long %>%
   select(-VARIABLE_UNITS) %>%
   tidyr::spread(VARIABLE_NAME,  VALUE)
 
-#add environmental covaiates to data list
-dat$n.years <- length(unique(dat$comm$DATE))
+# Add environmental covaiates to data list
+dat$n.years <- length(unique(dat$comm.long$DATE))
 dat$n.covariates <- length(levels(env.long$VARIABLE_NAME))
 dat$cov.names <- levels(env.long$VARIABLE_NAME)
 dat$env <- env.wide
-#NOTE: nrow in dat$comm should be the same as nrow in dat$env should be the same as # of years * # of sites (for a balanced design where each row represents a site-year; important for future analyses) 
-nrow(dat$comm); nrow(dat$env); dat$n.years * dat$n.sites
 
-#str(dat)
+#NOTE: IF THE DATA ARE COMPLETELY BALANCED OVER SPACE AND TIME ... the number of rows in "dat$comm.wide" should be the same as nrow in "dat$env" should be the same as no. of years * no. of sites
+nrow(dat$comm.wide); nrow(dat$env); dat$n.years * dat$n.sites
+
+# Are all year-by-site combinations in community data matched by environmental data?
+ifelse(nrow(dat$comm.wide) == nrow(dat$env), "Yes", "No")
+
+# Is community data balanced over space and time?
+ifelse(nrow(dat$comm.wide) == dat$n.years * dat$n.sites, "Yes", "No")
+
+# Inspect summary of 'dat' list 
 summary(dat)
 
 #write .Rdata object into the "Intermediate_data" directory 
 filename <- paste(data.set,".Rdata", sep="")
 save(dat, file = paste("Intermediate_data/",filename,sep=""))
 
-#now, explore the data and perform further QA/QC with the scripts "2_explore_spatial_dat.R", "3_explore_comm_dat.R", and "4_explore_environmenral_dat.R"
+# Now, explore the data and perform further QA/QC with the scripts "2_explore_spatial_dat.R", "3_explore_comm_dat.R", and "4_explore_environmenral_dat.R"
