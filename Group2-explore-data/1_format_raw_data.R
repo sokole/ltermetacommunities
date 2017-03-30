@@ -64,7 +64,7 @@ comm.long <- droplevels(comm.long)
 #comm.long <- droplevels(comm.long)
 str(comm.long)  # Inspect the structure of the community data
 
-#Add number of species to data list:
+#Add number of unique taxa to data list:
 dat$n.spp <- length(levels(comm.long$VARIABLE_NAME))
 
 # Ensure that community data VALUE and DATE are coded as numeric
@@ -92,25 +92,28 @@ ifelse(FALSE %in%
 # ---------------------------------------------------------------------------------------------------
 # Check balanced sampling of species across space and time by inspecting table, and add to data list
 xtabs(~ SITE_ID + DATE, data = comm.long)
+hist(na.omit(dat.long$DATE))
+
 ifelse(length(unique(xtabs(~ SITE_ID + DATE, data = comm.long))) == 1,
        "OK: Equal number of taxa recorded across space and time.", 
        "ERROR: Unequal numbers of observations across space and time, or taxa list not fully propagated across space and time. Inspect contingency table.")
 
+# Check spacing between temporal sampling
+
+
+# ---------------------------------------------------------------------------------------------------
 # Add to dat list the unique taxa
-dat$TAXON_GROUPS <- unique(comm.long$TAXON_GROUP)  
 dat$comm.long <- comm.long
 
 # Convert community data to wide form
 comm.wide <- comm.long %>%
   select(-VARIABLE_UNITS) %>%
-  select(-TAXON_GROUP) %>%  #TURN THIS ON ONLY IF NEEDED
   spread(VARIABLE_NAME,  VALUE)
 
-  
 dat$comm.wide <- comm.wide
 summary(dat)
 
-
+# ---------------------------------------------------------------------------------------------------
 # SPATIAL DATA
 # Check for and install required packages
 
