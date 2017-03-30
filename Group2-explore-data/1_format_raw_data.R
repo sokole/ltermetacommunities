@@ -57,7 +57,9 @@ dat <- list()
 
 # COMMUNITY DATA 
 comm.long <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ] 
-comm.long <- droplevels(comm.long)
+comm.long <- comm.long %>%
+  dplyr::select(-X) %>%  # Remove column that contains rownames
+  droplevels()
 
 # Subset data if necessary
 #comm.long <- subset(comm.long, comm.long$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
