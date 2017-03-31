@@ -1,32 +1,17 @@
-# ---------------------------------------------- #
-# Explore community data - 18 September 2016     #
-# ---------------------------------------------- #
+# ---------------------------------------- #
+# Explore community data - 30 Mar 2017     #
+# ---------------------------------------- #
 
 # Clear environment
 rm(list = ls())
 
-# Assign data set of interest
-
-# CAP LTER (Central Arizona-Phoenix)
-#data.set <- "CAP-birds-CORE"
-#data.key <- "" # Google Drive file ID (different for each dataset)
-
-# NWT LTER (Niwot Ridge)
-#data.set <- "NWT-plants-Hallett-and-Sokol"
-#data.key <- "" # Google Drive file ID (different for each dataset)
-
-# SBC LTER (Santa Barbara Coastal)
-data.set <- "SBC-Lamy-Castorani"
-data.key <- "0B7o8j0RLpcxiTnB5a01YU2pWdk0" # Google Drive file ID (different for each dataset)
-
-# ---------------------------------------------------------------------------------------------------
 # Set working environment
 setwd("~/Google Drive/LTER Metacommunities")
 
 # Check for and install required packages
 #library()
 
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'BiodiversityR','iNEXT')) {
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'BiodiversityR','iNEXT', 'grDevices', 'RColorBrewer')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
@@ -34,24 +19,41 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 }
 
 # ---------------------------------------------------------------------------------------------------
+# Assign data set of interest
+
+# SBC LTER (Santa Barbara Coastal): Macroalgae
+data.set <- "SBC-algae-Castorani_Lamy"
+
+# SBC LTER (Santa Barbara Coastal): Sessile invertebrates
+data.set <- "SBC-sessile_invert-Castorani_Lamy"
+
+# SBC LTER (Santa Barbara Coastal): Mobile invertebrates
+data.set <- "SBC-mobile_invert-Castorani_Lamy"
+
+# SBC LTER (Santa Barbara Coastal): Fishes
+data.set <- "SBC-fish-Castorani_Lamy"
+
+# ---------------------------------------------------------------------------------------------------
 # IMPORT DATA
-#read in .Rdata list
-#Why doesn't this work?  Help!
-#load(sprintf("https://drive.google.com/open?id=", data.key)) 
-load(paste("Intermediate_data/",data.set,".Rdata", sep="")) #workaround
+load(paste("Intermediate_data/", data.set,".Rdata", sep=""))  # Read in .Rdata list
 summary(dat)
+
+#---------------------------------------------------------------------------------------------------
+# Create color palette for heatmaps
+heat.pal.spectral <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
 
 #---------------------------------------------------------------------------------------------------
 # CHECK DATA STRUCTURE AND SPATIOTEMPORAL SAMPLING EFFORT
 
-# How are sites sampled across time?
+# How are communities sampled across space and time?
 ggplot(data = dat$comm.long, aes(x = DATE, y = SITE_ID)) +
-  geom_raster() +
+  geom_point(size = 5) +
   theme_bw() +
   xlab("Year") +
-  ylab("Site") 
+  ylab("Site") +
+  theme_bw()
 
-# Propagation of species across space and time
+# Check the propagation of species across space and time
 tapply(dat$comm.long$VALUE, list(dat$comm.long$SITE_ID,dat$comm.long$DATE), length)
 
 #---------------------------------------------------------------------------------------------------
@@ -87,8 +89,9 @@ no.taxa <- no.taxa.fun(dat$comm.long) # Result is a list of: (1) no. of taxa at 
 # Plot a heatmap of the number of species observed over space and time
 ggplot(data = no.taxa$no.taxa, aes(x = DATE, y = SITE_ID, fill = no.taxa)) +
   geom_raster() +
+  scale_fill_gradientn(colours = heat.pal.spectral(100), name = "No. of taxa") +
   theme_bw() +
-  guides(fill = guide_legend(title = "Number of taxa")) +
+  #guides(fill = guide_legend(title = "Number of taxa")) +
   xlab("Year") +
   ylab("Site") +
   theme(aspect.ratio = 1)
@@ -103,7 +106,7 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   ylab("Number of taxa observed") +
   guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
-  theme_bw() 
+  theme_bw()
 # Note that the thick line indicates the total number of taxa among all sites
 
 # ---------------------------------------------------------------------------------------------------
@@ -178,6 +181,7 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
 
 # --------------------------------------------------------------------------------------------------
 # Row and column summary statistics for comm.wide data to aid in screening for the amount and pattern of missing data
+
 # Function for row and column summary statistics of community data
 sum.stats <-
   function(x,var='',by='',margin='column',...){
@@ -293,24 +297,29 @@ sum.stats <-
 # Column summary for each species' abundance data
 # Note this assumes that the first three columns of the comm.wide data are always: OBSERVATION_TYPE, SITE_ID, DATE
 sum.stats(dat$comm.wide[,-c(1:3)])
+
 # Row summaries for species data
 sum.stats(dat$comm.wide[,-c(1:3)], margin='row')
 
 # ---------------------------------------------------------------------------------------------------
 # RANK ABUNDANCE CURVES
 
+rank.abund.dat <- dat$comm.wide
+rank.abund.dat$SITE_ID <- as.factor(rank.abund.dat$SITE_ID)
+rank.abund.dat$DATE <- as.factor(rank.abund.dat$DATE)
+
 # This section uses code from the BiodiversityR package
 # Create rank abundance curve for all sites over all dates
-ra_allsitestimes <- rankabundance(dat$comm.wide[,-c(1:3)])
+ra_allsitestimes <- rankabundance(rank.abund.dat[,-c(1:3)])
 rankabunplot(ra_allsitestimes)
 
 # Plot proportional rank abundance curve for each site.
 # legend is set to false, but set it to true to see legend for each site
-rankabuncomp(x=dat$comm.wide[,-c(1:3)], y=dat$comm.wide[,c(1:3)], factor="SITE_ID", scale='proportion', legend=FALSE)
+rankabuncomp(x=rank.abund.dat[,-c(1:3)], y=rank.abund.dat[,c(1:3)], factor="SITE_ID", scale='proportion', legend=FALSE)
 
 # Plot proportional rank abundance curve for each date.
 # legend is set to false, but set it to true to see legend for each site
-rankabuncomp(x=dat$comm.wide[,-c(1:3)], y=dat$comm.wide[,c(1:3)], factor="DATE", scale='proportion', legend=FALSE)
+rankabuncomp(x=rank.abund.dat[,-c(1:3)], y=rank.abund.dat[,c(1:3)], factor="DATE", scale='proportion', legend=FALSE)
 
 # ---------------------------------------------------------------------------------------------------
 # RAREFACTION CURVES

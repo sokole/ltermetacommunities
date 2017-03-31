@@ -9,6 +9,19 @@
 # Clear environment
 rm(list = ls())
 
+# Set working environment 
+setwd("~/Google Drive/LTER Metacommunities")
+
+# Check for and install required packages
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
+  if (!require(package, character.only=T, quietly=T)) {
+    install.packages(package)
+    library(package, character.only=T)
+  }
+}
+
+# ---------------------------------------------------------------------------------------------------
+
 # Assign data set of interest
 # NOTE: Google Drive file ID is different for each dataset
 
@@ -35,18 +48,6 @@ data.key <- "0BxUZSA1Gn1HZRmZWOGM5c3F5aEE" # Google Drive file ID
 # SBC LTER (Santa Barbara Coastal): Fishes
 data.set <- "SBC-fish-Castorani_Lamy"
 data.key <- "0BxUZSA1Gn1HZZU1vYWJWY0lMc0k" # Google Drive file ID 
-
-# ---------------------------------------------------------------------------------------------------
-# Set working environment 
-setwd("~/Google Drive/LTER Metacommunities")
-
-# Check for and install required packages
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
-  if (!require(package, character.only=T, quietly=T)) {
-    install.packages(package)
-    library(package, character.only=T)
-  }
-}
 
 # ---------------------------------------------------------------------------------------------------
 # IMPORT DATA
@@ -186,6 +187,7 @@ dat$n.years <- length(unique(dat$comm.long$DATE))
 dat$n.covariates <- length(levels(env.long$VARIABLE_NAME))
 dat$cov.names <- levels(env.long$VARIABLE_NAME)
 dat$env <- env.wide
+dat$env.long <- env.long
 
 #NOTE: IF THE DATA ARE COMPLETELY BALANCED OVER SPACE AND TIME ... the number of rows in "dat$comm.wide" should be the same as nrow in "dat$env" should be the same as no. of years * no. of sites
 nrow(dat$comm.wide); nrow(dat$env); dat$n.years * dat$n.sites
