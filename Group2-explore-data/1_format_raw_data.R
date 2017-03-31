@@ -101,9 +101,6 @@ ifelse(length(unique(xtabs(~ SITE_ID + DATE, data = comm.long))) == 1,
        "OK: Equal number of taxa recorded across space and time.", 
        "ERROR: Unequal numbers of observations across space and time, or taxa list not fully propagated across space and time. Inspect contingency table.")
 
-# Check spacing between temporal sampling
-
-
 # ---------------------------------------------------------------------------------------------------
 # Add to dat list the unique taxa
 dat$comm.long <- comm.long
