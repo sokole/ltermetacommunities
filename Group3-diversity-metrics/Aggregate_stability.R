@@ -1,4 +1,4 @@
-aggregate_stab <- function(Y, s, t)
+aggregate_stab <- function(Y, s, t, plot = FALSE)
 #
 # function to compute alpha, beta and gamma aggregate stability
 #
