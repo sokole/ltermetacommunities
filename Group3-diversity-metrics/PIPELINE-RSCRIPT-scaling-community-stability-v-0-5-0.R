@@ -304,5 +304,5 @@ for(i in 1:nrow(data_list)){
   print(i_data_record)
 }
 
-# write.csv(data_ALL, 'Group3-diversity-metrics/data-comp-stability-components.csv')
+write.csv(data_ALL, 'Group3-diversity-metrics/data-comp-stability-components.csv')
     
