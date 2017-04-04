@@ -272,14 +272,10 @@ data_list <- read.csv(file = download.link,
 #######################################################
 #######################################################
 
+# test cases that work
 i <- 9 #NWT
 i <- 4 #CAP birds
 
-
-#######################################################
-# -- download data from google drive using google-id 
-# and make massive long-form data frame
-#######################################################
 
 data_ALL <- data.frame()
 for(i in 1:nrow(data_list)){
@@ -303,8 +299,7 @@ for(i in 1:nrow(data_list)){
     data_ALL <- rbind(
       data_ALL,
       data.frame(i_data_record[1,],
-               d.bd))
-    print(i_data_record)
+                 d.bd))
   })
   print(i_data_record)
 }
