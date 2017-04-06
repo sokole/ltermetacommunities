@@ -58,22 +58,37 @@ compo_stab <- function(Y, s, t)
 	MetacomTime_comp_rich <- as.matrix(MetacomTime_comp$rich)
 
 	## Get alpha, beta and phi components of compositional variability
+	## AlphaComp and GammaComp are multiplied by 2 to produce normalized values in the range [0, 1] 
 	# AlphaComp = average beta across sites
-	AlphaComp_beta <- apply(do.call(cbind, SiteL_comp_part), 1, mean)[1]
-	AlphaComp_repl <- apply(do.call(cbind, SiteL_comp_part), 1, mean)[2]
-	AlphaComp_rich <- apply(do.call(cbind, SiteL_comp_part), 1, mean)[3]
+	AlphaComp_beta <- apply(do.call(cbind, SiteL_comp_part), 1, mean)[1] * 2
+	AlphaComp_repl <- apply(do.call(cbind, SiteL_comp_part), 1, mean)[2] * 2
+	AlphaComp_rich <- apply(do.call(cbind, SiteL_comp_part), 1, mean)[3] * 2
 	# GammaComp = metacommunity level beta
-	GammaComp_beta <- MetacomTime_comp_part[1]
-	GammaComp_repl <- MetacomTime_comp_part[2]
-	GammaComp_rich <- MetacomTime_comp_part[3]
+	GammaComp_beta <- MetacomTime_comp_part[1] * 2 
+	GammaComp_repl <- MetacomTime_comp_part[2] * 2
+	GammaComp_rich <- MetacomTime_comp_part[3] * 2
 	# phiComp = AlphaComp/GammaComp = 1/BetaComp, with beta = gamma / alpha (???)
 	PhiComp_beta <- GammaComp_beta/AlphaComp_beta
 	PhiComp_repl <- GammaComp_repl/AlphaComp_repl
 	PhiComp_rich <- GammaComp_rich/AlphaComp_rich
 
+	## Wang and Loreau use the squared coefficients of local and regional scales
+	AlphaComp_beta2 <- AlphaComp_beta^2
+	AlphaComp_repl2 <- AlphaComp_repl^2
+	AlphaComp_rich2 <- AlphaComp_rich^2
+	# GammaComp2
+	GammaComp_beta2 <- GammaComp_beta^2
+	GammaComp_repl2 <- GammaComp_repl^2
+	GammaComp_rich2 <- GammaComp_rich^2
+	# phiComp2
+	PhiComp_beta2 <- GammaComp_beta2/AlphaComp_beta2
+	PhiComp_repl2 <- GammaComp_repl2/AlphaComp_repl2
+	PhiComp_rich2 <- GammaComp_rich2/AlphaComp_rich2
+	
 	## summary table (only with beta total not its components repl and rich)
 	# res <- data.frame(cat=c("GammaComp", "AlphaComp", "PhiComp"), val=c(GammaComp_beta, AlphaComp_beta, PhiComp_beta))
-	res <- data.frame(GammaComp = GammaComp_beta, AlphaComp = AlphaComp_beta, PhiComp = PhiComp_beta)
+	res <- data.frame(GammaComp = GammaComp_beta, AlphaComp = AlphaComp_beta, PhiComp = PhiComp_beta,
+	                  GammaComp2 = GammaComp_beta2, AlphaComp2 = AlphaComp_beta2, PhiComp2 = PhiComp_beta2)
 	
 	res
 }
