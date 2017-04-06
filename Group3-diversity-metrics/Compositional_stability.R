@@ -29,13 +29,18 @@ compo_stab <- function(Y, s, t)
 	# check that data is balanced
 	if(dim(Y)[1] != s * t) cat("STOP: sites are not surveyed every years")
 
-	## Preparing the data
+  ## format a time vector
+  time = rep(paste("time", rep(1:t), sep=""), s)
+  ## number of species
+  nbsp = dim(Y)[2]
+  
+  ## Preparing the data
 	# Site level 
 	SiteL <- list(); for(i in 1:s) SiteL [[i]] <- Y[c(((i-1)*t+1):(i*t)),] 
 	# Metacommunity level: sum across all sites (t time steps) 
-	MetacomTime <- aggregate(Y, list(time = env$time), sum)
+	MetacomTime <- aggregate(Y, list(time), sum)
 	# Metacommunity level: average across all sites (t time steps) 
-	# MetacomTime <- aggregate(Y, list(time = env$time), mean)
+	# MetacomTime <- aggregate(Y, list(time), mean)
 
 	## computing beta total (quantitative Sorensen = Bray-Curtis) 
 	## and its two components (rich and repl) 
