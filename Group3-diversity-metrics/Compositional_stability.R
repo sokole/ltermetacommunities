@@ -95,7 +95,9 @@ compo_stab <- function(Y, s, t)
 	res <- data.frame(GammaComp = GammaComp_beta, AlphaComp = AlphaComp_beta, PhiComp = PhiComp_beta,
 	                  GammaComp2 = GammaComp_beta2, AlphaComp2 = AlphaComp_beta2, PhiComp2 = PhiComp_beta2,
 	                  GammaComp_repl = GammaComp_repl, AlphaComp_repl = AlphaComp_repl, PhiComp_repl = PhiComp_repl,
-	                  GammaComp_repl2 = GammaComp_repl2, AlphaComp_repl2 = AlphaComp_repl2, PhiComp_repl2 = PhiComp_repl2)
-	
+	                  GammaComp_repl2 = GammaComp_repl2, AlphaComp_repl2 = AlphaComp_repl2, PhiComp_repl2 = PhiComp_repl2,
+	                  GammaComp_rich = GammaComp_rich, AlphaComp_rich = AlphaComp_rich, PhiComp_rich = PhiComp_rich,
+	                  GammaComp_rich2 = GammaComp_rich2, AlphaComp_rich2 = AlphaComp_rich2, PhiComp_rich2 = PhiComp_rich2)
+
 	res
 }
