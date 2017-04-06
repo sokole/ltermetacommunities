@@ -93,7 +93,9 @@ compo_stab <- function(Y, s, t)
 	## summary table (only with beta total not its components repl and rich)
 	# res <- data.frame(cat=c("GammaComp", "AlphaComp", "PhiComp"), val=c(GammaComp_beta, AlphaComp_beta, PhiComp_beta))
 	res <- data.frame(GammaComp = GammaComp_beta, AlphaComp = AlphaComp_beta, PhiComp = PhiComp_beta,
-	                  GammaComp2 = GammaComp_beta2, AlphaComp2 = AlphaComp_beta2, PhiComp2 = PhiComp_beta2)
+	                  GammaComp2 = GammaComp_beta2, AlphaComp2 = AlphaComp_beta2, PhiComp2 = PhiComp_beta2,
+	                  GammaComp_repl = GammaComp_repl, AlphaComp_repl = AlphaComp_repl, PhiComp_repl = PhiComp_repl,
+	                  GammaComp_repl2 = GammaComp_repl2, AlphaComp_repl2 = AlphaComp_repl2, PhiComp_repl2 = PhiComp_repl2)
 	
 	res
 }
