@@ -38,6 +38,7 @@ compo_stab <- function(Y, s, t)
 	# Site level 
 	SiteL <- list(); for(i in 1:s) SiteL [[i]] <- Y[c(((i-1)*t+1):(i*t)),] 
 	# Metacommunity level: sum across all sites (t time steps) 
+	## WARNING: aggregate change the order of the table in regional pool, sorting by increasing species biomass, not time
 	MetacomTime <- aggregate(Y, list(time), sum)
 	# Metacommunity level: average across all sites (t time steps) 
 	# MetacomTime <- aggregate(Y, list(time), mean)
