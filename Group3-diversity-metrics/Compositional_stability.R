@@ -78,6 +78,17 @@ compo_stab <- function(Y, s, t)
 	PhiComp_repl <- GammaComp_repl/AlphaComp_repl
 	PhiComp_rich <- GammaComp_rich/AlphaComp_rich
 
+	## manually compute BD
+	# SiteL_comp_beta <- lapply(SiteL_comp, function(x) { sum(x$D)/(t(t-1)) })
+	# AlphaComp_beta <- mean(do.call(cbind, SiteL_comp_beta)) * 2
+	# AlphaComp_beta <- apply(do.call(cbind, SiteL_D), 1, mean)[1] * 2
+	# tapply(SiteL_D, sum)
+	# sum(BDM$D)/(n*(n-1))
+	# sum(BD1$D)/(n*(n-1))
+	# sum(BD2$D)/(n*(n-1))
+	
+	
+	
 	## Wang and Loreau use the squared coefficients of local and regional scales
 	AlphaComp_beta2 <- AlphaComp_beta^2
 	AlphaComp_repl2 <- AlphaComp_repl^2
