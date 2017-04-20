@@ -96,6 +96,8 @@ ggplot(Yplot, aes(x = time, y = value, fill = variable)) +
 aggregate_stab(rbind(Y1.case1, Y2.case1), s, t)
 compo_stab(rbind(Y1.case1, Y2.case1), s, t)
 compo_stab_rel(rbind(Y1.case1, Y2.case1), s, t)
+compo_stab_rel2(rbind(Y1.case1, Y2.case1), s, t, method = "hellinger", weigths = "prop")
+compo_stab_rel2(rbind(Y1.case1, Y2.case1), s, t, method = "whittaker", weigths = "prop")
 
 #### CASE 2 - Low GammaComp - High GammaAgg ####
 ## Step 1: computing species relative biomass in site 1
@@ -133,6 +135,8 @@ ggplot(Yplot, aes(x = time, y = value, fill = variable)) +
 aggregate_stab(rbind(Y1.case2, Y2.case2), s, t)
 compo_stab(rbind(Y1.case2, Y2.case2), s, t)
 compo_stab_rel(rbind(Y1.case2, Y2.case2), s, t)
+compo_stab_rel2(rbind(Y1.case2, Y2.case2), s, t, method = "hellinger", weigths = "prop")
+compo_stab_rel2(rbind(Y1.case2, Y2.case2), s, t, method = "whittaker", weigths = "prop")
 
 #### CASE 3 - High GammaComp - Low GammaAgg ####
 ## Step 1: computing species relative biomass in site 1
@@ -170,6 +174,8 @@ ggplot(Yplot, aes(x = time, y = value, fill = variable)) +
 aggregate_stab(rbind(Y1.case3, Y2.case3), s, t)
 compo_stab(rbind(Y1.case3, Y2.case3), s, t)
 compo_stab_rel(rbind(Y1.case3, Y2.case3), s, t)
+compo_stab_rel2(rbind(Y1.case3, Y2.case3), s, t, method = "hellinger", weigths = "prop")
+compo_stab_rel2(rbind(Y1.case3, Y2.case3), s, t, method = "whittaker", weigths = "prop")
 
 #### CASE 4 - High GammaComp - High GammaAgg ####
 ## Step 1: computing species relative biomass in site 1
@@ -207,6 +213,8 @@ ggplot(Yplot, aes(x = time, y = value, fill = variable)) +
 aggregate_stab(rbind(Y1.case4, Y2.case4), s, t)
 compo_stab(rbind(Y1.case4, Y2.case4), s, t)
 compo_stab_rel(rbind(Y1.case4, Y2.case4), s, t)
+compo_stab_rel2(rbind(Y1.case4, Y2.case4), s, t, method = "hellinger", weigths = "prop")
+compo_stab_rel2(rbind(Y1.case4, Y2.case4), s, t, method = "whittaker", weigths = "prop")
 
 
 ## -------------------------------------------- ## 
