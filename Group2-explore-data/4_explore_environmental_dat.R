@@ -36,6 +36,8 @@ data.set <- "SBC-mobile_invert-Castorani_Lamy"
 # SBC LTER (Santa Barbara Coastal): Fishes
 data.set <- "SBC-fish-Castorani_Lamy"
 
+# NWT LTER (Niwot Ridge): Plants
+data.set <- "NWT-plants-Hallett-and-Sokol"
 # ---------------------------------------------------------------------------------------------------
 # IMPORT DATA
 load(paste("Intermediate_data/", data.set,".Rdata", sep=""))  # Read in .Rdata list
