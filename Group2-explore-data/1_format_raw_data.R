@@ -30,8 +30,9 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 #data.key <- "0BzcCZxciOlWgeHJ5SWx1YmplMkE" # Google Drive file ID 
 
 # NWT LTER (Niwot Ridge)
-#data.set <- "NWT-plants-Hallett-and-Sokol"
-#data.key <- "0B2P104M94skvQVprSnBsYjRzVms" # Google Drive file ID 
+data.set <- "NWT-plants-Hallett-and-Sokol"
+data.key <- "0B2P104M94skvQVprSnBsYjRzVms" # Google Drive file ID 
+
 
 # SBC LTER (Santa Barbara Coastal): Macroalgae
 data.set <- "SBC-algae-Castorani_Lamy"
@@ -67,9 +68,9 @@ comm.long <- comm.long %>%
 #comm.long <- droplevels(comm.long)
 str(comm.long)  # Inspect the structure of the community data
 
-#Add number of unique taxa to data list:
+#Add number of unique taxa and number of years to data list:
 dat$n.spp <- length(levels(comm.long$VARIABLE_NAME))
-
+dat$n.years <- length(unique(comm.long$DATE))
 # Ensure that community data VALUE and DATE are coded as numeric
 comm.long <- comm.long %>%   # Recode if necessary
   mutate_at(vars(c(DATE, VALUE)), as.numeric)
@@ -77,6 +78,10 @@ comm.long <- comm.long %>%   # Recode if necessary
 # Ensure that community character columns coded as factors are re-coded as characters
 comm.long <- comm.long %>%   # Recode if necessary
   mutate_if(is.factor, as.character)
+  
+# Ensure that SITE_ID is a character: recode numeric as character 
+comm.long <- comm.long %>%   # Recode if necessary
+  mutate_at(vars(SITE_ID), as.character)
 
 # Double-check that all columns are coded properly
 ifelse(FALSE %in% 
@@ -95,7 +100,7 @@ ifelse(FALSE %in%
 # ---------------------------------------------------------------------------------------------------
 # Check balanced sampling of species across space and time by inspecting table, and add to data list
 xtabs(~ SITE_ID + DATE, data = comm.long)
-hist(na.omit(dat.long$DATE))
+hist(na.omit(comm.long$DATE))
 
 ifelse(length(unique(xtabs(~ SITE_ID + DATE, data = comm.long))) == 1,
        "OK: Equal number of taxa recorded across space and time.", 
@@ -129,7 +134,13 @@ cord <- filter(dat.long, OBSERVATION_TYPE=="SPATIAL_COORDINATE");head(cord)
 cord$SITE_ID <- toupper(cord$SITE_ID)  # Ensure sites are in all caps
 cord <- droplevels(cord)
 str(cord)
-cord.wide <- spread(cord, VARIABLE_NAME, VALUE);head(cord.wide) #create rows from lat long
+
+cord.wide <- cord %>%
+  select(-VARIABLE_UNITS) %>%
+  spread(VARIABLE_NAME,  VALUE)
+
+head(cord.wide)
+
 sites <- c(unique(cord.wide$SITE_ID));sites
 
 # keep the records that are _not_ duplicated
@@ -145,16 +156,13 @@ dat$longlat <- cord.wide
 
 #make data spatially explicit
 coordinates(cord.wide) = c("longitude", "latitude") #coordinates(cord.wide) <- c("longitude", "latitude") 
-crs.geo <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")  # geographical, datum WGS84
+#crs.geo <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")  # SBC
+crs.geo <- CRS("+proj=utm +zone=12 +datum=WGS84") #NWT, PHX
 proj4string(cord.wide) <- crs.geo  # define projection system of our data to WGS84 (CHECK TO SEE IF THIS WORKS IF SPATIAL COORDINATE IS NOT IN DEC.DEGREES)
 summary(cord.wide) 
 
-#if DATA IS IN UTM OR OTHER KNOWN COORDINATE SYSTEM YOU CAN TRANSFORM IT, EG... UTM data for PHX
-#coordinates(cord.wide) <- c("X", "Y")
-#crs.geo = CRS("+proj=utm +zone=12 ellps=WGS84")  # define coordinate reference system of your specific data
-#proj4string(cord.wide) = crs.geo # define coordinate reference system of your specific data
-#summary(cord.wide) 
-#cord.wide <- spTransform(cord.wide, CRS("+proj=longlat")) #transform to latlog CRS
+#if DATA IS IN UTM OR OTHER KNOWN COORDINATE SYSTEM YOU CAN TRANSFORM IT, EG... UTM data for PHX and NWT 
+cord.wide <- spTransform(cord.wide, CRS("+proj=longlat")) 
 #summary(cord.wide) #check transformation
 
 #create a distance matrix between sites, best fit distance function TBD
@@ -164,15 +172,12 @@ colnames(distance.mat) <- sites
 
 #add distance matrix to data list
 dat$distance.mat <- distance.mat
-
+summary(dat)
 # ---------------------------------------------------------------------------------------------------
 # ENVIRONMENTAL COVARIATES
 env.long <- subset(dat.long, OBSERVATION_TYPE == "ENV_VAR")
 env.long <- droplevels(env.long)
 str(env.long)
-
-levels(env.long$VARIABLE_UNITS)
-levels(env.long$VARIABLE_NAME)
 
 # Convert from long to wide
 env.wide <- env.long %>%
@@ -180,7 +185,7 @@ env.wide <- env.long %>%
   tidyr::spread(VARIABLE_NAME,  VALUE)
 
 # Add environmental covaiates to data list
-dat$n.years <- length(unique(dat$comm.long$DATE))
+
 dat$n.covariates <- length(levels(env.long$VARIABLE_NAME))
 dat$cov.names <- levels(env.long$VARIABLE_NAME)
 dat$env <- env.wide
@@ -192,7 +197,7 @@ nrow(dat$comm.wide); nrow(dat$env); dat$n.years * dat$n.sites
 # Are all year-by-site combinations in community data matched by environmental data?
 ifelse(nrow(dat$comm.wide) == nrow(dat$env), "Yes", "No")
 
-# Is community data balanced over space and time?
+# Are community data balanced over space and time?
 ifelse(nrow(dat$comm.wide) == dat$n.years * dat$n.sites, "Yes", "No")
 
 # Inspect summary of 'dat' list 
