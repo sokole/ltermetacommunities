@@ -10,7 +10,7 @@
 rm(list = ls())
 
 # Set your working environment to the GitHub repository, e.g.: 
-#setwd("~/Documents/ltermetacommunities")
+setwd("~/Documents/ltermetacommunities")
 
 #Check to make sure working directory is correct
 if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
@@ -29,27 +29,43 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 # NOTE: Google Drive file ID is different for each dataset
 
 # JRN LTER (Jornada lizards from Andrew Hope )
-data.set <- "JRN-lizards"
+data.set <- "JRN-lizard"
 data.key <- "0BwguSiR80XFZa0NDckg5RmoyQVk" # Google Drive file ID 
 
 data <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
 
-head(data);unique(data$OBSERVATION_TYPE); unique(data$VARIABLE_NAME) #look at data
+#look at data
+str(data);unique(data$OBSERVATION_TYPE); unique(data$VARIABLE_NAME); 
+#multiple counts per year; daily precipitation data. 
+data1 <- filter(data, OBSERVATION_TYPE=="SPATIAL_COORDINATE")#subset site coordinates to add back onto frame after averaging
 
-avgdata= data[!is.na(data$DATE),];str(avgdata) #subset to only include dated rows that need to be averaged
-data1=data.frame(data[is.na(data$DATE),]) #subset site coordinates to add back onto frame after averaging
-data1$Year=NULL
-data1$SITE_ID <- as.character(data1$SITE_ID)
-data1$SITE_ID[data1$SITE_ID == "G-IBP "] <- "G-IBPE" #noticed an error in sites names, fixing to keep consistent when comparing env vs species data
+#Prepare year column for calculating averages
+data$Date <- as.POSIXct(data$DATE, format = "%m/%d/%y")
+data$Year <- as.numeric(format(data$Date,"%Y"))
+#other cleaning
+data$SITE_ID <- as.character(data$SITE_ID)
+data$SITE_ID[data$SITE_ID == "G-IBP "] <- "G-IBPE" #noticed an error in sites names, fixing to keep consistent when comparing env vs species data
 
-#average species count and precip values per year per site
-agg=aggregate(VALUE ~ VARIABLE_NAME+Year, data=avgdata, mean, na.rm=TRUE)
-agg=aggregate(VALUE ~ OBSERVATION_TYPE+SITE_ID+Year+VARIABLE_NAME+VARIABLE_UNITS, data=avgdata, mean, na.rm=TRUE)
-data2=data.frame(agg)
+
+avgdata <-  filter(data, OBSERVATION_TYPE!="SPATIAL_COORDINATE") #subset to only include dated rows that need to be averaged
+
+#number of species count and precip values per year per site
+n.obs=aggregate(VALUE ~ VARIABLE_NAME+SITE_ID +Year, data=avgdata, length)
+#So, take maximum of count data but sum of 365 days of precip data (annual precip) for each site-year:
+commdata <-  filter(data, OBSERVATION_TYPE=="TAXON_COUNT")
+agg_c=aggregate(VALUE ~ OBSERVATION_TYPE + SITE_ID + Year + VARIABLE_NAME + VARIABLE_UNITS, data=commdata, max, na.rm=TRUE)
+data2=data.frame(agg_c)
 names(data2)[names(data2)=="Year"]="DATE"
 
-JRNdata <- rbind(data2, data1) #bind data frames back together
+envdata <-  filter(data, OBSERVATION_TYPE=="ENV_VAR")
+agg_e=aggregate(VALUE ~ OBSERVATION_TYPE + SITE_ID + Year + VARIABLE_NAME + VARIABLE_UNITS, data=envdata, sum, na.rm=TRUE)
+data3=data.frame(agg_e)
+names(data3)[names(data3)=="Year"]="DATE"
 
+
+JRNdata <- rbind(data2, data1, data3) #bind data frames back together
+levels(JRNdata$VARIABLE_UNITS)
+levels(JRNdata$VARIABLE_NAME)
 #write.csv(JRNdata,"JRNdata_RA.csv")
 
 JRNdata1=subset(JRNdata,  ! SITE_ID %in% c("G-SUMM","M-NORT","C-IBPE", "G-GRAV", "P-COLL","P-SMAL","P-TOBO","T-TAYL") ) #removing sites that were not sampled for species data or unevenly sampled identified after 1st iteration of QA code
@@ -64,60 +80,8 @@ JRNdata1=subset(JRNdata,  ! SITE_ID %in% c("G-SUMM","M-NORT","C-IBPE", "G-GRAV",
 
 # Contributors: Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
 
-# Clear environment
-rm(list = ls())
-
-# Set working environment 
-#setwd("~/Google Drive/LTER Metacommunities")
-
-# Check for and install required packages
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
-  if (!require(package, character.only=T, quietly=T)) {
-    install.packages(package)
-    library(package, character.only=T)
-  }
-}
-
 # ---------------------------------------------------------------------------------------------------
-
-# Assign data set of interest
-# NOTE: Google Drive file ID is different for each dataset
-
-# CAP LTER (Central Arizona-Phoenix)
-#data.set <- "CAP-birds-CORE"
-#data.key <- "0BzcCZxciOlWgeHJ5SWx1YmplMkE" # Google Drive file ID 
-
-# NWT LTER (Niwot Ridge)
-#data.set <- "NWT-plants-Hallett-and-Sokol"
-#data.key <- "0B2P104M94skvQVprSnBsYjRzVms" # Google Drive file ID 
-
-
-# SBC LTER (Santa Barbara Coastal): Macroalgae
-#data.set <- "SBC-algae-Castorani_Lamy"
-#data.key <- "0BxUZSA1Gn1HZRUxaNmV1Y21abmc" # Google Drive file ID 
-
-# SBC LTER (Santa Barbara Coastal): Sessile invertebrates
-#data.set <- "SBC-sessile_invert-Castorani_Lamy"
-#data.key <- "0BxUZSA1Gn1HZUFdnUGxKNW9ocFE" # Google Drive file ID 
-
-# SBC LTER (Santa Barbara Coastal): Mobile invertebrates
-#data.set <- "SBC-mobile_invert-Castorani_Lamy"
-#data.key <- "0BxUZSA1Gn1HZRmZWOGM5c3F5aEE" # Google Drive file ID 
-
-# SBC LTER (Santa Barbara Coastal): Fishes
-#data.set <- "SBC-fish-Castorani_Lamy"
-#data.key <- "0BxUZSA1Gn1HZZU1vYWJWY0lMc0k" # Google Drive file ID 
-
-# JRN LTER (Jornada): Lizards, need to fill in google drivefile Id and name
-#data.set <- "JRNdata_RA"
-#data.key <- "" # Google Drive file ID 
-
-# ---------------------------------------------------------------------------------------------------
-# IMPORT DATA
-#dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key)) %>%
-#dat.long=read.csv("JRNdata_RA.csv",header=T)
-#  dplyr::select(-X) # Remove column that contains rownames
-
+#to match naming system
 dat.long=JRNdata1
 
 # MAKE DATA LIST
@@ -128,9 +92,6 @@ comm.long <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ]
 comm.long <- comm.long %>%
   droplevels()
 
-# Subset data if necessary
-#comm.long <- subset(comm.long, comm.long$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
-#comm.long <- droplevels(comm.long)
 str(comm.long)  # Inspect the structure of the community data
 
 #Add number of unique taxa and number of years to data list:
@@ -196,24 +157,19 @@ for (package in c('dplyr', 'tidyr', 'XML', 'sp', 'geosphere', 'rgdal','maps','re
 }
 
 #pull out coordinate data and make sure that it is numeric
-cord <- filter(dat.long, OBSERVATION_TYPE=="SPATIAL_COORDINATE");head(cord)
+cord <- filter(dat.long, OBSERVATION_TYPE=="SPATIAL_COORDINATE")
 cord$SITE_ID <- toupper(cord$SITE_ID)  # Ensure sites are in all caps
 cord <- droplevels(cord)
-str(cord)
+cord
 
 cord.wide <- cord %>%
   select(-VARIABLE_UNITS) %>%
   spread(VARIABLE_NAME,  VALUE)
 
-head(cord.wide)
-
-sites <- c(unique(cord.wide$SITE_ID));sites
-
-# keep the records that are _not_ duplicated
-cord.wide <- subset(cord.wide, !duplicated(SITE_ID));dim(cord.wide)  # here we selcet rows (1st dimension) that are different from the object dups2 (duplicated records)
 cord.wide
-cord.wide$latitude <- as.numeric(as.character(cord.wide$latitude)) 
-cord.wide$longitude <- as.numeric(as.character(cord.wide$longitude)) #cord.wide$longitude <- as.numeric(as.character(cord.wide$longitude))
+str(cord.wide)
+sites <- c(unique(cord.wide$SITE_ID))
+ 
 cord.wide <- cord.wide[c("longitude", "latitude")] #pull last two columns and reorder
 
 #add number of sites and long/lat coords to data list:
@@ -221,23 +177,20 @@ dat$n.sites <- length(sites)
 dat$longlat <- cord.wide
 
 #make data spatially explicit
-coordinates(cord.wide) = c("longitude", "latitude") #coordinates(cord.wide) <- c("longitude", "latitude") 
-#crs.geo <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")  # SBC
-crs.geo <- CRS("+proj=utm +zone=12 +datum=WGS84") #NWT, PHX
-proj4string(cord.wide) <- crs.geo  # define projection system of our data to WGS84 (CHECK TO SEE IF THIS WORKS IF SPATIAL COORDINATE IS NOT IN DEC.DEGREES)
+coordinates(cord.wide) = c("longitude", "latitude") 
+crs.geo <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")
+
+proj4string(cord.wide) <- crs.geo  # define projection system of our data to WGS84
 summary(cord.wide) 
 
-#if DATA IS IN UTM OR OTHER KNOWN COORDINATE SYSTEM YOU CAN TRANSFORM IT, EG... UTM data for PHX and NWT 
-cord.wide <- spTransform(cord.wide, CRS("+proj=longlat")) 
-#summary(cord.wide) #check transformation
-
 #create a distance matrix between sites, best fit distance function TBD
-distance.mat <- (distm(cord.wide, fun = distVincentyEllipsoid)/1000);distance.mat #km distance
+distance.mat <- (distm(cord.wide, fun = distVincentyEllipsoid)/1000) #km distance
 rownames(distance.mat) <- sites
 colnames(distance.mat) <- sites
 
-#add distance matrix to data list
+#add distance matrix and maximum distance between sites (km) to data list
 dat$distance.mat <- distance.mat
+dat$max.distance <- max(distance.mat)
 summary(dat)
 # ---------------------------------------------------------------------------------------------------
 # ENVIRONMENTAL COVARIATES
@@ -270,7 +223,7 @@ ifelse(nrow(dat$comm.wide) == dat$n.years * dat$n.sites, "Yes", "No")
 summary(dat)
 
 #clean up the workspace
-rm("comm.long","comm.wide","cord","cord.wide","crs.geo","dat.long", "data.key", "data.set","distance.mat","env.long", "env.wide","package","sites")
+rm("agg_c","agg_e","avgdata","comm.long","comm.wide","cord","cord.wide","crs.geo","dat.long", "data.key", "data.set","distance.mat","env.long", "env.wide","package","sites", "JRNdata", "JRNdata1", "n.obs", "envdata", "commdata", "data", "data1", "data2", "data3")
 ls()
 
 # Now, explore the data and perform further QA/QC by sourcing this script within the scripts "2_explore_spatial_dat.R", "3_explore_comm_dat.R", and "4_explore_environmental_dat.R"

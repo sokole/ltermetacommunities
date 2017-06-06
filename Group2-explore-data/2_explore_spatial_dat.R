@@ -6,7 +6,7 @@
 rm(list = ls())
 
 # Set your working environment to the GitHub repository, e.g.: 
-#setwd("~/Documents/ltermetacommunities")
+setwd("~/Documents/ltermetacommunities")
 
 #Check to make sure working directory is correct
 if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
@@ -27,19 +27,22 @@ for (package in c('dplyr', 'tidyr', 'XML', 'sp', 'geosphere', 'rgdal','maps','re
 #Source data set of interest. The choices are:
 
 # SBC LTER (Santa Barbara Coastal): Macroalgae
-#data.set <- "SBC-algae"
+data.set <- "SBC-algae"
 
 # SBC LTER (Santa Barbara Coastal): Sessile invertebrates
-#data.set <- "SBC-sessile_invert"
+data.set <- "SBC-sessile_invert"
 
 # SBC LTER (Santa Barbara Coastal): Mobile invertebrates
-#data.set <- "SBC-mobile_invert"
+data.set <- "SBC-mobile_invert"
 
 # SBC LTER (Santa Barbara Coastal): Fishes
-#data.set <- "SBC-fish"
+data.set <- "SBC-fish"
 
 # NWT LTER (Niwot Ridge): Plants
 data.set <- "NWT"
+
+# JRN LTER (Jornada): Lizards
+data.set <- "JRN-lizard"
 
 source(paste("Group2-explore-data/format_data/", data.set, "_format_data.R", sep=""))
 summary(dat)
@@ -79,7 +82,7 @@ points(dat$longlat, pch=19, col="red", cex=0.5)
 map(database="state", col="gray90", fill=TRUE)
 points(dat$longlat, pch=19, col="red", cex=0.5)
 
-map(database="county", region="california", # NOTE: Change this based on the state 
+map(database="county", region="florida", # NOTE: Change this based on the state 
     col="gray90", fill=TRUE)
 points(dat$longlat, pch=19, col="red", cex=0.5)
 

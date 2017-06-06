@@ -27,35 +27,36 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 #Source data set of interest. The choices are:
 
 # SBC LTER (Santa Barbara Coastal): Macroalgae
-#data.set <- "SBC-algae"
+data.set <- "SBC-algae"
 
 # SBC LTER (Santa Barbara Coastal): Sessile invertebrates
-#data.set <- "SBC-sessile_invert"
+data.set <- "SBC-sessile_invert"
 
 # SBC LTER (Santa Barbara Coastal): Mobile invertebrates
-#data.set <- "SBC-mobile_invert"
+data.set <- "SBC-mobile_invert"
 
 # SBC LTER (Santa Barbara Coastal): Fishes
-#data.set <- "SBC-fish"
+data.set <- "SBC-fish"
 
 # NWT LTER (Niwot Ridge): Plants
 data.set <- "NWT"
+
+# JRN LTER (Jornada): Lizards
+data.set <- "JRN-lizard"
 
 source(paste("Group2-explore-data/format_data/", data.set, "_format_data.R", sep=""))
 summary(dat)
 
 # ---------------------------------------------------------------------------------------------------
-env.long <- dat$env.long
 
 #Plot time series of environmental variabLes for ech site
-env.plot <- ggplot(data = env.long, aes(x = DATE, y = VALUE)) +
+env.plot <- ggplot(data = dat$env.long, aes(x = DATE, y = VALUE)) +
   geom_line(aes(color = SITE_ID)) +
   facet_wrap(~ VARIABLE_NAME, scales = "free", ncol = 1) +
   theme_bw()
 env.plot
 
-#Look at pairwise correlation between envoronmental predictors (NOTE: Data must be in wide form)
-env.wide <- dat$env
+#Look at pairwise correlation between environmental predictors (NOTE: Data must be in wide form)
 
-str(env.wide)
-pairs(dat$env[,c("TEMP_MEAN_C", "WAVE_HT_MEAN","WAVE_HT_WINTER_MEAN")])
+str(dat$env.wide)
+pairs(dat$env.wide[,-(1:4)])

@@ -28,19 +28,22 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 #Source data set of interest. The choices are:
 
 # SBC LTER (Santa Barbara Coastal): Macroalgae
-#data.set <- "SBC-algae"
+data.set <- "SBC-algae"
 
 # SBC LTER (Santa Barbara Coastal): Sessile invertebrates
-#data.set <- "SBC-sessile_invert"
+data.set <- "SBC-sessile_invert"
 
 # SBC LTER (Santa Barbara Coastal): Mobile invertebrates
-#data.set <- "SBC-mobile_invert"
+data.set <- "SBC-mobile_invert"
 
 # SBC LTER (Santa Barbara Coastal): Fishes
-#data.set <- "SBC-fish"
+data.set <- "SBC-fish"
 
 # NWT LTER (Niwot Ridge): Plants
 data.set <- "NWT"
+
+# JRN LTER (Jornada): Lizards
+data.set <- "JRN-lizard"
 
 source(paste("Group2-explore-data/format_data/", data.set, "_format_data.R", sep=""))
 summary(dat)
