@@ -82,7 +82,7 @@ points(dat$longlat, pch=19, col="red", cex=0.5)
 map(database="state", col="gray90", fill=TRUE)
 points(dat$longlat, pch=19, col="red", cex=0.5)
 
-map(database="county", region="florida", # NOTE: Change this based on the state 
+map(database="county", region="new mexico", # NOTE: Change this based on the state 
     col="gray90", fill=TRUE)
 points(dat$longlat, pch=19, col="red", cex=0.5)
 
