@@ -14,7 +14,7 @@ library(tidyr)
 source("Group2-explore-data/format_data/MCR-data_import_fun.R")
 
 ## Read in the data
-mcr.algae <- read_csv_gdrive("0BxUZSA1Gn1HZYXZWUGNRbU1NbGs") %>%
+mcr.algae <- read_csv_gdrive("insert google drive id here") %>%
   tbl_df()
 
 # Replace underscores with dots for convenience. Also convert to lowercase.
@@ -76,7 +76,7 @@ rm(mcr.algae, mcr.algae_clean_long, mcr.algae_clean_wide)
 ### MCR Coral Data ###
 
 ## Read in the data
-mcr.coral <- read_csv_gdrive("0BxUZSA1Gn1HZVmZ5Ty1IZjhkVUU") %>%
+mcr.coral <- read_csv_gdrive("insert google drive id here") %>%
   tbl_df()
 
 # Replace underscores with dots for convenience. Also convert to lowercase.
@@ -132,7 +132,7 @@ rm(mcr.coral, mcr.coral_clean_long, mcr.coral_clean_wide)
 ### MCR Invertebrate Data ###
 
 ## Read in the data
-mcr.inverts <- read_csv_gdrive("0BxUZSA1Gn1HZSjRldFBIRXZ5QTg") %>%
+mcr.inverts <- read_csv_gdrive("insert google drive id here") %>%
   tbl_df()
 
 # Replace underscores with dots for convenience. Also convert to lowercase.
@@ -188,7 +188,7 @@ rm(mcr.inverts, mcr.inverts_clean_long, mcr.inverts_clean_wide)
 ### MCR Fish Data ###
 
 ## Read in the data
-mcr.fish <- read_csv_gdrive("0BxUZSA1Gn1HZMGFUb3gyTzJuVEE") %>%
+mcr.fish <- read_csv_gdrive("insert google drive id here") %>%
   tbl_df()
 
 # Replace underscores with dots for convenience. Also convert to lowercase.
