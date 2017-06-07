@@ -82,7 +82,7 @@ JRNdata1=subset(JRNdata,  ! SITE_ID %in% c("G-SUMM","M-NORT","C-IBPE", "G-GRAV",
 
 # ---------------------------------------------------------------------------------------------------
 #to match naming system
-dat.long=JRNdata1
+dat.long=JRNdata
 
 # MAKE DATA LIST
 dat <- list()
