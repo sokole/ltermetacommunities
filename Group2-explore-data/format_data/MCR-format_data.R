@@ -10,9 +10,8 @@
 ## Data manipulation packages
 library(dplyr)
 library(tidyr)
-## only read this in if using USDA for spp cleaning
-#source("Data_cleaning/sppcodes_cleaning.R")
-source("utilities/data_import.R")
+
+source("Group2-explore-data/format_data/MCR-data_import_fun.R")
 
 ## Read in the data
 mcr.algae <- read_csv_gdrive("0BxUZSA1Gn1HZYXZWUGNRbU1NbGs") %>%
