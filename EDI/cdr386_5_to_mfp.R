@@ -14,7 +14,7 @@ library(taxize)
 #taxon.csv: "taxon_id", "taxon_level", "taxon_name", "authority_system", "authority_taxon_id"
 #taxon_descr.csv: "taxon_id", "datetime", "variable_name", "value", "author"
 #event_data.csv: "event_id", "variable_name", "value"
-#study.csv: "study_id", "length_of_survey_years", "number_of_years_sampled", "sampling_area", "number_of_taxa", "original_dataset_id"
+#study.csv: "study_id", "length_of_survey_years", "number_of_years_sampled", "sampling_area", "std_dev_interval_betw_years" "max_num_of_taxa", "Geo_extent_bounding_box_m2", "original_dataset_id"
 
 # get the data file from the LTER repository
 
@@ -103,8 +103,24 @@ for (i in 1:length(species_list)) {
   df_taxon <- rbind(df_taxon, taxon_record)
 }
 
-#taxon.csv: "taxon_id", "taxon_level", "taxon_name", "authority_system", "authority_taxon_id"
-
-df_taxon <- mutate(df_taxon, taxon_id = name, taxon_level = rank, authority_system = "https://www.itis.gov/", authority_taxon_id = id)
+#rename column headers
+df_taxon <- mutate(df_taxon, taxon_id = name, taxon_level = rank, authority_taxon_id = id)
 df_taxon <- select(df_taxon, taxon_id, taxon_level, taxon_name, authority_system, authority_taxon_id)
+
 write.csv(df_taxon, file = "EDI/taxon.csv")
+
+#study.csv: "study_id", "length_of_survey_years", "number_of_years_sampled", "sampling_area", "std_dev_interval_betw_years" "max_num_of_taxa", "geo_extent_bounding_box_m2", "original_dataset_id"
+#put together the study table
+length_of_survey_years <- max(dt1$Year) - min(dt1$Year)
+number_of_years_sampled <- length(unique(dt1$Year))
+max_num_taxa <- length(unique(cleaned_species_list))
+df_study <- data.frame("study_id" = "cdr386",
+                       "length_of_survey_years" = length_of_survey_years,
+                       "number_of_years_sampled" = number_of_years_sampled,
+                       "sampling_area" = "",
+                       "std_dev_interval_betw_years" = 0,
+                       "max_num_of_taxa" = max_num_taxa,
+                       "geo_extent_bounding_box_m2" = "",
+                       "original_dataset_id" = "knb-lter-cdr.386.5")
+
+write.csv(df_study, file = "EDI/study.csv")
