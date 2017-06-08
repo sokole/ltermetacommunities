@@ -1,5 +1,5 @@
 # ----------------------------------
-# Tools
+# Tools -- CODE WRITTEN BY LAURENT HALLETT, ADAPTED FROM ERIC SOKOL
 # ----------------------------------
 # 
 

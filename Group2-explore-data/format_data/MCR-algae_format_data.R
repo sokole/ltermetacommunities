@@ -11,7 +11,7 @@
 library(dplyr)
 library(tidyr)
 
-source("Group2-explore-data/format_data/MCR-data_import_fun.R")
+source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
 
 ## Read in the data
 mcr.algae <- read_csv_gdrive("insert google drive id here") %>%
