@@ -82,8 +82,8 @@ for (i in 1:length(cleaned_species_list)){
 taxon_info <- classification(cleaned_species_list, db = 'itis')
 
 #create the taxon table to hold the information
-df_taxon <- data.frame(matrix(nrow = 0, ncol = 3))
-col_names <- c("name", "rank", "id")
+df_taxon <- data.frame(matrix(nrow = 0, ncol = 5))
+col_names <- c("name", "rank", "id", "taxon_name", "authority_system")
 colnames(df_taxon) <- col_names
 
 for (i in 1:length(species_list)) {
@@ -92,11 +92,19 @@ for (i in 1:length(species_list)) {
     taxon_record <- as.data.frame(slice(melt(taxon_info[i]), d))
     taxon_record <- select(taxon_record, name, rank, id)
     taxon_record$name <- species_list[i]
+    taxon_record <- mutate(taxon_record, taxon_name = cleaned_species_list[i], authority_system = "https://www.itis.gov/")
   }else{
     taxon_record <- data.frame("name" = species_list[i],
                     "rank" = "",
-                    "id" = "")
+                    "id" = "",
+                    "taxon_name" = cleaned_species_list[i],
+                    "authority_system" = "")
   }
   df_taxon <- rbind(df_taxon, taxon_record)
 }
+
+#taxon.csv: "taxon_id", "taxon_level", "taxon_name", "authority_system", "authority_taxon_id"
+
+df_taxon <- mutate(df_taxon, taxon_id = name, taxon_level = rank, authority_system = "https://www.itis.gov/", authority_taxon_id = id)
+df_taxon <- select(df_taxon, taxon_id, taxon_level, taxon_name, authority_system, authority_taxon_id)
 write.csv(df_taxon, file = "EDI/taxon.csv")
