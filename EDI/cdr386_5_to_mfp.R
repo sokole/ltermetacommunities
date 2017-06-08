@@ -3,7 +3,9 @@
 
 library(dplyr)
 library(tidyr)
+library(reshape2)
 library(EML)
+library(taxize)
 
 #set up most flexible precursor data model
 #observations.csv : "observation_id", "event_id", "study_id", "sampling_location_id", "datetime", "taxon_id", "variable_name", "value", "unit"
@@ -12,7 +14,7 @@ library(EML)
 #taxon.csv: "taxon_id", "taxon_level", "taxon_name", "authority_system", "authority_taxon_id"
 #taxon_descr.csv: "taxon_id", "datetime", "variable_name", "value", "author"
 #event_data.csv: "event_id", "variable_name", "value"
-#study.csv: "study_id", "taxon_group", "ecological_group", "intent", "study_design", "methods", "original_dataset_id"
+#study.csv: "study_id", "length_of_survey_years", "number_of_years_sampled", "sampling_area", "number_of_taxa", "original_dataset_id"
 
 # get the data file from the LTER repository
 
@@ -31,9 +33,9 @@ eml <- read_eml(f)
 #rename column headings to match
 dt2 <- dt1
 colnames(dt2) <- c("Year", "datetime", "plot","Heat.Treatment", "taxon_id", "value")
-dt2 <- mutate(dt2, plot_id = paste("cdr386_5.", plot,".", Heat.Treatment, sep = ""))
+dt2 <- mutate(dt2, plot_id = paste("cdr386.", plot,".", Heat.Treatment, sep = ""))
 dt2 <- mutate(dt2, variable_name = "biomass", unit = "gramsPerSquareMeter")
-dt2 <- mutate(dt2, observation_id = row.names(dt2), event_id = "", study_id = "cdr386_5", sampling_location_id = plot_id)
+dt2 <- mutate(dt2, observation_id = row.names(dt2), event_id = "", study_id = "cdr386", sampling_location_id = plot_id)
 df_observation <- select(dt2, observation_id, event_id, study_id, sampling_location_id, datetime, taxon_id, variable_name, value, unit)
 write.csv(df_observation, file = "EDI/observations.csv")
 
@@ -59,3 +61,42 @@ write.csv(df_sampling_location, file = "EDI/sampling_location.csv")
 dt4 <- mutate(dt4, datetime= "", variable_name = "heat treatment", value = Heat.Treatment, unit = "")
 df_sampling_location_description <- select(dt4, sampling_location_id, datetime, variable_name, value, unit)
 write.csv(df_sampling_location_description, file = "EDI/sampling_location_description.csv")
+
+#put together the taxon table
+dt5 <- select(dt1, Species)
+species_list <- as.vector(unique(dt5$Species))
+cleaned_species_list <- species_list
+
+#clean up the taxon name a bit
+for (i in 1:length(cleaned_species_list)){
+  cleaned_species_list[i] <- sub(substr(cleaned_species_list[i], 1, 1),toupper(substr(cleaned_species_list[i], 1, 1)),cleaned_species_list[i])
+  cleaned_species_list[i] <- gsub("\\(", " ", cleaned_species_list[i])
+  cleaned_species_list[i] <- gsub("\\)", " ", cleaned_species_list[i])
+  cleaned_species_list[i] <- gsub("sp.", " ", cleaned_species_list[i])
+  cleaned_species_list[i] <- gsub(" sp", " ", cleaned_species_list[i])
+  cleaned_species_list[i] <- gsub("  ", " ", cleaned_species_list[i])
+  cleaned_species_list[i] <- trimws(cleaned_species_list[i])
+}
+
+#get as much information as possible from authorities
+taxon_info <- classification(cleaned_species_list, db = 'itis')
+
+#create the taxon table to hold the information
+df_taxon <- data.frame(matrix(nrow = 0, ncol = 3))
+col_names <- c("name", "rank", "id")
+colnames(df_taxon) <- col_names
+
+for (i in 1:length(species_list)) {
+  if (length(taxon_info[[i]]) > 1) {
+    d <- nrow(melt(taxon_info[i]))
+    taxon_record <- as.data.frame(slice(melt(taxon_info[i]), d))
+    taxon_record <- select(taxon_record, name, rank, id)
+    taxon_record$name <- species_list[i]
+  }else{
+    taxon_record <- data.frame("name" = species_list[i],
+                    "rank" = "",
+                    "id" = "")
+  }
+  df_taxon <- rbind(df_taxon, taxon_record)
+}
+write.csv(df_taxon, file = "EDI/taxon.csv")
