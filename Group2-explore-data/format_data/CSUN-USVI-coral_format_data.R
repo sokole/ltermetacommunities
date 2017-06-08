@@ -112,4 +112,4 @@ csun.usvi.coral_L3_final <- rbind(spatial.coords, csun.usvi.coral_L3)
 
 
 # Write CSV file for cleaned data (L3)
-write.csv(csun.usvi.coral_L3_final, file = "L3-csun.usvi-coral-castorani.csv")
+write.csv(csun.usvi.coral_L3_final, file = "L3-csun.usvi-coral-castorani.csv", row.names = F)
