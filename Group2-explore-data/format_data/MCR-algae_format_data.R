@@ -97,4 +97,47 @@ mcr.algae_reformat <- mcr.algae_clean %>%
                 VALUE)
 
 # Write CSV file for cleaned data (L2. Skipping L1 because data are already aggregated by year)
-write.csv(mcr.algae_clean, file = "L2-mcr-algae-castorani.csv")
+write.csv(mcr.algae_reformat, file = "L2-mcr-algae-castorani.csv", row.names = F)
+
+# --------------------------------------------------------------------------------------------------------------------------------
+# Aggregate by site, then add spatial information
+mcr.algae_L3 <- mcr.algae_reformat %>%
+  dplyr::group_by(SITE_ID, DATE, VARIABLE_NAME) %>%
+  dplyr::summarise(OBSERVATION_TYPE = unique(OBSERVATION_TYPE),
+                   VARIABLE_UNITS = unique(VARIABLE_UNITS),
+                   VALUE = mean(VALUE, na.rm = TRUE)) %>%
+  ungroup() %>%
+  dplyr::select(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE) %>%
+  as.data.frame(.)
+
+spatial.coords <- data.frame(
+  "OBSERVATION_TYPE" = rep("SPATIAL_COORDINATE", length(unique(mcr.algae_L3$SITE_ID))*2),
+  "SITE_ID" = rep(unique(mcr.algae_L3$SITE_ID), times = 2),
+  "DATE" = rep("NA", length(unique(mcr.algae_L3$SITE_ID))*2),
+  "VARIABLE_NAME" = c(rep("LAT", length(unique(mcr.algae_L3$SITE_ID))),
+                      rep("LONG", length(unique(mcr.algae_L3$SITE_ID)))
+                      ),
+  "VARIABLE_UNITS" = rep("dec. degrees", length(unique(mcr.algae_L3$SITE_ID))*2),
+  "VALUE" = c(-17.47913579,
+              -17.47354064,
+              -17.51234592,
+              -17.54184642,
+              -17.58000273,
+              -17.51787861,
+              -149.8377064,
+              -149.8039267,
+              -149.7614294,
+              -149.7669862,
+              -149.8715382,
+              -149.9230353)
+) %>%
+  dplyr::mutate(OBSERVATION_TYPE = as.character(OBSERVATION_TYPE),
+                DATE = as.numeric(DATE),
+                VARIABLE_NAME = as.character(VARIABLE_NAME),
+                VARIABLE_UNITS = as.character(VARIABLE_UNITS)) %>%
+  dplyr::mutate(DATE = NA)
+
+mcr.algae_L3_final <- rbind(spatial.coords, mcr.algae_L3)
+
+# Write CSV file for cleaned data (L3)
+write.csv(mcr.algae_L3_final, file = "L3-mcr-algae-castorani.csv", row.names = F)
