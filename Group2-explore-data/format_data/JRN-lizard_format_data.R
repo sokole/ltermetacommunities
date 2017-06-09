@@ -94,6 +94,11 @@ comm.long <- merge(sum_dat, grid, by = c("VARIABLE_NAME", "SITE_ID", "DATE"), al
 comm.long$OBSERVATION_TYPE = rep("TAXON_COUNT", length(comm.long$DATE))
 comm.long$VARIABLE_UNITS = rep("count", length(comm.long$DATE))
 comm.long$VALUE <- as.numeric(ifelse(is.na(comm.long$VALUE), 0, comm.long$VALUE))
+
+comm.long$VALUE  <- ifelse((comm.long$SITE_ID == "NORT" |comm.long$SITE_ID == "SUMM") & comm.long$DATE < 1995, "NA", comm.long$VALUE)
+
+comm.long$VALUE <- as.numeric(comm.long$VALUE)
+comm.long <- na.omit(comm.long)
 str(comm.long)
 
 ### COORDINATE DATA ### 
@@ -132,46 +137,6 @@ dat.tog <- rbind(dat.coord, comm.long, dat.env) %>%
 write.csv(dat.tog, "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-jrn-lizards-hope.csv")
 
 
-####################################################
-#0ld cleaning may be obsolete after EDI meeting 6/6/2017
-#calculates annual precipitation
-#but IS broken now.
-###################################################
-data <- dat.tog
-#look at data
-str(data);unique(data$OBSERVATION_TYPE); unique(data$VARIABLE_NAME); 
-#multiple counts per year; daily precipitation data. 
-data1 <- filter(data, OBSERVATION_TYPE=="SPATIAL_COORDINATE")#subset site coordinates to add back onto frame after averaging
-
-#Prepare year column for calculating averages
-data$Date <- as.POSIXct(data$DATE, format = "%m/%d/%y")
-data$Year <- as.numeric(format(data$Date,"%Y"))
-#other cleaning
-data$SITE_ID <- as.character(data$SITE_ID)
-data$SITE_ID[data$SITE_ID == "G-IBP "] <- "G-IBPE" #noticed an error in sites names, fixing to keep consistent when comparing env vs species data
-
-
-avgdata <-  filter(data, OBSERVATION_TYPE!="SPATIAL_COORDINATE") #subset to only include dated rows that need to be averaged
-
-#number of species count and precip values per year per site
-n.obs=aggregate(VALUE ~ VARIABLE_NAME+SITE_ID +Year, data=avgdata, length)
-#So, take maximum of count data but sum of 365 days of precip data (annual precip) for each site-year:
-commdata <-  filter(data, OBSERVATION_TYPE=="TAXON_COUNT")
-agg_c=aggregate(VALUE ~ OBSERVATION_TYPE + SITE_ID + Year + VARIABLE_NAME + VARIABLE_UNITS, data=commdata, max, na.rm=TRUE)
-data2=data.frame(agg_c)
-names(data2)[names(data2)=="Year"]="DATE"
-
-envdata <-  filter(data, OBSERVATION_TYPE=="ENV_VAR")
-agg_e=aggregate(VALUE ~ OBSERVATION_TYPE + SITE_ID + Year + VARIABLE_NAME + VARIABLE_UNITS, data=envdata, sum, na.rm=TRUE)
-data3=data.frame(agg_e)
-names(data3)[names(data3)=="Year"]="DATE"
-
-
-JRNdata <- rbind(data2, data1, data3) #bind data frames back together
-levels(JRNdata$VARIABLE_UNITS)
-levels(JRNdata$VARIABLE_NAME)
-#write.csv(JRNdata,"JRNdata_RA.csv")
-
 # --------------------------------------------------------- #
 # Format raw data as a list of tables                       #
 #                                                           #
@@ -182,7 +147,9 @@ levels(JRNdata$VARIABLE_NAME)
 
 # ---------------------------------------------------------------------------------------------------
 #to match naming system
-dat.long=JRNdata
+
+dat.long <- dat.tog
+
 
 # MAKE DATA LIST
 dat <- list()
@@ -195,20 +162,12 @@ comm.long <- comm.long %>%
 str(comm.long)  # Inspect the structure of the community data
 
 #Add number of unique taxa and number of years to data list:
-dat$n.spp <- length(levels(comm.long$VARIABLE_NAME));dat$n.spp
+dat$n.spp <- length(unique(comm.long$VARIABLE_NAME));dat$n.spp
 dat$n.years <- length(unique(comm.long$DATE));dat$n.years
 
 # Ensure that community data VALUE and DATE are coded as numeric
 comm.long <- comm.long %>%   # Recode if necessary
   mutate_at(vars(c(DATE, VALUE)), as.numeric)
-
-# Ensure that community character columns coded as factors are re-coded as characters
-comm.long <- comm.long %>%   # Recode if necessary
-  mutate_if(is.factor, as.character)
-
-# Ensure that SITE_ID is a character: recode numeric as character 
-comm.long <- comm.long %>%   # Recode if necessary
-  mutate_at(vars(SITE_ID), as.character)
 
 # Double-check that all columns are coded properly
 ifelse(FALSE %in% 
@@ -224,10 +183,20 @@ ifelse(FALSE %in%
        "ERROR: Community columns incorrectly coded.", 
        "OK: Community columns correctly coded.")
 
+#Here's some code you could use if they are not:
+
+# Ensure that community character columns coded as factors are re-coded as characters
+#comm.long <- comm.long %>%   # Recode if necessary
+#  mutate_if(is.factor, as.character)
+
+# Ensure that SITE_ID is a character: recode numeric as character 
+#comm.long <- comm.long %>%   # Recode if necessary
+#  mutate_at(vars(SITE_ID), as.character)
+
+
 # ---------------------------------------------------------------------------------------------------
 # Check balanced sampling of species across space and time by inspecting table, and add to data list
 xtabs(~ SITE_ID + DATE, data = comm.long)
-hist(na.omit(comm.long$DATE))
 
 ifelse(length(unique(xtabs(~ SITE_ID + DATE, data = comm.long))) == 1,
        "OK: Equal number of taxa recorded across space and time.", 
@@ -294,6 +263,7 @@ dat$max.distance <- max(distance.mat)
 summary(dat)
 # ---------------------------------------------------------------------------------------------------
 # ENVIRONMENTAL COVARIATES
+## SUMMARIZE BY YEAR (OR SOMETHING) BEFORE RUNNING THIS!
 env.long <- subset(dat.long, OBSERVATION_TYPE == "ENV_VAR")
 env.long <- droplevels(env.long)
 str(env.long)
@@ -323,19 +293,11 @@ ifelse(nrow(dat$comm.wide) == dat$n.years * dat$n.sites, "Yes", "No")
 summary(dat)
 
 #clean up the workspace
-rm("agg_c","agg_e","avgdata","comm.long","comm.wide","cord","cord.wide","crs.geo","dat.long", "data.key", "data.set","distance.mat","env.long", "env.wide","package","sites", "JRNdata", "JRNdata1", "n.obs", "envdata", "commdata", "data", "data1", "data2", "data3")
+rm("comm.long","comm.wide","cord","cord.wide","crs.geo","dat.long", "data.key", "data.set","distance.mat","env.long", "env.wide","package","sites", "ss", "data", "species", "sites", "years","Hope_data", "dat.coord", "dat.env", "dat.tog", "grid", "sum_dat", "test")
 ls()
 
 # Now, explore the data and perform further QA/QC by sourcing this script within the scripts "2_explore_spatial_dat.R", "3_explore_comm_dat.R", and "4_explore_environmental_dat.R"
 
-# ---------------------------------------------------------------------------------------------------
-## WRITE OUT DATA FOR ARCHIVING ##
-#save flat files into 'final_data' folder on Google Drive. 
-
-##### OLD WAY #####
-#write .Rdata object into the "Intermediate_data" directory 
-#filename <- paste(data.set,".Rdata", sep="")
-#save(dat, file = paste("Intermediate_data/",filename,sep=""))
 
 
 

@@ -15,7 +15,7 @@ if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working direct
 # Check for and install required packages
 #library()
 
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'BiodiversityR','iNEXT', 'grDevices', 'RColorBrewer')) {
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'iNEXT', 'grDevices', 'RColorBrewer','BiodiversityR')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
@@ -38,12 +38,16 @@ data.key <- "0BxUZSA1Gn1HZenhxaVJ6bWtVdDg" # Google Drive file ID
 data.set <- "fce-algae-marazzi"
 data.key <- "0B7o8j0RLpcxiSk42ZldhdnV1WUE" # Google Drive file ID 
 
+# jrn-lizard-hope - script not run on this one yet
+data.set <- "jrn-lizard-hope"
+data.key <- "0B7o8j0RLpcxiYW10X1djMTBGM0U" # Google Drive file ID 
+
 #----------------------------------------------------------------------------------------------------
 # MAKE DATA LIST
 dat <- list()
 
 # IMPORT DATA
-L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key)) 
+L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), stringsAsFactors=F) 
 
 # Subset out community data from L2dat and add it to dat list
 dat$comm.long <- subset(L3dat, OBSERVATION_TYPE=='TAXON_COUNT')
