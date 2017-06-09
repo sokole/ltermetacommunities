@@ -41,6 +41,9 @@ dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download"
 #remove duplicate rows: (they may be there due to the utility make-data-long-standardized.R script. NWT was the example. )
 dat.long <- unique(dat.long)
 
+#write this to the L3 folder in Google Drive 
+write.csv(dat.long, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-nwt-plants-hallett-sokol.csv")
+
 # MAKE DATA LIST
 dat <- list()
 
@@ -189,13 +192,4 @@ rm("comm.long","comm.wide","cord","cord.wide","crs.geo","dat.long", "data.key", 
 ls()
 
 # Now, explore the data and perform further QA/QC by sourcing this script within the scripts "2_explore_spatial_dat.R", "3_explore_comm_dat.R", and "4_explore_environmental_dat.R"
-
-# ---------------------------------------------------------------------------------------------------
-## WRITE OUT DATA FOR ARCHIVING ##
-#save flat files into 'final_data' folder on Google Drive. 
-
-##### OLD WAY #####
-#write .Rdata object into the "Intermediate_data" directory 
-#filename <- paste(data.set,".Rdata", sep="")
-#save(dat, file = paste("Intermediate_data/",filename,sep=""))
 

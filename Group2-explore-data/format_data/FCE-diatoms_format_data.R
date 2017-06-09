@@ -30,14 +30,23 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 
 # CAP LTER (Central Arizona-Phoenix)
 data.set <- "FCE-diatoms"
-data.key <- "" # Google Drive file ID 
+data.key <- "0B-HySt4HfBxBM0FxbVRERGtBUlk" # Google Drive file ID 
+https://drive.google.com/file/d/0B-HySt4HfBxBM0FxbVRERGtBUlk/view?usp=sharing
 dat.long <- read.csv("~/Google Drive/FCE_diatoms_environment_long.csv")
 # ---------------------------------------------------------------------------------------------------
 # IMPORT DATA
 dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
 
 str(dat.long)
-levels(dat.long$OBSERVATION_TYPE); levels(dat.long$ENV_VAR)
+levels(dat.long$OBSERVATION_TYPE)
+
+#change 'TAXON_RELATIVE_ABUNDANCE' to 'TAXON_COUNT'
+
+dat.long$OBSERVATION_TYPE <- gsub("TAXON_RELATIVE_ABUNDANCE", "TAXON_COUNT", dat.long$OBSERVATION_TYPE)
+
+
+#write this to the L3 folder in Google Drive 
+write.csv(dat.long, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-diatoms-marazzi.csv")
 
 
 # MAKE DATA LIST

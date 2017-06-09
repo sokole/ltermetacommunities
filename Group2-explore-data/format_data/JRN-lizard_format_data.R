@@ -28,9 +28,9 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 # Assign data set of interest
 # NOTE: Google Drive file ID is different for each dataset
 
-# JRN LTER (Jornada lizards from Andrew Hope )
+# JRN LTER (Jornada lizards from lter repository download in L0 directory)
 data.set <- "JRN-lizard"
-data.key <- "0BwguSiR80XFZa0NDckg5RmoyQVk" # Google Drive file ID 
+data.key <- "0B7o8j0RLpcxiemtYVjF0ZGVxaVE" # Google Drive file ID
 
 data <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
 
