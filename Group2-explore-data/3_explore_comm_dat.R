@@ -22,7 +22,6 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
   }
 }
 
-
 # ---------------------------------------------------------------------------------------------------
 # Assign data set of interest# Assign L3 data set of interest
 # NOTE: Google Drive file ID is different for each dataset
@@ -30,6 +29,14 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 # CSUN-USVI-coral
 data.set <- "CSUN-USVI-coral"
 data.key <- "0BxUZSA1Gn1HZZGowdUVCTTdtXzg" # Google Drive file ID
+
+# mcr-algae-castorani
+data.set <- "mcr-algae-castorani"
+data.key <- "0BxUZSA1Gn1HZenhxaVJ6bWtVdDg" # Google Drive file ID
+
+# fce-algae-marazzi - script not run on this one yet
+data.set <- "fce-algae-marazzi"
+data.key <- "0B7o8j0RLpcxiSk42ZldhdnV1WUE" # Google Drive file ID 
 
 #----------------------------------------------------------------------------------------------------
 # MAKE DATA LIST
@@ -202,7 +209,7 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
 # Note that the thick line indicates the total number of taxa among all sites
 
 # Write species accumulation curve to pdf
-pdf(file=paste('Group2-explore-data/species_acculumation_curves/',data.set,'_species_accumulation_curve.pdf',sep=''))
+pdf(file=paste('Group2-explore-data/species_accumulation_curves/',data.set,'_species_accumulation_curve.pdf',sep=''))
 ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   geom_point(aes(color = SITE_ID)) +
   geom_line(aes(color = SITE_ID)) +
