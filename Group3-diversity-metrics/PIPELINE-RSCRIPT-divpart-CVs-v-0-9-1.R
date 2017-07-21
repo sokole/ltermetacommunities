@@ -1,4 +1,10 @@
 #######################################################
+# set options
+#######################################################
+
+options(stringsAsFactors = FALSE)
+
+#######################################################
 # check for packages
 #######################################################
 package.list <- c('vegan','reshape2','dplyr', 'tibble','vegetarian')
@@ -53,14 +59,21 @@ for(i in 1:nrow(data_list)){
     
     download.link <- paste0("https://drive.google.com/uc?export=download&id=",
                             data_id_googledrive)
-    
+
+    d.in.long <- data.frame()
     d.in.long <- read.csv(file = download.link, header = T,
                           stringsAsFactors = FALSE)
     
+    d.in.long$SITE_ID <- as.character(d.in.long$SITE_ID)
+    
+    #go to next i if no data
+    if(!nrow(d.in.long) > 0) next
+      
     if(!'TAXON_GROUP'%in%names(d.in.long)){
       d.in.long$TAXON_GROUP <- i_data_record$organism
     }
     
+    # handle dates that are not years
     if(sum(grepl('/',d.in.long$DATE)) > 0){
       YEAR <- d.in.long$DATE %>% as.character() %>%
         as.Date(format = '%m/%d/%y') %>%
@@ -76,20 +89,18 @@ for(i in 1:nrow(data_list)){
     d.temp.long <- data.frame(
       LTER.site = i_data_record$LTER.site,
       google.id = i_data_record$google.id,
-      d.in.long[,c('OBSERVATION_TYPE',
-                   'SITE_ID',
-                   'DATE',
-                   'VARIABLE_NAME',
-                   'TAXON_GROUP',
-                   'VALUE')]
+      d.in.long
     )
     
-    data_ALL_long <- rbind(data_ALL_long,
+    d.temp.long$DATE <- as.character(d.temp.long$DATE)
+    
+    data_ALL_long <- dplyr::bind_rows(data_ALL_long,
                            d.temp.long)
   })
   print(i_data_record)
 }
 
+unique(data_ALL_long$LTER.site)
 
 
 #######################################################
@@ -97,10 +108,11 @@ for(i in 1:nrow(data_list)){
 #######################################################
 d.comm.long <- data_ALL_long %>%
   as.data.frame() %>%
-  filter(OBSERVATION_TYPE == 'TAXON_COUNT')
+  filter(OBSERVATION_TYPE %in% c('TAXON_RELATIVE_ABUNDANCE', 'TAXON_COUNT', 'AVERAGE_COUNTS'))
+#temporary fix -- data cleaners need to make sure OBSERVATION_TYPE is 'TAXON_COUNT'
 
 #######################################################
-# -- get community data, make wide
+# -- get env data, make wide
 #######################################################
 d.env.long <- data_ALL_long %>%
   as.data.frame() %>%
@@ -203,20 +215,23 @@ d_CVs <- full_join(
   dat_div_CV_long
 )
 
-library(ggplot2)
-d.plot <- d_CVs %>% 
-  filter(variable%in%c('CV_alpha_0','CV_beta_0','CV_gamma_0')) %>%
-  na.omit()
+# NEED to get PRISM data or similar for all LTER sites included in analysis
+# no longer using LTER data set env vars for this plot
 
-ggplot(d.plot,
-       aes(CV_env,
-           value,
-           color = TAXON_GROUP)
-       ) +
-  geom_text(aes(label = LTER.site),
-            size = 4) +
-  facet_grid(variable ~ CV_env_scale, 
-             scales = 'free')
+# library(ggplot2)
+# d.plot <- d_CVs %>% 
+#   filter(variable%in%c('CV_alpha_0','CV_beta_0','CV_gamma_0')) %>%
+#   na.omit()
+# 
+# ggplot(d.plot,
+#        aes(CV_env,
+#            value,
+#            color = TAXON_GROUP)
+#        ) +
+#   geom_text(aes(label = LTER.site),
+#             size = 4) +
+#   facet_grid(variable ~ CV_env_scale, 
+#              scales = 'free')
   
 # write your output as a csv file in the Group 3 folder
 result.file.path <- file.path('Group3-diversity-metrics/dat_CVs_divpart_env_v-0-9-1.csv')
