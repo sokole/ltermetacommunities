@@ -237,4 +237,4 @@ d_CVs <- full_join(
   
 # write your output as a csv file in the Group 3 folder
 result.file.path <- file.path('Group3-diversity-metrics/dat_CVs_divpart_env_v-0-9-1.csv')
-write.csv(dat_div_CV, file = result.file.path)
+write.csv(dat_div_CV, file = result.file.path, row.names = FALSE)
