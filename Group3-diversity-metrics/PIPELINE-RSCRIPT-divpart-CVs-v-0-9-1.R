@@ -102,19 +102,23 @@ for(i in 1:nrow(data_list)){
 
 unique(data_ALL_long$LTER.site)
 
+data_CLEANED_long <- data_ALL_long %>% 
+  filter(TREATMENT %in% c(NA, 'NA', 'Control')) %>%
+  filter(!is.na(VARIABLE_NAME))
+
+df_JRN <- data_CLEANED_long %>% filter(LTER.site == 'JRN')
 
 #######################################################
 # -- get community data, make wide
 #######################################################
-d.comm.long <- data_ALL_long %>%
+d.comm.long <- data_CLEANED_long %>%
   as.data.frame() %>%
-  filter(OBSERVATION_TYPE %in% c('TAXON_RELATIVE_ABUNDANCE', 'TAXON_COUNT', 'AVERAGE_COUNTS'))
-#temporary fix -- data cleaners need to make sure OBSERVATION_TYPE is 'TAXON_COUNT'
+  filter(OBSERVATION_TYPE == 'TAXON_COUNT')
 
 #######################################################
 # -- get env data, make wide
 #######################################################
-d.env.long <- data_ALL_long %>%
+d.env.long <- data_CLEANED_long %>%
   as.data.frame() %>%
   filter(OBSERVATION_TYPE == 'ENV_VAR') 
 
@@ -161,7 +165,6 @@ fn.cv <- function(x){
 # dat_diversities_by_timestep is the data table with results
 # each row in the code below calculates the metric for a column in your results table
 dat_diversities_by_timestep <- d.comm.long %>% 
-  na.omit() %>%
   group_by(LTER.site, google.id, TAXON_GROUP, DATE) %>% 
   summarise(
     alpha_q0 = fn.divpart.long(SITE_ID, VARIABLE_NAME, VALUE, lev = 'alpha', q = 0),
@@ -170,8 +173,7 @@ dat_diversities_by_timestep <- d.comm.long %>%
     alpha_q2 = fn.divpart.long(SITE_ID, VARIABLE_NAME, VALUE, lev = 'alpha', q = 2),
     beta_q2 = fn.divpart.long(SITE_ID, VARIABLE_NAME, VALUE, lev = 'beta', q = 2),
     gamma_q2 = fn.divpart.long(SITE_ID, VARIABLE_NAME, VALUE, lev = 'gamma', q = 2)
-  ) %>%
-  na.omit()
+  ) %>% na.omit()
 
 
 dat_div_CV <- dat_diversities_by_timestep %>% as.data.frame() %>%
@@ -235,4 +237,4 @@ d_CVs <- full_join(
   
 # write your output as a csv file in the Group 3 folder
 result.file.path <- file.path('Group3-diversity-metrics/dat_CVs_divpart_env_v-0-9-1.csv')
-write.csv(dat_diversities_by_timestep, file = result.file.path)
+write.csv(dat_div_CV, file = result.file.path)
