@@ -1,0 +1,18 @@
+"","data.set","LTER.site","google.id","organism","body.size","dispersal.type","trophic.group","biome","beta_type","gamma_temporal_bd","mean_alpha_temporal_bd","phi_bd","n_locations","n_times"
+"2","SBC-survey-fish-Castorani_Lamy","SBC","0BxUZSA1Gn1HZeEtNSEtJRDQxa2M","fish","macro","mobile_active","predators","marine","total",0.336566032288679,0.505730476363583,0.665504746142119,11,16
+"3","SBC-survey-mobile_invert-Castorani_Lamy","SBC","0BxUZSA1Gn1HZWVZsdFdrRmhpTm8","mobile invertebrates","meso","mobile_active","primary consumers","marine","total",0.173118731017271,0.335338837492089,0.516250167478304,11,16
+"4","SBC-survey-sessile_invert-Castorani_Lamy","SBC","0BxUZSA1Gn1HZYVp0MXBod2oxczQ","sessile invertebrates","meso","sessile_passive","primary consumers","marine","total",0.138472682136648,0.252836342956519,0.547677127890042,11,16
+"5","SBC-experiment-algae-Castorani","SBC","0BxUZSA1Gn1HZWDkwN1hwNmVUcEE","macroalgae","macro","sessile_passive","primary producers","marine","total",0.270194042243285,0.358314216813465,0.754070113784922,4,9
+"6","SBC-experiment-fish-Castorani","SBC","0BxUZSA1Gn1HZVXAyRk9QVV9fYkU","fish","macro","mobile_active","predators","marine","total",0.45846408188289,0.532180653539129,0.861482052821714,4,9
+"7","SBC-experiment-mobile_invert-Castorani","SBC","0BxUZSA1Gn1HZYXpqcFVRUUs0YVE","mobile invertebrates","meso","mobile_active","primary consumers","marine","total",0.254707301036052,0.271922997100691,0.936689076509907,4,9
+"8","SBC-experiment-sessile_invert-Castorani","SBC","0BxUZSA1Gn1HZclVoLVlONlgtcTg","sessile invertebrates","meso","sessile_passive","primary consumers","marine","total",0.289258022606398,0.270568103660737,1.06907657884573,4,9
+"9","MCR-algae","MCR","0BxUZSA1Gn1HZenhxaVJ6bWtVdDg","algae","macro","sessilve_passive","primary producers","marine","total",0.174420962020389,0.197178375750206,0.884584637421668,6,10
+"10","MCR-coral","MCR","0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8","coral","macro","sessilve_passive","primary producers","marine","total",0.329134532514826,0.334303914889606,0.984536877540046,6,11
+"12","MCR-inverts","MCR","0BxUZSA1Gn1HZTnYzZVdwM3hyN2M","invertebrates","macro","mobile_active","consumers","marine","total",0.142611133643095,0.182429262732545,0.781733870471065,6,11
+"13","CSUN-USVI-coral","CSUN-USVI","0BxUZSA1Gn1HZZGowdUVCTTdtXzg","coral","macro","sessilve_passive","primary producers","marine","total",0.28150895582455,0.378652312952905,0.743449719425225,6,24
+"14","NWT-plants-hallett-sokol","NWT","0B2P104M94skvQzE2QUMtNHpCcXc","plants","macro","sessile_passive","primary producers","terrestrial","total",0.0972300836153354,0.191839342123122,0.506830781107106,88,11
+"15","FCE-algae-Marazzi","FCE","0B7o8j0RLpcxiaHFtUTk2cmV1RFU","algae","micro","sessile_passive","primary producers","freshwater","total",0.156407460048506,0.325354474075371,0.480729396738749,171,7
+"16","FCE-diatoms-Marazzi","FCE","0B7o8j0RLpcxiaHFtUTk2cmV1RFU","diatoms","micro","sessile_passive","primary producers","freshwater","total",0.156407460048506,0.325354474075371,0.480729396738749,171,7
+"17","JRN-lizards-Hope","JRN","0B7o8j0RLpcxiYW10X1djMTBGM0U","lizards","macro","mobile_active","predators","terrestrial","total",0.222881262455162,0.349448554499047,0.637808511684,11,16
+"18","NTL-fish-Stanley-Lottig","NTL","0B2P104M94skvN0RlNkpydG9sOUU","fish","macro","mobile_active","predators","freshwater","total",0.329494026965501,0.29807325188485,1.10541293082141,11,36
+"19","NTL-macroinverts-Stanley-Lottig","NTL","0B2P104M94skvaEFFYXNrU3NzbjQ","macroinvertebrates","meso","mobile_active","consumers","freshwater","total",0.156617435905571,0.182694059920157,0.857266163848004,7,33
