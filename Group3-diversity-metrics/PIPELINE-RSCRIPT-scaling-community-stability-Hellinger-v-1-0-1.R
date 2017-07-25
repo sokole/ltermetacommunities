@@ -9,16 +9,17 @@ options(stringsAsFactors = FALSE)
 # # test cases that I've tried
 # i <- 2 #SBC fish -- works
 # i <- 14 #NWT -- works
+# i <- 15 # FCE algae, dupes?
+# i <- 1
+# i <- 11 # MCR-fish - has negative values for "abundance"?? -- works with filter to take out negatives
 
+#not working:
+# i <- 20 # NTL zoops - taxa have no names
+ i <- 8
 #########################
 # libraries
 #########################
 library(tidyverse)
-# library(ade4)
-# library(vegan)
-# library(gsheet)
-# source functions from Group3 diveristy metrics directory on github
-# source("Group3-diversity-metrics/FUNCTIONS-metacomm-stability-decomp-20170309.R")
 
 #######################################################
 # -- download list of data sets off google drive using google-id
@@ -153,19 +154,57 @@ fn_comp_stability_components <- function(
 data_ALL <- data.frame()
 for(i in 1:nrow(data_list)){
   try_result <- try({
+    
+    # get record
     i_data_record <- data_list[i,]
+    
+    # get google id used to download data
     data_id_googledrive <- i_data_record$google.id
     
+    # link to read in spreadsheet from google drive
     download.link <- paste0("https://drive.google.com/uc?export=download&id=",
                             data_id_googledrive)
     
+    # blank data frame
     d.in.long <- data.frame()
+    
+    # read data into data.frame and filter out non-taxon data, spp names that are NAs, and negative VALUES
+    # make SITE_ID and DATE chars
     d.in.long <- read.csv(file = download.link, header = T,
                           stringsAsFactors = FALSE) %>%
       filter(OBSERVATION_TYPE == 'TAXON_COUNT') %>% 
+      filter(!is.na(VARIABLE_NAME)) %>%
+      filter(VALUE >= 0) %>%
       mutate(SITE_ID = as.character(SITE_ID),
              DATE = as.character(DATE))
     
+    if('TREATMENT' %in% names(d.in.long)){
+      d.in.long <- d.in.long %>%
+        filter(TREATMENT %in% c(NA, 'NA', '', 'control', 'Control','CONTROL'))
+    }
+     
+    key_list <- with(d.in.long, 
+                     paste(
+                       OBSERVATION_TYPE,
+                       SITE_ID,
+                       DATE,
+                       VARIABLE_NAME,
+                       VALUE,
+                       sep = '_'
+                     ))
+    
+    # get rid of exact dupes
+    rows2check <- which(duplicated(key_list))
+    if(length(rows2check) > 0){
+      d.in.long <- data.frame(d.in.long[-rows2check,], row.names = NULL)
+    }
+    
+    # take mean of replicate observations that are not exact dupes
+    d.in.long <- d.in.long %>% group_by(
+      OBSERVATION_TYPE, SITE_ID, DATE, 
+      VARIABLE_NAME, VARIABLE_UNITS) %>%
+      summarise(VALUE = mean(VALUE)) %>% data.frame()
+
     d.bd <- data.frame()
     if(nrow(d.in.long) > 0){
       d.bd <- data.frame(
@@ -184,7 +223,8 @@ for(i in 1:nrow(data_list)){
   print(i_data_record)
 }
 
-write.csv(data_ALL, 'Group3-diversity-metrics/data-comp-stability-components-v-1-0-1.csv')
+write.csv(data_ALL, 'Group3-diversity-metrics/data-comp-stability-components-v-1-0-1.csv',
+          row.names = FALSE)
   
 
 

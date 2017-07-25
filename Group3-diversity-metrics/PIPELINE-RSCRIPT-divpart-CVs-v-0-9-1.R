@@ -62,13 +62,16 @@ for(i in 1:nrow(data_list)){
 
     d.in.long <- data.frame()
     d.in.long <- read.csv(file = download.link, header = T,
-                          stringsAsFactors = FALSE)
-    
-    d.in.long$SITE_ID <- as.character(d.in.long$SITE_ID)
+                          stringsAsFactors = FALSE) %>% 
+      filter(OBSERVATION_TYPE == 'TAXON_COUNT') %>%
+      filter(!is.na(VARIABLE_NAME)) %>%
+      filter(VALUE >= 0) 
     
     #go to next i if no data
     if(!nrow(d.in.long) > 0) next
       
+    d.in.long$SITE_ID <- as.character(d.in.long$SITE_ID)
+    
     if(!'TAXON_GROUP'%in%names(d.in.long)){
       d.in.long$TAXON_GROUP <- i_data_record$organism
     }
@@ -100,27 +103,39 @@ for(i in 1:nrow(data_list)){
   print(i_data_record)
 }
 
-unique(data_ALL_long$LTER.site)
+data_CLEANED_long <- data_ALL_long 
+if('TREATMENT' %in% names(data_CLEANED_long)){
+  data_CLEANED_long <- data_CLEANED_long %>%
+    filter(TREATMENT %in% c(NA, 'NA', '', 'control', 'Control','CONTROL'))
+}
 
-data_CLEANED_long <- data_ALL_long %>% 
-  filter(TREATMENT %in% c(NA, 'NA', 'Control')) %>%
-  filter(!is.na(VARIABLE_NAME))
+# unique(data_CLEANED_long$LTER.site)
+# sum(is.na(data_CLEANED_long$VARIABLE_NAME))
 
-df_JRN <- data_CLEANED_long %>% filter(LTER.site == 'JRN')
+key_list <- with(data_CLEANED_long, 
+                 paste(
+                   LTER.site,
+                   google.id,
+                   SITE_ID,
+                   DATE,
+                   TAXON_GROUP,
+                   VARIABLE_NAME,
+                   VALUE,
+                   sep = '_'
+                 ))
 
-#######################################################
-# -- get community data, make wide
-#######################################################
+# get rid of exact dupes
+rows2check <- which(duplicated(key_list))
+data_CLEANED_long <- data.frame(data_CLEANED_long[-rows2check,], row.names = NULL)
+
+# take mean of replicate observations that are not exact dupes
+data_CLEANED_long <- data_CLEANED_long %>% group_by(
+  LTER.site, google.id, OBSERVATION_TYPE, SITE_ID, DATE, 
+  VARIABLE_NAME, VARIABLE_UNITS, TAXON_GROUP, TREATMENT) %>%
+  summarise(VALUE = mean(VALUE))
+
 d.comm.long <- data_CLEANED_long %>%
-  as.data.frame() %>%
-  filter(OBSERVATION_TYPE == 'TAXON_COUNT')
-
-#######################################################
-# -- get env data, make wide
-#######################################################
-d.env.long <- data_CLEANED_long %>%
-  as.data.frame() %>%
-  filter(OBSERVATION_TYPE == 'ENV_VAR') 
+  as.data.frame()
 
 #######################################################
 # -- diverssity partitioning example, time series
@@ -190,51 +205,6 @@ dat_div_CV_long <- dat_div_CV %>% reshape2::melt(
   id.vars = c('LTER.site','google.id','TAXON_GROUP')
 )
 
-
-dat_env_CV_alpha_mean <- d.env.long %>%
-  filter(!is.na(VALUE)) %>% 
-  group_by(LTER.site, google.id, SITE_ID, VARIABLE_NAME) %>%
-  summarize(CV_env_alpha = fn.cv(VALUE)) %>% as.data.frame() %>%
-  na.omit() %>%
-  group_by(LTER.site, google.id, VARIABLE_NAME) %>%
-  summarize(CV_env = mean(CV_env_alpha)) %>% as.data.frame()
-
-
-dat_env_CV_gamma <- d.env.long %>%
-  filter(!is.na(VALUE)) %>% 
-  group_by(LTER.site, google.id, DATE, VARIABLE_NAME) %>%
-  summarize(VALUE.mean = mean(VALUE, na.rm = TRUE)) %>% as.data.frame() %>%
-  na.omit() %>%
-  group_by(LTER.site, google.id, VARIABLE_NAME) %>%
-  summarize(CV_env = fn.cv(VALUE.mean)) %>% as.data.frame()
-
-d_env_CVs <- rbind(
-  data.frame(dat_env_CV_alpha_mean, CV_env_scale = 'alpha_mean'),
-  data.frame(dat_env_CV_gamma, CV_env_scale = 'gamma'))
-
-d_CVs <- full_join(
-  d_env_CVs,
-  dat_div_CV_long
-)
-
-# NEED to get PRISM data or similar for all LTER sites included in analysis
-# no longer using LTER data set env vars for this plot
-
-# library(ggplot2)
-# d.plot <- d_CVs %>% 
-#   filter(variable%in%c('CV_alpha_0','CV_beta_0','CV_gamma_0')) %>%
-#   na.omit()
-# 
-# ggplot(d.plot,
-#        aes(CV_env,
-#            value,
-#            color = TAXON_GROUP)
-#        ) +
-#   geom_text(aes(label = LTER.site),
-#             size = 4) +
-#   facet_grid(variable ~ CV_env_scale, 
-#              scales = 'free')
-  
 # write your output as a csv file in the Group 3 folder
 result.file.path <- file.path('Group3-diversity-metrics/dat_CVs_divpart_env_v-0-9-1.csv')
 write.csv(dat_div_CV, file = result.file.path, row.names = FALSE)
