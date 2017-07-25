@@ -1,4 +1,9 @@
 #######################################################
+# Calculates CV of alpha, beta, and gamma diversity
+# v0.9.1 from ltermetacommunities group 3 directory on github
+# Author: Eric Sokol (sokole@gmail.com)
+
+#######################################################
 # set options
 #######################################################
 
@@ -109,9 +114,7 @@ if('TREATMENT' %in% names(data_CLEANED_long)){
     filter(TREATMENT %in% c(NA, 'NA', '', 'control', 'Control','CONTROL'))
 }
 
-# unique(data_CLEANED_long$LTER.site)
-# sum(is.na(data_CLEANED_long$VARIABLE_NAME))
-
+# checking for exact duplicates
 key_list <- with(data_CLEANED_long, 
                  paste(
                    LTER.site,
@@ -134,11 +137,12 @@ data_CLEANED_long <- data_CLEANED_long %>% group_by(
   VARIABLE_NAME, VARIABLE_UNITS, TAXON_GROUP, TREATMENT) %>%
   summarise(VALUE = mean(VALUE))
 
+# convert from a tibble back to a data.frame
 d.comm.long <- data_CLEANED_long %>%
   as.data.frame()
 
 #######################################################
-# -- diverssity partitioning example, time series
+# -- diversity partitioning example, time series
 #######################################################
 
 # ---------------------------------------------------------------

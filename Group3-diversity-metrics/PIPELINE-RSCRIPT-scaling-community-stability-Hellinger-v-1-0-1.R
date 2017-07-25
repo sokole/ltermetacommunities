@@ -1,21 +1,28 @@
+########################################################################################
+# Calculates compositional turnover at local (CV_alpha) and regional (CV_gamma) scales
+# Calculates phi, which is scaling of variability, as CV_gamma / CV_alpha
+# version 1.0.1 from ltermetacommunities group 3 directory on github
+# Author: Eric Sokol (sokole@gmail.com)
+# based on work in collaboration with Thomas Lamy
+########################################################################################
+
 options(stringsAsFactors = FALSE)
 
 ###################################################################################
-# Script to TEST if compostional turnover metrics can be calculated for dataset
+# Notes on specific data sets
 ###################################################################################
 
-# use i to choose the row from DATA-LIST you wish to test
+# you can use i to choose the row from DATA-LIST for testing
 
-# # test cases that I've tried
+# # test cases that I've tried and data QA notes -- 2017-07-25 (ERS)
 # i <- 2 #SBC fish -- works
 # i <- 14 #NWT -- works
 # i <- 15 # FCE algae, dupes?
-# i <- 1
 # i <- 11 # MCR-fish - has negative values for "abundance"?? -- works with filter to take out negatives
 
 #not working:
 # i <- 20 # NTL zoops - taxa have no names
- i <- 8
+
 #########################
 # libraries
 #########################
@@ -205,7 +212,7 @@ for(i in 1:nrow(data_list)){
       VARIABLE_NAME, VARIABLE_UNITS) %>%
       summarise(VALUE = mean(VALUE)) %>% data.frame()
 
-    d.bd <- data.frame()
+    # Send data to function to calclulate compositional variability and scaling of variabilityd.bd <- data.frame()
     if(nrow(d.in.long) > 0){
       d.bd <- data.frame(
         i_data_record[,c('data.set','LTER.site','google.id','organism','body.size','dispersal.type','trophic.group','biome')],
