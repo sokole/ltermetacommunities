@@ -1,18 +1,19 @@
-source("./NTL_data/import_tools.R") #tools containing function to read from Google drive
+## Script to transform NTL Fish data into the long format
+## Authors: Timothy Nguyen and Julien Brun, NCEAS
+## Contact: SciComp@nceas.ucsb.edu
 
-## Loading packages ----
 
+## -- LOADING PACKAGES --
+
+source("Group1-finding-data/NTL_coordinates.R") #tools containing function to read from Google drive
 library(tidyr)
 library(dplyr)
-library(devtools)
-library(ggplot2)
 
 
-## Constants ----
+## -- CONSTANTS --
 
-path <- "./NTL_data/NTL_Fish"
-file_hash <- "0B7AABlvKD6WjSTY3YUVKZ1AwLWs"
-output_file <- file.path(path, "NTL_Fish_long.csv")
+input_file_hash <- "0B7AABlvKD6WjSTY3YUVKZ1AwLWs"
+output_file <- "NTL_Fish_long.csv"
 
 
 ## Functions ----
@@ -32,7 +33,7 @@ make_data_long <- function(data) {
 }
 
 
-## Main ----
+## -- MAIN --
 
 # Read file from Google drive
 my_data <- read_csv_gdrive(file_hash)
@@ -46,6 +47,7 @@ my_data %>%
   summarize(n = length(unique(year4))) 
 
 # => Seems like the gill nets VGN and VGN127 are rarely used
+
 ## Remove these gill nets type from the data
 
 # Check how they look like 
@@ -59,8 +61,14 @@ my_df <- my_data %>%
   group_by(year4, lakeid, spname) %>%
   summarise(total_caught = sum(total_caught), total_effort = sum(effort)) 
 
-## transform the data into the long format
+# transform the data into the long format
 long_data <- make_data_long(my_df)
 
+# Bring the coordinates
+coord_df <- ntl_coordinates_formater(coord_file_hash)
+
+# combine the two dataframes
+long_data_coord <- ungroup(long_data) %>% rbind(coord_df,.)
+
 # write the ouput file
-write.csv(long_data, file=output_file, row.names=FALSE)
+write.csv(long_data_coord, file=output_file, row.names=FALSE)
