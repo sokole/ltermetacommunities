@@ -28,15 +28,17 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 # Assign data set of interest
 # NOTE: Google Drive file ID is different for each dataset
 
-# CAP LTER (Central Arizona-Phoenix)
+# FCE LTER (Florida Coastal Everglades)
 data.set <- "FCE-algae"
 data.key <- "0B7AABlvKD6WjSkFscFlhU0ZhXzg" # Google Drive file ID 
 
-#dat.long <- read.csv("~/Google Drive/FCE_algae_long.csv")
-# ---------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 # IMPORT DATA
-dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
+dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key),stringsAsFactors=F)
 
+#or if no internet access
+dat.long <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/FCE-algae-Gaiser-Marazzi/FCE_algae_long.csv", stringsAsFactors=F)
+# 
 str(dat.long)
 
 #change 'TAXON_RELATIVE_ABUNDANCE' to 'TAXON_COUNT'
@@ -47,42 +49,40 @@ dat.long$OBSERVATION_TYPE <- gsub("TAXON_RELATIVE_ABUNDANCE", "TAXON_COUNT", dat
 write.csv(dat.long, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-algae-marazzi.csv")
 
 
-
-
-levels(dat.long$OBSERVATION_TYPE); unique(dat.long$SITE_ID)#TAXON ONLY
+unique(dat.long$OBSERVATION_TYPE); unique(dat.long$SITE_ID)#TAXON ONLY
 
 
 # MAKE DATA LIST
 dat <- list()
 
 # COMMUNITY DATA 
-comm.long <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_RELATIVE_ABUNDANCE", ] 
+comm.long <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ] 
 comm.long <- comm.long %>%
   droplevels()
 
 str(comm.long)  # Inspect the structure of the community data
 
 #Add number of unique taxa and number of years to data list:
-dat$n.spp <- length(levels(comm.long$VARIABLE_NAME))
+dat$n.spp <- length(unique(comm.long$VARIABLE_NAME))
 dat$n.years <- length(unique(comm.long$DATE))
 # Ensure that community data VALUE and DATE are coded as numeric
-comm.long <- comm.long %>%   # Recode if necessary
-  mutate_at(vars(c(DATE, VALUE)), as.numeric)
+#comm.long <- comm.long %>%   # Recode if necessary
+#  mutate_at(vars(c(DATE, VALUE)), as.numeric)
 
 # Ensure that community character columns coded as factors are re-coded as characters
-comm.long <- comm.long %>%   # Recode if necessary
-  mutate_if(is.factor, as.character)
+#comm.long <- comm.long %>%   # Recode if necessary
+#  mutate_if(is.factor, as.character)
   
 # Ensure that SITE_ID is a character: recode numeric as character 
 comm.long <- comm.long %>%   # Recode if necessary
-  mutate_at(vars(SITE_ID), as.character)
+ mutate_at(vars(SITE_ID), as.character)
 
 # Double-check that all columns are coded properly
 ifelse(FALSE %in% 
    c(
      class(comm.long$OBSERVATION_TYPE) == "character",
      class(comm.long$SITE_ID) == "character",
-     class(comm.long$DATE) == "numeric",
+     class(comm.long$DATE) == "integer",
      class(comm.long$VARIABLE_NAME) == "character",
      class(comm.long$VARIABLE_UNITS) == "character",
      class(comm.long$VALUE) == "numeric"
@@ -202,14 +202,5 @@ rm("comm.long","comm.wide","cord","cord.wide","crs.geo","dat.long", "data.key", 
 ls()
 
 # Now, explore the data and perform further QA/QC by sourcing this script within the scripts "2_explore_spatial_dat.R", "3_explore_comm_dat.R", and "4_explore_environmental_dat.R"
-
-# ---------------------------------------------------------------------------------------------------
-## WRITE OUT DATA FOR ARCHIVING ##
-#save flat files into 'final_data' folder on Google Drive. 
-
-##### OLD WAY #####
-#write .Rdata object into the "Intermediate_data" directory 
-#filename <- paste(data.set,".Rdata", sep="")
-#save(dat, file = paste("Intermediate_data/",filename,sep=""))
 
 
