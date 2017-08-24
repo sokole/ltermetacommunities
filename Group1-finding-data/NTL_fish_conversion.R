@@ -1,63 +1,74 @@
-source("utilities/import_tools.R") #folder containing function to read from Google drive
+## Script to transform NTL Fish data into the long format
+## Authors: Timothy Nguyen and Julien Brun, NCEAS
+## Contact: SciComp@nceas.ucsb.edu
 
-## Loading packages ----
+
+## -- LOADING PACKAGES --
+
+source("Group1-finding-data/NTL_coordinates.R") #tools containing function to read from Google drive
 library(tidyr)
 library(dplyr)
-library(devtools)
 
 
-## Constants ----
+## -- CONSTANTS --
 
-path <- "Group1-finding-data/"
-file_hash <- "0B7AABlvKD6WjSTY3YUVKZ1AwLWs"
-output_file = "NTL_fish_withgear.csv"
+input_file_hash <- "0B7AABlvKD6WjSTY3YUVKZ1AwLWs"
+output_file <- "NTL_Fish_long.csv"
+
 
 ## Functions ----
 
 make_data_long <- function(data) {
   long <- data %>% 
     # Name the fields as required by the data format
-    rename(EFFORT_COUNT=effort,TAXON_COUNT=total_caught, SITE_ID=lakeid, DATE=year4, VARIABLE_NAME = spname) %>%
-    # Computer the catch per unit effort as # of fish caught / effort
+    rename(EFFORT_COUNT = total_effort, TAXON_COUNT = total_caught, SITE_ID = lakeid, DATE = year4, VARIABLE_NAME = spname) %>%
+    # Compute the catch per unit effort as # of fish caught / effort
     mutate(VALUE = TAXON_COUNT/EFFORT_COUNT) %>%
-    select(-TAXON_COUNT,-EFFORT_COUNT)
+    # Removing the 
+    select(-TAXON_COUNT,-EFFORT_COUNT) %>%
     #Adding the extra columns for observation type and unit
-    result <- cbind(OBSERVATION_TYPE =(rep("TAXON_COUNT",length(long$DATE))), long, 
-                  VARIABLE_UNITS = (rep("CPUE",length(long$DATE)))) 
-    return(result)
+    mutate(OBSERVATION_TYPE = "TAXON_COUNT") %>%
+    mutate(VARIABLE_UNITS = "CPUE")
+  return(long)
 }
 
 
-## Main ----
+## -- MAIN --
 
 # Read file from Google drive
-my_df <- read_csv_gdrive(file_hash)
+my_data <- read_csv_gdrive(file_hash)
 
 # Check the Number of years of measurement
-nb_year <- length(unique(my_df$year4))
+nb_year <- length(unique(my_data$year4))
 
 # Check is some specific gear is rarely used
-my_df %>% 
+my_data %>% 
   group_by(gearid) %>% 
   summarize(n = length(unique(year4))) 
+
 # => Seems like the gill nets VGN and VGN127 are rarely used
 
-
 ## Remove these gill nets type from the data
+
 # Check how they look like 
-my_df %>% filter(gearid=="VGN" | gearid=="VGN127")
+my_data %>% filter(gearid=="VGN" | gearid=="VGN127")
 
-# Filter out
-my_df <- my_df %>%
-  filter(gearid!="VGN" & gearid!="VGN127")
+# Preparing the data for the reformatting and aggregating
+my_df <- my_data %>%
+  # remove gears that were not used in a systematic way (from phone call information)
+  filter(gearid!="VGN" & gearid!="VGN127") %>%
+  # Sum accross the gears for effort and number of fish caught
+  group_by(year4, lakeid, spname) %>%
+  summarise(total_caught = sum(total_caught), total_effort = sum(effort)) 
 
-
-## transform the data into the long format
+# transform the data into the long format
 long_data <- make_data_long(my_df)
 
-## Quick look at the time-series per gear
-ggplot(data=long_data, aes(x=DATE, y=VALUE, group = gearid, colour = gearid)) +
-  +     geom_line()
+# Bring the coordinates
+coord_df <- ntl_coordinates_formater(coord_file_hash)
+
+# combine the two dataframes
+long_data_coord <- ungroup(long_data) %>% rbind(coord_df,.)
 
 # write the ouput file
-write.csv(long_data, file=file.path(path,output_file), row.names=FALSE)
+write.csv(long_data_coord, file=output_file, row.names=FALSE)

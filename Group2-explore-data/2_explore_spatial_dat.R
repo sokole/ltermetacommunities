@@ -5,8 +5,12 @@
 # Set working environment
 rm(list = ls())
 
-# Set working environment
-setwd("~/Google Drive/LTER Metacommunities")
+# Set your working environment to the GitHub repository, e.g.: 
+setwd("~/Documents/ltermetacommunities")
+
+#Check to make sure working directory is correct
+if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
+
 
 # Check for and install required packages
 for (package in c('dplyr', 'tidyr', 'XML', 'sp', 'geosphere', 'rgdal','maps','reshape2',
@@ -18,27 +22,30 @@ for (package in c('dplyr', 'tidyr', 'XML', 'sp', 'geosphere', 'rgdal','maps','re
 }
 
 
-###########################################
-# Assign data set of interest
-# NOTE: After running the '1_format_raw_data.R' script, each dataset has been stored as an .Rdata list in the "Intermediate_data" folder on Google Drive. The Google Drive file ID is different for each dataset.
-
-# SBC LTER (Santa Barbara Coastal): Macroalgae
-data.set <- "SBC-algae-Castorani_Lamy"
-
-# SBC LTER (Santa Barbara Coastal): Sessile invertebrates
-data.set <- "SBC-sessile_invert-Castorani_Lamy"
-
-# SBC LTER (Santa Barbara Coastal): Mobile invertebrates
-data.set <- "SBC-mobile_invert-Castorani_Lamy"
-
-# SBC LTER (Santa Barbara Coastal): Fishes
-data.set <- "SBC-fish-Castorani_Lamy"
-
 # ---------------------------------------------------------------------------------------------------
 # IMPORT DATA
-load(paste("Intermediate_data/", data.set,".Rdata", sep=""))  # Read in .Rdata list
-summary(dat)
+#Source data set of interest. The choices are:
 
+# SBC LTER (Santa Barbara Coastal): Macroalgae
+data.set <- "SBC-algae"
+
+# SBC LTER (Santa Barbara Coastal): Sessile invertebrates
+data.set <- "SBC-sessile_invert"
+
+# SBC LTER (Santa Barbara Coastal): Mobile invertebrates
+data.set <- "SBC-mobile_invert"
+
+# SBC LTER (Santa Barbara Coastal): Fishes
+data.set <- "SBC-fish"
+
+# NWT LTER (Niwot Ridge): Plants
+data.set <- "NWT"
+
+# JRN LTER (Jornada): Lizards
+data.set <- "JRN-lizard"
+
+source(paste("Group2-explore-data/format_data/", data.set, "_format_data.R", sep=""))
+summary(dat)
 # ---------------------------------------------------------------------------------------------------
 # MAP THE SITES LOTS OF WAYS
 
@@ -75,7 +82,7 @@ points(dat$longlat, pch=19, col="red", cex=0.5)
 map(database="state", col="gray90", fill=TRUE)
 points(dat$longlat, pch=19, col="red", cex=0.5)
 
-map(database="county", region="california", # NOTE: Change this based on the state 
+map(database="county", region="new mexico", # NOTE: Change this based on the state 
     col="gray90", fill=TRUE)
 points(dat$longlat, pch=19, col="red", cex=0.5)
 

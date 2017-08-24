@@ -5,13 +5,17 @@
 # Clear environment
 rm(list = ls())
 
-# Set working environment
-setwd("~/Google Drive/LTER Metacommunities")
+# Set your working environment to the GitHub repository, e.g.: 
+setwd("~/Documents/ltermetacommunities")
+
+#Check to make sure working directory is correct
+if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
+
 
 # Check for and install required packages
 #library()
 
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'BiodiversityR','iNEXT', 'grDevices', 'RColorBrewer')) {
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'iNEXT', 'grDevices', 'RColorBrewer','BiodiversityR')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
@@ -19,23 +23,47 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 }
 
 # ---------------------------------------------------------------------------------------------------
-# Assign data set of interest
+# Assign data set of interest# Assign L3 data set of interest
+# NOTE: Google Drive file ID is different for each dataset
 
-# SBC LTER (Santa Barbara Coastal): Macroalgae
-data.set <- "SBC-algae-Castorani_Lamy"
+# CSUN-USVI-coral
+data.set <- "CSUN-USVI-coral"
+data.key <- "0BxUZSA1Gn1HZZGowdUVCTTdtXzg" # Google Drive file ID
 
-# SBC LTER (Santa Barbara Coastal): Sessile invertebrates
-data.set <- "SBC-sessile_invert-Castorani_Lamy"
+# mcr-algae-castorani
+data.set <- "mcr-algae-castorani"
+data.key <- "0BxUZSA1Gn1HZenhxaVJ6bWtVdDg" # Google Drive file ID
 
-# SBC LTER (Santa Barbara Coastal): Mobile invertebrates
-data.set <- "SBC-mobile_invert-Castorani_Lamy"
+# fce-algae-marazzi - script not run on this one yet
+data.set <- "fce-algae-marazzi"
+data.key <- "0B7o8j0RLpcxiSk42ZldhdnV1WUE" # Google Drive file ID 
 
-# SBC LTER (Santa Barbara Coastal): Fishes
-data.set <- "SBC-fish-Castorani_Lamy"
+# jrn-lizard-hope 
+data.set <- "jrn-lizard-hope"
+data.key <- "0B7o8j0RLpcxiYW10X1djMTBGM0U" # Google Drive file ID 
 
-# ---------------------------------------------------------------------------------------------------
+
+#----------------------------------------------------------------------------------------------------
+# MAKE DATA LIST
+dat <- list()
+
 # IMPORT DATA
-load(paste("Intermediate_data/", data.set,".Rdata", sep=""))  # Read in .Rdata list
+L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), stringsAsFactors=F) 
+
+
+#Work around if no internet access, assuming mapped Google Drive locally:
+L3dat <- read.csv(paste("~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-", data.set, ".csv", sep=""), stringsAsFactors=F)
+
+
+# Subset out community data from L2dat and add it to dat list
+dat$comm.long <- subset(L3dat, OBSERVATION_TYPE=='TAXON_COUNT')
+
+# Convert community data to wide form
+comm.wide <- dat$comm.long %>%
+  select(-VARIABLE_UNITS) %>%
+  spread(VARIABLE_NAME,  VALUE)
+
+dat$comm.wide <- comm.wide
 summary(dat)
 
 #---------------------------------------------------------------------------------------------------
@@ -52,6 +80,17 @@ ggplot(data = dat$comm.long, aes(x = DATE, y = SITE_ID)) +
   xlab("Year") +
   ylab("Site") +
   theme_bw()
+
+# Write spatiotemporal sampling effort plot to pdf 
+pdf(file=paste('Group2-explore-data/Spatiotemporal_sampling_effort_plots/',data.set,'_spatiotemporal_sampling_effort.pdf',sep=''))
+ggplot(data = dat$comm.long, aes(x = DATE, y = SITE_ID)) +
+  geom_point(size = 5) +
+  theme_bw() +
+  xlab("Year") +
+  ylab("Site") +
+  theme_bw()
+dev.off()
+
 
 # Check the propagation of species across space and time
 tapply(dat$comm.long$VALUE, list(dat$comm.long$SITE_ID,dat$comm.long$DATE), length)
@@ -178,6 +217,20 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
   theme_bw()
 # Note that the thick line indicates the total number of taxa among all sites
+
+# Write species accumulation curve to pdf
+pdf(file=paste('Group2-explore-data/species_accumulation_curves/',data.set,'_species_accumulation_curve.pdf',sep=''))
+ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
+  geom_point(aes(color = SITE_ID)) +
+  geom_line(aes(color = SITE_ID)) +
+  geom_point(data = cuml.taxa.all.sites, aes(x=year, y=no.taxa), size = 3) +
+  geom_line(data = cuml.taxa.all.sites, aes(x=year, y=no.taxa), size = 1.5) +
+  xlab("Year") +
+  ylab("Cumulative number of taxa") +
+  guides(color = guide_legend(title = "Site")) +
+  ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
+  theme_bw()
+dev.off()
 
 # --------------------------------------------------------------------------------------------------
 # Row and column summary statistics for comm.wide data to aid in screening for the amount and pattern of missing data
@@ -323,8 +376,7 @@ rankabuncomp(x=rank.abund.dat[,-c(1:3)], y=rank.abund.dat[,c(1:3)], factor="DATE
 
 # ---------------------------------------------------------------------------------------------------
 # RAREFACTION CURVES
-
-# Note this code is still a bit buggy. I need to talk with the group a bit to figure out what the data represent.
+# Note this code will only run for data where the community data are whole number counts!!
 
 # This section uses code from the iNEXT package
 # Convert dat$comm.wide from a list to a matrix for the iNEXT function
@@ -332,7 +384,7 @@ comm_wide_mat <- matrix(unlist(dat$comm.wide[,-c(1:3)]), ncol = dim(dat$comm.wid
 
 # Use iNEXT function to interpolate and extrapolate Hill numbers for rarefaction curves of all sites together
 # Note this step takes a while to run.
-rarefaction_all <- iNEXT(comm_wide_mat, q=c(0,1,2), datatype="incidence_freq")
+rarefaction_all <- iNEXT(comm_wide_mat, q=c(0,1,2), datatype="abundances")
 # Plot rarefaction curves for all sites considered together
 ggiNEXT(rarefaction_all, se=TRUE, color.var="order")
 
@@ -348,3 +400,7 @@ for(i in 1:length(dat$comm.wide$SITE_ID)){
   ggiNEXT(rarefaction_site, se=TRUE, color.var="order")
 }
 
+# write rarefaction curves for all sites considered together to pdf
+pdf(file=paste('Group2-explore-data/rarefaction_curves/', data.set, '_rarefaction_curves.pdf',sep=''))
+ggiNEXT(rarefaction_all, se=TRUE, color.var="order")
+dev.off()
