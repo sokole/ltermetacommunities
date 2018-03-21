@@ -103,7 +103,6 @@ names(dat1) <- c("SITE_ID", "DATE", "VARIABLE_NAME", "VARIABLE_UNITS", "VALUE")
 dat1$OBSERVATION_TYPE <- rep("TAXON_COUNT", length(dat1$VALUE))
 #reorder columns
 dat1 <- dat1[,c("OBSERVATION_TYPE","SITE_ID", "DATE", "VARIABLE_NAME", "VARIABLE_UNITS", "VALUE")]
-str(dat1)
 
 
 #3 Make SPATIAL_COORDINATE from the sampling location table (dt4)
@@ -112,14 +111,13 @@ SITE_ID <- c(dt4$sampling_location_id, dt4$sampling_location_id)
 VALUE <- c(dt4$latitude, dt4$longitude)
 VARIABLE_NAME <- c(rep("latitude", length(dt4$latitude)), rep("longitude", length(dt4$longitude)))
 OBSERVATION_TYPE <- rep("SPATIAL_COORDINATE", length(VALUE))
-VARIABLE_UNITS <- rep("degrees", length(VALUE))
+VARIABLE_UNITS <- rep("dec. degrees", length(VALUE))
 DATE <- rep(NA, length(VALUE))
 dat4 <- data.frame(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE, stringsAsFactors = F)
 rm(SITE_ID, VALUE, VARIABLE_NAME, OBSERVATION_TYPE, VARIABLE_UNITS, DATE)
 
 #4 Combine into one big table
 dat <- rbind(dat1, dat4)
-str(dat)
 
 #5 perform a few checks against dataset summary table (dt3)
 ifelse(length(unique(dat1$VARIABLE_NAME))==dt3$max_num_taxa,
