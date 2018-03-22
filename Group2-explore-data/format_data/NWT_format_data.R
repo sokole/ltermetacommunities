@@ -42,7 +42,7 @@ dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download"
 dat.long <- unique(dat.long)
 
 #write this to the L3 folder in Google Drive 
-write.csv(dat.long, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-nwt-plants-hallett-sokol.csv")
+write.csv(dat.long, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-nwt-plants-hallett.csv")
 
 # MAKE DATA LIST
 dat <- list()
