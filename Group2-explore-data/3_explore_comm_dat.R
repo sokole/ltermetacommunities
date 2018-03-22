@@ -5,9 +5,7 @@
 # Clear environment
 rm(list = ls())
 
-# Set your working environment to the GitHub repository, e.g.: 
-setwd("~/Documents/ltermetacommunities")
-
+# Make sure your working environment is set to the GitHub repository ltermetacommunities. 
 #Check to make sure working directory is correct
 if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
 
@@ -26,21 +24,27 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 # Assign data set of interest# Assign L3 data set of interest
 # NOTE: Google Drive file ID is different for each dataset
 
+#in tex file
 # CSUN-USVI-coral
-data.set <- "CSUN-USVI-coral"
+data.set <- "usvi-coral-castorani"
 data.key <- "0BxUZSA1Gn1HZZGowdUVCTTdtXzg" # Google Drive file ID
 
 # mcr-algae-castorani
 data.set <- "mcr-algae-castorani"
 data.key <- "0BxUZSA1Gn1HZenhxaVJ6bWtVdDg" # Google Drive file ID
 
-# fce-algae-marazzi - script not run on this one yet
-data.set <- "fce-algae-marazzi"
-data.key <- "0B7o8j0RLpcxiSk42ZldhdnV1WUE" # Google Drive file ID 
-
 # jrn-lizard-hope 
 data.set <- "jrn-lizard-hope"
 data.key <- "0B7o8j0RLpcxiYW10X1djMTBGM0U" # Google Drive file ID 
+
+# nwt-plants-hallett 
+data.set <- "nwt-plants-hallett"
+data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID 
+
+#needs work still
+# fce-algae-marazzi (contains duplicated records... double check)
+data.set <- "fce-algae-marazzi"
+data.key <- "0B2P104M94skvbVdsYUc4amdSLWc" # Google Drive file ID 
 
 
 #----------------------------------------------------------------------------------------------------
@@ -51,11 +55,11 @@ dat <- list()
 L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), stringsAsFactors=F) 
 
 
-#Work around if no internet access, assuming mapped Google Drive locally:
-L3dat <- read.csv(paste("~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-", data.set, ".csv", sep=""), stringsAsFactors=F)
+#Work around if no internet access, here's a workaround assuming the Google Drive directory is stored locally:
+#L3dat <- read.csv(paste("~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-", data.set, ".csv", sep=""), stringsAsFactors=F)
 
 
-# Subset out community data from L2dat and add it to dat list
+# Subset out community data  and add it to dat list
 dat$comm.long <- subset(L3dat, OBSERVATION_TYPE=='TAXON_COUNT')
 
 # Convert community data to wide form
@@ -82,13 +86,14 @@ ggplot(data = dat$comm.long, aes(x = DATE, y = SITE_ID)) +
   theme_bw()
 
 # Write spatiotemporal sampling effort plot to pdf 
-pdf(file=paste('Group2-explore-data/Spatiotemporal_sampling_effort_plots/',data.set,'_spatiotemporal_sampling_effort.pdf',sep=''))
+pdf(file=paste('~/Google Drive/LTER Metacommunities/Manuscripts/MS3_metacom-stability-analysis/supplemental_methods_figs/', data.set, '_spatiotemporal_sampling_effort.pdf',sep=''))
 ggplot(data = dat$comm.long, aes(x = DATE, y = SITE_ID)) +
   geom_point(size = 5) +
   theme_bw() +
   xlab("Year") +
   ylab("Site") +
-  theme_bw()
+  theme_bw() +
+  theme(axis.title = element_text(size=20))
 dev.off()
 
 
@@ -135,6 +140,7 @@ ggplot(data = no.taxa$no.taxa, aes(x = DATE, y = SITE_ID, fill = no.taxa)) +
   ylab("Site") +
   theme(aspect.ratio = 1)
 
+
 # Plot number of taxa through time
 ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   geom_point(aes(color = SITE_ID)) +
@@ -148,6 +154,20 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   theme_bw()
 # Note that the thick line indicates the total number of taxa among all sites
 
+#write to file:
+pdf(file=paste('~/Google Drive/LTER Metacommunities/Manuscripts/MS3_metacom-stability-analysis/supplemental_methods_figs/', data.set, '_num_taxa_over_time.pdf',sep=''))
+ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
+  geom_point(aes(color = SITE_ID)) +
+  geom_line(aes(color=SITE_ID)) +
+  geom_point(data=no.taxa$total.no.taxa, aes(x=DATE, y=no.taxa), color="black", size=3) +
+  geom_line(data=no.taxa$total.no.taxa, aes(x=DATE, y=no.taxa), color="black", size=1) +
+  xlab("Year") +
+  ylab("Number of taxa observed") +
+  guides(color = guide_legend(title = "Site")) +
+  ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
+  theme_bw() +
+  theme(axis.title = element_text(size=20))
+  dev.off()
 # ---------------------------------------------------------------------------------------------------
 # SITE-SPECIFIC AND TOTAL SPECIES ACCUMULATION CURVES
 
@@ -219,7 +239,7 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
 # Note that the thick line indicates the total number of taxa among all sites
 
 # Write species accumulation curve to pdf
-pdf(file=paste('Group2-explore-data/species_accumulation_curves/',data.set,'_species_accumulation_curve.pdf',sep=''))
+pdf(file=paste('~/Google Drive/LTER Metacommunities/Manuscripts/MS3_metacom-stability-analysis/supplemental_methods_figs/',data.set,'_species_accumulation_curve.pdf',sep=''))
 ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   geom_point(aes(color = SITE_ID)) +
   geom_line(aes(color = SITE_ID)) +
@@ -229,8 +249,29 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   ylab("Cumulative number of taxa") +
   guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
-  theme_bw()
+  theme_bw()  +
+  theme(axis.title = element_text(size=20))
 dev.off()
+
+#make metadata table
+mtdt <- list()
+mtdt$dataset <- data.set
+mtdt$initial.year <- min(dat$comm.wide$DATE)
+mtdt$study.length <- max(dat$comm.wide$DATE) -  min(dat$comm.wide$DATE) +1
+mtdt$n.years <- length(unique(dat$comm.wide$DATE))
+mtdt$n.plots <- length(unique(dat$comm.wide$SITE_ID))
+mtdt$n.taxa <- length(unique(dat$comm.long$VARIABLE_NAME))
+mtdt$organism <- gsub(".*-(.*)\\-.*", "\\1", data.set)
+mtdt <- data.frame(mtdt)
+write.csv(mtdt, file = paste("~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/metadata_tables/",data.set,"_metadata.csv", sep=""), row.names=F)
+
+
+
+
+####################################################
+####################################################
+# Below here, not included in QA/QC, yet....
+
 
 # --------------------------------------------------------------------------------------------------
 # Row and column summary statistics for comm.wide data to aid in screening for the amount and pattern of missing data
@@ -378,13 +419,14 @@ rankabuncomp(x=rank.abund.dat[,-c(1:3)], y=rank.abund.dat[,c(1:3)], factor="DATE
 # RAREFACTION CURVES
 # Note this code will only run for data where the community data are whole number counts!!
 
+
 # This section uses code from the iNEXT package
 # Convert dat$comm.wide from a list to a matrix for the iNEXT function
 comm_wide_mat <- matrix(unlist(dat$comm.wide[,-c(1:3)]), ncol = dim(dat$comm.wide)[2]-3, byrow = TRUE)
 
 # Use iNEXT function to interpolate and extrapolate Hill numbers for rarefaction curves of all sites together
 # Note this step takes a while to run.
-rarefaction_all <- iNEXT(comm_wide_mat, q=c(0,1,2), datatype="abundances")
+rarefaction_all <- iNEXT(comm_wide_mat, q=c(0,1,2), datatype="abundance")
 # Plot rarefaction curves for all sites considered together
 ggiNEXT(rarefaction_all, se=TRUE, color.var="order")
 

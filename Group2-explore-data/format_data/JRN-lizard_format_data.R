@@ -9,8 +9,7 @@
 # Clear environment
 rm(list = ls())
 
-# Set your working environment to the GitHub repository, e.g.: 
-setwd("~/Documents/ltermetacommunities")
+# Make sure your working environment is set to the GitHub repository ltermetacommunities. 
 
 #Check to make sure working directory is correct
 if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
@@ -32,9 +31,12 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 data.set <- "JRN-lizard"
 data.key <- "0B7o8j0RLpcxiemtYVjF0ZGVxaVE" # Google Drive file ID
 
-data <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
+data <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), skip = 47, stringsAsFactors = F)
 
-data <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-lizards/JornadaStudy_007_npp_lizard_pitfall_trap_data.csv", skip = 47, stringsAsFactors=F)
+#if working offline and Google Drive is stored locally, use this:
+#data <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-lizards/JornadaStudy_007_npp_lizard_pitfall_trap_data.csv", skip = 47, stringsAsFactors=F)
+
+
 #in this table, each row represents a lizard. Remove columns with data measured on indivudal lizards (i.e. svl, sex, toe number)
 data <- data %>%
 	select(date, zone, site, plot, spp,toe_num, pc)
