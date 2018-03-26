@@ -21,7 +21,7 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 }
 
 # ---------------------------------------------------------------------------------------------------
-# Assign data set of interest# Assign L3 data set of interest
+# Assign L3 data set of interest
 # NOTE: Google Drive file ID is different for each dataset
 
 #datasets mostly ready (may need further subsetting prior to analysis)
@@ -83,15 +83,15 @@ data.key <- "" # Google Drive file ID
 data.set <- "ntl-macroinvertebrate-stanleyLottig"
 data.key <- "" # Google Drive file ID
 
-# ntl-zooplankton-stanleyLottig
+# ntl-zooplankton-stanleyLottig (Tr and TR may be the same site?)
 data.set <- "ntl-zooplankton-stanleyLottig"
 data.key <- "" # Google Drive file ID
 
-# fce-algae-marazzi (contains duplicated records... double check) Some figs not made yet.
+# fce-algae-marazzi (contains duplicated records... double check) Some figs not made yet. (remove a year; very unbalanced)
 data.set <- "fce-algae-marazzi"
 data.key <- "0B2P104M94skvbVdsYUc4amdSLWc" # Google Drive file ID
 
-# fce-diatoms-marazzi 
+# fce-diatoms-marazzi (very unbalanced)
 data.set <- "fce-diatoms-marazzi"
 data.key <- "" # Google Drive file ID
  
