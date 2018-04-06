@@ -275,6 +275,51 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   theme(axis.title = element_text(size=20), axis.text = element_text(size=20))
 dev.off()
 
+# ---------------------------------------------------------------------------------------------------
+# COUNT SHARED SPECIES BETWEEN EACH SITE
+
+# Function to count species shared between sites in a site by species matrix
+# Specify if you want the output as a matrix or as a dataframe in long form
+shared.species <- function(comm, output = "matrix"){
+  sites <- comm[,1]
+  share.mat <- matrix(NA, nrow = length(sites), ncol = length(sites), dimnames = list(sites, sites))
+  site.pairs <- expand.grid(site1 = sites, site2 = sites)
+  for(pair in 1:nrow(site.pairs)){
+    # Pull out each site combo
+    site1 <- comm[site.pairs$site1[pair],][,-1]
+    site2 <- comm[site.pairs$site2[pair],][,-1]
+    
+    # Count shared species
+    if(output == "matrix"){
+      share.mat[site.pairs$site1[pair],site.pairs$site2[pair]] <- sum(site1 == 1 & site2 == 1)
+    }
+    if(output == "dataframe"){
+      site.pairs[pair,"shared"] <- sum(site1 == 1 & site2 == 1)
+    }
+  }
+  
+  if(output == "matrix") return(share.mat)
+  if(output == "dataframe") return(site.pairs)
+}
+
+# Aggregate years together by looking at cumulative abundances
+comm.cumul <- comm.wide %>% group_by(SITE_ID) %>% select(-OBSERVATION_TYPE, -DATE) %>% 
+  summarise_all(sum)
+comm.wide.pa <- cbind(comm.cumul[,1], decostand(comm.cumul[,-1], method = "pa"))
+shared.species(comm.wide.pa, output = "matrix")
+
+# Or to visualize differences
+shared.taxa <- shared.species(comm.wide.pa, output = "dataframe")
+ggplot(shared.taxa, aes(x = site1, y = site2, fill = shared)) +
+  geom_raster() +
+  scale_fill_gradientn(colours = heat.pal.spectral(100), name = "Shared taxa") +
+  theme_bw() +
+  xlab("Site 1") +
+  ylab("Site 2") +
+  theme(aspect.ratio = 1, axis.text.x = element_text(angle = 90)) + 
+  annotate("text", x = shared.taxa$site1, y = shared.taxa$site2, label = shared.taxa$shared)
+
+
 #make metadata table
 mtdt <- list()
 mtdt$dataset <- data.set
