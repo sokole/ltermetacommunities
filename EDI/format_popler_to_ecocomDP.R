@@ -53,15 +53,19 @@
 #' @export
 #'
 
-format_popler_to_ecocomDP <- function(path.out, proj.metadata.key){
+format_popler_to_ecocomDP <- function(path.out = '.', 
+                                      proj.metadata.key,
+                                      write.tables.to.csv = FALSE){
   
-  
+  # required libraries --------------------------------------------------------
+  require(lubridate)
+  require(ecocomDP)
   
   # Validate arguments --------------------------------------------------------
   
   message('Validating arguments')
   
-  if (missing(path.out)){
+  if (write.tables.to.csv & missing(path.out) & path.out!='.'){
     stop('Input argument "path.out" is missing! Specify the path to the directory that will be filled with ecocomDP versions of popler datasets.')
   }
   if (missing(proj.metadata.key)){
@@ -819,43 +823,50 @@ format_popler_to_ecocomDP <- function(path.out, proj.metadata.key){
   
   # Clean up tables and write to file ---------------------------------------
   
-  message('Writting ecocomDP tables')
-  
-  # Write observation table
-  
-  write_csv(observation,
-            path = paste0(
-              path.out,
-              '\\',
-              proj.metadata.key,
-              '_observation.csv'
+  if(write.tables.to.csv){
+    message('Writting ecocomDP tables')
+    
+    # Write observation table
+    
+    write_csv(observation,
+              path = paste0(
+                path.out,
+                '\\',
+                proj.metadata.key,
+                '_observation.csv'
               )
-            )
-  
-  # Write location table
-  
-  write_csv(location_table,
-            path = paste0(
-              path.out,
-              '\\',
-              proj.metadata.key,
-              '_location.csv'
+    )
+    
+    # Write location table
+    
+    write_csv(location_table,
+              path = paste0(
+                path.out,
+                '\\',
+                proj.metadata.key,
+                '_location.csv'
               )
-            )
-  
-  # Write taxon table
-  
-  write_csv(taxon_table,
-            path = paste0(
-              path.out,
-              '\\',
-              proj.metadata.key,
-              '_taxon.csv'
+    )
+    
+    # Write taxon table
+    
+    write_csv(taxon_table,
+              path = paste0(
+                path.out,
+                '\\',
+                proj.metadata.key,
+                '_taxon.csv'
               )
-            )
-
-
-
+    )
+  }
+ 
+  
+  # return tables
+  return(
+    list('observation_table' = observation,
+         'location_table' = location_table,
+         'taxon_table' = taxon_table)
+  )
   
 }
 
