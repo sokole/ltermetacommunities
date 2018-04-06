@@ -55,7 +55,8 @@
 
 format_popler_to_ecocomDP <- function(path.out = '.', 
                                       proj.metadata.key,
-                                      write.tables.to.csv = FALSE){
+                                      write.tables.to.csv = FALSE,
+                                      return.tables.as.list = TRUE){
   
   # required libraries --------------------------------------------------------
   require(lubridate)

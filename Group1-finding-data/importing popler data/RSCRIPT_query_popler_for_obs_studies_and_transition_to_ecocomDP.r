@@ -49,7 +49,7 @@ if(!file.exists(write_csv_directory_path)) dir.create(write_csv_directory_path)
 
 data_catalog$data_transitioned_to_ecocomDP <- NA
 
-popler_tables_list <- list()
+# popler_tables_list <- list()
 for(i_row_data_catalog in 1:nrow(data_catalog)){
   
   # get metadata lookup key
@@ -61,11 +61,12 @@ for(i_row_data_catalog in 1:nrow(data_catalog)){
     popler_tables_temp <- format_popler_to_ecocomDP(
       path.out = write_csv_directory_path,
       write.tables.to.csv = TRUE,
+      return.tables.as.list = FALSE, #keep RAM usage from exploding
       proj.metadata.key = i_proj_key
     )
   })
   
-  popler_tables_list[[as.character(i_proj_key)]] <- popler_tables_temp
+  # popler_tables_list[[as.character(i_proj_key)]] <- popler_tables_temp
   data_catalog$data_transitioned_to_ecocomDP[i_row_data_catalog] <- ifelse(length(popler_tables_temp) >0 ,'Y','N')
 }
 
