@@ -56,8 +56,8 @@
 
 # Load required libraries -----------------------------------------------------
 
-require(lubridate)
-require(ecocomDP)
+library(lubridate)
+library(ecocomDP)
 library(popler)
 library(readr)
 
@@ -663,6 +663,8 @@ format_popler_to_ecocomDP <- function(path.out = '.',
     col_i <- col_i[!is.na(col_i)]
     
     data <- data[ , c(col_i, 1:(ncol(data)-1))]
+    
+    observation$taxon_id <- data$sppcode # update observation table with taxon ID
 
   }
   
