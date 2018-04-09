@@ -53,21 +53,18 @@
 #' @export
 #'
 
-# Add dependencies
 
-library(ecocomDP)
+# Load required libraries -----------------------------------------------------
+
+require(lubridate)
+require(ecocomDP)
 library(popler)
 library(readr)
-library(lubridate)
 
 format_popler_to_ecocomDP <- function(path.out = '.', 
                                       proj.metadata.key,
                                       write.tables.to.csv = FALSE,
                                       return.tables.as.list = TRUE){
-  
-  # required libraries --------------------------------------------------------
-  require(lubridate)
-  require(ecocomDP)
   
   # Validate arguments --------------------------------------------------------
   
