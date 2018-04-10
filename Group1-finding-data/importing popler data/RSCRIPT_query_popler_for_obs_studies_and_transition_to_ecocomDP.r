@@ -1,6 +1,8 @@
 library(tidyverse)
-library(popler)
 library(lubridate)
+
+#devtools::install_github("AldoCompagnoni/popler", build_vignettes = TRUE)
+library(popler)
 
 # devtools::install_github('EDIorg/ecocomDP')
 library(ecocomDP)
@@ -9,7 +11,10 @@ library(ecocomDP)
 # input params are 
 #           -- path.out
 #           -- proj.metadata.key
-source('~/Git/ltermetacommunities/EDI/format_popler_to_ecocomDP.R')
+
+my_git_ltermetacommunities_file_path <- getwd()
+path_to_script <- paste0(my_git_ltermetacommunities_file_path,'/EDI/format_popler_to_ecocomDP.R')
+source(path_to_script)
 
 # -- read in saved data catalog from gsheet
 # read in data popler_observationa_data_catalog_20180216 from gsheets
@@ -70,4 +75,6 @@ for(i_row_data_catalog in 1:nrow(data_catalog)){
   data_catalog$data_transitioned_to_ecocomDP[i_row_data_catalog] <- ifelse(length(popler_tables_temp) >0 ,'Y','N')
 }
 
-write.csv(data_catalog, file = paste0(write_csv_directory_path,'\\data_catalog_popler_to_ecocomDP.csv'), row.names = FALSE)
+write.csv(data_catalog, file = paste0(write_csv_directory_path,
+                                      '\\data_catalog_popler_to_ecocomDP_', Sys.Date(),'.csv'), 
+          row.names = FALSE)
