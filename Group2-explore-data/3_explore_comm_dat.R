@@ -69,9 +69,7 @@ data.key <- "0B7o8j0RLpcxiYW10X1djMTBGM0U" # Google Drive file ID
 data.set <- "nwt-plants-hallett"
 data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID 
 
-# mcm-diatoms-schulteSokol 
-data.set <- "mcm-diatoms-schulteSokol"
-data.key <- "" # Google Drive file ID 
+
 
 #datasets that need significant work still:
 
@@ -79,9 +77,6 @@ data.key <- "" # Google Drive file ID
 data.set <- "ntl-fish-stanleyLottig"
 data.key <- "" # Google Drive file ID
 
-# ntl-macroinvertebrates-stanleyLottig (keys for taxa need to be edited - Chaoborus larvae and Chaobotus pupae are given different codes. Also remove 1998 due to incomplete sampling. Also, there are only 4 taxa... too few for analysis?)
-data.set <- "ntl-macroinvertebrate-stanleyLottig"
-data.key <- "" # Google Drive file ID
 
 # ntl-zooplankton-stanleyLottig (Tr and TR may be the same site?)
 data.set <- "ntl-zooplankton-stanleyLottig"
@@ -99,6 +94,22 @@ data.key <- "" # Google Drive file ID
 # sbc-fish-castorani (survey) Six extra sites sampled in the last year. Need to learn whether to remove them or aggregate them in with the appropriate transect.
 data.set <- "sbc-fish-castorani"
 data.key <- "" # Google Drive file ID
+
+# and-birds-wisnoski Seems like sampling wasn't equal in all years, causing unexplained dip in Richness in 2014-2016. Need to calculate 'count' of birds differently (nor sum; maybe max?). Data not propagated.
+data.set <- "and-birds-wisnoski"
+data.key <- "" # Google Drive file ID
+
+
+#######################
+#REMOVED FROM ANALYSIS
+
+# ntl-macroinvertebrates-stanleyLottig (keys for taxa need to be edited - Chaoborus larvae and Chaobotus pupae are given different codes. Also remove 1998 due to incomplete sampling. Also, there are only 4 taxa... too few for analysis?) 
+#data.set <- "ntl-macroinvertebrate-stanleyLottig"
+#data.key <- "" # Google Drive file ID
+
+# mcm-diatoms-schulteSokol 
+#data.set <- "mcm-diatoms-schulteSokol"
+#data.key <- "" # Google Drive file ID 
 
 #----------------------------------------------------------------------------------------------------
 # MAKE DATA LIST
@@ -199,7 +210,7 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
   theme_bw() +
-  theme(axis.title = element_text(size=20), axis.text = element_text(size=20))
+  theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none")
   dev.off()
 # ---------------------------------------------------------------------------------------------------
 # SITE-SPECIFIC AND TOTAL SPECIES ACCUMULATION CURVES
@@ -272,7 +283,7 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
   theme_bw()  +
-  theme(axis.title = element_text(size=20), axis.text = element_text(size=20))
+  theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none")
 dev.off()
 
 # ---------------------------------------------------------------------------------------------------
@@ -310,6 +321,7 @@ shared.species(comm.wide.pa, output = "matrix")
 
 # Or to visualize differences
 shared.taxa <- shared.species(comm.wide.pa, output = "dataframe")
+pdf(file=paste('~/Google Drive/LTER Metacommunities/Manuscripts/MS3_metacom-stability-analysis/supplemental_methods_figs/',data.set,'_spp_shared.pdf',sep=''))
 ggplot(shared.taxa, aes(x = site1, y = site2, fill = shared)) +
   geom_raster() +
   scale_fill_gradientn(colours = heat.pal.spectral(100), name = "Shared taxa") +
@@ -318,7 +330,7 @@ ggplot(shared.taxa, aes(x = site1, y = site2, fill = shared)) +
   ylab("Site 2") +
   theme(aspect.ratio = 1, axis.text.x = element_text(angle = 90)) + 
   annotate("text", x = shared.taxa$site1, y = shared.taxa$site2, label = shared.taxa$shared)
-
+dev.off()
 
 #make metadata table
 mtdt <- list()
