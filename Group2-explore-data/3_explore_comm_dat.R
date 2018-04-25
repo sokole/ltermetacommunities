@@ -73,7 +73,7 @@ data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID
 
 #datasets that need significant work still:
 
-# ntl-fish-stanleyLottig (not fully propogated... need to add in zeroes when not observed! Figs are in the tex file)
+# ntl-fish-stanleyLottig (Neetd to decide which years and lakes to include. See notes and figs in the tex file)
 data.set <- "ntl-fish-stanleyLottig"
 data.key <- "" # Google Drive file ID
 
@@ -210,7 +210,7 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
   theme_bw() +
-  theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none")
+  theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) #,legend.position = "none"
   dev.off()
 # ---------------------------------------------------------------------------------------------------
 # SITE-SPECIFIC AND TOTAL SPECIES ACCUMULATION CURVES
@@ -283,7 +283,7 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
   theme_bw()  +
-  theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none")
+  theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) #, legend.position = "none"
 dev.off()
 
 # ---------------------------------------------------------------------------------------------------
