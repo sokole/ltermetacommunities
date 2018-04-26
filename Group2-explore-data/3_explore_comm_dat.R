@@ -13,12 +13,12 @@ if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working direct
 # Check for and install required packages
 #library()
 
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'iNEXT', 'grDevices', 'RColorBrewer','BiodiversityR', 'tidyverse')) {
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'iNEXT', 'grDevices', 'RColorBrewer', 'tidyverse')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
   }
-}
+}  #,'BiodiversityR'
 
 # ---------------------------------------------------------------------------------------------------
 # Assign L3 data set of interest
@@ -28,14 +28,6 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 # jrn-lizard-hope 
 data.set <- "jrn-lizards-hope"
 data.key <- "0B7o8j0RLpcxiYW10X1djMTBGM0U" # Google Drive file ID 
-
-# nwt-plants-hallett 
-data.set <- "nwt-plants-hallett"
-data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID 
-
-# CSUN-USVI-coral
-data.set <- "usvi-coral-castorani"
-data.key <- "0BxUZSA1Gn1HZZGowdUVCTTdtXzg" # Google Drive file ID
 
 # mcr-coral-castorani
 data.set <- "mcr-coral-castorani"
@@ -48,6 +40,18 @@ data.key <- "0BxUZSA1Gn1HZenhxaVJ6bWtVdDg" # Google Drive file ID
 # mcr-inverts-castorani
 data.set <- "mcr-inverts-castorani"
 data.key <- "" # Google Drive file ID
+
+# ntl-zooplankton-stanleyLottig (Tr and TR may be the same site?)
+data.set <- "ntl-zooplankton-stanleyLottig"
+data.key <- "" # Google Drive file ID
+
+# nwt-plants-hallett 
+data.set <- "nwt-plants-hallett"
+data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID 
+
+# CSUN-USVI-coral
+data.set <- "usvi-coral-castorani"
+data.key <- "0BxUZSA1Gn1HZZGowdUVCTTdtXzg" # Google Drive file ID
 
 
 #datasets mostly ready, but need further subsetting prior to analysis
@@ -74,10 +78,6 @@ data.key <- "" # Google Drive file ID
 #datasets that need significant work still:
 # ntl-fish-stanleyLottig (Need to decide which years and lakes to include. See notes and figs in the tex file)
 data.set <- "ntl-fish-stanleyLottig"
-data.key <- "" # Google Drive file ID
-
-# ntl-zooplankton-stanleyLottig (Tr and TR may be the same site?)
-data.set <- "ntl-zooplankton-stanleyLottig"
 data.key <- "" # Google Drive file ID
 
 # fce-algae-marazzi (contains duplicated records... double check) Some figs not made yet. (remove a year; very unbalanced)
