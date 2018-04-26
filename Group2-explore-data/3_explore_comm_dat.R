@@ -40,8 +40,12 @@ data.key <- "0BxUZSA1Gn1HZenhxaVJ6bWtVdDg" # Google Drive file ID
 # mcr-inverts-castorani
 data.set <- "mcr-inverts-castorani"
 data.key <- "" # Google Drive file ID
+ 
+# mcr-fish-castorani
+data.set <- "mcr-fish-castorani"
+data.key <- "" # Google Drive file ID
 
-# ntl-zooplankton-stanleyLottig (Tr and TR may be the same site?)
+# ntl-zooplankton-stanleyLottig 
 data.set <- "ntl-zooplankton-stanleyLottig"
 data.key <- "" # Google Drive file ID
 
@@ -87,10 +91,7 @@ data.key <- "0B2P104M94skvbVdsYUc4amdSLWc" # Google Drive file ID
 # fce-diatoms-marazzi (very unbalanced)
 data.set <- "fce-diatoms-marazzi"
 data.key <- "" # Google Drive file ID
- 
-# mcr-fish-castoraniSix extra sites sampled in the last year. Need to learn whether to remove them or aggregate them in with the appropriate transect.
-data.set <- "mcr-fish-castorani"
-data.key <- "" # Google Drive file ID
+
 
 # and-birds-wisnoski Sampling effort was not equal in all years, causing unexplained dip in Richness in 2014-2016. Need to calculate 'count' of birds differently (not sum; maybe max?). Data not propagated.
 data.set <- "and-birds-wisnoski"
@@ -109,15 +110,14 @@ data.key <- "" # Google Drive file ID
 #data.key <- "" # Google Drive file ID 
 
 #----------------------------------------------------------------------------------------------------
-# MAKE DATA LIST
-dat <- list()
-
 # IMPORT DATA
 L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), stringsAsFactors=F) 
 
 #Work around if no internet access, here's a workaround assuming the Google Drive directory is stored locally:
 L3dat <- read.csv(paste("~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-", data.set, ".csv", sep=""), stringsAsFactors=F)
 
+# MAKE DATA LIST
+dat <- list()
 
 # Subset out community data and add it to dat list
 dat$comm.long <- subset(L3dat, OBSERVATION_TYPE=='TAXON_COUNT')

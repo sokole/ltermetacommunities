@@ -12,10 +12,15 @@ library(tidyr)
 source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
 
 # --------------------------------------------------------------------------------------------------------------------------------
-
+#These data are in the ARCHIVE at "~/Google Drive/LTER Metacommunities/LTER_DATA/ARCHIVE/CSUN-USVI-coral-Castorani/CSUN_USVI_taxa_at_random_sites_long_20160106.csv"
 ## Read in the data
 csun.usvi.coral <- read_csv_gdrive("0BxUZSA1Gn1HZMmk0NDNiTXdwTDQ") %>%
   tbl_df()
+
+#Data are also copied to the L0 folder:
+csun.usvi.coral <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/CSUN-USVI-coral-Castorani/CSUN_USVI_taxa_at_random_sites_long_20160106.csv", stringsAsFactors = FALSE) %>%
+  tbl_df()
+
 
 # Explore data
 unique(csun.usvi.coral$taxa)

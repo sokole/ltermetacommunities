@@ -19,6 +19,9 @@ source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
 mcr.coral <- read_csv_gdrive("0BxUZSA1Gn1HZSW1tREd4T21BWms") %>%
   tbl_df()
 
+#local path:
+mcr.coral <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-coral/knb-lter-mcr.4_1_20151209.csv", stringsAsFactors = FALSE)
+
 # Replace underscores with dots for convenience. Also convert to lowercase.
 colnames(mcr.coral) <- tolower(gsub("_", ".", colnames(mcr.coral)))
 
@@ -104,6 +107,11 @@ mcr.coral_L3 <- mcr.coral_reformat %>%
   dplyr::select(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE) %>%
   as.data.frame(.)
 
+# Replace underscores with dots in location IDs for future plotting. 
+mcr.coral_L3$SITE_ID <- gsub("_", "", mcr.coral_L3$SITE_ID)
+
+
+
 spatial.coords <- data.frame(
   "OBSERVATION_TYPE" = rep("SPATIAL_COORDINATE", length(unique(mcr.coral_L3$SITE_ID))*2),
   "SITE_ID" = rep(unique(mcr.coral_L3$SITE_ID), times = 2),
@@ -134,4 +142,4 @@ spatial.coords <- data.frame(
 mcr.coral_L3_final <- rbind(spatial.coords, mcr.coral_L3)
 
 # Write CSV file for cleaned data (L3)
-write.csv(mcr.coral_L3_final, file = "L3-mcr-coral-castorani.csv", row.names = F)
+write.csv(mcr.coral_L3_final, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-coral-castorani.csv", row.names = F)

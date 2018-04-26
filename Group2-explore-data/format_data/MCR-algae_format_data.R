@@ -19,6 +19,11 @@ source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
 mcr.algae <- read_csv_gdrive("0BxUZSA1Gn1HZRGRYQXVIckdKQjA") %>%
   tbl_df()
 
+#local path:
+mcr.algae <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-algae/MCR_LTER_Annual_Survey_Benthic_Cover_20151023.csv", stringsAsFactors = FALSE)
+
+
+
 # Replace underscores with dots for convenience. Also convert to lowercase.
 colnames(mcr.algae) <- tolower(gsub("_", ".", colnames(mcr.algae)))
 
@@ -110,6 +115,9 @@ mcr.algae_L3 <- mcr.algae_reformat %>%
   dplyr::select(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE) %>%
   as.data.frame(.)
 
+# Replace underscores with dots in location IDs for future plotting. 
+mcr.algae_L3$SITE_ID <- gsub("_", "", mcr.algae_L3$SITE_ID)
+
 spatial.coords <- data.frame(
   "OBSERVATION_TYPE" = rep("SPATIAL_COORDINATE", length(unique(mcr.algae_L3$SITE_ID))*2),
   "SITE_ID" = rep(unique(mcr.algae_L3$SITE_ID), times = 2),
@@ -140,4 +148,4 @@ spatial.coords <- data.frame(
 mcr.algae_L3_final <- rbind(spatial.coords, mcr.algae_L3)
 
 # Write CSV file for cleaned data (L3)
-write.csv(mcr.algae_L3_final, file = "L3-mcr-algae-castorani.csv", row.names = F)
+write.csv(mcr.algae_L3_final, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-algae-castorani.csv", row.names = F)

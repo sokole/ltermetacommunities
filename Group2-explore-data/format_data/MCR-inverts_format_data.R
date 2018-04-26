@@ -19,6 +19,11 @@ source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
 mcr.inverts <- read_csv_gdrive("0BxUZSA1Gn1HZU2hQdC0wVVNQdDA") %>%
   tbl_df()
 
+#local path:
+mcr.inverts <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-inverts/MCR_LTER_Annual_Survey_Herbiv_Invert_20150330.csv", stringsAsFactors = FALSE)
+
+
+
 # Replace underscores with dots for convenience. Also convert to lowercase.
 colnames(mcr.inverts) <- tolower(gsub("_", ".", colnames(mcr.inverts)))
 
@@ -105,6 +110,9 @@ mcr.inverts_L3 <- mcr.inverts_reformat %>%
   dplyr::select(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE) %>%
   as.data.frame(.)
 
+# Replace underscores with dots in location IDs for future plotting. 
+mcr.inverts_L3$SITE_ID <- gsub("_", "", mcr.inverts_L3$SITE_ID)
+
 spatial.coords <- data.frame(
   "OBSERVATION_TYPE" = rep("SPATIAL_COORDINATE", length(unique(mcr.inverts_L3$SITE_ID))*2),
   "SITE_ID" = rep(unique(mcr.inverts_L3$SITE_ID), times = 2),
@@ -135,4 +143,4 @@ spatial.coords <- data.frame(
 mcr.inverts_L3_final <- rbind(spatial.coords, mcr.inverts_L3)
 
 # Write CSV file for cleaned data (L3)
-write.csv(mcr.inverts_L3_final, file = "L3-mcr-inverts-castorani.csv", row.names = F)
+write.csv(mcr.inverts_L3_final, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-inverts-castorani.csv", row.names = F)

@@ -19,6 +19,9 @@ source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
 mcr.fish <- read_csv_gdrive("0BxUZSA1Gn1HZRUVMenVlUndsRnM") %>%
   tbl_df()
 
+#local path:
+mcr.fish <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-fish/MCR_LTER_Annual_Fish_Survey_20160509.csv", stringsAsFactors = FALSE)
+
 # Replace underscores with dots for convenience. Also convert to lowercase.
 colnames(mcr.fish) <- tolower(gsub("_", ".", colnames(mcr.fish)))
 
@@ -32,6 +35,23 @@ mcr.fish <- mcr.fish %>%
   # Convert date to year
   mutate(year = as.numeric(as.character(year))) %>%
   dplyr::select(-date)
+
+#why are there extra sites?
+unique(mcr.fish$site)
+en <- function(x){length(unique(x))}
+tapply(mcr.fish$year, list(mcr.fish$site), en)
+tapply(mcr.fish$transect, list(mcr.fish$site, mcr.fish$habitat, mcr.fish$year), en)
+#the extra sites appear to be three transects in the forereef habitats in 2015 only. All other habitats have four transects per site per year. Remove the sites with decimals.
+mcr.fish <- mcr.fish %>%
+  dplyr::filter(site != 0.50,              
+                site != 2.50,
+                site != 4.25,
+                site != 4.75,
+                site != 5.25,
+                site != 5.75)
+
+
+
 
 # For each species, average the abundance data by year, habitat, plot ('site'), and subplot ('transect')
 mcr.fish_clean <- mcr.fish %>%
@@ -109,6 +129,9 @@ mcr.fish_L3 <- mcr.fish_reformat %>%
   dplyr::select(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE) %>%
   as.data.frame(.)
 
+# Replace underscores with dots in location IDs for future plotting. 
+mcr.fish_L3$SITE_ID <- gsub("_", "", mcr.fish_L3$SITE_ID)
+
 spatial.coords <- data.frame(
   "OBSERVATION_TYPE" = rep("SPATIAL_COORDINATE", length(unique(mcr.fish_L3$SITE_ID))*2),
   "SITE_ID" = rep(unique(mcr.fish_L3$SITE_ID), times = 2),
@@ -139,4 +162,4 @@ spatial.coords <- data.frame(
 mcr.fish_L3_final <- rbind(spatial.coords, mcr.fish_L3)
 
 # Write CSV file for cleaned data (L3)
-write.csv(mcr.fish_L3_final, file = "L3-mcr-fish-castorani.csv", row.names = F)
+write.csv(mcr.fish_L3_final, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-fish-castorani.csv", row.names = F)
