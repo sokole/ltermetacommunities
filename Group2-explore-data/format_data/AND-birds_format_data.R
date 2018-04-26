@@ -47,6 +47,10 @@ data <-read.csv(infile2,header=F
                     "COMMENTS"    ), check.names=TRUE, stringsAsFactors = FALSE)
                
   
+#work around to read in data from Google Drive if working offline:
+data <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-birds/archive_knb-lter-and/SA02402.csv")
+
+
 str(data)
 unique(cbind(data$PLOT, data$REPLICATE)) #this doesn't check whether sampling was equal in each year
 
@@ -71,4 +75,5 @@ out <- cbind.data.frame(OBSERVATION_TYPE = "TAXON_COUNT",
                         VALUE = dat1$VALUE
 )
 
-write.csv()
+#write directly to the L3 folder
+write.csv(~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and-birds-wisnoski.csv)
