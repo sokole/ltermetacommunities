@@ -27,14 +27,14 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 # Assign data set of interest
 # NOTE: Google Drive file ID is different for each dataset
 
-# JRN LTER (Jornada lizards from lter repository download in L0 directory)
+# JRN LTER (Jornada lizards from lter repository download in L0 directory; knb-lter-jrn.2100007001.13)
 data.set <- "JRN-lizard"
 data.key <- "0B7o8j0RLpcxiemtYVjF0ZGVxaVE" # Google Drive file ID
 
 data <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), skip = 47, stringsAsFactors = F)
 
 #if working offline and Google Drive is stored locally, use this:
-#data <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-lizards/JornadaStudy_007_npp_lizard_pitfall_trap_data.csv", skip = 47, stringsAsFactors=F)
+data <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-lizards/JornadaStudy_007_npp_lizard_pitfall_trap_data.csv", skip = 47, stringsAsFactors=F)
 
 
 #in this table, each row represents a lizard. Remove columns with data measured on indivudal lizards (i.e. svl, sex, toe number)
@@ -64,6 +64,10 @@ data <- merge(data, Hope_data, by = "datetime", all.x=F, all.y=T)
 ss <- function(x) {length(unique(x))}
 tapply(data$site,data$year, ss) #two sites began in 1995
 tapply(data$site,data$year, unique) #they were "NORT" and "SUMM"
+
+#remove the two sites that began later, NORT and SUMM
+data <- data %>%
+	filter(site != "NORT" & site != "SUMM")
 
 #Now remove the rows where no lizards were observed.
 data <- data %>%
@@ -136,7 +140,7 @@ dat.tog <- rbind(dat.coord, comm.long, dat.env) %>%
   select(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE)
 
 #Write out the L3 dataset
-write.csv(dat.tog, "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-jrn-lizards-hope.csv")
+write.csv(dat.tog, "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-jrn-lizards-hope.csv", row.names=F)
 
 
 # --------------------------------------------------------- #

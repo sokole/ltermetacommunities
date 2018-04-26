@@ -13,7 +13,7 @@ if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working direct
 # Check for and install required packages
 #library()
 
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'iNEXT', 'grDevices', 'RColorBrewer','BiodiversityR')) {
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'iNEXT', 'grDevices', 'RColorBrewer','BiodiversityR', 'tidyverse')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
@@ -24,27 +24,33 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 # Assign L3 data set of interest
 # NOTE: Google Drive file ID is different for each dataset
 
-#datasets mostly ready (may need further subsetting prior to analysis)
+#datasets that are ready to include in meta-analysis
+# jrn-lizard-hope 
+data.set <- "jrn-lizards-hope"
+data.key <- "0B7o8j0RLpcxiYW10X1djMTBGM0U" # Google Drive file ID 
+
+# nwt-plants-hallett 
+data.set <- "nwt-plants-hallett"
+data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID 
+
 # CSUN-USVI-coral
 data.set <- "usvi-coral-castorani"
 data.key <- "0BxUZSA1Gn1HZZGowdUVCTTdtXzg" # Google Drive file ID
-
-# mcr-algae-castorani
-data.set <- "mcr-algae-castorani"
-data.key <- "0BxUZSA1Gn1HZenhxaVJ6bWtVdDg" # Google Drive file ID
 
 # mcr-coral-castorani
 data.set <- "mcr-coral-castorani"
 data.key <- "" # Google Drive file ID
 
+# mcr-algae-castorani
+data.set <- "mcr-algae-castorani"
+data.key <- "0BxUZSA1Gn1HZenhxaVJ6bWtVdDg" # Google Drive file ID
+
 # mcr-inverts-castorani
 data.set <- "mcr-inverts-castorani"
 data.key <- "" # Google Drive file ID
 
-# mcr-fish-castorani
-data.set <- "mcr-fish-castorani"
-data.key <- "" # Google Drive file ID
 
+#datasets mostly ready, but need further subsetting prior to analysis
 # sbc-algae-castorani (survey)
 data.set <- "sbc-algae-castorani"
 data.key <- "0BxUZSA1Gn1HZZWl6d3BMeVNlT0U" # Google Drive file ID
@@ -61,22 +67,14 @@ data.key <- "" # Google Drive file ID
 data.set <- "sbc-sessileInverts-castorani"
 data.key <- "" # Google Drive file ID
 
-# jrn-lizard-hope 
-data.set <- "jrn-lizards-hope"
-data.key <- "0B7o8j0RLpcxiYW10X1djMTBGM0U" # Google Drive file ID 
-
-# nwt-plants-hallett 
-data.set <- "nwt-plants-hallett"
-data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID 
-
-
-
-#datasets that need significant work still:
-
-# ntl-fish-stanleyLottig (Neetd to decide which years and lakes to include. See notes and figs in the tex file)
-data.set <- "ntl-fish-stanleyLottig"
+# sbc-fish-castorani (survey) 
+data.set <- "sbc-fish-castorani"
 data.key <- "" # Google Drive file ID
 
+#datasets that need significant work still:
+# ntl-fish-stanleyLottig (Need to decide which years and lakes to include. See notes and figs in the tex file)
+data.set <- "ntl-fish-stanleyLottig"
+data.key <- "" # Google Drive file ID
 
 # ntl-zooplankton-stanleyLottig (Tr and TR may be the same site?)
 data.set <- "ntl-zooplankton-stanleyLottig"
@@ -90,12 +88,11 @@ data.key <- "0B2P104M94skvbVdsYUc4amdSLWc" # Google Drive file ID
 data.set <- "fce-diatoms-marazzi"
 data.key <- "" # Google Drive file ID
  
-
-# sbc-fish-castorani (survey) Six extra sites sampled in the last year. Need to learn whether to remove them or aggregate them in with the appropriate transect.
-data.set <- "sbc-fish-castorani"
+# mcr-fish-castoraniSix extra sites sampled in the last year. Need to learn whether to remove them or aggregate them in with the appropriate transect.
+data.set <- "mcr-fish-castorani"
 data.key <- "" # Google Drive file ID
 
-# and-birds-wisnoski Seems like sampling wasn't equal in all years, causing unexplained dip in Richness in 2014-2016. Need to calculate 'count' of birds differently (nor sum; maybe max?). Data not propagated.
+# and-birds-wisnoski Sampling effort was not equal in all years, causing unexplained dip in Richness in 2014-2016. Need to calculate 'count' of birds differently (not sum; maybe max?). Data not propagated.
 data.set <- "and-birds-wisnoski"
 data.key <- "" # Google Drive file ID
 
@@ -122,8 +119,31 @@ L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", d
 L3dat <- read.csv(paste("~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-", data.set, ".csv", sep=""), stringsAsFactors=F)
 
 
-# Subset out community data  and add it to dat list
+# Subset out community data and add it to dat list
 dat$comm.long <- subset(L3dat, OBSERVATION_TYPE=='TAXON_COUNT')
+
+# Ensure that community data VALUE and DATE are coded as numeric
+dat$comm.long <- dat$comm.long %>%   # Recode if necessary
+  mutate_at(vars(c(DATE, VALUE)), as.numeric)
+
+  # Ensure that SITE_ID is a character: recode numeric as character 
+dat$comm.long <- dat$comm.long %>%   # Recode if necessary
+  mutate_at(vars(SITE_ID), as.character)
+
+# Double-check that all columns are coded properly
+ifelse(FALSE %in% 
+   c(
+     class(dat$comm.long$OBSERVATION_TYPE) == "character",
+     class(dat$comm.long$SITE_ID) == "character",
+     class(dat$comm.long$DATE) == "numeric",
+     class(dat$comm.long$VARIABLE_NAME) == "character",
+     class(dat$comm.long$VARIABLE_UNITS) == "character",
+     class(dat$comm.long$VALUE) == "numeric"
+   ),
+  "ERROR: Community columns incorrectly coded.", 
+  "OK: Community columns correctly coded.")
+# 
+
 
 # Convert community data to wide form
 comm.wide <- dat$comm.long %>%
