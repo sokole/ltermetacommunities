@@ -57,8 +57,11 @@ data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID
 data.set <- "usvi-coral-castorani"
 data.key <- "0BxUZSA1Gn1HZZGowdUVCTTdtXzg" # Google Drive file ID
 
+# mcr-coral-castorani
+data.set <- "hbr-birds-sillett"
+data.key <- "" # Google Drive file ID
 
-#datasets mostly ready, but need further subsetting prior to analysis
+#these datasets are being updated by PI. Redo formatting as they are posted in EDI and subset further prior to analysis:
 # sbc-algae-castorani (survey)
 data.set <- "sbc-algae-castorani"
 data.key <- "0BxUZSA1Gn1HZZWl6d3BMeVNlT0U" # Google Drive file ID
