@@ -44,9 +44,9 @@ ggplot(d_plot,
              scales = 'free_y') +
   theme_bw()
 
-savePlot(
-  paste0('Fig_compositional_change_marine_v_terrestrial-',Sys.Date(),'.pdf'), 
-  type = 'pdf')
+# savePlot(
+#   paste0('Fig_compositional_change_marine_v_terrestrial-',Sys.Date(),'.pdf'), 
+#   type = 'pdf')
 
 #########################
 # trophic groups
@@ -65,8 +65,8 @@ ggplot(d_plot,
   theme_bw()
 
 
-savePlot(paste0('Fig_compositional_change_by_trophic_group-',Sys.Date(),'.pdf'), 
-         type = 'pdf')
+# savePlot(paste0('Fig_compositional_change_by_trophic_group-',Sys.Date(),'.pdf'), 
+#          type = 'pdf')
 
 #########################
 # dispersal groups
@@ -86,6 +86,6 @@ ggplot(d_plot,
   theme_bw()
 
 
-savePlot(paste0('Fig_compositional_change_by_dispersal_type-',Sys.Date(),'.pdf'), 
-         type = 'pdf')
+# savePlot(paste0('Fig_compositional_change_by_dispersal_type-',Sys.Date(),'.pdf'), 
+#          type = 'pdf')
   
