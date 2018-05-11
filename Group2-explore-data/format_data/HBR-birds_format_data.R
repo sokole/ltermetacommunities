@@ -42,7 +42,7 @@ infile1 <- sub("^https","http",infile1)
                     "Comments"    ), check.names=TRUE, stringsAsFactors = FALSE)
                
 #alternately, read in local copy:
-dt1 <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/HBR-birds-Sillett/valleywide_bird.txt", stringsAsFactors=FALSE)  
+dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HBR-birds-Sillett/valleywide_bird.txt", stringsAsFactors=FALSE)  
 
 
 #extract year
@@ -122,4 +122,4 @@ str(out_long)
 
 
 # Write CSV file for cleaned data (L3)
-write.csv(out_long, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-hbr-birds-sillett.csv", row.names = F)
+write.csv(out_long, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-hbr-birds-sillett.csv", row.names = F)
