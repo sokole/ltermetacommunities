@@ -47,8 +47,8 @@ data <-read.csv(infile2,header=F
                     "COMMENTS"    ), check.names=TRUE, stringsAsFactors = FALSE)
                
   
-#work around to read in data from Google Drive if working offline:
-data <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-birds/archive_knb-lter-and/SA02402.csv")
+#Google Drive File Stream alternative:
+data <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-birds/archive_knb-lter-and/SA02402.csv")
 
 
 str(data)
@@ -76,4 +76,4 @@ out <- cbind.data.frame(OBSERVATION_TYPE = "TAXON_COUNT",
 )
 
 #write directly to the L3 folder
-write.csv(~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and-birds-wisnoski.csv)
+write.csv(~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and-birds-wisnoski.csv)

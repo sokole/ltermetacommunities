@@ -19,8 +19,8 @@ source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
 mcr.inverts <- read_csv_gdrive("0BxUZSA1Gn1HZU2hQdC0wVVNQdDA") %>%
   tbl_df()
 
-#local path:
-mcr.inverts <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-inverts/MCR_LTER_Annual_Survey_Herbiv_Invert_20150330.csv", stringsAsFactors = FALSE)
+#Google Drive File Stream method:
+mcr.inverts <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-inverts/MCR_LTER_Annual_Survey_Herbiv_Invert_20150330.csv", stringsAsFactors = FALSE)
 
 
 
@@ -96,7 +96,7 @@ mcr.inverts_reformat <- mcr.inverts_clean %>%
                 VALUE)
 
 # Write CSV file for cleaned data (L2. Skipping L1 because data are already aggregated by year)
-write.csv(mcr.inverts_reformat, file = "L2-mcr-inverts-castorani.csv", row.names = F)
+write.csv(mcr.inverts_reformat, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L2-mcr-inverts-castorani.csv", row.names = F)
 
 
 # --------------------------------------------------------------------------------------------------------------------------------
@@ -143,4 +143,4 @@ spatial.coords <- data.frame(
 mcr.inverts_L3_final <- rbind(spatial.coords, mcr.inverts_L3)
 
 # Write CSV file for cleaned data (L3)
-write.csv(mcr.inverts_L3_final, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-inverts-castorani.csv", row.names = F)
+write.csv(mcr.inverts_L3_final, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-inverts-castorani.csv", row.names = F)

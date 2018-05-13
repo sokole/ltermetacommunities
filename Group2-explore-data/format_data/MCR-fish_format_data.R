@@ -19,8 +19,8 @@ source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
 mcr.fish <- read_csv_gdrive("0BxUZSA1Gn1HZRUVMenVlUndsRnM") %>%
   tbl_df()
 
-#local path:
-mcr.fish <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-fish/MCR_LTER_Annual_Fish_Survey_20160509.csv", stringsAsFactors = FALSE)
+#Google Drive File Stream method:
+mcr.fish <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-fish/MCR_LTER_Annual_Fish_Survey_20160509.csv", stringsAsFactors = FALSE)
 
 # Replace underscores with dots for convenience. Also convert to lowercase.
 colnames(mcr.fish) <- tolower(gsub("_", ".", colnames(mcr.fish)))
@@ -115,7 +115,7 @@ mcr.fish_reformat <- mcr.fish_clean %>%
                 VALUE)
 
 # Write CSV file for cleaned data (L2. Skipping L1 because data are already aggregated by year)
-write.csv(mcr.fish_reformat, file = "L2-mcr-fish-castorani.csv", row.names = F)
+write.csv(mcr.fish_reformat, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L2-mcr-fish-castorani.csv", row.names = F)
 
 
 # --------------------------------------------------------------------------------------------------------------------------------
@@ -162,4 +162,4 @@ spatial.coords <- data.frame(
 mcr.fish_L3_final <- rbind(spatial.coords, mcr.fish_L3)
 
 # Write CSV file for cleaned data (L3)
-write.csv(mcr.fish_L3_final, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-fish-castorani.csv", row.names = F)
+write.csv(mcr.fish_L3_final, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-fish-castorani.csv", row.names = F)

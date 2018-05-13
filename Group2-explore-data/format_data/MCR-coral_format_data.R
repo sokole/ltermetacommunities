@@ -14,13 +14,37 @@ source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
 # --------------------------------------------------------------------------------------------------------------------------------
 
 ### MCR Coral Data ###
+# ---------------------------------------------------------------------------------------------
+## Read in the data from EDI Data Portal
+# Package ID: knb-lter-mcr.4.35 Cataloging System:https://pasta.edirepository.org.
+# Data set title: MCR LTER: Coral Reef: Long-term Population and Community Dynamics: Corals, ongoing since 2005.
+# Data set creator:    - Moorea Coral Reef LTER 
+# Data set creator:  Peter Edmunds - Moorea Coral Reef LTER 
+# Contact:    - Information Manager Moorea Coral Reef LTER  - mcrlter@msi.ucsb.edu
+# Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
+
+#infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-mcr/4/35/a9c9466ca7831118dc9f1eabe179e61e" 
+#infile1 <- sub("^https","http",infile1) 
+#mcr.coral <-read.csv(infile1,header=F 
+#               ,skip=1
+#               ,sep=","  
+#               , col.names=c(
+#                 "Date",     
+#                 "Location",     
+#                 "Site",     
+#                 "Habitat",     
+#                 "Section_of_Transect",     
+#                 "Quadrat",     
+#                 "Taxonomy_Substrate_or_Functional_Group",     
+#                 "Percent_Cover"    ), check.names=TRUE, stringsAsFactors = #FALSE)
+#rm(infile1)
 
 ## Read in the data
 mcr.coral <- read_csv_gdrive("0BxUZSA1Gn1HZSW1tREd4T21BWms") %>%
   tbl_df()
 
-#local path:
-mcr.coral <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-coral/knb-lter-mcr.4_1_20151209.csv", stringsAsFactors = FALSE)
+#Google Drive File Stream:
+mcr.coral <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-coral/knb-lter-mcr.4_1_20151209.csv", stringsAsFactors = FALSE)
 
 # Replace underscores with dots for convenience. Also convert to lowercase.
 colnames(mcr.coral) <- tolower(gsub("_", ".", colnames(mcr.coral)))
@@ -94,7 +118,7 @@ mcr.coral_reformat <- mcr.coral_clean %>%
                 VALUE)
 
 # Write CSV file for cleaned data (L2. Skipping L1 because data are already aggregated by year)
-write.csv(mcr.coral_reformat, file = "L2-mcr-coral-castorani.csv", row.names = F)
+write.csv(mcr.coral_reformat, file = "~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L2-mcr-coral-castorani.csv", row.names = F)
 
 # --------------------------------------------------------------------------------------------------------------------------------
 # Aggregate by site, then add spatial information
@@ -142,4 +166,4 @@ spatial.coords <- data.frame(
 mcr.coral_L3_final <- rbind(spatial.coords, mcr.coral_L3)
 
 # Write CSV file for cleaned data (L3)
-write.csv(mcr.coral_L3_final, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-coral-castorani.csv", row.names = F)
+write.csv(mcr.coral_L3_final, file = "~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-coral-castorani.csv", row.names = F)

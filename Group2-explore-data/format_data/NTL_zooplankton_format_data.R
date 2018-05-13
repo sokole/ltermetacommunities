@@ -17,26 +17,26 @@
 # Metadata Link: https://portal.lternet.edu/nis/metadataviewer?packageid=knb-lter-ntl.37.14
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
-infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/37/14/637918b87ed507ff2add85eb0f0dd8f6" 
-infile1 <- sub("^https","http",infile1) 
-zoop_data <-read.csv(infile1,header=F 
-          ,skip=1
-            ,sep=","  
-                ,quot='"' 
-        , col.names=c(
-                    "lakeid",     
-                    "year4",     
-                    "sample_date",     
-                    "station",     
-                    "species_code",     
-                    "species_name",     
-                    "density",     
-                    "individuals_measured",     
-                    "avg_length"    ), check.names=TRUE, stringsAsFactors=FALSE)
+#infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/37/14/637918b87ed507ff2add85eb0f0dd8f6" 
+#infile1 <- sub("^https","http",infile1) 
+#zoop_data <-read.csv(infile1,header=F 
+#          ,skip=1
+#            ,sep=","  
+#                ,quot='"' 
+#        , col.names=c(
+#                    "lakeid",     
+#                    "year4",     
+#                    "sample_date",     
+#                    "station",     
+#                    "species_code",     
+#                    "species_name",     
+#                    "density",     
+#                    "individuals_measured",     
+#                    "avg_length"    ), check.names=TRUE, #stringsAsFactors=FALSE)
                
   
-#alternative to read in data from local Google Drive if no internet connection:
-zoop_data <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/NTL-Zooplankton-Stanley-Lottig/archive_knb-lter-ntl/zoopallnlsummarysnap.csv", stringsAsFactors=FALSE)  
+#Google Drive File Stream method:
+zoop_data <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/NTL-Zooplankton-Stanley-Lottig/archive_knb-lter-ntl/zoopallnlsummarysnap.csv", stringsAsFactors=FALSE)  
   
 
 library(tidyr)
@@ -49,7 +49,7 @@ tapply(zoop_data$sample_date, list(zoop_data$lakeid, zoop_data$year4), en)
 #Samples are taken fortnighly for a minimum of five sampling occasions per year. Range was 5 - 18 sampling locatins per year.
 #SHOULD WE TAKE THE MEAN OR THE MAXIMUM? 
 
-#Lake Tr was only sampled once in 2013. I'm guessing this is actiallu lake TR. CHange Tr top TR.
+#Lake Tr was only sampled once in 2013. I'm guessing this is actually lake TR. CHange Tr to TR.
 zoop_data$lakeid <- gsub("Tr", "TR", zoop_data$lakeid)
 
 #check number of taxa per lake per year
@@ -114,7 +114,7 @@ tapply(long_dat$VALUE, list(long_dat$SITE_ID,long_dat$DATE), length) #YES!
 
 
 #Write out the L3 dataset
-write.csv(long_dat, "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-ntl-zooplankton-stanleyLottig.csv", row.names=F)
+write.csv(long_dat, "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-ntl-zooplankton-stanleyLottig.csv", row.names=F)
 
 
 

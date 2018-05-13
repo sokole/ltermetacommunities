@@ -36,8 +36,8 @@ data.key <- "0B7AABlvKD6WjSkFscFlhU0ZhXzg" # Google Drive file ID
 # IMPORT DATA
 dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key),stringsAsFactors=F)
 
-#or if no internet access
-dat.long <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/FCE-algae-Gaiser-Marazzi/FCE_algae_long.csv", stringsAsFactors=F)
+#Google Drive File Stream 
+dat.long <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/FCE-algae-Gaiser-Marazzi/FCE_algae_long.csv", stringsAsFactors=F)
 # 
 str(dat.long)
 
@@ -46,7 +46,7 @@ str(dat.long)
 dat.long$OBSERVATION_TYPE <- gsub("TAXON_RELATIVE_ABUNDANCE", "TAXON_COUNT", dat.long$OBSERVATION_TYPE)
 
 #write this to the L3 folder in Google Drive 
-write.csv(dat.long, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-algae-marazzi.csv")
+write.csv(dat.long, file = "~/Google Drive File Stream/My Drive//LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-algae-marazzi.csv")
 
 
 unique(dat.long$OBSERVATION_TYPE); unique(dat.long$SITE_ID)#TAXON ONLY

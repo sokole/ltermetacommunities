@@ -35,14 +35,17 @@ data.key <- "0B7o8j0RLpcxieFNJSnJDTGV1MVE" # Google Drive file ID for the RAW da
 # ---------------------------------------------------------------------------------------------------
 
 # IMPORT DATA
-dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key)) 
+#dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key)) 
+
+#Google Drive File Stream method:
+dat.long <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/NWT-plants-Hallett-and-Sokol/NWT-saddle-plants-and-snow-LONG.csv", stringsAsFactors=FALSE)  
 
 
 #remove duplicate rows: (they may be there due to the utility make-data-long-standardized.R script. NWT was the example. )
 dat.long <- unique(dat.long)
 
 #write this to the L3 folder in Google Drive 
-write.csv(dat.long, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-nwt-plants-hallett.csv")
+write.csv(dat.long, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-nwt-plants-hallett.csv")
 
 # MAKE DATA LIST
 dat <- list()

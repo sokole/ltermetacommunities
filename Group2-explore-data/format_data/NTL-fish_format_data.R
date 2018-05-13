@@ -17,22 +17,22 @@
 # Contact:  NTL Lead PI -  University of Wisconsin  - ntl.leadpi@gmail.com
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
-infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/7/24/307b9c3bb1bb42825c3514086fe43acc" 
-infile1 <- sub("^https","http",infile1) 
-my_data <-read.csv(infile1,header=F 
-          ,skip=1
-            ,sep=","  
-                ,quot='"' 
-        , col.names=c(
-                    "lakeid",     
-                    "year4",     
-                    "gearid",     
-                    "effort",     
-                    "spname",     
-                    "total_caught"    ), check.names=TRUE, stringsAsFactors=FALSE)
+#infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/7/24/307b9c3bb1bb42825c3514086fe43acc" 
+#infile1 <- sub("^https","http",infile1) 
+#my_data <-read.csv(infile1,header=F 
+#          ,skip=1
+#            ,sep=","  
+#                ,quot='"' 
+#        , col.names=c(
+#                    "lakeid",     
+#                    "year4",     
+#                    "gearid",     
+#                    "effort",     
+#                    "spname",     
+#                    "total_caught"    ), check.names=TRUE, stringsAsFactors=FALSE)
                
-#alternative if no internet connection: read from local Google Drive
-my_data <- read.csv("~/Google Drive/LTER Metacommunities/LTER-DATA/L0-raw/NTL-fish-Stanley-Lottig/archive_knb-lter-ntl/ntl7_v6.csv", stringsAsFactors=FALSE)  
+#Google Drive File Stream method
+my_data <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/NTL-fish-Stanley-Lottig/archive_knb-lter-ntl/ntl7_v6.csv", stringsAsFactors=FALSE)  
 
 str(my_data)        
         
@@ -119,7 +119,7 @@ tapply(long_dat$VALUE, list(long_dat$SITE_ID,long_dat$DATE), length) #YES!
 
 
 # write the L3 output file
-write.csv(long_dat, file="~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-ntl-fish-stanleyLottig.csv", row.names=FALSE)
+write.csv(long_dat, file="~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-ntl-fish-stanleyLottig.csv", row.names=FALSE)
 
 
 
