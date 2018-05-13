@@ -116,7 +116,7 @@ data.key <- "" # Google Drive file ID
 # IMPORT DATA
 L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), stringsAsFactors=F) 
 
-#Work around if no internet access, here's a workaround assuming the Google Drive directory is stored locally:
+#Alternative using Google Drive File Stream. Works the same whether streaming data or data are cached locally:
 L3dat <- read.csv(paste("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-", data.set, ".csv", sep=""), stringsAsFactors=F)
 
 # MAKE DATA LIST

@@ -41,8 +41,10 @@ infile1 <- sub("^https","http",infile1)
                     "Counter.sing",     
                     "Comments"    ), check.names=TRUE, stringsAsFactors = FALSE)
                
-#alternately, read in local copy:
+#alternately, use Google Drive File Stream:
 dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HBR-birds-Sillett/valleywide_bird.txt", stringsAsFactors=FALSE)  
+
+#if you are really stubborn, use the googledrive package:
 
 
 #extract year
