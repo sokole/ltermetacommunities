@@ -165,7 +165,7 @@ heat.pal.spectral <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
 
 # How are communities sampled across space and time?
 # Write spatiotemporal sampling effort plot to pdf 
-pdf(file=paste('~/Google Drive File Stream/My Drive/LTER Metacommunities/Manuscripts/MS3_metacom-stability-analysis/supplemental_methods_figs/', data.set, '_spatiotemporal_sampling_effort.pdf',sep=''))
+pdf(file=paste('MS3-Supp-Info/', data.set, '_spatiotemporal_sampling_effort.pdf',sep=''))
   ggplot(data = dat$comm.long, aes(x = DATE, y = SITE_ID)) +
   geom_point(size = 5) +
   theme_bw() +
@@ -174,6 +174,7 @@ pdf(file=paste('~/Google Drive File Stream/My Drive/LTER Metacommunities/Manuscr
   theme_bw() +
   theme(axis.title = element_text(size=20), axis.text = element_text(size=20))
 dev.off()
+
 
 # Check the propagation of species across space and time
 tapply(dat$comm.long$VALUE, list(dat$comm.long$SITE_ID,dat$comm.long$DATE), length)
@@ -222,7 +223,7 @@ ggplot(data = no.taxa$no.taxa, aes(x = DATE, y = SITE_ID, fill = no.taxa)) +
 # Plot number of taxa through time
 # Note that the thick line indicates the total number of taxa among all sites
 #write to file:
-pdf(file=paste('~/Google Drive File Stream/My Drive/LTER Metacommunities/Manuscripts/MS3_metacom-stability-analysis/supplemental_methods_figs/', data.set, '_num_taxa_over_time.pdf',sep=''))
+pdf(file=paste('MS3-Supp-Info/', data.set, '_num_taxa_over_time.pdf',sep=''))
 ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   geom_point(aes(color = SITE_ID)) +
   geom_line(aes(color=SITE_ID)) +
@@ -295,7 +296,7 @@ cuml.taxa.by.site <- output %>%
 # Plot the cumulative number of taxa observed at each site, as well as across all sites together
 # Note that the thick line indicates the total number of taxa among all sites
 # Write species accumulation curve to pdf/tex file
-pdf(file=paste('~/Google Drive File Stream/My Drive/LTER Metacommunities/Manuscripts/MS3_metacom-stability-analysis/supplemental_methods_figs/',data.set,'_species_accumulation_curve.pdf',sep=''))
+pdf(file=paste('MS3-Supp-Info/', data.set,'_species_accumulation_curve.pdf', sep=''))
 ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   geom_point(aes(color = SITE_ID)) +
   geom_line(aes(color = SITE_ID)) +
@@ -344,7 +345,7 @@ shared.species(comm.wide.pa, output = "matrix")
 
 # Or to visualize differences
 shared.taxa <- shared.species(comm.wide.pa, output = "dataframe")
-pdf(file=paste('~/Google Drive File Stream/My Drive/LTER Metacommunities/Manuscripts/MS3_metacom-stability-analysis/supplemental_methods_figs/',data.set,'_spp_shared.pdf',sep=''))
+pdf(file=paste('MS3-Supp-Info/', data.set,'_spp_shared.pdf', sep=''))
 ggplot(shared.taxa, aes(x = site1, y = site2, fill = shared)) +
   geom_raster() +
   scale_fill_gradientn(colours = heat.pal.spectral(100), name = "Shared taxa") +

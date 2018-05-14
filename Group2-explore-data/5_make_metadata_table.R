@@ -20,4 +20,4 @@ for (file in file.list[2:length(file.list)]){
 	 metadata_table <- rbind(metadata_table,a)
 }
 
-write.csv(metadata_table, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/Manuscripts/MS3_metacom-stability-analysis/supplemental_methods_figs/metadata_table.csv", row.names=F)
+write.csv(metadata_table, file = "MS3-Supp-Info/metadata_table.csv", row.names=F)
