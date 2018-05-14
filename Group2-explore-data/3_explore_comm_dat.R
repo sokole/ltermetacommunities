@@ -78,9 +78,6 @@ data.key <- "" # Google Drive file ID
 data.set <- "sbc-sessileInverts-castorani"
 data.key <- "" # Google Drive file ID
 
-# sbc-fish-castorani (survey) 
-data.set <- "sbc-fish-castorani"
-data.key <- "" # Google Drive file ID
 
 #datasets that need significant work still:
 # ntl-fish-stanleyLottig (Need to decide which years and lakes to include. See notes and figs in the tex file)
