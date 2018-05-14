@@ -111,7 +111,7 @@
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_spatiotemporal_sampling_effort.pdf}
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_spp_shared.pdf}
-\caption{{\bf NTL-fish:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 134 fish species observed at 11 sites North Temperate Lakes LTER (1981-2016). The black lines represent total site-level values across all plots.}
+\caption{{\bf NTL-fish:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 81 fish species observed at 9 lakes in the North Temperate Lakes LTER (1995-2016). The black lines represent total site-level values across all plots.}
 \label{ntl-fish}
 \end{figure}
 \efloatseparator

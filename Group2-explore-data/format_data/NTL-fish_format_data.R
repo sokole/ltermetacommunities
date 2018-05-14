@@ -95,7 +95,7 @@ length(which(long_data$VARIABLE_NAME=="LARVALFISH")) #14
 length(which(long_data$VARIABLE_NAME=="UNIDCHUB")) #1
 length(which(long_data$VARIABLE_NAME=="UNIDENTIFIED")) #21
 length(which(long_data$VARIABLE_NAME=="UNIDDARTER")) #3
-#remove 88 rown with unidentified taxa
+#remove 88 rows with unidentified taxa
 long_data <- long_data %>%
   dplyr::filter(VARIABLE_NAME != "UNIDSUNFISH",          
                 VARIABLE_NAME != "UNIDMINNOW",
@@ -116,11 +116,16 @@ wide_data <- spread(long_data, key = VARIABLE_NAME, value = VALUE, fill = 0)
 long_dat <- gather(wide_data, key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS)
 tapply(long_dat$VALUE, list(long_dat$SITE_ID,long_dat$DATE), length) #YES!
 
-
+#NKL 05/14/2018 remove the two bog lakes (TB and CB) and remove years prior to xxxx for ba;anced sampling.
+str(long_dat)
+long_dat <- long_dat %>%
+  dplyr::filter(SITE_ID != "TB",          
+                SITE_ID != "CB",
+                DATE > 1994
+                )
 
 # write the L3 output file
-write.csv(long_dat, file="~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-ntl-fish-stanleyLottig.csv", row.names=FALSE)
-
+write.csv(long_dat, file="~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-ntl-fish-stanleyLottig.csv", row.names=FALSE)
 
 
 
