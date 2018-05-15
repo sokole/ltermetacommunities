@@ -31,6 +31,8 @@ infile1 <- sub("^https","http",infile1)
                     
                     
                     
+#alternately, use Google Drive File Stream:
+#dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/CDR-plants/archive_knb-lter-cdr/e249_Plant aboveground biomass data.txt", stringsAsFactors=FALSE)  
 
 
 
