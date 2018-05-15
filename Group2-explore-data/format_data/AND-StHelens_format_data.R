@@ -1,72 +1,3 @@
-<<<<<<< HEAD
-# # Aldo Compagnoni: script to retrieve time series data using
-# # the ecoretriever package. 
-# # Found 9 time series data sets.
-# library(devtools)
-# install_github("ropensci/ecoretriever")
-# 
-# library(devtools)
-# install_github('ropensci/ecoretriever')
-# rdataretriever::datasets()
-# 
-# # Attach the package and the database
-# library("rdataretriever") ; library(dplyr)
-# library("RSQLite") 
-# 
-# # your working directory
-# dir <- "C:/CODE/ltermetacommunities/Group1-finding-data/"
-# setwd(dir)
-# source(paste0(dir,"util.R"))
-# # List the datasets available via the Retriever
-# ecoRetDataList <- rdataretriever::datasets()
-# 
-# rdataretriever::download('DelMoral2010')
-# 
-# # Found a few temporal data sets.
-# temporalData1 <- c( "Adler2007","Zachmann2010","Steppe_plants_2013",
-#                     "McGlinn2010","DelMoral2010",
-#                     "PortalMammals","Woods2009","Palmer2007",
-#                     "TreeWesternGhats")
-# temporalData=temporalData1[-c(1:3)]
-# 
-# # Exclude Adler data sets - only a subset of plant community sampled
-# 
-# # Install data sets as databases
-# for(i in 1:length(temporalData)){
-#   
-#   ecoretriever::install(dataset = paste0(temporalData[i]), 
-#                         connection = 'sqlite', 
-#                         db_file = paste0(temporalData[i],
-#                                          ".sqlite1"))
-#   
-# }
-# 
-# 
-# ecoretriever::install(dataset = paste0(temporalData[2]), 
-#                       connection = 'sqlite', 
-#                       db_file = paste0(temporalData[2],
-#                                        ".sqlite1"))
-# 
-# # Access one of the data sets using SQLite
-# db <- dbConnect(SQLite(), paste0(temporalData[2],".sqlite1"))
-# 
-# # List tables within the database
-# dbListTables(db)
-# =======
-# Aldo Compagnoni: script to retrieve time series data using
-# the ecoretriever package. 
-# Found 9 time series data sets.
-
-# library(devtools)
-# install_github('ropensci/ecoretriever')
-
-# Attach the package and the database
-# library("rdataretriever") ; library(dplyr)
-# library("RSQLite") 
-# >>>>>>> 71f6574addc66e5588942f5166858451542c147c
-
-# rdataretriever::datasets()
-
 
 library(tidyr)
 library(dplyr)
@@ -75,12 +6,22 @@ library(dplyr)
 # your working directory
 source("Group1-finding-data/util.R")
 
-spp_abundance <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_SPECIES_PLOT_YEAR.csv') %>% 
+spp_abundance <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_SPECIES_PLOT_YEAR.csv', stringsAsFactors=F) %>% 
                     gather(species, cover, Abilas:Xerten) %>% 
                     setNames( tolower(names(.)) )
-plot_d        <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_PLOT_DESCRIPTORS.csv') %>% 
+plot_d <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_PLOT_DESCRIPTORS.csv', fileEncoding = "ISO-8859-1") %>% 
                     setNames( tolower(names(.)) )
-# taxa_d  <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_SPECIES_DESCRIPTORS.csv')
+
+# taxa_d  <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_SPECIES_DESCRIPTORS.csv', fileEncoding = "ISO-8859-1")
+
+#ALTERNATIVE: read in from version cached on Google Drive
+#spp_abundance <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-plants-mtStHelen/MSH_SPECIES_PLOT_YEAR.csv", stringsAsFactors=F) %>% 
+#                    gather(species, cover, Abilas:Xerten) %>% 
+#                    setNames( tolower(names(.)) )
+
+#plot_d <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-plants-mtStHelen/MSH_PLOT_DESCRIPTORS.csv",fileEncoding = "ISO-8859-1", stringsAsFactors=F) %>% 
+#                    setNames( tolower(names(.)) )
+
 
 
 # Format data ----------------------------------------------------------------------
@@ -197,4 +138,4 @@ env_vars <- rbind(heat_load, elevation_m, aspect, slope,
 # Output file =========================================================
 delmoral_data <- rbind(plot_coord,spp_abundance,env_vars)
 
-write.csv(delmoral_data, "MtStHelens_succession.csv", row.names = F)
+write.csv(delmoral_data, "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and_plants_mtStHelens.csv", row.names = F)
