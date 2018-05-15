@@ -23,77 +23,46 @@ for (package in c('dplyr', 'tidyverse', 'tidyr')) {
 # Contact:    - Data Manager Julie Ann Wrigley Global Institute of Sustainability, Arizona State University  - caplter.data@asu.edu
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
-infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-cap/46/15/1ac975d0d3272f2eabe68a66e9f908ad" 
-infile1 <- sub("^https","http",infile1) 
-dt1 <-read.csv(infile1,header=F 
-               ,skip=1
-               ,sep=","  
-               ,quot='"' 
-               , col.names=c(
-                 "site_code",     
-                 "location_type",     
-                 "survey_date",     
-                 "time_start",     
-                 "time_end",     
-                 "observer_name_part",     
-                 "wind_speed",     
-                 "wind_dir",     
-                 "air_temp",     
-                 "cloud_cover",     
-                 "survey_notes",     
-                 "human_activity_notes",     
-                 "wind",     
-                 "precipitation",     
-                 "disturbances",     
-                 "sight_obstruct",     
-                 "noise_level",     
-                 "site_condition",     
-                 "non_bird_species",     
-                 "code",     
-                 "common_name",     
-                 "distance",     
-                 "bird_count",     
-                 "observation_notes",     
-                 "seen",     
-                 "heard",     
-                 "direction",     
-                 "QCcomment"    ), check.names=TRUE)
+#infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-cap/46/15/1ac975d0d3272f2eabe68a66e9f908ad" 
+#infile1 <- sub("^https","http",infile1) 
+#dt1 <-read.csv(infile1,header=F 
+#               ,skip=1
+#               ,sep=","  
+#               ,quot='"' 
+#               , col.names=c(
+#                 "site_code",     
+#                 "location_type",     
+#                 "survey_date",     
+#                 "time_start",     
+#                 "time_end",     
+#                 "observer_name_part",     
+#                 "wind_speed",     
+#                 "wind_dir",     
+#                 "air_temp",     
+#                 "cloud_cover",     
+#                 "survey_notes",     
+#                 "human_activity_notes",     
+#                 "wind",     
+#                 "precipitation",     
+#                 "disturbances",     
+#                 "sight_obstruct",     
+#                 "noise_level",     
+#                 "site_condition",     
+#                 "non_bird_species",     
+#                 "code",     
+#                 "common_name",     
+#                 "distance",     
+#                 "bird_count",     
+#                 "observation_notes",     
+#                 "seen",     
+#                 "heard",     
+#                 "direction",     
+#                 "QCcomment"    ), check.names=TRUE, stringsAsFactors=F)
 
 
-# Fix any interval or ratio columns mistakenly read in as nominal and nominal columns read as numeric or dates read as strings
-
-if (class(dt1$site_code)!="factor") dt1$site_code<- as.factor(dt1$site_code)
-if (class(dt1$location_type)!="factor") dt1$location_type<- as.factor(dt1$location_type)                                   
-# attempting to convert dt1$survey_date dateTime string to R date structure (date or POSIXct)                                
-tmpDateFormat<-"%Y-%m-%d"
-dt1$survey_date<-as.Date(dt1$survey_date,format=tmpDateFormat)
-rm(tmpDateFormat) 
-if (class(dt1$observer_name_part)!="factor") dt1$observer_name_part<- as.factor(dt1$observer_name_part)
-if (class(dt1$wind_speed)=="factor") dt1$wind_speed <-as.numeric(levels(dt1$wind_speed))[as.integer(dt1$wind_speed) ]
-if (class(dt1$wind_dir)!="factor") dt1$wind_dir<- as.factor(dt1$wind_dir)
-if (class(dt1$air_temp)=="factor") dt1$air_temp <-as.numeric(levels(dt1$air_temp))[as.integer(dt1$air_temp) ]
-if (class(dt1$cloud_cover)=="factor") dt1$cloud_cover <-as.numeric(levels(dt1$cloud_cover))[as.integer(dt1$cloud_cover) ]
-if (class(dt1$survey_notes)!="factor") dt1$survey_notes<- as.factor(dt1$survey_notes)
-if (class(dt1$human_activity_notes)!="factor") dt1$human_activity_notes<- as.factor(dt1$human_activity_notes)
-if (class(dt1$wind)!="factor") dt1$wind<- as.factor(dt1$wind)
-if (class(dt1$precipitation)!="factor") dt1$precipitation<- as.factor(dt1$precipitation)
-if (class(dt1$disturbances)!="factor") dt1$disturbances<- as.factor(dt1$disturbances)
-if (class(dt1$sight_obstruct)=="factor") dt1$sight_obstruct <-as.numeric(levels(dt1$sight_obstruct))[as.integer(dt1$sight_obstruct) ]
-if (class(dt1$noise_level)!="factor") dt1$noise_level<- as.factor(dt1$noise_level)
-if (class(dt1$site_condition)!="factor") dt1$site_condition<- as.factor(dt1$site_condition)
-if (class(dt1$non_bird_species)!="factor") dt1$non_bird_species<- as.factor(dt1$non_bird_species)
-if (class(dt1$code)!="factor") dt1$code<- as.factor(dt1$code)
-if (class(dt1$common_name)!="factor") dt1$common_name<- as.factor(dt1$common_name)
-if (class(dt1$distance)!="factor") dt1$distance<- as.factor(dt1$distance)
-if (class(dt1$bird_count)=="factor") dt1$bird_count <-as.numeric(levels(dt1$bird_count))[as.integer(dt1$bird_count) ]
-if (class(dt1$observation_notes)!="factor") dt1$observation_notes<- as.factor(dt1$observation_notes)
-if (class(dt1$seen)!="factor") dt1$seen<- as.factor(dt1$seen)
-if (class(dt1$heard)!="factor") dt1$heard<- as.factor(dt1$heard)
-if (class(dt1$direction)!="factor") dt1$direction<- as.factor(dt1$direction)
-if (class(dt1$QCcomment)!="factor") dt1$QCcomment<- as.factor(dt1$QCcomment)
 
 #alternately, use Google Drive File Stream:
-#dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/CAP-birds-Banville/46_core_birds_ee23527b9fad8b2ead1a6f0b4471ab1e.csv", stringsAsFactors=FALSE)  
+dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/CAP-birds-Banville/archive_knb-lter-cap/46_core_birds_ee23527b9fad8b2ead1a6f0b4471ab1e.csv", stringsAsFactors=FALSE)  
 
 # Looking at the input data frame
 str(dt1) 
@@ -181,4 +150,4 @@ tapply(out_long$VARIABLE_NAME, list(out_long$SITE_ID, out_long$DATE), en)
 tapply(out_long$SITE_ID, out_long$DATE, en) 
 
 # Write CSV file for cleaned data (L3)
-#write.csv(out_long, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cap-birds-banville.csv", row.names = F)
+write.csv(out_long, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cap-birds-banville.csv", row.names = F)
