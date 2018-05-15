@@ -65,11 +65,36 @@ spatialLocation <- data.frame(
                         VALUE=c(rep(45.4038890,4),rep(-93.2680560,4))
                     )
 
-# fire information
+# fire information (years reported in online metadata)
+fire_d<- list( expand.grid(SITE_ID = spp_abundance$SITE_ID %>% 
+                                        grep('D',.,value=T) %>% unique, 
+                           DATE    = c(1981, 1982, 1988, 1990, 1991, 
+                                       1992, 1993, 1994, 1996, 1997, 
+                                       1999, 2000, 2002, 2003, 2005, 
+                                       2006, 2008, 2009, 2011, 2012, 2014),
+                           stringsAsFactors = F),
+                expand.grid(SITE_ID = spp_abundance$SITE_ID %>% 
+                                        grep('A|B|C',.,value=T) %>% unique, 
+                            DATE    = c( 2005, 2006, 2007, 2008, 2009, 
+                                         2010, 2011, 2012, 2013, 2014),
+                            stringsAsFactors = F) ) %>% 
+            # put this all together
+            Reduce(function(...) rbind(...), .) %>% 
+            # flag the years where fires occurred 
+            mutate(fire = 'yes',
+                   DATE = as.numeric(DATE)) %>% 
+            full_join( unique(select(spp_abundance, SITE_ID, DATE)) ) %>% 
+            mutate(fire = replace(fire, is.na(fire), 'no') ) %>% 
+            # format based on ltermetacomm data standard!
+            format_data(OBSERVATION_TYPE = "ENV_VAR", 
+                        SITE_ID = "SITE_ID", 
+                        DATE = 'DATE', # NA because non-temporal
+                        VARIABLE_NAME = "prescribed_fire", 
+                        VARIABLE_UNITS = NA,  
+                        VALUE = "fire")
 
-
-# 
-form_cdr <- rbind(spp_abundance, spatialLocation)
+# outfile
+form_cdr <- Reduce(function(...) rbind(...), list(spp_abundance, spatialLocation, fire_d) )
 
 # Write CSV file for cleaned data (L3)
 write.csv(form_cdr, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cdr-plants-compagnoni.csv", row.names = F)
