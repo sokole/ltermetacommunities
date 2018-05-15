@@ -1,16 +1,16 @@
 # Aldo Compagnoni: script to retrieve time series data using
 # the ecoretriever package. 
 # Found 9 time series data sets.
-library(devtools)
-install_github("ropensci/ecoretriever")
 
 library(devtools)
 install_github('ropensci/ecoretriever')
-rdataretriever::datasets()
 
 # Attach the package and the database
 library("rdataretriever") ; library(dplyr)
 library("RSQLite") 
+
+rdataretriever::datasets()
+
 
 # your working directory
 dir <- "C:/CODE/ltermetacommunities/Group1-finding-data/"
