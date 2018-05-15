@@ -52,29 +52,28 @@
 # 
 # # List tables within the database
 # dbListTables(db)
-library(tidyr)
-library(dplyr)
-
-=======
+# =======
 # Aldo Compagnoni: script to retrieve time series data using
 # the ecoretriever package. 
 # Found 9 time series data sets.
 
-library(devtools)
-install_github('ropensci/ecoretriever')
+# library(devtools)
+# install_github('ropensci/ecoretriever')
 
 # Attach the package and the database
-library("rdataretriever") ; library(dplyr)
-library("RSQLite") 
->>>>>>> 71f6574addc66e5588942f5166858451542c147c
+# library("rdataretriever") ; library(dplyr)
+# library("RSQLite") 
+# >>>>>>> 71f6574addc66e5588942f5166858451542c147c
 
-rdataretriever::datasets()
+# rdataretriever::datasets()
+
+
+library(tidyr)
+library(dplyr)
 
 
 # your working directory
-dir <- "C:/CODE/ltermetacommunities/Group1-finding-data/"
-setwd(dir)
-source(paste0(dir,"util.R"))
+source("Group1-finding-data/util.R")
 
 spp_abundance <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_SPECIES_PLOT_YEAR.csv') %>% 
                     gather(species, cover, Abilas:Xerten) %>% 
