@@ -6,21 +6,21 @@ library(dplyr)
 # your working directory
 source("Group1-finding-data/util.R")
 
-spp_abundance <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_SPECIES_PLOT_YEAR.csv', stringsAsFactors=F) %>% 
-                    gather(species, cover, Abilas:Xerten) %>% 
-                    setNames( tolower(names(.)) )
-plot_d <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_PLOT_DESCRIPTORS.csv', fileEncoding = "ISO-8859-1") %>% 
-                    setNames( tolower(names(.)) )
+#spp_abundance <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_SPECIES_PLOT_YEAR.csv', stringsAsFactors=F) %>% 
+#                    gather(species, cover, Abilas:Xerten) %>% 
+#                    setNames( tolower(names(.)) )
+#plot_d <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_PLOT_DESCRIPTORS.csv', fileEncoding = "ISO-8859-1") %>% 
+#                    setNames( tolower(names(.)) )
 
 # taxa_d  <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_SPECIES_DESCRIPTORS.csv', fileEncoding = "ISO-8859-1")
 
 #ALTERNATIVE: read in from version cached on Google Drive
-#spp_abundance <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-plants-mtStHelen/MSH_SPECIES_PLOT_YEAR.csv", stringsAsFactors=F) %>% 
-#                    gather(species, cover, Abilas:Xerten) %>% 
-#                    setNames( tolower(names(.)) )
+spp_abundance <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-plants-mtStHelen/MSH_SPECIES_PLOT_YEAR.csv", stringsAsFactors=F) %>% 
+                    gather(species, cover, Abilas:Xerten) %>% 
+                    setNames( tolower(names(.)) )
 
-#plot_d <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-plants-mtStHelen/MSH_PLOT_DESCRIPTORS.csv",fileEncoding = "ISO-8859-1", stringsAsFactors=F) %>% 
-#                    setNames( tolower(names(.)) )
+plot_d <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-plants-mtStHelen/MSH_PLOT_DESCRIPTORS.csv",fileEncoding = "ISO-8859-1", stringsAsFactors=F) %>% 
+                    setNames( tolower(names(.)) )
 
 
 
@@ -67,7 +67,7 @@ spp_abundance <- rename(spp_abundance,VALUE = cover,
                         VARIABLE_NAME = species,
                         DATE = year)
 spp_abundance <- mutate(spp_abundance, 
-                        OBSERVATION_TYPE = "TAXON_ABUNDANCE",
+                        OBSERVATION_TYPE = "TAXON_COUNT",
                         VARIABLE_UNITS = "PERCENT_COVER")
 spp_abundance <- order_col(spp_abundance)
 
@@ -138,4 +138,4 @@ env_vars <- rbind(heat_load, elevation_m, aspect, slope,
 # Output file =========================================================
 delmoral_data <- rbind(plot_coord,spp_abundance,env_vars)
 
-write.csv(delmoral_data, "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and_plants_mtStHelens.csv", row.names = F)
+write.csv(delmoral_data, "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and-plants-mtStHelens.csv", row.names = F)
