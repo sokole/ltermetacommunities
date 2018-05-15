@@ -7,14 +7,18 @@ rm(list = ls())
 library(dplyr)
 library(tidyverse)
 
+# your working directory
+source("Group1-finding-data/util.R")
 
 
-# Package ID: knb-lter-cdr.386.8 Cataloging System:https://pasta.edirepository.org.
-# Data set title: Plant aboveground biomass data: BAC: Biodiversity and Climate.
+# Package ID: knb-lter-cdr.14.8 Cataloging System:https://pasta.edirepository.org.
+# Data set title: Plant aboveground biomass data: Long-Term Nitrogen Deposition: Population, Community, and Ecosystem Consequences.
 # Data set creator:  David Tilman -  
 # Metadata Provider:    - Cedar Creek LTER 
 # Contact:  Dan Bahauddin - Information Manager Cedar Creek Ecosystem Science Reserve  - webmaster@cedarcreek.umn.edu
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
+
+https://pasta.lternet.edu/package/data/eml/knb-lter-cdr/386/8/34db2945b271c1a142d73fec2e298917
 
 infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-cdr/14/8/057e39850bd748d364df8a5ef60bb08d" 
 infile1  <- sub("^https","http",infile1) 
@@ -31,7 +35,11 @@ dt1      <-read.csv(infile1,header=F ,skip=1
                               "NAtm.plus.NAdd",     
                               "Species",     
                               "Biomass"    ), check.names=TRUE)            
-          
+
+
+#ALTERNATIVE: read from cached version on Google Drive          
+dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/CDR-plants/archive_knb-lter-cdr/e001_Plant aboveground biomass data.txt", sep="\t")  
+
 
 # format data ---------------------------------------------------
 
@@ -39,10 +47,7 @@ dt1      <-read.csv(infile1,header=F ,skip=1
 form_d <- dt1 %>% 
             subset(NTrt == 1) %>% 
             mutate(site_id = paste(Field, Plot, sep='_') )
-
-
-#alternately, use Google Drive File Stream:
-#dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/CDR-plants/archive_knb-lter-cdr/e249_Plant aboveground biomass data.txt", stringsAsFactors=FALSE)  
+  
 
 
 # Species abundance data
@@ -51,7 +56,7 @@ spp_abundance <- form_d %>%
                            SITE_ID = site_id,
                            VARIABLE_NAME = Species,
                            DATE = Year) %>% 
-                    mutate(OBSERVATION_TYPE = "TAXON_ABUNDANCE",
+                    mutate(OBSERVATION_TYPE = "TAXON_COUNT",
                            VARIABLE_UNITS = "BIOMASS") %>% 
                     order_col
 

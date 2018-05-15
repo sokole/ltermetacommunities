@@ -105,6 +105,9 @@ data.key <- "" # Google Drive file ID
 data.set <- "cap-birds-banville"
 data.key <- "" # Google Drive file ID
 
+#cdr-plants-compagnoni
+data.set <- "cdr-plants-compagnoni"
+data.key <- "" # Google Drive file ID
 
 #######################
 #REMOVED FROM ANALYSIS
