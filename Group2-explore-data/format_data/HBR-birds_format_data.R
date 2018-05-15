@@ -17,34 +17,32 @@ library(tidyverse)
 # Metadata Link: https://portal.lternet.edu/nis/metadataviewer?packageid=knb-lter-hbr.178.1
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
-infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-hbr/178/1/047f502e4c467e2b40491236ac189bbe" 
-infile1 <- sub("^https","http",infile1) 
- dt1 <-read.csv(infile1,header=F 
-          ,skip=1
-            ,sep="," 
-        , col.names=c(
-                    "Plot",     
-                    "Replicate",     
-                    "Date",     
-                    "Time",     
-                    "Observer",     
-                    "Sky",     
-                    "Wind",     
-                    "Bird.Number",     
-                    "Period",     
-                    "Minute",     
-                    "Species",     
-                    "Sex",     
-                    "Detection.Method",     
-                    "Distance",     
-                    "New.Record",     
-                    "Counter.sing",     
-                    "Comments"    ), check.names=TRUE, stringsAsFactors = FALSE)
+#infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-hbr/178/1/047f502e4c467e2b40491236ac189bbe" 
+#infile1 <- sub("^https","http",infile1) 
+# dt1 <-read.csv(infile1,header=F 
+#          ,skip=1
+#            ,sep="," 
+#        , col.names=c(
+#                    "Plot",     
+#                    "Replicate",     
+#                    "Date",     
+#                    "Time",     
+#                    "Observer",     
+#                    "Sky",     
+#                    "Wind",     
+#                    "Bird.Number",     
+#                    "Period",     
+#                    "Minute",     
+#                    "Species",     
+#                    "Sex",     
+#                    "Detection.Method",     
+#                    "Distance",     
+#                    "New.Record",     
+#                    "Counter.sing",     
+#                    "Comments"    ), check.names=TRUE, stringsAsFactors = #FALSE)
                
 #alternately, use Google Drive File Stream:
 dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HBR-birds-Sillett/valleywide_bird.txt", stringsAsFactors=FALSE)  
-
-#if you are really stubborn, use the googledrive package:
 
 
 #extract year

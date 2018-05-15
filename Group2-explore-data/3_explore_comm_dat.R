@@ -231,7 +231,7 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
   theme_bw() +
-  theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) #,legend.position = "none"
+  theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) # ,legend.position = "none"
   dev.off()
 # ---------------------------------------------------------------------------------------------------
 # SITE-SPECIFIC AND TOTAL SPECIES ACCUMULATION CURVES
@@ -304,8 +304,7 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
   theme_bw()  +
-  theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) #, legend.position = "none"
-dev.off()
+  theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) #, legend.position = "none"dev.off()
 
 # ---------------------------------------------------------------------------------------------------
 # COUNT SHARED SPECIES BETWEEN EACH SITE
