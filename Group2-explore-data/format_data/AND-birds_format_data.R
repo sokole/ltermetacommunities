@@ -1,9 +1,5 @@
 library(tidyverse)
 
-#Nathan's original method reads in data from his local computer
-#setwd("LTER-Data/AND-birds/")
-#data <- read.csv(file = "SA02402_v1.csv")
-
 
 ##########################
 #read in data from EDI
@@ -63,12 +59,19 @@ out <- data.frame(OBSERVATION_TYPE = "",
                   VARIABLE_NAME = "",
                   VARIABLE_UNITS = "",
                   VALUE = "")
+unique(out$VARIABLE_NAME)
 
 head(data)
+
+# take only new observations at nearest distance
+# subset the first five years where sampling was high
 dat1 <- data %>% group_by(YEAR, PLOT, RECORD, SPECIES) %>% 
   filter(NEW_RECORD == 1, DISTANCE == 1) %>% 
+  filter(YEAR < 2014) %>% 
   summarize(count = n())
-dat1 <- dat1 %>% group_by(YEAR, PLOT, RECORD, SPECIES) %>% 
+
+# take max count for each species across all 6 sampling periods
+dat1 <- dat1 %>% group_by(YEAR, PLOT, SPECIES) %>% 
   summarize(VALUE = max(count))
 
 out <- cbind.data.frame(OBSERVATION_TYPE = "TAXON_COUNT",
@@ -82,4 +85,8 @@ out <- cbind.data.frame(OBSERVATION_TYPE = "TAXON_COUNT",
 #write directly to the L3 folder
 write.csv(out, 
           file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and-birds-wisnoski.csv",
+          row.names = F)
+
+write.csv(out, 
+          file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and-birds-wisnoski.csv",
           row.names = F)
