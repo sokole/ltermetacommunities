@@ -12,8 +12,6 @@ for (package in c('dplyr', 'tidyverse', 'tidyr')) {
   }
 }
 
-#ERROR: READS IN WRONG FILE-- READS IN SITE OBSERVATIONS NOT OBSERVATIONS FROM SURVEYS
-
 # Package ID: knb-lter-cap.627.3 Cataloging System:https://pasta.edirepository.org.
 # Data set title: Long-term monitoring of herpetofauna along the Salt and Gila Rivers in and near the greater Phoenix metropolitan area, ongoing since 2012.
 # Data set creator:  Heather Bateman - Arizona State University 
@@ -24,46 +22,74 @@ for (package in c('dplyr', 'tidyverse', 'tidyr')) {
 # Contact:    - Data Manager Julie Ann Wrigley Global Institute of Sustainability, Arizona State University  - caplter.data@asu.edu
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
-#infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-cap/627/3/aec6f02c5fe993ebfcdbba0644225f9d" 
-#infile1 <- sub("^https","http",infile1) 
-#dt1 <-read.csv(infile1,header=F 
-#               ,skip=1
-#               ,sep=","  
-#               ,quot='"' 
-#               , col.names=c(
-#                 "reach",     
-#                 "urbanized",     
-#                 "restored",     
-#                 "water",     
-#                 "observation_date",     
-#                 "observer_intitials",     
-#                 "common_name",     
-#                 "scientific_name",     
-#                 "quantity",     
-#                 "sampling_events_notes",     
-#                 "sampling_events_observation_notes"    ), check.names=TRUE, stringsAsFactors = FALSE)
+#this is the site table (site chatacteristics)
+infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-cap/627/3/aec6f02c5fe993ebfcdbba0644225f9d" 
+infile1 <- sub("^https","http",infile1) 
+ dt1 <-read.csv(infile1,header=F 
+          ,skip=1
+            ,sep=","  
+                ,quot='"' 
+        , col.names=c(
+                    "reach",     
+                    "urbanized",     
+                    "restored",     
+                    "water",     
+                    "observation_date",     
+                    "observer_intitials",     
+                    "common_name",     
+                    "scientific_name",     
+                    "quantity",     
+                    "sampling_events_notes",     
+                    "sampling_events_observation_notes"    ), check.names=TRUE)
+               
+        
+#this is the survey table (counts)
+infile2  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-cap/627/3/ad24abcb8781e1ff6c7ef1b2a4ec1eb9" 
+infile2 <- sub("^https","http",infile2) 
+ dt2 <-read.csv(infile2,header=F 
+          ,skip=1
+            ,sep=","  
+                ,quot='"' 
+        , col.names=c(
+                    "reach",     
+                    "urbanized",     
+                    "restored",     
+                    "water",     
+                    "observation_date",     
+                    "transect",     
+                    "location",     
+                    "time_start",     
+                    "time_end",     
+                    "common_name",     
+                    "scientific_name",     
+                    "quantity",     
+                    "surveys_notes",     
+                    "surveys_observation_notes"    ), check.names=TRUE, stringsAsFactors=FALSE)
+               
+            
+        
 
 #alternately, use Google Drive File Stream:
 #this is the correct file to read in
-#dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/CAP-herps-Banville/archive_knb-lter-cap.627.3_152642411917174235/627_herp_survey_observations_3bfc57f795b316b581f110042dff4230.csv", stringsAsFactors=FALSE) 
+dt2 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/CAP-herps-Banville/archive_knb-lter-cap.627.3_152642411917174235/627_herp_survey_observations_3bfc57f795b316b581f110042dff4230.csv", stringsAsFactors=FALSE) 
 
 #subset species data (NOTE THAT URBANIZED, RESTORED, AND WATER CATEGORIES COULD POTENTIALLY BE ENV COVARIATES)
-dt1 <- dt1 %>% select(reach,urbanized,restored,water,observation_date,common_name,scientific_name,quantity)
-head(dt1)
+dt2 <- dt2 %>% select(reach,urbanized,restored,water,observation_date,common_name,scientific_name,quantity)
+head(dt2)
 
 #Changing column format 
-dt1$reach <- as.character(dt1$reach) #change site code to character to subset
-dt1$scientific_name <- as.character(dt1$scientific_name) #change species code to character to subset
+dt2$reach <- as.character(dt2$reach) #change site code to character to subset
+dt2$scientific_name <- as.character(dt2$scientific_name) #change species code to character to subset
 
 #Extract year and name seasonal observations
-dt1$Date <- as.POSIXct(dt1$observation_date)
-dt1$Year <- as.numeric(format(dt1$Date, format = "%Y"))
-dt1$Month <- as.numeric(format(dt1$Date, format = "%m"))
-unique(dt1$Year) #number of years with observations 
-unique(dt1$Month) #number of months with observations 
+dt2$Date <- as.POSIXct(dt2$observation_date)
+dt2$Year <- as.numeric(format(dt2$Date, format = "%Y"))
+dt2$Month <- as.numeric(format(dt2$Date, format = "%m"))
+unique(dt2$Year) #number of years with observations 
+unique(dt2$Month) #number of months with observations 
 
 #Rename months to sampling season blocks
-dt1 <- dt1 %>% mutate(Month = replace(Month, Month == 4, 'MayJune'), 
+dt2 <- dt2 %>% mutate(Month = replace(Month, Month == 4, 'MayJune'), 
                Month = replace(Month, Month == 5, 'MayJune'),
                Month = replace(Month, Month == 6, 'JulyAug'),
                Month = replace(Month, Month == 7, 'JulyAug'),
@@ -72,12 +98,12 @@ dt1 <- dt1 %>% mutate(Month = replace(Month, Month == 4, 'MayJune'),
 
 #Check sampling within each year at each reach
 en <- function(x) {length(unique(x))} 
-tapply(dt1$Year, list(dt1$reach, dt1$Month), en) #SUBSET BY ESCA for 2000-onward dataset
-tapply(dt1$Month, list(dt1$reach, dt1$Year), en) 
+tapply(dt2$Year, list(dt2$reach, dt2$Month), en) #SUBSET BY ESCA for 2000-onward dataset
+tapply(dt2$Month, list(dt2$reach, dt2$Year), en) 
 
 #Drop march because it was only sampled 1 year, drop 2012 because only sampled twice
 #Scientific name is already NA if unidentified
-dat <- dt1 %>% filter(Month != 3, Year != 2012)
+dat <- dt2 %>% filter(Month != 3, Year != 2012)
 
 #Recheck sampling within each year at each reach
 tapply(dat$Year, list(dat$reach, dat$Month), en) #SUBSET BY ESCA for 2000-onward dataset
@@ -125,5 +151,5 @@ tapply(out_long$VARIABLE_NAME, list(out_long$SITE_ID, out_long$DATE), en)
 tapply(out_long$SITE_ID, out_long$DATE, en) 
 
 # Write CSV file for cleaned data (L3)
-#write.csv(out_long, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cap-herps-banville.csv", row.names = F)
+write.csv(out_long, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cap-herps-banville.csv", row.names = F)
 
