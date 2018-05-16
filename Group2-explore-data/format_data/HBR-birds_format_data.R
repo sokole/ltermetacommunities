@@ -83,7 +83,10 @@ data <- merge(dat, XX, by = "Plot", all.x = F, all.y=T)
 data <- data[,1:18]
 
 #look at sampling within each year again. Mostly 1-2 surveys, with 3 per season on 2006, 2007, and a few in 2013. Remove Replicate == 3 to balance out. Except that Replicate #3 is the only one in a few years...
-tapply(data$Date, list(data$Plot, data$Year), en)
+
+
+
+tapply(data$Species, list(data$Plot, data$Year, data$Replicate), en)
 
 #there are 1-3 sampling intervals per plot per year. Need equal effort at all plots in all years.
 test <- data %>%
