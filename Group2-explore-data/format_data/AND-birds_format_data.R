@@ -52,6 +52,7 @@ unique(cbind(data$PLOT, data$REPLICATE)) #this doesn't check whether sampling wa
 
 en <- function(x) {length(unique(x))}
 tapply(data$REPLICATE, list(data$PLOT, data$YEAR), en) #2014-2016 sampled way less
+unique(data$SPECIES)
 
 out <- data.frame(OBSERVATION_TYPE = "", 
                   SITE_ID = "",
@@ -59,7 +60,6 @@ out <- data.frame(OBSERVATION_TYPE = "",
                   VARIABLE_NAME = "",
                   VARIABLE_UNITS = "",
                   VALUE = "")
-unique(out$VARIABLE_NAME)
 
 head(data)
 
@@ -74,19 +74,25 @@ dat1 <- data %>% group_by(YEAR, PLOT, RECORD, SPECIES) %>%
 dat1 <- dat1 %>% group_by(YEAR, PLOT, SPECIES) %>% 
   summarize(VALUE = max(count))
 
-out <- cbind.data.frame(OBSERVATION_TYPE = "TAXON_COUNT",
-                        SITE_ID = dat1$PLOT,
-                        DATE = dat1$YEAR,
-                        VARIABLE_NAME = dat1$SPECIES,
-                        VARIABLE_UNITS = "count",
-                        VALUE = dat1$VALUE
+# propogate the data
+dat1 <- dat1 %>% spread(SPECIES, VALUE, fill = 0) %>% 
+  gather(SPECIES, VALUE, -YEAR, -PLOT)
+
+out <- cbind.data.frame(OBSERVATION_TYPE = as.character("TAXON_COUNT"),
+                        SITE_ID = as.character(dat1$PLOT),
+                        DATE = as.numeric(dat1$YEAR),
+                        VARIABLE_NAME = as.character(dat1$SPECIES),
+                        VARIABLE_UNITS = as.character("count"),
+                        VALUE = as.numeric(dat1$VALUE)
 )
+
 
 #write directly to the L3 folder
 write.csv(out, 
           file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and-birds-wisnoski.csv",
           row.names = F)
 
+# or via local google drive
 write.csv(out, 
           file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and-birds-wisnoski.csv",
           row.names = F)
