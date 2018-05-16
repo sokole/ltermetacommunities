@@ -16,39 +16,38 @@ library(tidyverse)
 
                
 #THIS FILE CONTAINS THE OBSERVATION DATA 
-infile2  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-and/4781/2/3f989833925816bf1dfc8cf7844afed4" 
-infile2 <- sub("^https","http",infile2) 
-data <-read.csv(infile2,header=F 
-          ,skip=1
-            ,sep=","  
-                ,quot='"' 
-        , col.names=c(
-                    "DBCODE",     
-                    "ENTITY",     
-                    "YEAR",     
-                    "PLOT",     
-                    "REPLICATE",     
-                    "SURVEY_DATE",     
-                    "RECORD",     
-                    "PERIOD",     
-                    "MINUTE",     
-                    "SPECIES",     
-                    "SEX",     
-                    "DET_METH1",     
-                    "DET_METH2",     
-                    "DISTANCE",     
-                    "NEW_RECORD",     
-                    "COUNTER_SING",     
-                    "ALT_SONG",     
-                    "COMMENTS"    ), check.names=TRUE, stringsAsFactors = FALSE)
+#infile2  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-and/4781/2/3f989833925816bf1dfc8cf7844afed4" 
+#infile2 <- sub("^https","http",infile2) 
+#data <-read.csv(infile2,header=F 
+#          ,skip=1
+#            ,sep=","  
+#                ,quot='"' 
+#        , col.names=c(
+#                    "DBCODE",     
+#                    "ENTITY",     
+#                    "YEAR",     
+#                    "PLOT",     
+#                    "REPLICATE",     
+#                    "SURVEY_DATE",     
+#                    "RECORD",     
+#                    "PERIOD",     
+#                    "MINUTE",     
+#                    "SPECIES",     
+#                    "SEX",     
+#                    "DET_METH1",     
+#                    "DET_METH2",     
+#                    "DISTANCE",     
+#                    "NEW_RECORD",     
+#                    "COUNTER_SING",     
+#                    "ALT_SONG",     
+#                    "COMMENTS"    ), check.names=TRUE, stringsAsFactors = FALSE)
                
   
 #Google Drive File Stream alternative:
 data <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-birds/archive_knb-lter-and/SA02402.csv")
 
-
 str(data)
-unique(cbind(data$PLOT, data$REPLICATE)) #this doesn't check whether sampling was equal in each year
+
 
 en <- function(x) {length(unique(x))}
 tapply(data$REPLICATE, list(data$PLOT, data$YEAR), en) #2014-2016 sampled way less

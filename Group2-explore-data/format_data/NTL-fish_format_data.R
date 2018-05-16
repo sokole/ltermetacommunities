@@ -116,7 +116,7 @@ wide_data <- spread(long_data, key = VARIABLE_NAME, value = VALUE, fill = 0)
 long_dat <- gather(wide_data, key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS)
 tapply(long_dat$VALUE, list(long_dat$SITE_ID,long_dat$DATE), length) #YES!
 
-#NKL 05/14/2018 remove the two bog lakes (TB and CB) and remove years prior to xxxx for ba;anced sampling.
+#NKL 05/14/2018 remove the two bog lakes (TB and CB) and remove years prior to xxxx for balanced sampling.
 str(long_dat)
 long_dat <- long_dat %>%
   dplyr::filter(SITE_ID != "TB",          

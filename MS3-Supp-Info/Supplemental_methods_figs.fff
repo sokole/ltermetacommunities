@@ -96,6 +96,17 @@
  
 \begin{figure}[h!]
 \centering
+%\includegraphics[scale = 0.4]{fce-fish-Rehage_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{fce-fish-Rehage_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{fce-fish-Rehage_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{fce-fish-Rehage_spp_shared.pdf}
+\caption{{\bf FCE-fish dry season:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for fish taxa observed at the Florida Coastal Everglades . The black lines represent total site-level values across all plots.}
+\label{fce-fish-dry}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
 \includegraphics[scale = 0.4]{ntl-zooplankton-stanleyLottig_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{ntl-zooplankton-stanleyLottig_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{ntl-zooplankton-stanleyLottig_spatiotemporal_sampling_effort.pdf}
@@ -140,12 +151,34 @@
  
 \begin{figure}[h!]
 \centering
+%\includegraphics[scale = 0.4]{and-plants-compagnoni_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{and-plants-compagnoni_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{and-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{and-plants-compagnoni_spp_shared.pdf}
+\caption{{\bf CR-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Cedar Creek. The black lines represent total site-level values across all plots.}
+\label{cdr-plants}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
 \includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{jrn-lizards-hope_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{jrn-lizards-hope_spatiotemporal_sampling_effort.pdf}
 \includegraphics[scale = 0.4]{jrn-lizards-hope_spp_shared.pdf}
 \caption{{\bf JRN-lizards:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 20 lizard species observed at 9 plots in the Jornada LTER (1990-2005). The black lines represent total site-level values across all plots.}
 \label{jrn-lizards}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{cap-herps-banville_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_spp_shared.pdf}
+\caption{{\bf CAP-herps:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for species observed in the Central Area Phoenix LTER (1990-2005). The black lines represent total site-level values across all plots.}
+\label{cap-herps}
 \end{figure}
 \efloatseparator
  
