@@ -85,10 +85,12 @@ data <- data[,1:18]
 #look at sampling within each year again. Mostly 1-2 surveys, with 3 per season on 2006, 2007, and a few in 2013. Remove Replicate == 3 to balance out. Except that Replicate #3 is the only one in a few years...
 tapply(data$Date, list(data$Plot, data$Year), en)
 
-#Not a good idea
-#data <- data %>%
-#  dplyr::filter(Replicate < 3)  
-#tapply(data$Date, list(data$Plot, data$Year), en)
+#there are 1-3 sampling intervals per plot per year. Need equal effort at all plots in all years.
+test <- data %>%
+  dplyr::filter(Replicate < 2)    
+
+tapply(data$Date, list(data$Plot, data$Year), en)
+
 
 #calculate the maximum number of each species observed at each point in each year
 out <- data.frame(OBSERVATION_TYPE = "", 

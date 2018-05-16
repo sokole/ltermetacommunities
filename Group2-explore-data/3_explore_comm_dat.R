@@ -97,6 +97,17 @@ data.key <- "" # Google Drive file ID
 data.set <- "and-birds-wisnoski"
 data.key <- "" # Google Drive file ID
 
+# and-plants-mtStHelens  $##NEEDS babanced sampling
+data.set <- "and-plants-mtStHelens"
+data.key <- "" # Google Drive file ID
+
+#cap-birds-banville
+data.set <- "cap-birds-banville"
+data.key <- "" # Google Drive file ID
+
+#cdr-plants-compagnoni
+data.set <- "cdr-plants-compagnoni"
+data.key <- "" # Google Drive file ID
 
 #######################
 #REMOVED FROM ANALYSIS
@@ -305,7 +316,7 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
   theme_bw()  +
   theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) #, legend.position = "none"dev.off()
-
+dev.off()
 # ---------------------------------------------------------------------------------------------------
 # COUNT SHARED SPECIES BETWEEN EACH SITE
 
@@ -361,6 +372,7 @@ mtdt$n.years <- length(unique(dat$comm.wide$DATE))
 mtdt$n.plots <- length(unique(dat$comm.wide$SITE_ID))
 mtdt$n.taxa <- length(unique(dat$comm.long$VARIABLE_NAME))
 mtdt$organism <- gsub(".*-(.*)\\-.*", "\\1", data.set)
+#mtdt$units <-  unique(dat$comm.wide$OBSERVATION_TYPE)
 mtdt <- data.frame(mtdt)
 write.csv(mtdt, file = paste("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/metadata_tables/",data.set,"_metadata.csv", sep=""), row.names=F)
  
