@@ -89,10 +89,10 @@ unique(dt2$Year) #number of years with observations
 unique(dt2$Month) #number of months with observations 
 
 #Rename months to sampling season blocks
-dt2 <- dt2 %>% mutate(Month = replace(Month, Month == 4, 'MayJune'), 
-               Month = replace(Month, Month == 5, 'MayJune'),
-               Month = replace(Month, Month == 6, 'JulyAug'),
-               Month = replace(Month, Month == 7, 'JulyAug'),
+dt2 <- dt2 %>% mutate(Month = replace(Month, Month == 4, 'AprilMay'), 
+               Month = replace(Month, Month == 5, 'AprilMay'),
+               Month = replace(Month, Month == 6, 'JuneJuly'),
+               Month = replace(Month, Month == 7, 'JuneJuly'),
                Month = replace(Month, Month == 9, 'SeptOct'),
                Month = replace(Month, Month == 10, 'SeptOct'))
 
