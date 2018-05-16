@@ -60,6 +60,8 @@ spp_abundance <- form_d %>%
                            VARIABLE_UNITS = "BIOMASS") %>% 
                     order_col
 
+
+
 # spatial location
 spatialLocation <- data.frame(
                         OBSERVATION_TYPE=rep("SPATIAL_COORDINATE",8),
@@ -98,9 +100,48 @@ fire_d<- list( expand.grid(SITE_ID = spp_abundance$SITE_ID %>%
                         VARIABLE_UNITS = NA,  
                         VALUE = "fire")
 
+
+# clean species names
+taxa_l   <- spp_abundance$VARIABLE_NAME %>% unique %>% sort
+
+ssp_sums <- spp_abundance %>% 
+                group_by(VARIABLE_NAME) %>% 
+                summarise( total = sum(VALUE) ) %>% 
+                arrange( total ) %>% 
+                as.data.frame
+
+# remove
+Fungi
+Miscellaneous litter
+
+# check each 'sp.': KEEP if the only genus present
+gen_sp <- taxa_l %>%  
+              grep('sp.',., value=T) %>% 
+              gsub('sp.','',.) %>% 
+              trimws
+
+# genuses to keep, because unambiguous ("Rubus sp." is the only genus)
+compare_gen <- function(x){
+  genuses <- grep(x, taxa_l, value=T, ignore.case=T)  
+  if(length(genuses) == 1){return(genuses)
+  }else return(NULL)
+}
+sapply(gen_sp, compare_gen) %>% unlist
+
+# keep
+Carex sp.
+Cyperus sp. 
+
+# change
+cares sp. to Carex sp.
+cyperus sp.
+
+
+
 # outfile
 form_cdr <- Reduce(function(...) rbind(...), list(spp_abundance, spatialLocation, fire_d) )
 
 # Write CSV file for cleaned data (L3)
 write.csv(form_cdr, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cdr-plants-compagnoni.csv", row.names = F)
                
+  
