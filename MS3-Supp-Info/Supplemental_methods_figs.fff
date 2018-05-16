@@ -151,8 +151,8 @@
  
 \begin{figure}[h!]
 \centering
-%\includegraphics[scale = 0.4]{cdr-plants-compagnoni_species_accumulation_curve.pdf}
-%\includegraphics[scale = 0.4]{cdr-plants-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cdr-plants-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cdr-plants-compagnoni_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{cdr-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
 %\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spp_shared.pdf}
 \caption{{\bf CDR-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Cedar Creek. The black lines represent total site-level values across all plots.}
