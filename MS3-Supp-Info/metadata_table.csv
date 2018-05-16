@@ -1,5 +1,6 @@
 "dataset","initial.year","study.length","n.years","n.plots","n.taxa","organism"
 "and-birds-wisnoski",2009,5,5,184,81,"birds"
+"and-plants-mtStHelens",1989,21,21,12,85,"plants"
 "cap-birds-banville",2001,16,16,35,104,"birds"
 "cap-herps-banville",2013,5,5,7,18,"herps"
 "fce-algae-marazzi",Inf,-Inf,0,0,249,"algae"

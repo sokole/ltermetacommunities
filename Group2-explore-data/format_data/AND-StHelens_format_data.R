@@ -15,12 +15,12 @@ plot_d <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_PLOT_DESCRIPTOR
 taxa_d  <- read.csv('http://esapubs.org/archive/ecol/E091/152/MSH_SPECIES_DESCRIPTORS.csv', fileEncoding = "ISO-8859-1")
 
 # #ALTERNATIVE: read in from version cached on Google Drive
-# spp_abundance <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-plants-mtStHelen/MSH_SPECIES_PLOT_YEAR.csv", stringsAsFactors=F) %>% 
-#                     gather(species, cover, Abilas:Xerten) %>% 
-#                     setNames( tolower(names(.)) )
+ spp_abundance <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-plants-mtStHelen/MSH_SPECIES_PLOT_YEAR.csv", stringsAsFactors=F) %>% 
+                     gather(species, cover, Abilas:Xerten) %>% 
+                     setNames( tolower(names(.)) )
 # 
-# plot_d <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-plants-mtStHelen/MSH_PLOT_DESCRIPTORS.csv",fileEncoding = "ISO-8859-1", stringsAsFactors=F) %>% 
-#                     setNames( tolower(names(.)) )
+ plot_d <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/AND-plants-mtStHelen/MSH_PLOT_DESCRIPTORS.csv",fileEncoding = "ISO-8859-1", stringsAsFactors=F) %>% 
+                     setNames( tolower(names(.)) )
 
 
 
