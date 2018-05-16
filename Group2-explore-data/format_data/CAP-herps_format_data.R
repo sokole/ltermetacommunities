@@ -124,4 +124,6 @@ out_long <- gather(out_wide, key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID
 tapply(out_long$VARIABLE_NAME, list(out_long$SITE_ID, out_long$DATE), en) 
 tapply(out_long$SITE_ID, out_long$DATE, en) 
 
+# Write CSV file for cleaned data (L3)
+#write.csv(out_long, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cap-herps-banville.csv", row.names = F)
 
