@@ -65,8 +65,12 @@ out <- data.frame(OBSERVATION_TYPE = "",
                   VALUE = "")
 
 head(data)
-dat1 <- data %>% group_by(YEAR, PLOT, SPECIES) %>% 
-  summarize(VALUE = n())
+dat1 <- data %>% group_by(YEAR, PLOT, RECORD, SPECIES) %>% 
+  filter(NEW_RECORD == 1, DISTANCE == 1) %>% 
+  summarize(count = n())
+dat1 <- dat1 %>% group_by(YEAR, PLOT, RECORD, SPECIES) %>% 
+  summarize(VALUE = max(count))
+
 out <- cbind.data.frame(OBSERVATION_TYPE = "TAXON_COUNT",
                         SITE_ID = dat1$PLOT,
                         DATE = dat1$YEAR,
@@ -76,4 +80,6 @@ out <- cbind.data.frame(OBSERVATION_TYPE = "TAXON_COUNT",
 )
 
 #write directly to the L3 folder
-write.csv(~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and-birds-wisnoski.csv)
+write.csv(out, 
+          file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-and-birds-wisnoski.csv",
+          row.names = F)
