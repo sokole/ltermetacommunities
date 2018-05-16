@@ -106,11 +106,25 @@ fish.agg3<-merge(fish.agg2, sp.function, by = "VARIABLE_NAME", all.x = TRUE)
 
 
 #####Excluding 2004 and 2017, and only considering dry season with complete observations#################
+##After the first examination round we decided to eliminate as well 2005 and 2011 since observations
+##were incomplete across the sites. Also, for dry season TB sites were excluded due to incomplete temporal representation
 
-fish.dry<-subset(fish.agg2, select = c(-TRANS, -WET, -MEAN.VALUE))%>%subset(., DRY != "NA")
+fish.dry<-subset(fish.agg2, DATE != 2004)%>%
+  subset(., DATE != 2005)%>%
+  subset(., DATE != 2011)%>%
+  subset(., !SITE_ID %in% c("1_TB", "2_TB", "3_TB", "4_TB"))%>%
+  subset(., select = c(-TRANS, -WET, -MEAN.VALUE))%>%
+  subset(., DRY != "NA")
+
 colnames(fish.dry)[6]<-c("VALUE")
 
-
+fish.wet<-subset(fish.agg2, !DATE %in% c(2004:2010))%>%
+  # subset(., DATE != 2017)%>%
+  # subset(., DATE != 2011)%>%
+  # subset(., !SITE_ID %in% c("1_TB", "2_TB", "3_TB", "4_TB"))%>%
+  subset(., select = c(-TRANS, -DRY, -MEAN.VALUE))%>%
+  subset(., WET != "NA")
+colnames(fish.wet)[6]<-c("VALUE")
 
 ######################################################################################
 #Selecting environmental variables
@@ -168,9 +182,15 @@ envi.agg2<-transform(envi.agg2, MEAN.VALUE = rowMeans(fish.agg2[,6:8], na.rm = T
 envi.dry<-subset(envi.agg2, select = c(-TRANS, -WET, -MEAN.VALUE))%>%subset(., DRY != "NA")
 colnames(envi.dry)[6]<-c("VALUE")
 
-final.fce.fish.dry <- as.data.frame(rbind(fish.dry, envi.dry))
+envi.wet<-subset(envi.agg2, select = c(-TRANS, -DRY, -MEAN.VALUE))%>%subset(., WET != "NA")
+colnames(envi.wet)[6]<-c("VALUE")
 
-write.csv(final.fce.fish.dry, "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-fish-rehage.csv")
+final.fce.fish.dry <- as.data.frame(rbind(fish.dry, envi.dry))
+final.fce.fish.wet <- as.data.frame(rbind(fish.wet, envi.wet))
+
+write.csv(final.fce.fish.dry, "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-fish-rehageDry.csv")
+write.csv(final.fce.fish.wet, "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-fish-rehageWet.csv")
+
 
 
 
