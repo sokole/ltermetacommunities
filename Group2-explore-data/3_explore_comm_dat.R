@@ -29,6 +29,10 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 data.set <- "jrn-lizards-hope"
 data.key <- "0B7o8j0RLpcxiYW10X1djMTBGM0U" # Google Drive file ID 
 
+# jrn-lizard-hope 
+data.set <- "cap-herps-banville"
+data.key <- "" # Google Drive file ID 
+
 # mcr-coral-castorani
 data.set <- "mcr-coral-castorani"
 data.key <- "" # Google Drive file ID
@@ -83,6 +87,9 @@ data.key <- "" # Google Drive file ID
 # ntl-fish-stanleyLottig (Need to decide which years and lakes to include. See notes and figs in the tex file)
 data.set <- "ntl-fish-stanleyLottig"
 data.key <- "" # Google Drive file ID
+
+#"fce-fish-rehage
+data.set <- "fce-fish-rehage"
 
 # fce-algae-marazzi (contains duplicated records... double check) Some figs not made yet. (remove a year; very unbalanced)
 data.set <- "fce-algae-marazzi"

@@ -20,7 +20,7 @@ dt1     <-read.csv(infile1,header=F ,skip=1,sep="," ,quot='"'
                     "Comments"), check.names=TRUE) 
 
 # format 
-form_d <- dt1 %>% 
+count_d <- dt1 %>% 
             separate(col = 'Date', into = c('month','day','year') ) %>% 
             # sum counts over years, sex, age ground, and substrate
             group_by(year,Site,Web,Transect, Species) %>% 
@@ -42,28 +42,46 @@ spp_d <- read.csv('C:/cloud/Dropbox/database-development (1)/data/sev-data/sev10
                   sep=',', header=T)
 
 
-site_d <- data.frame(OBSERVATION_TYPE=rep("SPATIAL_COORDINATE",8),
-                     SITE_ID=c(),
-                        DATE=rep(NA,4),
-                        VARIABLE_NAME=c(rep("latitude",4),rep("longitude",4)),
-                        VARIABLE_UNITS=rep("dec. degrees",8),
-                        VALUE=c(rep(45.4038890,4),rep(-93.2680560,4))
-                    )
+# site_d <- data.frame(OBSERVATION_TYPE=rep("SPATIAL_COORDINATE",8),
+#                      SITE_ID=c(),
+#                         DATE=rep(NA,4),
+#                         VARIABLE_NAME=c(rep("latitude",4),rep("longitude",4)),
+#                         VARIABLE_UNITS=rep("dec. degrees",8),
+#                         VALUE=c(rep(45.4038890,4),rep(-93.2680560,4))
+#                     )
 
-# lat/lon  Five Points Black Grama (BOER)
--106.736 	
-34.3331
+# lat/lon  Five Points Black Grama (BOER) -----------------------------------
 
-# Creosotebush site (LATR)
--106.7358 	
-34.3331
+# function that creates a data frame of lat/lon for the sites
+create_coord <- function(site_name, coord_val, coord_val_name){
 
-# Pinyon-Juniper (PJ)
--106.535 
-34.368
+  expand.grid(OBSERVATION_TYPE = "SPATIAL_COORDINATE",
+              SITE_ID          = form_d$SITE_ID %>% 
+                                    unique %>% 
+                                    grep(site_name,.,value=T),
+              DATE             = NA,
+              VARIABLE_NAME    = coord_val_name,
+              VARIABLE_UNITS   = "dec. degrees",
+              VALUE            = coord_val,
+              stringsAsFactors = F)
 
-# The Blue Grama (BOGR)
--106.631 
-34.3348
+}
 
-# done (for now)
+# sources 
+site_d <- Reduce(function(...) rbind(...), 
+                 list(create_coord('BOER', 34.3331,  'latitude'), 
+                      create_coord('BOER', -106.736, 'longitude'), 
+                      # Creosotebush site (LATR)
+                      create_coord('LATR', 34.3331,  'latitude'),
+                      create_coord('LATR', -106.7358,  'longitude'), 
+                      # Pinyon-Juniper (PJ)
+                      create_coord('PJ', 34.368,    'latitude'), 
+                      create_coord('PJ', -106.535 , 'longitude'), 
+                      # The Blue Grama (BOGR)
+                      create_coord('BOGR', 34.3348,   'latitude'), 
+                      create_coord('BOGR', -106.631 , 'longitude') 
+                      ) )
+
+# out file
+out   <- rbind(count_d, site_d)
+write.csv(out, 'C:/L3-SEV-grasshopper-compagnoni.csv', row.names=F)

@@ -6,8 +6,10 @@
 rm(list = ls())
 library(dplyr)
 library(tidyverse)
+library(testthat)
 
 # your working directory
+# setwd('C:/CODE/ltermetacommunities')
 source("Group1-finding-data/util.R")
 
 
@@ -18,7 +20,6 @@ source("Group1-finding-data/util.R")
 # Contact:  Dan Bahauddin - Information Manager Cedar Creek Ecosystem Science Reserve  - webmaster@cedarcreek.umn.edu
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
-https://pasta.lternet.edu/package/data/eml/knb-lter-cdr/386/8/34db2945b271c1a142d73fec2e298917
 
 infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-cdr/14/8/057e39850bd748d364df8a5ef60bb08d" 
 infile1  <- sub("^https","http",infile1) 
@@ -48,8 +49,6 @@ form_d <- dt1 %>%
             subset(NTrt == 1) %>% 
             mutate(site_id = paste(Field, Plot, sep='_') )
   
-
-
 # Species abundance data
 spp_abundance <- form_d %>% 
                     rename(VALUE = Biomass,
@@ -57,10 +56,21 @@ spp_abundance <- form_d %>%
                            VARIABLE_NAME = Species,
                            DATE = Year) %>% 
                     mutate(OBSERVATION_TYPE = "TAXON_COUNT",
-                           VARIABLE_UNITS = "BIOMASS") %>% 
-                    order_col
-
-
+                           VARIABLE_UNITS   = "BIOMASS",
+                           VARIABLE_NAME    = as.character(VARIABLE_NAME) ) %>% 
+                    order_col %>% 
+                    # remove non-plants
+                    subset( VARIABLE_NAME != 'Fungi') %>% 
+                    subset( VARIABLE_NAME != 'Miscellaneous litter') %>% 
+                    subset( VARIABLE_NAME != 'Mosses & lichens') %>%  
+                    # fix clear mistakes
+                    mutate( VARIABLE_NAME = replace(VARIABLE_NAME, 
+                                                    VARIABLE_NAME == 'carex sp.', 
+                                                    'Carex sp.') ) %>% 
+                    mutate( VARIABLE_NAME = replace(VARIABLE_NAME, 
+                                                      VARIABLE_NAME == 'cyperus sp.', 
+                                                      'Cyperus sp.') )  
+                  
 
 # spatial location
 spatialLocation <- data.frame(
@@ -98,50 +108,90 @@ fire_d<- list( expand.grid(SITE_ID = spp_abundance$SITE_ID %>%
                         DATE = 'DATE', # NA because non-temporal
                         VARIABLE_NAME = "prescribed_fire", 
                         VARIABLE_UNITS = NA,  
-                        VALUE = "fire")
+                        VALUE = "fire") 
 
 
-# clean species names
-taxa_l   <- spp_abundance$VARIABLE_NAME %>% unique %>% sort
 
-ssp_sums <- spp_abundance %>% 
-                group_by(VARIABLE_NAME) %>% 
-                summarise( total = sum(VALUE) ) %>% 
-                arrange( total ) %>% 
-                as.data.frame
-
-# remove
-Fungi
-Miscellaneous litter
+# clean species names ----------------------------------------------------------------
 
 # check each 'sp.': KEEP if the only genus present
-gen_sp <- taxa_l %>%  
-              grep('sp.',., value=T) %>% 
-              gsub('sp.','',.) %>% 
+gen_sp   <- spp_abundance$VARIABLE_NAME %>% as.character %>% unique %>% sort %>%  
+              grep('sp\\.',., value=T) %>% 
+              gsub('sp\\.','',.) %>% 
               trimws
 
-# genuses to keep, because unambiguous ("Rubus sp." is the only genus)
-compare_gen <- function(x){
-  genuses <- grep(x, taxa_l, value=T, ignore.case=T)  
-  if(length(genuses) == 1){return(genuses)
-  }else return(NULL)
+# proportion genus data
+prop_gen <- function(x){
+  
+   spp_abundance %>% 
+      subset( grepl(x, VARIABLE_NAME) ) %>% 
+      group_by(VARIABLE_NAME) %>% 
+      summarise( total = sum(VALUE) ) %>% 
+      arrange( total ) %>% 
+      mutate( prop = total/sum(total) ) %>% 
+      arrange( desc(prop) ) %>% 
+      as.data.frame
+  
 }
-sapply(gen_sp, compare_gen) %>% unlist
 
-# keep
-Carex sp.
-Cyperus sp. 
+# list of proportions
+prop_l <- lapply(gen_sp, prop_gen) %>% setNames( gen_sp )
 
-# change
-cares sp. to Carex sp.
-cyperus sp.
+# list of species to lump into a genera
+lump_gen <- function(x){
+  
+  proportion_genus <- subset(x, grepl('sp\\.',VARIABLE_NAME) ) 
+  if(proportion_genus$prop > 0.01) return( proportion_genus$VARIABLE_NAME )
 
+}
+
+# list of genus level to DROP
+drop_gen <- function(x){
+  
+  proportion_genus <- subset(x, grepl('sp\\.',VARIABLE_NAME) ) 
+  if(proportion_genus$prop < 0.01) return( proportion_genus$VARIABLE_NAME )
+
+}
+
+lump_vec <- sapply(prop_l, lump_gen) %>% unlist %>% gsub(' sp\\.', '', .)
+drop_vec <- sapply(prop_l, drop_gen) %>% unlist
+
+# update spp_abundance to "lump" and "drop" species abundance
+
+# drop genus information
+spp_abundance <- spp_abundance %>% 
+                    subset( !(VARIABLE_NAME %in% drop_vec) )  
+    
+# lump species information
+for(ii in 1:length(lump_vec)){
+  
+  spp_abundance <- spp_abundance %>% 
+                     mutate( VARIABLE_NAME = replace(VARIABLE_NAME,
+                                                     grepl(lump_vec[ii], VARIABLE_NAME),
+                                                     paste0(lump_vec[ii], ' sp.') ) 
+                            )
+}
+
+
+# CHECK there should be no "double" genuses
+spp_abundance %>% 
+  separate(VARIABLE_NAME, into = c('genus', 'species')) %>% 
+  .$genus %>%
+  unique %>% 
+  table %>% 
+  unique %>% 
+  expect_equal(1)
 
 
 # outfile
-form_cdr <- Reduce(function(...) rbind(...), list(spp_abundance, spatialLocation, fire_d) )
+form_cdr <- Reduce(function(...) rbind(...), 
+                   list(spp_abundance, spatialLocation, fire_d) ) %>% 
+              # data until 2004 - because all sites represented
+              # NOTE: still need to figure out if 4 sites should be considered
+              # part of same community (share species pool? Dispersal among patches?)
+              subset( DATE < 2005 )
 
 # Write CSV file for cleaned data (L3)
 write.csv(form_cdr, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cdr-plants-compagnoni.csv", row.names = F)
-               
-  
+
+write.csv(form_cdr, 'C:/L3-cdr-plants-compagnoni.csv', row.names = F)

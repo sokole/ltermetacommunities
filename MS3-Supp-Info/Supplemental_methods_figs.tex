@@ -299,6 +299,18 @@ Since the time series is so short to begin with, I suggest only including sites 
 
 \subsection {fce-fish}
 Rolando obtained the data from the PI and is working on cleaning \citep{fce-fish}.
+Data from the dry season are shown in Figure \ref{fce-fish-dry}.
+\begin{figure}[h!]
+\centering
+%\includegraphics[scale = 0.4]{fce-fish-Rehage_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{fce-fish-Rehage_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{fce-fish-Rehage_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{fce-fish-Rehage_spp_shared.pdf}
+\caption{{\bf FCE-fish dry season:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for fish taxa observed at the Florida Coastal Everglades . The black lines represent total site-level values across all plots.}
+\label{fce-fish-dry}
+\end{figure}
+
+
 
 \subsection {ntl-zooplankton}
 The data were downloaded from the EDI Data Portal \citep{ntl-zooplankton}.
@@ -381,7 +393,6 @@ Not all years were sampled, but all plots were sampled in each year of observati
  The plots comprise at least four distinct habitats.
  Some plots have very few species.
 
-
 \begin{figure}[h!]
 \centering
 \includegraphics[scale = 0.4]{nwt-plants-hallett_species_accumulation_curve.pdf}
@@ -394,15 +405,15 @@ Not all years were sampled, but all plots were sampled in each year of observati
 
 
 \subsection {and-plants-mtStHelens}
-Needs cleaning still (Figure \ref{and-plants}).
-
+Data were downloaded from Ecologcial Archives \citep{and-plants}.
+here it is (Figure \ref{and-plants}).
 
 \begin{figure}[h!]
 \centering
-%\includegraphics[scale = 0.4]{and-plants-mtStHelens_species_accumulation_curve.pdf}
-%\includegraphics[scale = 0.4]{and-plants-mtStHelens_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{and-plants-mtStHelens_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{and-plants-mtStHelens_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{and-plants-mtStHelens_spatiotemporal_sampling_effort.pdf}
-%\includegraphics[scale = 0.4]{and-plants-mtStHelens_spp_shared.pdf}
+\includegraphics[scale = 0.4]{and-plants-mtStHelens_spp_shared.pdf}
 \caption{{\bf AND-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Mt. St. Helens. The black lines represent total site-level values across all plots.}
 \label{and-plants}
 \end{figure}
@@ -413,11 +424,11 @@ Needs cleaning still (Figure \ref{cdr-plants}).
 
 \begin{figure}[h!]
 \centering
-%\includegraphics[scale = 0.4]{and-plants-compagnoni_species_accumulation_curve.pdf}
-%\includegraphics[scale = 0.4]{and-plants-compagnoni_num_taxa_over_time.pdf}
-%\includegraphics[scale = 0.4]{and-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
-%\includegraphics[scale = 0.4]{and-plants-compagnoni_spp_shared.pdf}
-\caption{{\bf CR-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Cedar Creek. The black lines represent total site-level values across all plots.}
+\includegraphics[scale = 0.4]{cdr-plants-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cdr-plants-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spp_shared.pdf}
+\caption{{\bf CDR-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Cedar Creek. The black lines represent total site-level values across all plots.}
 \label{cdr-plants}
 \end{figure}
 
@@ -445,18 +456,24 @@ The cumulative number of taxa was still increasing at the end of the time series
 \label{jrn-lizards}
 \end{figure}
 
+
+
+\subsection {cap-herps}
+The data were downloaded from the EDI Data Portal \citep{cap-herps}.
+Data are shown in Figure \ref{cap-herps}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{cap-herps-banville_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_spp_shared.pdf}
+\caption{{\bf CAP-herps:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for species observed in the Central Area Phoenix LTER (1990-2005). The black lines represent total site-level values across all plots.}
+\label{cap-herps}
+\end{figure}
+
 \subsection {and-birds}
-{\bf Needs work.}
-The data were downloaded from the EDI Data Portal (knb-lter-and.4781.2).
-These are point count data.
-Need to re-think how the `count' is calculated.
-Should not be the simple sum of all six rounds per summer; perhaps max would be better.
-Also, the same bird could be observed multiple times during the 10-minute observation interval if he sang more than once.
-The NEW{\_}RECORD column indicates this status with binary 0/1, and our final count should only include NEW{\_}RECORD = 1.
-Note that all six rounds per growing season were only done in the initial five years of study.
-Only one or two rounds per growing season were done in 2014-2016, likely causing the dip in richness in those years.
-Fix this.
-Data not propagated.
+The data were downloaded from the EDI Data Portal \citep{and-birds}.
 Data are shown in Figure \ref{and-birds}.
 
 \begin{figure}[h!]
