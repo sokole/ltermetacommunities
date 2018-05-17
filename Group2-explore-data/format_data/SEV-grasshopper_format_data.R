@@ -23,10 +23,10 @@ dt1     <-read.csv(infile1,header=F ,skip=1,sep="," ,quot='"'
 count_d <- dt1 %>% 
             separate(col = 'Date', into = c('month','day','year') ) %>% 
             # sum counts over years, sex, age ground, and substrate
-            group_by(year,Site,Web,Transect, Species) %>% 
+            group_by(year,Site,Web,Species) %>% 
             summarise( year_count = sum(Count) ) %>% 
             # create identifier for site/Web/Transect combination
-            mutate( spatial_rep = paste(Site,Web,Transect, sep = '_') ) %>% 
+            mutate( spatial_rep = paste(Site,Web, sep = '_') ) %>% 
             ungroup %>% 
             # select and format only relevant data
             select(year,spatial_rep, Species, year_count) %>% 
@@ -34,8 +34,14 @@ count_d <- dt1 %>%
                    SITE_ID = spatial_rep,
                    VARIABLE_NAME = Species,
                    DATE = year) %>% 
-            mutate(OBSERVATION_TYPE = "TAXON_ABUNDANCE",
-                   VARIABLE_UNITS = "Count (two censuses a year)" ) 
+            mutate(OBSERVATION_TYPE = "TAXON_COUNT",
+                   VARIABLE_UNITS = "Count (two censuses a year)" ) %>% 
+            # introduce the zeros
+            spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
+            gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) %>% 
+            # select LATR and BOGR (because longest rep with lots of shared species)
+            subset( grepl('LATR|BOER',SITE_ID) )
+
 
 # species codes (not needed)
 spp_d <- read.csv('C:/cloud/Dropbox/database-development (1)/data/sev-data/sev106_spp_codes.csv',
@@ -56,7 +62,7 @@ spp_d <- read.csv('C:/cloud/Dropbox/database-development (1)/data/sev-data/sev10
 create_coord <- function(site_name, coord_val, coord_val_name){
 
   expand.grid(OBSERVATION_TYPE = "SPATIAL_COORDINATE",
-              SITE_ID          = form_d$SITE_ID %>% 
+              SITE_ID          = count_d$SITE_ID %>% 
                                     unique %>% 
                                     grep(site_name,.,value=T),
               DATE             = NA,
