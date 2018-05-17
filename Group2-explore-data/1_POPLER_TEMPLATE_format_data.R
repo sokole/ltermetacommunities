@@ -4,7 +4,6 @@
 # Revised 15 May 2018 by ERS                                #
 # --------------------------------------------------------- #
 
-data_product_directory_name <- 'SEV-53pinonJuniper-popler'
 
 # Contributors: Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
 # revised by Eric Sokol
@@ -13,11 +12,15 @@ data_product_directory_name <- 'SEV-53pinonJuniper-popler'
 #Make one script for each dataset that converts the data from the form we originally got it in to the one we need. This might involve aggregating subplots and/or multiple sampling occasins by year, subsetting out sites or species, etc. It may also be necessary to fill in an abundance of zero for any taxa that appear in the dataset but were not observed at a particular site-year.
 #Save the resulting file in the directory "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated-by-year-and-space". This file should be ready for preliminary analalysis.
 #The next step in the pipeline after this one is to run each dataset through the script 3_explore_comm_dat.R. This script plots the sampling effort (to be sure overvations are balanced), the species accumulation curve, and a time series of species richness at each site as well as in aggragate. If these preliminiary visualizations turn up something problematic, go back to the script spcific to the dataset and add in annotated code to fix the problem.
- 
+
 options(stringsAsFactors = FALSE)
 
 # Clear environment
 rm(list = ls())
+
+# user vars
+data_product_directory_name <- 'SEV-53pinonJuniper-popler'
+
 
 #Check to make sure working directory is set to the ltermetacommunities github
 if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
@@ -65,8 +68,8 @@ dt1 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", goog
 #                     "max_num_taxa",     
 #                     "geo_extent_bounding_box_m2"    ), check.names=TRUE,
 #                     stringsAsFactors = F)
-               
-  
+
+
 #sampling location table      
 google_id <- ecocom_dp_dir %>% filter(grepl('location',name)) %>% select(id) %>% unlist()
 dt4 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", google_id))
@@ -124,6 +127,21 @@ dat <- list()
 # COMMUNITY DATA 
 comm.long <- dat1
 
+# checking for weird taxa names and removing suspicious ones that are rare
+comm.long_gamma_summary <- comm.long %>% group_by(VARIABLE_NAME) %>% 
+  filter(!is.na(VARIABLE_NAME) & VALUE>0) %>%
+  summarize(mean_value = mean(VALUE, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(RA = mean_value / sum(mean_value))
+
+comm.long_gamma_summary_remove_unk <- comm.long_gamma_summary %>% 
+  filter(!grepl('(?i)unk',VARIABLE_NAME))
+
+if(!nrow(comm.long_gamma_summary) == nrow(comm.long_gamma_summary_remove_unk)){
+  message('WARNING: suspicous taxa removed -- taxaID had "unk"')
+}
+
+
 # Subset data if necessary
 #comm.long <- subset(comm.long, comm.long$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
 #comm.long <- droplevels(comm.long)
@@ -161,24 +179,24 @@ dat$n.years <- length(unique(comm.long$DATE))
 # Ensure that community character columns coded as factors are re-coded as characters
 comm.long <- comm.long %>%   # Recode if necessary
   mutate_if(is.factor, as.character)
-  
+
 # Ensure that SITE_ID is a character: recode numeric as character 
 comm.long <- comm.long %>%   # Recode if necessary
   mutate_at(vars(SITE_ID), as.character)
 
 # Double-check that all columns are coded properly
 ifelse(FALSE %in% 
-   c(
-     class(comm.long$OBSERVATION_TYPE) == "character",
-     class(comm.long$SITE_ID) == "character",
-     class(comm.long$DATE) == "numeric",
-     class(comm.long$VARIABLE_NAME) == "character",
-     class(comm.long$VARIABLE_UNITS) == "character",
-     class(comm.long$VALUE) == "numeric"
-     #class(comm.long$TAXON_GROUP) == "character")
-   ),
-  "ERROR: Community columns incorrectly coded.", 
-  "OK: Community columns correctly coded.")
+         c(
+           class(comm.long$OBSERVATION_TYPE) == "character",
+           class(comm.long$SITE_ID) == "character",
+           class(comm.long$DATE) == "numeric",
+           class(comm.long$VARIABLE_NAME) == "character",
+           class(comm.long$VARIABLE_UNITS) == "character",
+           class(comm.long$VALUE) == "numeric"
+           #class(comm.long$TAXON_GROUP) == "character")
+         ),
+       "ERROR: Community columns incorrectly coded.", 
+       "OK: Community columns correctly coded.")
 
 # ---------------------------------------------------------------------------------------------------
 # Check balanced sampling of species across space and time by inspecting table, and add to data list

@@ -4,7 +4,6 @@
 # Revised 15 May 2018 by ERS                                #
 # --------------------------------------------------------- #
 
-data_product_directory_name <- 'SEV-53pinonJuniper-popler'
 
 # Contributors: Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
 # revised by Eric Sokol
@@ -18,6 +17,10 @@ options(stringsAsFactors = FALSE)
 
 # Clear environment
 rm(list = ls())
+
+# user vars
+data_product_directory_name <- 'SEV-53pinonJuniper-popler'
+
 
 #Check to make sure working directory is set to the ltermetacommunities github
 if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
@@ -123,6 +126,21 @@ dat <- list()
 
 # COMMUNITY DATA 
 comm.long <- dat1
+
+# checking for weird taxa names and removing suspicious ones that are rare
+comm.long_gamma_summary <- comm.long %>% group_by(VARIABLE_NAME) %>% 
+  filter(!is.na(VARIABLE_NAME) & VALUE>0) %>%
+  summarize(mean_value = mean(VALUE, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(RA = mean_value / sum(mean_value))
+         
+comm.long_gamma_summary_remove_unk <- comm.long_gamma_summary %>% 
+  filter(!grepl('(?i)unk',VARIABLE_NAME))
+
+if(!nrow(comm.long_gamma_summary) == nrow(comm.long_gamma_summary_remove_unk)){
+  message('WARNING: suspicous taxa removed -- taxaID had "unk"')
+}
+
 
 # Subset data if necessary
 #comm.long <- subset(comm.long, comm.long$TAXON_GROUP != "INSERT NAME OF REMOVAL GROUP HERE")
