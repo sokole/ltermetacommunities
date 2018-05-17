@@ -1,6 +1,16 @@
 # Aldo Compagnoni 5.15.2018
 # formatting the SEVILLETTA grasshopper dataset
 
+
+# Package ID: knb-lter-sev.106.214968 Cataloging System:https://pasta.lternet.edu.
+# Data set title: Long-Term Core Site Grasshopper Dynamics for the Sevilleta National Wildlife Refuge, New Mexico (1992-2013).
+# Data set creator:  David Lightfoot - SEV LTER 
+# Contact:    - Information Manager LTER Network Office  - tech-support@lternet.edu
+# Contact:  Information Manager Sevilleta LTER -  SEV LTER  - data-use@sevilleta.unm.edu
+# Metadata Link: https://portal.lternet.edu/nis/metadataviewer?packageid=knb-lter-sev.106.214968
+# Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
+
+
 infile1 <- "https://pasta.lternet.edu/package/data/eml/knb-lter-sev/106/214968/1def46af7a0b7d367705caaf2697f0d2" 
 infile1 <- sub("^https","http",infile1)
 
@@ -17,7 +27,22 @@ dt1     <-read.csv(infile1,header=F ,skip=1,sep="," ,quot='"'
                     "substrate",     
                     "Count",     
                     "BURNED",     
-                    "Comments"), check.names=TRUE) 
+                    "Comments"), check.names=TRUE, stringsAsFactors=FALSE) 
+#Alternately, read in using Google Drive File Stream
+dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/SEV-106-grasshoppers/archive_knb-lter-sev/sev106_hopperdynamics_20150826.txt", col.names=c(
+                    "Date",     
+                    "PER",     
+                    "Site",     
+                    "Web",     
+                    "Transect",     
+                    "Species",     
+                    "AGE",     
+                    "gender",     
+                    "substrate",     
+                    "Count",     
+                    "BURNED",     
+                    "Comments"),stringsAsFactors=FALSE) 
+
 
 # format 
 count_d <- dt1 %>% 
@@ -43,8 +68,8 @@ count_d <- dt1 %>%
             subset( grepl('LATR|BOER',SITE_ID) )
 
 
-# species codes (not needed)
-spp_d <- read.csv('C:/cloud/Dropbox/database-development (1)/data/sev-data/sev106_spp_codes.csv',
+# species codes (Aldo put this file in Google Drive L0). Not used here.
+spp_d <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/SEV-106-grasshoppers/sev106_spp_codes.csv',
                   sep=',', header=T)
 
 
@@ -90,4 +115,4 @@ site_d <- Reduce(function(...) rbind(...),
 
 # out file
 out   <- rbind(count_d, site_d)
-write.csv(out, 'C:/L3-SEV-grasshopper-compagnoni.csv', row.names=F)
+write.csv(out, '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-sev-grasshopper-compagnoni.csv', row.names=F)
