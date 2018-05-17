@@ -12,10 +12,15 @@ library(tidyr)
 source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
 
 # --------------------------------------------------------------------------------------------------------------------------------
-
+#These data are in the ARCHIVE at "~/Google Drive/LTER Metacommunities/LTER_DATA/ARCHIVE/CSUN-USVI-coral-Castorani/CSUN_USVI_taxa_at_random_sites_long_20160106.csv"
 ## Read in the data
 csun.usvi.coral <- read_csv_gdrive("0BxUZSA1Gn1HZMmk0NDNiTXdwTDQ") %>%
   tbl_df()
+
+#Google Drive File Stream: (copied USVI data from ARCHIVE folder to L0 folder)
+csun.usvi.coral <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/CSUN-USVI-coral-Castorani/CSUN_USVI_taxa_at_random_sites_long_20160106.csv", stringsAsFactors = FALSE) %>%
+  tbl_df()
+
 
 # Explore data
 unique(csun.usvi.coral$taxa)
@@ -112,4 +117,4 @@ csun.usvi.coral_L3_final <- rbind(spatial.coords, csun.usvi.coral_L3)
 
 
 # Write CSV file for cleaned data (L3)
-write.csv(csun.usvi.coral_L3_final, file = "L3-csun.usvi-coral-castorani.csv", row.names = F)
+write.csv(csun.usvi.coral_L3_final, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-usvi-coral-castorani.csv", row.names = F)

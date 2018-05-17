@@ -32,5 +32,6 @@ ltermetacommunities.Rproj
 *.mtc1
 *.out
 *.synctex.gz
-
+*.ttt
+*.fff
 

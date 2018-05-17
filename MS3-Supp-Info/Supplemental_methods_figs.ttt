@@ -1,0 +1,28 @@
+\begin{table}[h!]
+\scriptsize
+   \centering
+     \caption{Metadata on the data sets included in the meta-analysis. This table is automatically generated directly from the datasets in the L3 folder. I can make it look prettier once it is final.}
+
+\csvautotabular{metadata_table.csv}
+   \label{metadata}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[h!]
+\scriptsize
+   \centering
+     \caption{This is a record of the datasets we considered using and created an L3 dataset for, but did not make the final cut for one reason or another.}
+   \begin{tabular}{lc}
+\\
+\hline
+\hline
+Dataset &Reason excluded\\
+\hline
+mcm-diatoms & highly irregular sampling\\
+ntl-macroinvertebrates & only four taxa\\
+   \end{tabular}
+
+   \label{not_used}
+\end{table}
+\efloatseparator
+ 

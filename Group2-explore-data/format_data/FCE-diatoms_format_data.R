@@ -1,5 +1,5 @@
 # --------------------------------------------------------- #
-# Format raw data as a list of tables                       #
+# Format raw data                       #
 # FCE diatoms                                                       #
 # Revised 01 Jun 2017                                       #
 # --------------------------------------------------------- #
@@ -28,14 +28,15 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 # Assign data set of interest
 # NOTE: Google Drive file ID is different for each dataset
 
-# CAP LTER (Central Arizona-Phoenix)
 data.set <- "FCE-diatoms"
 data.key <- "0B-HySt4HfBxBM0FxbVRERGtBUlk" # Google Drive file ID 
-https://drive.google.com/file/d/0B-HySt4HfBxBM0FxbVRERGtBUlk/view?usp=sharing
-dat.long <- read.csv("~/Google Drive/FCE_diatoms_environment_long.csv")
+
+
+#Google Drive File Stream read in data:
+dat.long <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/FCE-diatoms-Gaiser-Marazzi/FCE_diatoms_environment_long.csv")
 # ---------------------------------------------------------------------------------------------------
 # IMPORT DATA
-dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
+#dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
 
 str(dat.long)
 levels(dat.long$OBSERVATION_TYPE)
@@ -46,7 +47,7 @@ dat.long$OBSERVATION_TYPE <- gsub("TAXON_RELATIVE_ABUNDANCE", "TAXON_COUNT", dat
 
 
 #write this to the L3 folder in Google Drive 
-write.csv(dat.long, file = "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-diatoms-marazzi.csv")
+write.csv(dat.long, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-diatoms-marazzi.csv")
 
 
 # MAKE DATA LIST
@@ -198,15 +199,6 @@ summary(dat)
 rm("comm.long","comm.wide","cord","cord.wide","crs.geo","dat.long", "data.key", "data.set","distance.mat","env.long", "env.wide","package","sites")
 ls()
 
-# Now, explore the data and perform further QA/QC by sourcing this script within the scripts "2_explore_spatial_dat.R", "3_explore_comm_dat.R", and "4_explore_environmental_dat.R"
 
-# ---------------------------------------------------------------------------------------------------
-## WRITE OUT DATA FOR ARCHIVING ##
-#save flat files into 'final_data' folder on Google Drive. 
-
-##### OLD WAY #####
-#write .Rdata object into the "Intermediate_data" directory 
-#filename <- paste(data.set,".Rdata", sep="")
-#save(dat, file = paste("Intermediate_data/",filename,sep=""))
 
 
