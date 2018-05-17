@@ -35,7 +35,9 @@ dt1      <-read.csv(infile1,header=F ,skip=1
                               "NitrAdd",     
                               "NAtm.plus.NAdd",     
                               "Species",     
-                              "Biomass"    ), check.names=TRUE)            
+                              "Biomass"    ), check.names=TRUE) %>% 
+              # remove duplicates!!!
+              unique
 
 
 #ALTERNATIVE: read from cached version on Google Drive          
@@ -69,7 +71,7 @@ spp_abundance <- form_d %>%
                                                     'Carex sp.') ) %>% 
                     mutate( VARIABLE_NAME = replace(VARIABLE_NAME, 
                                                       VARIABLE_NAME == 'cyperus sp.', 
-                                                      'Cyperus sp.') )  
+                                                      'Cyperus sp.') )
                   
 
 # spatial location
@@ -182,10 +184,20 @@ spp_abundance %>%
   unique %>% 
   expect_equal(1)
 
+# remove duplicates and introduce zeros
+biomass_d <- spp_abundance %>% 
+                # remove duplicates: sum over all species by site combination
+                group_by(OBSERVATION_TYPE,SITE_ID,
+                         DATE,VARIABLE_NAME,VARIABLE_UNITS) %>% 
+                summarise( VALUE = sum(VALUE) ) %>% 
+                ungroup %>% 
+                # introduce zeros
+                spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
+                gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) 
 
 # outfile
 form_cdr <- Reduce(function(...) rbind(...), 
-                   list(spp_abundance, spatialLocation, fire_d) ) %>% 
+                   list(biomass_d, spatialLocation, fire_d) ) %>% 
               # data until 2004 - because all sites represented
               # NOTE: still need to figure out if 4 sites should be considered
               # part of same community (share species pool? Dispersal among patches?)
