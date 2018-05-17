@@ -79,13 +79,13 @@ site_d <- Reduce(function(...) rbind(...),
                       create_coord('BOER', -106.736, 'longitude'), 
                       # Creosotebush site (LATR)
                       create_coord('LATR', 34.3331,  'latitude'),
-                      create_coord('LATR', -106.7358,  'longitude'), 
+                      create_coord('LATR', -106.7358,  'longitude')
                       # Pinyon-Juniper (PJ)
-                      create_coord('PJ', 34.368,    'latitude'), 
-                      create_coord('PJ', -106.535 , 'longitude'), 
+                      #create_coord('PJ', 34.368,    'latitude'), 
+                      #create_coord('PJ', -106.535 , 'longitude'), 
                       # The Blue Grama (BOGR)
-                      create_coord('BOGR', 34.3348,   'latitude'), 
-                      create_coord('BOGR', -106.631 , 'longitude') 
+                      #create_coord('BOGR', 34.3348,   'latitude'), 
+                      #create_coord('BOGR', -106.631 , 'longitude') 
                       ) )
 
 # out file
