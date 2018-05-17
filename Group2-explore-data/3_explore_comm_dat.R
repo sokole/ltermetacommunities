@@ -88,8 +88,11 @@ data.key <- "" # Google Drive file ID
 data.set <- "ntl-fish-stanleyLottig"
 data.key <- "" # Google Drive file ID
 
-#"fce-fish-rehage
-data.set <- "fce-fish-rehage"
+#"fce-fish-rehage WET SEASON
+data.set <- "fce-fish-rehageWet"
+
+#"fce-fish-rehage DRY SEASON
+data.set <- "fce-fish-rehageDry"
 
 # fce-algae-marazzi (contains duplicated records... double check) Some figs not made yet. (remove a year; very unbalanced)
 data.set <- "fce-algae-marazzi"
