@@ -308,7 +308,7 @@ output$rnames <- row.names(output)
 # Clean up the SITE_ID column
 cuml.taxa.by.site <- output %>%
   tbl_df() %>%
-  separate(rnames, c("SITE_ID", "todrop")) %>%
+  separate(rnames, c("SITE_ID", "todrop"), sep = "\\.") %>%
   select(-todrop)
 
 # Plot the cumulative number of taxa observed at each site, as well as across all sites together
