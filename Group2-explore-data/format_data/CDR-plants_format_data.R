@@ -206,4 +206,4 @@ form_cdr <- Reduce(function(...) rbind(...),
 # Write CSV file for cleaned data (L3)
 write.csv(form_cdr, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cdr-plants-compagnoni.csv", row.names = F)
 
-write.csv(form_cdr, 'C:/L3-cdr-plants-compagnoni.csv', row.names = F)
+#write.csv(form_cdr, 'C:/L3-cdr-plants-compagnoni.csv', row.names = F)
