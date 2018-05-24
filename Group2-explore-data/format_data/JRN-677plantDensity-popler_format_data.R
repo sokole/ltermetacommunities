@@ -14,6 +14,7 @@
 #The next step in the pipeline after this one is to run each dataset through the script 3_explore_comm_dat.R. This script plots the sampling effort (to be sure overvations are balanced), the species accumulation curve, and a time series of species richness at each site as well as in aggragate. If these preliminiary visualizations turn up something problematic, go back to the script spcific to the dataset and add in annotated code to fix the problem.
 
 options(stringsAsFactors = FALSE)
+library(testthat)
 
 # Clear environment
 rm(list = ls())
@@ -72,37 +73,260 @@ dt1 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", goog
 
 #sampling location table      
 google_id <- ecocom_dp_dir %>% filter(grepl('location',name)) %>% select(id) %>% unlist()
-dt4 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", google_id))
+dt4       <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", google_id))
+dt4       <- read.csv('C:/677_location.csv', 
+                      stringsAsFactors = F) %>% 
+                mutate( location_name = gsub('quadrat_updated_site_jrn_',
+                                             '',
+                                             location_name) ) %>%
+                subset( location_id %in% c('1_1','1_2','1_7',
+                                           '1_8','1_9','1_13') )
+
+loc_info  <- read.csv('C:/jrn_677_plot_locations.csv',
+                      stringsAsFactors = F) %>% 
+                .$locs %>% 
+                strsplit(' ') %>% unlist %>% 
+                matrix( ncol=3, byrow=T ) %>% 
+                as.data.frame() %>% 
+                setNames( c('location_name', 'lat', 'lon') ) %>% 
+                mutate( location_name = tolower(location_name) ) %>% 
+                right_join( dt4 ) %>% 
+                select(-elevation,-latitude,-longitude) %>% 
+                rename( latitude  = lat,
+                        longitude = lon )
+
+# quadrat info from ecological archives (http://esapubs.org/archive/ecol/E093/132/)
+q_info    <- read.csv('C:/quad_info_jrn_677.csv', 
+                      stringsAsFactors = F) %>% 
+                mutate( quad.name     = tolower(quad.name) ) %>% 
+                # change names ASSUMING these are the correct ones
+                mutate( quad.name = replace(quad.name,
+                                            quad.name == 'a1p',
+                                            'a1') ) %>% 
+                mutate( quad.name = replace(quad.name,
+                                            quad.name == 'a2p',
+                                            'a2') ) %>% 
+                mutate( quad.name = replace(quad.name,
+                                            quad.name == 'b3p',
+                                            'b3') ) %>% 
+                mutate( quad.name = replace(quad.name,
+                                            quad.name == 'b4p',
+                                            'b4') ) %>% 
+                mutate( quad.name = replace(quad.name,
+                                            quad.name == 'b5p',
+                                            'b5') ) %>% 
+                mutate( quad.name = replace(quad.name,
+                                            quad.name == 'sg4',
+                                            'g4') ) %>% 
+                rename( location_name = quad.name) %>% 
+                select(location_name, elevation, grazing.status,
+                       grazing.notes.prior.to.time.span.of.chart,
+                       grazing.notes.during.time.span.of.chart ) %>% 
+                right_join( loc_info )
+ 
+
+#4 Make SPATIAL_COORDINATE from the sampling location table (dt4)
+#select the columns of interest and convert to long 
+lat_lon <- q_info %>% 
+              select(location_id, latitude,longitude) %>% 
+              gather('VARIABLE_NAME', 'VALUE', latitude, longitude) %>%
+              rename(SITE_ID = location_id) %>%
+              mutate(OBSERVATION_TYPE = 'SPATIAL_COORDINATE',
+              VARIABLE_UNITS = 'dec. degrees',
+              DATE = NA) %>% 
+              select(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE)
+
+# grazing info
+graz_info <- q_info %>% 
+              select(location_id, grazing.status) %>% 
+              mutate(OBSERVATION_TYPE = 'Site_condition',
+                     VARIABLE_NAME    = 'grazing_status',
+                     VARIABLE_UNITS   = NA,
+                     DATE             = NA ) %>% 
+              rename(SITE_ID = location_id,
+                     VALUE   = grazing.status) %>%
+              select(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE)
+
+      
+# # get locations by directly querying popler
+# conn      <- popler:::db_open()
+# dt4       <- popler:::query_get(conn,"SELECT * FROM study_site_table") %>%
+#                 subset( grepl('jrn', study_site_key )) %>%
+#                 mutate( study_site_key = paste0('quadrat_updated_', study_site_key) ) %>%
+#                 rename( location_name = study_site_key ) %>%
+#                 right_join( read.csv('C:/677_location.csv') ) %>%
+#                 select(-latitude, -longitude,-descript) %>%
+#                 rename( latitude  = lat_study_site,
+#                         longitude = lng_study_site )
 
 #taxon table
 google_id <- ecocom_dp_dir %>% filter(grepl('taxon',name)) %>% select(id) %>% unlist()
-dt5 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", google_id))
+# dt5 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", google_id)) %>% 
+dt5 <- read.csv('C:/677_taxon.csv') %>% 
+          # fix mistake in the name of a species 
+          mutate( taxon_name = gsub('Hoffmanseggia','Hoffmannseggia', taxon_name) ) %>% 
+          mutate( taxon_name = replace(taxon_name, 
+                                       taxon_name == 'Opuntia santa rita',
+                                       'Opuntia santarita') ) %>%
+          mutate( taxon_name = replace(taxon_name, 
+                                       taxon_name == 'Ammocodon chenopodiodes',
+                                       'Ammocodon chenopodioides') ) %>%
+          # remove unknown species
+          subset( !grepl('Unknown', taxon_name) ) %>% 
+          # homogenize how genus-level identification is "flagged" ('spp.' instead of 'species')
+          mutate( taxon_name = gsub("species","spp.",taxon_name) ) %>% 
+          # fix mistakes in taxon_id
+          mutate( taxon_id = replace(taxon_id, taxon_id == 'SPHA', 'SPHAE') ) %>% 
+          # fix mistake with Spheraclea. I call 'hastulata' as. 'spp.' because in this genus
+          # level ID is predominant (see below)
+          mutate( taxon_name = replace(taxon_name, 
+                                       taxon_name == 'Sphaeralcea hastulata',
+                                       'Sphaeralcea spp.') ) %>%
+          unique 
+
 
 #2 Make TAXON_COUNT from the Observation table (dt1)
 #select the columns of interest
 dat1 <- dt1 %>%
-  group_by(event_id, package_id, location_id, observation_datetime, taxon_id, unit, variable_name) %>% 
-  # take average of replicate observations in a given location and time
-  summarize(value = mean(value, na.rm = TRUE)) %>%
-  ungroup() %>%
-  rename(SITE_ID = location_id, 
-         DATE = observation_datetime,
-         VARIABLE_NAME = taxon_id,
-         VARIABLE_UNITS = variable_name,
-         VALUE = value) %>% 
-  mutate(OBSERVATION_TYPE = 'TAXON_COUNT') %>%
-  select(OBSERVATION_TYPE,SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE)
+          group_by(event_id, package_id, location_id, observation_datetime, taxon_id, unit, variable_name) %>% 
+          # take average of replicate observations in a given location and time
+          summarize(value = mean(value, na.rm = TRUE)) %>%
+          ungroup() %>%
+          rename(SITE_ID = location_id, 
+                 DATE = observation_datetime,
+                 VARIABLE_NAME = taxon_id,
+                 VARIABLE_UNITS = variable_name,
+                 VALUE = value) %>% 
+          mutate(OBSERVATION_TYPE = 'TAXON_COUNT') %>%
+          select(OBSERVATION_TYPE,SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE) %>% 
+          right_join( rename(dt5, VARIABLE_NAME = taxon_id) ) %>% 
+          select( -taxon_rank, -taxon_name, -authority_system, -authority_taxon_id)
 
 
-#3 Make SPATIAL_COORDINATE from the sampling location table (dt4)
-#select the columns of interest and convert to long 
-dat4 <- data.frame()
-dat4 <- dt4 %>% gather('VARIABLE_NAME', 'VALUE', latitude, longitude) %>%
-  rename(SITE_ID = location_id) %>%
-  mutate(OBSERVATION_TYPE = 'SPATIAL_COORDINATE',
-         VARIABLE_UNITS = 'dec. degrees',
-         DATE = NA) %>% 
-  select(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE)
+# 3. resolve issues with genus-level IDs -------------------------------------------------------
+  
+# get genuses where observations were identified at the genus level
+genus_ids <- dt5 %>% 
+                mutate( taxon_name = gsub("species","spp.",taxon_name) ) %>% 
+                subset( grepl('spp\\.|species', taxon_name) ) %>% 
+                separate( taxon_name, into = c('genus', 'spp'), sep =" " )
+
+# Test that genus level codes are not replicated
+dt5 %>% 
+  mutate( taxon_name = gsub("species","spp.",taxon_name) ) %>% 
+  subset( grepl('spp.', taxon_name) ) %>% 
+  select(taxon_id, taxon_name) %>% 
+  unique %>% 
+  .$taxon_id %>% 
+  table %>% 
+  unique %>% 
+  expect_equal(1)
+
+# get the genuses to lump (those that are identified at the species level AS WELL)
+codes_df <- dt5 %>% 
+              subset( grepl(paste(genus_ids$genus,collapse="|"), 
+                            taxon_name) ) %>% 
+              separate( taxon_name, into = c('genus', 'species'), sep =" " ) %>% 
+              group_by(genus) %>% 
+              summarise( rep=n() ) %>%
+              # select IDs identified at genus AND species level
+              subset( rep > 1 ) %>% 
+              ungroup %>% 
+              .$genus %>% 
+              lapply(function(x) subset(dt5, grepl(x,taxon_name) ) )
+
+# proportion genus data
+prop_gen <- function(x){
+  
+  # transform taxonomic data in order to merge it to the (formatted) observation data frame
+  x <- x %>% 
+        rename(VARIABLE_NAME = taxon_id) %>% 
+        select(VARIABLE_NAME, taxon_name)
+  
+  # calculate proportions of counts for each ID category
+  # use this to calculate proportion of counts IDed to genus rather than species
+  dat1 %>% 
+    subset( grepl(paste(x$VARIABLE_NAME,collapse="|"), 
+                        VARIABLE_NAME) ) %>% 
+    group_by(VARIABLE_NAME) %>% 
+    summarise( total = sum(VALUE) ) %>% 
+    arrange( total ) %>% 
+    mutate( prop = total/sum(total) ) %>% 
+    arrange( desc(prop) ) %>% 
+    as.data.frame %>% 
+    left_join( x )
+  
+}
+
+# proportion of species identified to genus level
+prop_l <- lapply(codes_df, prop_gen) 
+
+# remove genus level IDed that make up less than 5% of counts in a genus
+r_gen  <- prop_l %>% 
+            lapply( function(x){ 
+                      out <- subset(x, grepl('spp\\.', taxon_name))
+                      if(out$prop < 0.05) return(T) else return(F)} 
+                  ) %>% 
+            unlist %>% 
+            which
+
+# entities that can only be identified at the genus level 
+# happens when more than 5% of counts within a genus cannot not be identified at the species level
+l_gen  <- prop_l %>% 
+            lapply( function(x){ 
+                      out <- subset(x, grepl('spp\\.', taxon_name))
+                      if(out$prop >= 0.05) return(T) else return(F)} 
+                  ) %>% 
+            unlist %>% 
+            which
+
+# 3A. remove IDS of species identified to genus level only.
+r_ids  <- prop_l[r_gen] %>% 
+            lapply( function(x) subset(x, grepl('spp\\.', taxon_name)) ) %>% 
+            Reduce(function(...) rbind(...), .) %>% 
+            .$VARIABLE_NAME
+
+# test that you've not lost any identifier
+expect_true( identical(1:length(prop_l), c(r_gen,l_gen) %>% sort ) )
+
+
+# 3B. lump IDs to the genus level
+lump_spp <- function(x){
+  
+  mutate(x, new_var = subset(x, grepl('spp\\.', taxon_name))$VARIABLE_NAME ) %>% 
+    select(-total, -prop, -taxon_name)
+  
+}
+
+# new variable
+newvar_df <- lapply(prop_l[l_gen], lump_spp) %>% 
+                Reduce(function(...) rbind(...), .)
+       
+
+# update taxonomic IDs
+count_d   <- # 3A. remove IDS of species identified to genus level only. 
+             subset(dat1, !(VARIABLE_NAME %in% r_ids) ) %>% 
+                # 3B. lump IDs to the genus level
+                left_join( newvar_df ) %>% 
+                mutate( VARIABLE_NAME = replace(VARIABLE_NAME, 
+                                                  !is.na(new_var),
+                                                  Filter(function(x) !is.na(x), new_var) 
+                                                  )
+                          ) %>% 
+                select( -new_var ) %>% 
+                # introduce zeros
+                spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
+                gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) %>% 
+                # 4. remove data after 1980: only two observations years sampled thereafter
+                subset( DATE < 1929 &
+                        SITE_ID %in% c('1_1','1_2','1_7','1_8','1_9','1_13') )
+
+
+# combine data into one dataframe
+out <- Reduce(function(...) rbind(...), 
+              list(count_d,lat_lon, graz_info) )
+
+write.csv(out,'C:/L3-jrn-plants-compagnoni.csv', row.names=F)     
 
 
 #4 Combine into one big table
@@ -111,7 +335,7 @@ dat4 <- dt4 %>% gather('VARIABLE_NAME', 'VALUE', latitude, longitude) %>%
 # #5 perform a few checks against dataset summary table (dt3)
 # ifelse(length(unique(dat1$VARIABLE_NAME))==dt3$max_num_taxa,
 #   "OK: Number of taxa matches dataset summary table.",
-#   "ERROR:Number of taxa does not match dataset summary table.")
+2#   "ERROR:Number of taxa does not match dataset summary table.")
 
 # date <- as.POSIXlt(dat1$DATE, format = "%Y-%m-%d")
 # year <- as.numeric(format(date, "%Y"))
@@ -129,10 +353,11 @@ dat4 <- dt4 %>% gather('VARIABLE_NAME', 'VALUE', latitude, longitude) %>%
 dat <- list()
 
 # COMMUNITY DATA 
-comm.long <- dat1 
+comm.long <- count_d
 
 # checking for weird taxa names and removing suspicious ones that are rare
-comm.long_gamma_summary <- comm.long %>% group_by(VARIABLE_NAME) %>% 
+comm.long_gamma_summary <- comm.long %>% 
+  group_by(VARIABLE_NAME) %>% 
   filter(!is.na(VARIABLE_NAME) & VALUE>0) %>%
   summarize(mean_value = mean(VALUE, na.rm = TRUE)) %>%
   ungroup() %>%
@@ -157,7 +382,8 @@ dat$n.spp <- length(levels(comm.long$VARIABLE_NAME))
 # Ensure that community data VALUE and DATE are coded as numeric
 # if more than one date per year, aggregate by taking mean counts/biomass/cover across bouts per year.
 comm_sampling_summary_table <- comm.long %>%
-  mutate(YEAR = lubridate::year(DATE)) %>%
+  mutate(YEAR = DATE ) %>%
+  # mutate(YEAR = lubridate::year(DATE)) %>%
   group_by(SITE_ID, YEAR) %>%
   summarize(n_bouts_year = length(unique(DATE))) %>%
   rename(DATE = YEAR)
@@ -170,7 +396,8 @@ if(length(unique(comm_sampling_summary_table$n_bouts_year)) > 1){
 dat$comm_sampling_summary_table <- comm_sampling_summary_table
 
 comm.long <- comm.long %>%   # Recode if necessary
-  mutate(DATE = lubridate::year(DATE)) %>%
+  mutate(DATE = DATE ) %>%
+  # mutate(DATE = lubridate::year(DATE)) %>%
   mutate_at(vars(c(DATE, VALUE)), as.numeric) %>%
   group_by(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS) %>%
   summarize(VALUE = mean(VALUE, na.rm = TRUE),
