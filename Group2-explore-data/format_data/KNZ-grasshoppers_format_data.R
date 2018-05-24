@@ -118,6 +118,6 @@ keep_s <- c('0SPB_B_fl', '0SPB_A_fl', '002C_B_fl', '002C_A_fl',
 #select plots and years
 out <- knz %>% 
           subset( SITE_ID %in% keep_s ) %>% 
-          subset( DATE > 1990)
+          subset( DATE > 1995)
 
 write.csv(out, 'C:/L3-knz-grasshopper-compagnoni.csv', row.names=F)
