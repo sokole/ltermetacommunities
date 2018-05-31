@@ -18,7 +18,7 @@ count_df <- count_df %>%
               select(-DATACODE,-RECTYPE)
 
 # check "SPCODE" versus taxonomic information
-taxa <- left_join(count_df, site_df) %>% 
+knz   <- left_join(count_df, site_df) %>% 
           # format the total number of counts per sweep
           subset( TOTAL != '1 01') %>% 
           mutate( TOTAL = replace(TOTAL, TOTAL == "", NA) ) %>% 
@@ -131,21 +131,19 @@ taxa <- left_join(count_df, site_df) %>%
           # I DROP MELANOPUS SPP. BECAUSE IT'S A VERY DIVERSE GENUS
           subset( !(genus == 'Melanopus' & species == 'spp.' ) ) %>% 
   
-          # REMOVE DOUBLES
-          unique #%>% 
-
           # retain all potential groups - except the sweeps
           group_by( RECYEAR, RECMONTH, RECDAY, 
-                    WATERSHED, REPSITE, SOILTYPE, REPSITE,
+                    WATERSHED, REPSITE, SOILTYPE,
                     genus, species) %>% 
-          # AVERAGE across Totals: sometimes there are doubles 
-          summarise( TOTAL = mean(TOTAL,na.rm=T) ) %>%  
+          # SUM across Totals: this takes care of "lumped" taxonomies
+          summarise( TOTAL = sum(TOTAL,na.rm=T) ) %>%  
             
           # create SITE_ID column
-          mutate( SITE_ID = paste(WATERSHED, REPSITE, SOILTYPE, sep="_") ) #%>% 
-          # average counts across year!
+          mutate( SITE_ID = paste(WATERSHED, REPSITE, SOILTYPE, sep="_") ) %>% 
+
+          # average counts across year (variable sampling frequency)
           group_by( RECYEAR, SITE_ID, genus, species ) %>% 
-          summarise( TOTAL = mean(COUNT, na.rm=T) ) %>% 
+          summarise( TOTAL = mean(TOTAL, na.rm=T) ) %>% 
           ungroup %>% 
   
           # FORMAT using metacommunity standards
