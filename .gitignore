@@ -7,7 +7,6 @@
 .Rapp.history
 .gitignore
 ltermetacommunities.Rproj
-
 #LaTex
 *.aux
 *.glo
@@ -34,4 +33,4 @@ ltermetacommunities.Rproj
 *.synctex.gz
 *.ttt
 *.fff
-
+.httr-oauth
