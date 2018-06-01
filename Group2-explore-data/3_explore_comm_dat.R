@@ -111,12 +111,20 @@ data.key <- "" # Google Drive file ID
 data.set <- "and-plants-mtStHelens"
 data.key <- "" # Google Drive file ID
 
+#jrn-677plantdensity-popler
+data.set <- "jrn-677plantdensity-popler"
+
+
 #cap-birds-banville
 data.set <- "cap-birds-banville"
 data.key <- "" # Google Drive file ID
 
 #cdr-plants-compagnoni
 data.set <- "cdr-plants-compagnoni"
+data.key <- "" # Google Drive file ID
+
+#sev-grasshopper-compagnoni
+data.set <- "sev-grasshopper-compagnoni"
 data.key <- "" # Google Drive file ID
 
 #######################
@@ -308,7 +316,7 @@ output$rnames <- row.names(output)
 # Clean up the SITE_ID column
 cuml.taxa.by.site <- output %>%
   tbl_df() %>%
-  separate(rnames, c("SITE_ID", "todrop")) %>%
+  separate(rnames, c("SITE_ID", "todrop"), sep = "\\.") %>%
   select(-todrop)
 
 # Plot the cumulative number of taxa observed at each site, as well as across all sites together

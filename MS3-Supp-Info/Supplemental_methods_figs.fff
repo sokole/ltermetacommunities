@@ -165,7 +165,7 @@
 \includegraphics[scale = 0.4]{cdr-plants-compagnoni_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{cdr-plants-compagnoni_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{cdr-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
-%\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spp_shared.pdf}
+\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spp_shared.pdf}
 \caption{{\bf CDR-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Cedar Creek. The black lines represent total site-level values across all plots.}
 \label{cdr-plants}
 \end{figure}
@@ -190,6 +190,17 @@
 \includegraphics[scale = 0.4]{cap-herps-banville_spp_shared.pdf}
 \caption{{\bf CAP-herps:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for species observed in the Central Area Phoenix LTER (1990-2005). The black lines represent total site-level values across all plots.}
 \label{cap-herps}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spp_shared.pdf}
+\caption{{\bf SEV-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for grasshopper species observed in the Sevilleta LTER. The black lines represent total site-level values across all plots.}
+\label{sev-grasshoppers}
 \end{figure}
 \efloatseparator
  

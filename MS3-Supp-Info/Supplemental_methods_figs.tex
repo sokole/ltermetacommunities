@@ -433,6 +433,7 @@ here it is (Figure \ref{and-plants}).
 
 
 \subsection {cdr-plants}
+Data were downloaded from EDI \citep{cdr-plants}.
 Needs cleaning still (Figure \ref{cdr-plants}).
 
 \begin{figure}[h!]
@@ -440,7 +441,7 @@ Needs cleaning still (Figure \ref{cdr-plants}).
 \includegraphics[scale = 0.4]{cdr-plants-compagnoni_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{cdr-plants-compagnoni_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{cdr-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
-%\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spp_shared.pdf}
+\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spp_shared.pdf}
 \caption{{\bf CDR-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Cedar Creek. The black lines represent total site-level values across all plots.}
 \label{cdr-plants}
 \end{figure}
@@ -474,6 +475,12 @@ The cumulative number of taxa was still increasing at the end of the time series
 \subsection {cap-herps}
 The data were downloaded from the EDI Data Portal \citep{cap-herps}.
 Data are shown in Figure \ref{cap-herps}.
+This is a visual encounter survey where herpetofauna observations were nested by 3 plots within 3 transects per site. 
+Each site represents the reach level (each reach level site is composed of 3 transects with equal area sampling efforts). 
+Surveys from 2012 and March were dropped to standardize sampling efforts temporally. 
+Unidentified species were dropped, species code is the scientific name of species. 
+Taxon count was calculated as the maximum abundance per year in any one of the sampling events (with 3 sampling events per reach in April/May, June/July, and September/October). 
+%The final community dataset prepared for analysis has 7 sites representative of the reach level metacommunity dynamics (3 transects sampled per reach) from 2013-2017 with a total of 18 observed species across all sites.  
 
 \begin{figure}[h!]
 \centering
@@ -484,6 +491,24 @@ Data are shown in Figure \ref{cap-herps}.
 \caption{{\bf CAP-herps:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for species observed in the Central Area Phoenix LTER (1990-2005). The black lines represent total site-level values across all plots.}
 \label{cap-herps}
 \end{figure}
+
+
+
+\subsection {sev-grasshoppers}
+The data were downloaded from the EDI Data Portal \citep{sev-grasshopper}.
+Data are shown in Figure \ref{sev-grasshoppers}.
+  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spp_shared.pdf}
+\caption{{\bf SEV-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for grasshopper species observed in the Sevilleta LTER. The black lines represent total site-level values across all plots.}
+\label{sev-grasshoppers}
+\end{figure}
+
 
 \subsection {and-birds}
 The data were downloaded from the EDI Data Portal \citep{and-birds}.
@@ -520,11 +545,17 @@ Data are shown in Figure \ref{hbr-birds}.
 \end{figure}
 
 \subsection{cap-birds}
-Riley obtained the data from EDI \citep{cap-birds} and is cleaning them.
+Data were obtained from EDI \citep{cap-birds}.
 Data are shown in Figure \ref{cap-birds}.
-
-
-
+This is a point count study where birds were observed (seen or heard) for 15 minutes within a 40 m fixed radius. 
+Each site represents one point count. 
+Only ESCA point counts are included. 
+Data from 2017 were dropped because not all sites were sampled. 
+Four point count sites (M-9, V-18, X-8, and V-16) were dropped due to uneven sampling across years. 
+Unidentified species accounted for less then 2\% of the total data and were dropped. 
+%Species codes are 4-letter codes (https://www.wintuaudubon.org/Documents/Alpha_codes_eng.pdf). 
+Taxon count was calculated as the maximum abundance per year during the spring month's sampling events (with 3 sampling events per site between March, April, and May). 
+  
 
 \begin{figure}[h!]
 \centering

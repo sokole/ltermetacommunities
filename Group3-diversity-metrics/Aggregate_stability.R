@@ -4,7 +4,7 @@ aggregate_stab <- function(Y, s, t, plot = FALSE)
 #
 # Arguments --
 #
-# Y: community table: assumes row blocks corresponding to times
+# Y: community table: assumes row blocks corresponding to local communities
 # s: number of site
 # t: number of years
 #

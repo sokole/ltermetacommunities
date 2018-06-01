@@ -53,7 +53,7 @@ plot_lat   <- format_data(plot_info,
                            OBSERVATION_TYPE = "ENV_VAR", 
                            SITE_ID = "plot_code", 
                            DATE = NA, # NA because non-temporal
-                           VARIABLE_NAME = "longitude", 
+                           VARIABLE_NAME = "latitude", 
                            VARIABLE_UNITS = "dec.degrees",  
                            VALUE = "lat...")
 
