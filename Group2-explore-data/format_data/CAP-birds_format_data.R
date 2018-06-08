@@ -128,8 +128,9 @@ out <- data.frame(OBSERVATION_TYPE = "",
                   VARIABLE_UNITS = "",
                   VALUE = "")
 
-step1 <- data %>% group_by(Year, site_code, code) %>% 
-  summarize(NUM = length(bird_count))
+step1 <- data %>% group_by(Date, site_code, code) %>% 
+  summarize(NUM = sum(bird_count))
+step1$Year<- as.numeric(format(step1$Date, format = "%Y"))
 
 step2 <- step1 %>% group_by(Year, site_code, code) %>% 
   summarize(VALUE = max(NUM))

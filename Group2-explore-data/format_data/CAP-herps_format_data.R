@@ -130,7 +130,7 @@ out <- data.frame(OBSERVATION_TYPE = "",
                   VALUE = "")
 
 step1 <- data %>% group_by(Year, reach, scientific_name) %>% 
-  summarize(NUM = length(quantity))
+  summarize(NUM = sum(quantity))
 
 step2 <- step1 %>% group_by(Year, reach, scientific_name) %>% 
   summarize(VALUE = max(NUM))
