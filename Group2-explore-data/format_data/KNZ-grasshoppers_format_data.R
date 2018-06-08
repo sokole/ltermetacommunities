@@ -5,8 +5,8 @@ library(tidyr)
 library(stringi)
 
 # read raw data: information on sites, and information on species counts
-site_df   <- read.csv("C:/KNZ-grasshoppers_sites.csv") 
-count_df  <- read.csv("C:/KNZ-grasshoppers_counts.csv")
+site_df   <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/KNZ-grasshoppers/KNZ-grasshoppers_sites.csv") 
+count_df  <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/KNZ-grasshoppers/KNZ-grasshoppers_counts.csv")
 
 # remove DATACODE, RECTYPE: they will impede a "join". Plus, they are undefined in metadata
 site_df  <- site_df %>% 
