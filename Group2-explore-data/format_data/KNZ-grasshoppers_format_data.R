@@ -1,10 +1,35 @@
+#Aldo Compagnoni June 2018
+#NKL added data provenance
 rm(list = ls(all = T))
+
 options(stringsAsFactors = F)
 library(dplyr)
 library(tidyr)
 library(stringi)
 
-# read raw data: information on sites, and information on species counts
+#WE DID NOT USE THE DATA ON EDI!!
+# Package ID: knb-lter-knz.29.7 Cataloging System:https://pasta.lternet.edu.
+# Data set title: CGR02 Sweep Sampling of Grasshoppers on Konza Prairie LTER watersheds (1982-present).
+# Data set creator:  Anthony Joern -  
+# Contact:    - Information Manager LTER Network Office  - tech-support@lternet.edu
+# Contact:    - KNZ-LTER Data Manager   - knzlter@ksu.edu
+# Metadata Link: https://portal.lternet.edu/nis/metadataviewer?packageid=knb-lter-knz.29.7
+# Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
+
+
+#Data available at the KNZ website go thorugh 2013 but data on EDI only go through 2003. This will read the data in from the website, but I'm not sure the link is permanent:
+
+
+#This is CGR021 Data on the environmental variables
+infile1  <- "http://www2.konza.ksu.edu/sites/default/files/CGR021.csv" 
+site_df  <-read.csv(infile1,stringsAsFactors=F)
+
+#This is CGR022 Data on indivisual sweeps of each grasshopper species
+infile2  <- "http://www2.konza.ksu.edu/sites/default/files/CGR022.csv" 
+count_df <-read.csv(infile2,stringsAsFactors=F)
+
+
+# read raw data from copy cached on Google Drive by Aldo Compagnoni May 24, 2018: information on sites, and information on species counts
 site_df   <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/KNZ-grasshoppers/KNZ-grasshoppers_sites.csv") 
 count_df  <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/KNZ-grasshoppers/KNZ-grasshoppers_counts.csv")
 
@@ -165,4 +190,4 @@ out <- knz %>%
           subset( SITE_ID %in% keep_s ) %>% 
           subset( DATE > 1995)
 
-write.csv(out, 'C:/L3-knz-grasshopper-compagnoni.csv', row.names=F)
+write.csv(out, '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-knz-grasshopper-compagnoni.csv', row.names=F)
