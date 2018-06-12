@@ -44,141 +44,132 @@ count_df <- count_df %>%
 
 # check "SPCODE" versus taxonomic information
 knz   <- left_join(count_df, site_df) %>% 
-          # format the total number of counts per sweep
-          subset( TOTAL != '1 01') %>% 
-          mutate( TOTAL = replace(TOTAL, TOTAL == "", NA) ) %>% 
-          mutate( TOTAL = as.numeric(TOTAL) ) %>% 
-          # remove SPCODES ( could create problems with "doubles")
-          select(-SPCODE) %>% 
-          # remove sweeps
-          select(-c(S1:S10)) %>% 
-          # gather(SWEEP, COUNT, S1:S10) %>% 
-          # select(SPCODE, SPECIES) %>% 
-          # unique %>% 
-          # arrange(SPCODE, SPECIES) %>% 
-          # change clear mistakes
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'brachystol magna',
-                                    'Brachystola magna') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'schistocer lineata',
-                                    'Schistocerca lineata') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'paratylotr brunneri',
-                                    'paratylota brunneri') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'hypochlora alba',
-                                    'Hypochlora alba') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'campylacan olivacea',
-                                    'Campylacantha olivacea') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'hesperotet speciosus',
-                                    'Hesperotettix speciosus') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'hesperotet viridis',
-                                    'Hesperotettix viridis') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'hesperotet species',
-                                    'hesperotet spp.') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'phoetaliot nebrascen',
-                                    'Phoetaliotes nebrascensis') ) %>% 
-          mutate( SPECIES = gsub('melanoplus','Melanoplus',SPECIES) ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'Melanoplus femurrubr',
-                                    'Melanoplus femurrubrum') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'Melanoplus bivittatu',
-                                    'Melanoplus bivittatus') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'Melanoplus species',
-                                    'Melanoplus spp.') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'syrbula admirabil',
-                                    'Syrbula admirabilis') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'orphulella speciosa' | 
-                                             SPECIES == 'orphullela speciosa' ,
-                                    'Orphulella speciosa') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'mermiria picta',
-                                    'Mermiria picta') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'mermiria bivitatta',
-                                    'mermiria bivittata') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'boopedon auriventr',
-                                    'Boopedon auriventris') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'boopedon gracile',
-                                    'Boopedon gracile') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'ageneotett deorum',
-                                    'Ageneotettix deorum') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'mermiria species' | 
-                                             SPECIES == 'mermiria spp.' ,
-                                    'Mermiria spp.') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'hadrotetti trifascia',
-                                            'Hadrotettix trifasciatus') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'pardalopho haldemani',
-                                          'Pardalophora haldemani') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'arphia species' | 
-                                             SPECIES == 'arphia spp.' ,
-                                    'Arphia spp.') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'unknown' | 
-                                             SPECIES == 'unknown ' ,
-                                    'Unknown') ) %>% 
-          mutate( SPECIES = replace(SPECIES, SPECIES == 'pardalopho spp.',
-                                            'Pardalophora spp.') ) %>% 
-          
-          # # merges data sets, gathers sweep data from b, replaces * in COUNT with NA
-          # knz <- left_join(count_df, site_df) %>% 
-          #           gather(SWEEP, COUNT, S1:S10) %>% 
-          # mutate(COUNT = replace(COUNT, COUNT == '*', NA) ) %>% 
-          # also replace "" with NA 
-          # mutate(COUNT = replace(COUNT, COUNT == '', NA) ) %>% 
-  
-          # change clear mistakes
-  
-          # separates SPECIES into GENUS and SPECIES
-          separate(SPECIES, into = c("genus","species"), sep = " ") %>% 
-          # remove every unknown
-          subset( !grepl('unkn',genus, ignore.case=T) ) %>% 
-          # capitalize first letter
-          mutate( genus = stri_trans_totitle(genus) ) %>% 
-          # introduce NAs when SPECIES ==""
-          mutate( species = replace(species, species == "", NA) ) %>% 
-          # removes all NA in dates (unusable data)
-          filter( !is.na(RECDAY) ) %>% 
-  
-          # FIX TAXONOMY
-          # clear mistakes
-          mutate( genus = replace(genus, genus == 'Ageneotett', 'Ageneotettix') ) %>% 
-          mutate( genus = replace(genus, genus == 'Campylacan', 'Campylacantha') ) %>% 
-          mutate( genus = replace(genus, genus == 'Campylacan', 'Campylacantha') ) %>% 
-          mutate( genus = replace(genus, genus == 'Brachystol', 'Brachystola') ) %>%
-          mutate( genus = replace(genus, genus == 'Orphullela', 'Orphulella') ) %>%
-          # same code to identify species
-          mutate( species = replace(species, species == 'species', 'spp.') ) %>% 
-          mutate( species = replace(species, is.na(species) , 'spp.') ) %>% 
-  
-          # LUMP data to genus
-          mutate( species = replace(species, genus == 'Pardalopho', 'spp.') ) %>% 
-          mutate( species = replace(species, genus == 'Mermiria', 'spp.') ) %>%         
-          mutate( species = replace(species, genus == 'Hesperotet', 'spp.') ) %>%         
-          mutate( species = replace(species, genus == 'Arphia', 'spp.') ) %>%
-          mutate( species = replace(species, genus == 'Pardalophora', 'spp.') ) %>%
-      
-          # DROP genus information ()
-          subset( !(genus == 'Encoptolop' & species == 'spp.' ) ) %>% 
-          # I DROP MELANOPUS SPP. BECAUSE IT'S A VERY DIVERSE GENUS
-          subset( !(genus == 'Melanopus' & species == 'spp.' ) ) %>% 
-  
-          # retain all potential groups - except the sweeps
-          group_by( RECYEAR, RECMONTH, RECDAY, 
-                    WATERSHED, REPSITE, SOILTYPE,
-                    genus, species) %>% 
-          # SUM across Totals: this takes care of "lumped" taxonomies
-          summarise( TOTAL = sum(TOTAL,na.rm=T) ) %>%  
+            # format the total number of counts per sweep
+            subset( TOTAL != '1 01') %>% 
+            mutate( TOTAL = replace(TOTAL, TOTAL == "", NA) ) %>% 
+            mutate( TOTAL = as.numeric(TOTAL) ) %>% 
+            # remove SPCODES ( could create problems with "doubles")
+            select(-SPCODE) %>% 
+            # remove sweeps ( summarized in "TOTAL")
+            select(-c(S1:S10)) %>% 
+    
+            # change clear mistakes
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'brachystol magna',
+                                      'Brachystola magna') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'schistocer lineata',
+                                      'Schistocerca lineata') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'paratylotr brunneri',
+                                      'paratylota brunneri') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'hypochlora alba',
+                                      'Hypochlora alba') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'campylacan olivacea',
+                                      'Campylacantha olivacea') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'hesperotet speciosus',
+                                      'Hesperotettix speciosus') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'hesperotet viridis',
+                                      'Hesperotettix viridis') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'hesperotet species',
+                                      'hesperotet spp.') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'phoetaliot nebrascen',
+                                      'Phoetaliotes nebrascensis') ) %>% 
+            mutate( SPECIES = gsub('melanoplus','Melanoplus',SPECIES) ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'Melanoplus femurrubr',
+                                      'Melanoplus femurrubrum') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'Melanoplus bivittatu',
+                                      'Melanoplus bivittatus') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'Melanoplus species',
+                                      'Melanoplus spp.') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'syrbula admirabil',
+                                      'Syrbula admirabilis') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'orphulella speciosa' | 
+                                               SPECIES == 'orphullela speciosa' ,
+                                      'Orphulella speciosa') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'mermiria picta',
+                                      'Mermiria picta') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'mermiria bivitatta',
+                                      'mermiria bivittata') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'boopedon auriventr',
+                                      'Boopedon auriventris') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'boopedon gracile',
+                                      'Boopedon gracile') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'ageneotett deorum',
+                                      'Ageneotettix deorum') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'mermiria species' | 
+                                               SPECIES == 'mermiria spp.' ,
+                                      'Mermiria spp.') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'hadrotetti trifascia',
+                                              'Hadrotettix trifasciatus') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'pardalopho haldemani',
+                                            'Pardalophora haldemani') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'arphia species' | 
+                                               SPECIES == 'arphia spp.' ,
+                                      'Arphia spp.') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'unknown' | 
+                                               SPECIES == 'unknown ' ,
+                                      'Unknown') ) %>% 
+            mutate( SPECIES = replace(SPECIES, SPECIES == 'pardalopho spp.',
+                                              'Pardalophora spp.') ) %>% 
             
-          # create SITE_ID column
-          mutate( SITE_ID = paste(WATERSHED, REPSITE, SOILTYPE, sep="_") ) %>% 
+            # separates SPECIES into GENUS and SPECIES
+            separate(SPECIES, into = c("genus","species"), sep = " ") %>% 
+            # remove every unknown
+            subset( !grepl('unkn',genus, ignore.case=T) ) %>% 
+            # capitalize first letter
+            mutate( genus = stri_trans_totitle(genus) ) %>% 
+            # introduce NAs when SPECIES ==""
+            mutate( species = replace(species, species == "", NA) ) %>% 
+            # removes all NA in dates (unusable data)
+            filter( !is.na(RECDAY) ) %>% 
+    
+            # FIX mistakes in genus/species names
+            mutate( genus = replace(genus, genus == 'Ageneotett', 'Ageneotettix') ) %>% 
+            mutate( genus = replace(genus, genus == 'Campylacan', 'Campylacantha') ) %>% 
+            mutate( genus = replace(genus, genus == 'Campylacan', 'Campylacantha') ) %>% 
+            mutate( genus = replace(genus, genus == 'Brachystol', 'Brachystola') ) %>%
+            mutate( genus = replace(genus, genus == 'Orphullela', 'Orphulella') ) %>%
+            # same code to identify species
+            mutate( species = replace(species, species == 'species', 'spp.') ) %>% 
+            mutate( species = replace(species, is.na(species) , 'spp.') ) %>% 
+    
+            # LUMP data to genus
+            mutate( species = replace(species, genus == 'Pardalopho', 'spp.') ) %>% 
+            mutate( species = replace(species, genus == 'Mermiria', 'spp.') ) %>%         
+            mutate( species = replace(species, genus == 'Hesperotet', 'spp.') ) %>%         
+            mutate( species = replace(species, genus == 'Arphia', 'spp.') ) %>%
+            mutate( species = replace(species, genus == 'Pardalophora', 'spp.') ) %>%
+        
+            # DROP genus information when need be
+            subset( !(genus == 'Encoptolop' & species == 'spp.' ) ) %>% 
+            # I DROP MELANOPUS SPP. BECAUSE IT'S A VERY DIVERSE GENUS
+            subset( !(genus == 'Melanopus' & species == 'spp.' ) ) %>% 
+    
+            # REMOVE DOUBLES
+            unique %>% 
+            
+            # retain all potential groups - except the sweeps
+            group_by( RECYEAR, RECMONTH, RECDAY, 
+                      WATERSHED, REPSITE, SOILTYPE,
+                      genus, species) %>% 
+            # SUM across Totals: this takes care of "lumped" taxonomies
+            summarise( TOTAL = sum(TOTAL,na.rm=T) ) %>%  
+              
+            # create SITE_ID column
+            mutate( SITE_ID = paste(WATERSHED, REPSITE, SOILTYPE, sep="_") ) %>% 
+  
+            # average counts across year (variable sampling frequency)
+            group_by( RECYEAR, SITE_ID, genus, species ) %>% 
+            summarise( TOTAL = mean(TOTAL, na.rm=T) ) %>% 
+            ungroup %>% 
+    
+            # FORMAT using metacommunity standards
+            mutate( VARIABLE_NAME = paste(genus, species, sep='_') ) %>% 
+            rename( VALUE         = TOTAL,
+                    DATE          = RECYEAR ) %>% 
+            mutate( OBSERVATION_TYPE = "TAXON_COUNT",
+                    VARIABLE_UNITS = "COUNT (average)") %>% 
+            select(DATE, SITE_ID, OBSERVATION_TYPE, VARIABLE_UNITS, VARIABLE_NAME, VALUE) 
+  
 
-          # average counts across year (variable sampling frequency)
-          group_by( RECYEAR, SITE_ID, genus, species ) %>% 
-          summarise( TOTAL = mean(TOTAL, na.rm=T) ) %>% 
-          ungroup %>% 
-  
-          # FORMAT using metacommunity standards
-          mutate( VARIABLE_NAME = paste(genus, species, sep='_') ) %>% 
-          rename( VALUE         = TOTAL,
-                  DATE          = RECYEAR ) %>% 
-          mutate( OBSERVATION_TYPE = "TAXON_COUNT",
-                  VARIABLE_UNITS = "COUNT (average)") %>% 
-          select(DATE, SITE_ID, OBSERVATION_TYPE, VARIABLE_UNITS, VARIABLE_NAME, VALUE) # %>% 
-  
 # sites to keep
 keep_s <- c('0SPB_B_fl', '0SPB_A_fl', '002C_B_fl', '002C_A_fl', 
             '0SUB_B_fl', '004B_A_fl', '004B_B_fl', '001D_B_fl', 
