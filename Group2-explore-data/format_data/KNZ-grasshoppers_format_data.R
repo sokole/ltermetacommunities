@@ -174,7 +174,7 @@ knz   <- left_join(count_df, site_df) %>%
 keep_s <- c('0SPB_B_fl', '0SPB_A_fl', '002C_B_fl', '002C_A_fl', 
             '0SUB_B_fl', '004B_A_fl', '004B_B_fl', '001D_B_fl', 
             '001D_A_fl', '004F_B_fl', '004F_A_fl', '002D_B_fl',
-            '002D_A_fl')
+            '002D_A_fl') %>% tolower
 
 #select plots and years
 out <- knz %>% 
