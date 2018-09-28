@@ -4,7 +4,7 @@
 \includegraphics[scale = 0.4]{usvi-coral-castorani_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{usvi-coral-castorani_spatiotemporal_sampling_effort.pdf}
 \includegraphics[scale = 0.4]{usvi-coral-castorani_spp_shared.pdf}
-\caption{{\bf USVI-corals:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 34 coral taxa observed at 6 plots on St. John, US Virgin Islands (1990-2005). The black lines represent total site-level values across all plots.}
+\caption{{\bf USVI-corals:} Species accumulation curves (top left),  annual richness (top right), sampling effort (bottom left), and number of shared species (bottom right)  for 34 coral taxa observed at 6 plots on St. John, US Virgin Islands (1990-2005). The black lines represent total site-level values across all plots.}
 \label{usvi-coral}
 \end{figure}
 \efloatseparator
@@ -14,6 +14,7 @@
 \includegraphics[scale = 0.4]{sbc-algae-castorani_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{sbc-algae-castorani_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{sbc-algae-castorani_spatiotemporal_sampling_effort.pdf}
+
 \caption{{\bf SBC-algae:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 62 algae taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
 \label{sbc-algae}
 \end{figure}
@@ -24,7 +25,8 @@
 \includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_spatiotemporal_sampling_effort.pdf}
-\caption{{\bf SBC-sessile invertebrates:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 70 sessile invertebrate taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
+\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_spp_shared.pdf}
+\caption{{\bf SBC-sessile invertebrates:} Species accumulation curves (top left),  annual richness (top right), sampling effort (bottom left), and number of shared species (bottom right)  for 70 sessile invertebrate taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
 \label{sbc-sessileInverts}
 \end{figure}
 \efloatseparator

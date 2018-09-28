@@ -40,9 +40,13 @@
 \doublespacing
 
 \section {Data overview}
-This document briefly describes the data preparation prior to analysis for each dataset.
-Table \ref{metadata} shows metadata on the datasets included in the meta-analysis.
-We plot species accumulation curves and spatio-temporal variation in the number of taxa observed, and identify any potential issues with the data that we should address.
+This document briefly describes the data cleaning, subsetting, and aggregation methods specific to each dataset.
+%Table \ref{metadata} shows metadata on the datasets included in the meta-analysis.
+We plot species accumulation curves, spatio-temporal variation in the number of taxa observed, the spatio-temporal sampling effort, and the number of taxa shared by each pairwise combination of plots within the study.
+%We also identify any potential issues with the data.
+We visually evaluated the species accumulation curves and temporal patterns in species abundances. % to screen for changes in sampling methods or data recording methods over the course of the study that could affect results.
+A sudden jump in the cumulative number of taxa, for example, could indicate that taxa were recorded to a finer resolution (not that more taxa appeared  at the site).  
+A species accumulation curve that does not level off could indicate a community undergoing rapid succession, invasion, or environmental change. 
 
 For each dataset, we evaluated whether all sites were observed with equal effort in all years of study and we document any years, sites, sampling occasions,  or species that were droppped from the dataset prior to analysis. 
 We also document the method used to aggregate the data to an annual value for each species at each site.
@@ -99,7 +103,7 @@ Data are in Figure \ref{usvi-coral}.
 \includegraphics[scale = 0.4]{usvi-coral-castorani_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{usvi-coral-castorani_spatiotemporal_sampling_effort.pdf}
 \includegraphics[scale = 0.4]{usvi-coral-castorani_spp_shared.pdf}
-\caption{{\bf USVI-corals:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 34 coral taxa observed at 6 plots on St. John, US Virgin Islands (1990-2005). The black lines represent total site-level values across all plots.}
+\caption{{\bf USVI-corals:} Species accumulation curves (top left),  annual richness (top right), sampling effort (bottom left), and number of shared species (bottom right)  for 34 coral taxa observed at 6 plots on St. John, US Virgin Islands (1990-2005). The black lines represent total site-level values across all plots.}
 \label{usvi-coral}
 \end{figure}
 
@@ -113,6 +117,7 @@ Data are shown in Figure \ref{sbc-algae}
 \includegraphics[scale = 0.4]{sbc-algae-castorani_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{sbc-algae-castorani_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{sbc-algae-castorani_spatiotemporal_sampling_effort.pdf}
+
 \caption{{\bf SBC-algae:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 62 algae taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
 \label{sbc-algae}
 \end{figure}
@@ -127,7 +132,8 @@ Data are shown in Figure \ref{sbc-sessileInverts}
 \includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_spatiotemporal_sampling_effort.pdf}
-\caption{{\bf SBC-sessile invertebrates:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 70 sessile invertebrate taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
+\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_spp_shared.pdf}
+\caption{{\bf SBC-sessile invertebrates:} Species accumulation curves (top left),  annual richness (top right), sampling effort (bottom left), and number of shared species (bottom right)  for 70 sessile invertebrate taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
 \label{sbc-sessileInverts}
 \end{figure}
 
@@ -142,13 +148,7 @@ Data are shown in Figure \ref{sbc-mobileInverts}
 \includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_spatiotemporal_sampling_effort.pdf}
 \caption{{\bf SBC-mobile invertebrates:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 36 mobile invertebrate taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
-\label{sbc-mobileInverts}
-\end{figure}
-
-\subsection {sbc-survey-fish}
-{\bf  Waiting for updated data to be archived on EDI.}
-Two of the eleven sites were initiated in the third year of study.
-I think we should remove the two sites.
+\label{sbc-mobileInverts} I think we should remove the two sites.
 Data are shown in Figure \ref{sbc-fish}
 \begin{figure}[h!]
 \centering
@@ -324,13 +324,13 @@ Data from the wet season are shown in Figure \ref{fce-fish-wet}.
 
 
 
-
+\newpage
 \subsection {ntl-zooplankton}
 The data were downloaded from the EDI Data Portal \citep{ntl-zooplankton}.
 Samples were taken  via vertical tows at fortnightly intervals on a minimum of five occasions per year (range = 5 - 18 occasions per year).
 Density was recorded as number of individuals per liter for each taxa, integrated volumetrically over the water column.
 Many taxa are identified to species level, but some are identified to genus level.
-Lake `Tr'  was only sampled in one year and was assumed to be the same as lake 'TR'; thus we changed the lake identification code. 
+Lake `Tr'  was only sampled in one year and was assumed to be the same as lake `TR'. %; thus we changed the lake identification code. 
 The initial year (1981) was removed from analysis because only five of the seven lakes were sampled.
 We additionally removed 165 records with missing or unknown taxa designations.
 Data were aggregated annually for each taxa in each lake by taking the maximum density observed in a tow sampling occasion.
@@ -370,15 +370,15 @@ Data are shown in Figure \ref{ntl-zooplankton}.
 
 \subsection {ntl-fish}
 
-Data on the abundance of fish species were downloaded from the EDI Data Portal \citep{ntl-fish}.
-Two types of gill nets (VGN and VGN127) were rarely used and removed from the dataset as per a conversation with Noah Lottig at NTL.
-The gear method ``ESHOCK" was also rarely used and a follow up call is needed to determine how best to handle those data.
-They are currently included.
+Data on fish abundance were downloaded from the EDI Data Portal \citep{ntl-fish}.
+Two types of gill nets (VGN and VGN127) and the method  ``ESHOCK" were rarely used, and thus removed from the dataset.% as per a conversation with Noah Lottig at NTL.
+%The gear method ``ESHOCK" was also rarely used and a follow up call is needed to determine how best to handle those data.
+%They are currently included.
 Catch per unit effort (CPUE) was calculated for each species in each lake per year across all gear types (electrofishing, gill nets, baited traps) as the total catch divided by the total effort.
-We should double check with dataset contacts to be sure we did this correctly.
+%We should double check with dataset contacts to be sure we did this correctly.
 88 rows containing unidentified species were removed.
 Also, the two bog lakes (CB, TB) had 1-3 species each and were removed. 
-Three of the 11 sites (FI, MO, WI) were initiated in 1995, and the time series was subsetted to include only years after 1994.
+Three of the 11 sites (FI, MO, WI) were initiated in 1995, and therefore the time series was subsetted to include only years after 1994.
 Data are shown in Figure \ref{ntl-fish}.
 
 
