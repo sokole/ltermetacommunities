@@ -1,0 +1,11 @@
+Dataset.name,File.name,variable.id,N.layers,Resolution.m,Max.radius.km,N.slices.mcmurdo,N.slices.palmer,N.slices.usa,N.slices.pr,N.slices.ak
+modis_lst_mcmurdo,MODIS_MOD11A2_LST_MCMURDO.tif,modis_lst,17,1000,500,1,1,11,1,2
+modis_lst_palmer,MODIS_MOD11A2_LST_PALMER.tif,modis_lst,17,1000,500,1,1,11,1,2
+modis_lst_ak,MODIS_MOD11A2_LST_AK.tif,modis_lst,17,1000,500,1,1,11,1,2
+modis_lst_pr,MODIS_MOD11A2_LST_PR.tif,modis_lst,17,1000,500,1,1,11,1,2
+modis_lst_usa,MODIS_MOD11A2_LST_USA.tif,modis_lst,17,1000,500,1,1,11,1,2
+modis_ndvi_mcmurdo,MODIS_MOD13Q1_NDVI_MCMURDO.tif,modis_ndvi,17,250,500,1,1,11,1,2
+modis_ndvi_palmer,MODIS_MOD13Q1_NDVI_PALMER.tif,modis_ndvi,17,250,500,1,1,11,1,2
+modis_ndvi_ak,MODIS_MOD13Q1_NDVI_AK.tif,modis_ndvi,17,250,500,1,1,11,1,2
+modis_ndvi_pr,MODIS_MOD13Q1_NDVI_PR.tif,modis_ndvi,17,250,500,1,1,11,1,2
+modis_ndvi_usa,MODIS_MOD13Q1_NDVI_USA.tif,modis_ndvi,17,250,500,1,1,11,1,2
