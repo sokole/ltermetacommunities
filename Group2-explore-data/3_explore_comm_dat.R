@@ -339,6 +339,53 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   theme_bw()  +
   theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) #, legend.position = "none"dev.off()
 dev.off()
+
+
+
+
+#---------------------------------------------------------------------------------------------------
+# SPECIES ACCUMULATION CURVE FUNCTION - OVER SPACE
+
+# Make a function that returns the cumulative number of taxa observed for a given set of community data
+cuml.taxa.space.fun <- function(EX){
+  taxa.s.list <- list() # Make empty list
+  sites <- unique(EX$SITE_ID)
+  # Loop over each year, creating a list that contains the unique taxa found in each year
+  for(t in 1:length(unique(EX$SITE_ID))){
+    tmp.dat <- subset(EX, EX$SITE_ID == sites[t])
+    tmp.dat.pres <- subset(tmp.dat, tmp.dat$VALUE > 0) 
+    taxa.s.list[[t]] <- unique(tmp.dat.pres$VARIABLE_NAME)
+  }
+
+  # Make cumulative list of taxa over space
+  cuml.taxa.space <- list() # Empty list
+  cuml.taxa.space[[1]] <- taxa.s.list[[1]] # Add the taxa from the first sites 
+  
+  # Run for-loop to create list of the cumulative taxa, with duplicates
+  for(t in 2:length(unique(EX$SITE_ID))){ 
+    cuml.taxa.space[[t]] <- c(cuml.taxa.space[[t - 1]], taxa.s.list[[t]])
+  }
+  
+  # Remove duplicates
+  cuml.taxa.space <- lapply(cuml.taxa.space, function(x){unique(x)})
+  
+  # Return the number of total unique taxa over space
+  cuml.no.taxa.space <- data.frame("site" = unique(EX$SITE_ID))
+  cuml.no.taxa.space$no.taxa <- unlist(lapply(cuml.taxa.space, function(x){length(x)}))
+  
+  return(cuml.no.taxa.space)
+  }
+
+
+#visualize spp accumulation curve over space:
+no.taxa.space <- cuml.taxa.space.fun(comm.dat)
+
+pdf(file=paste('MS3-Supp-Info/', data.set,'_species_accumulation_space.pdf', sep=''))
+plot(as.numeric(no.taxa.space$site), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "Cumulative number of taxa", cex=1.5, lwd=3, cex.lab=1.5)
+axis(side=1, at = as.numeric(no.taxa.space$site), labels = seq(1,length(no.taxa.space$site),1))
+dev.off()
+
+
 # ---------------------------------------------------------------------------------------------------
 # COUNT SHARED SPECIES BETWEEN EACH SITE
 

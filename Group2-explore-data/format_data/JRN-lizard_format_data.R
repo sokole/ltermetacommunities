@@ -1,7 +1,7 @@
 # --------------------------------------------------------- #
 # Format raw data as a list of tables                       #
 # JORNADA lizard data                                                      # Riley Andrade (main contact)
-# Revised 09 Jun 2017                                       #
+# Revised 09 Jun 2017  & 04 Nov 2018 by Nina Lany                                     #
 # --------------------------------------------------------- #
 
 # Contributors: Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
@@ -73,8 +73,13 @@ data <- data %>%
 data <- data %>%
 	filter(spp != "NONE")
 	
-	#NOTE: pc is a problem code. Look it up. Also, need species codes (http://jornada.nmsu.edu/data-catalogs/species/lter-plants) Are there uknkowns in there?
+#Now remove the rows where no lizards were observed.  Can't find apecies codes at (http://jornada.nmsu.edu/data-catalogs/species/lter-plants), but I'm guessing UKLI is 'unkown lizard' and UKCN is 'unknown ctenosaur'.
 
+data <- data %>%
+	filter(spp != "UKLI" & spp != "UKCN")
+	
+
+	#NOTE: pc is a problem code. Look it up. 
 
 #assume equal sampling effort (Pitfall traps were opened for 2 week sessions  4x per year (quarterly) at each site; trapping began at sites XXXX and XXXX in 1996) and calculate the number of unique individuals of each species captured per year: 
 length(unique(data$spp))  
@@ -109,7 +114,7 @@ str(comm.long)
 
 ### COORDINATE DATA ### 
 # read in coordinate data
-dat.coord <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-lizards/JRN_Lizard_meta.csv", stringsAsFactors=F, skip = 38) %>%
+dat.coord <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-lizards/JRN_Lizard_meta.csv", stringsAsFactors=F, skip = 38) %>%
   tbl_df() %>%
   gather(VARIABLE_NAME, VALUE, Latitude:Longitude) %>%
   mutate(VARIABLE_NAME = tolower(VARIABLE_NAME),
@@ -123,7 +128,7 @@ str(dat.coord)
 
 
 ### ENVIRONMENTAL DATA ###
-dat.env <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-lizards/JRN_Lizard_precip.csv", skip = 11, stringsAsFactors=F) %>%
+dat.env <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-lizards/JRN_Lizard_precip.csv", skip = 11, stringsAsFactors=F) %>%
   tbl_df() %>%
   mutate(VARIABLE_NAME = "precip",
          VARIABLE_UNITS = "mm",
