@@ -63,7 +63,6 @@ taxa <- cdr_raw %>%
             as.data.frame %>% 
             arrange(genus, species)
           
-
 # write file out
 write.csv(cdr, '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cdr-grasshopper-compagnoni.csv', row.names=F)
 
