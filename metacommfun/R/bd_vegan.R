@@ -20,7 +20,7 @@
 
 library(vegan)
 
-fn_bd_vegan <- function(
+bd_vegan <- function(
   Y, #site by species counts or RAs
   decostand_transform = TRUE,
   decostand_method = 'hellinger', #defaults will return Hellinger distance matrix
