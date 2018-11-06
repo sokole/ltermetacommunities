@@ -36,7 +36,8 @@ long_to_wide <- function(dat.in.long = d.in.long,
         tidyr::spread_(key_col = taxon_name, 
                        value_col = taxon_count_name,
                        fill = 0) %>%
-        na.omit()
+        na.omit() %>%
+        ungroup()
 
     return(dat.in.wide.spp)
 
