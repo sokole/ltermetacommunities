@@ -23,7 +23,7 @@ cdr     <- cdr_raw %>%
             # select only sites with continuous data
             subset( !(SITE_ID == '28' | SITE_ID == '11') ) %>% 
             # aggregate by species/month
-            group_by( Year, Month, SITE_ID, Order, Family, Genus, Specific.epithet) %>% 
+            group_by( Year, SITE_ID, Order, Family, Genus, Specific.epithet) %>% 
             # sum across all months in a year. 
             # Sampling mostly consistent, excet for 2003, when June and August samples were lost in SOME fields
             summarise( count = sum(X.Specimens, na.rm=T) ) %>% 
@@ -42,11 +42,11 @@ cdr     <- cdr_raw %>%
             select( -Order,-Family ) %>% 
   
             # create ltermetacomm format
-            mutate( DATE             = paste(Year, Month, sep = '_'),
-                    OBSERVATION_TYPE = 'TAXON_COUNT',
+            mutate( OBSERVATION_TYPE = 'TAXON_COUNT',
                     VARIABLE_NAME    = paste(genus, species, sep = '_'), 
                     VARIABLE_UNITS   = 'COUNT (monthly sum)' ) %>% 
-            rename( VALUE            = count ) %>% 
+            rename( DATE             = Year, 
+                    VALUE            = count ) %>% 
             select(OBSERVATION_TYPE,SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE)
  
   
