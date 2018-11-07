@@ -144,8 +144,8 @@ data.key <- "" # Google Drive file ID
 data.set <- "jrn-677plantdensity-popler"
 data.key <- "" # Google Drive file ID
 
-#sgs-grasslands-catano
-data.set <- "sgs-grasslands-catano"
+#sgs-plants-catano
+data.set <- "sgs-plants-catano"
 data.key <- "" # Google Drive file ID
 
 #######################
@@ -357,8 +357,6 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   theme_bw()  +
   theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none") #
 dev.off()
-
-
 
 
 #---------------------------------------------------------------------------------------------------
