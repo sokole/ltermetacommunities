@@ -128,7 +128,7 @@ surveys <- surveys %>%
 # 'FT' indicates a "fly through", where a bird was seen flying thru
 # the area (but most likely > 40 feet away)
 observations <- observations %>%
-  filter(!distance %in% c('>40','FT'))
+  filter(!distance %in% c('FT'))
 
 # Drop unknown or unspecified species codes
 species_codes_to_drop = c('UNAC','UNSP','temp','UNKN')
