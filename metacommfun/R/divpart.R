@@ -1,21 +1,10 @@
-# Hello, world!
+# Calculating alpha, beta and gamma diversity for each year. 
 #
-# This is an example function named 'hello' 
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Build and Reload Package:  'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
+# Uses vegetarian 'd' function. Exports a dataframe with the columns:
+# year, alpha, beta and gamma. 
 
 library(tidyverse)
 library(vegetarian)
-library(plyr) # for ldply
 
 divpart <- function(
                     dat.in.long = d.in.long,
@@ -29,7 +18,7 @@ divpart <- function(
 
     dat.list <- split(dat, dat$DATE)
 
-    div <- ldply(dat.list, function(x){
+    div <- plyr::ldply(dat.list, function(x){
         as.data.frame(cbind(
             alpha = vegetarian::d(x[,-c(1:2)], lev = 'alpha', q = 0), 
             beta = vegetarian::d(x[,-c(1:2)], lev = 'beta', q = 0),

@@ -389,10 +389,9 @@ cuml.taxa.space.fun <- function(EX){
 no.taxa.space <- cuml.taxa.space.fun(comm.dat)
 
 pdf(file=paste('MS3-Supp-Info/', data.set,'_species_accumulation_space.pdf', sep=''))
-plot(as.numeric(no.taxa.space$site), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "Cumulative number of taxa", cex=1.5, lwd=3, cex.lab=1.5)
-axis(side=1, at = as.numeric(no.taxa.space$site), labels = seq(1,length(no.taxa.space$site),1))
+plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "Cumulative number of taxa", cex=1.5, lwd=3, cex.lab=1.5)
+axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
 dev.off()
-
 
 # ---------------------------------------------------------------------------------------------------
 # COUNT SHARED SPECIES BETWEEN EACH SITE
