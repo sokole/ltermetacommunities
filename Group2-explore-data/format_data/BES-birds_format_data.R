@@ -206,4 +206,8 @@ final_format <- observations_aggregated %>%
          VARIABLE_UNITS,
          VALUE = count)
 
-readr::write_csv(final_format, 'L3-bes-birds-nilon.csv')
+
+write.csv(final_format, 
+          file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-bes-birds-nilon.csv",
+          row.names = F)
+
