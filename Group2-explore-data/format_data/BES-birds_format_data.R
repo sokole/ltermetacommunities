@@ -138,6 +138,7 @@ observations_aggregated <- observations_aggregated %>%
   mutate(year = lubridate::year(survey_date)) %>%
   select(-survey_id, -survey_date)
 
+
 # For multiple surveys in a single year, take the maximium count
 # for each species/site
 observations_aggregated <- observations_aggregated %>%
@@ -146,16 +147,35 @@ observations_aggregated <- observations_aggregated %>%
   ungroup() %>%
   distinct()
 
-# Drop sites with < 5 annual surveys
+# only keep sites with surveys 2005 - 2009
+years_to_keep = 2005:2009
+observations_aggregated <- observations_aggregated %>%
+  filter(year %in% years_to_keep)
+
 sites_to_keep <- observations_aggregated %>%
   group_by(site_id) %>%
   summarise(n_years = n_distinct(year)) %>%
-  filter(n_years >= 5) %>%
+  filter(n_years == length(years_to_keep)) %>%
   pull(site_id) %>%
   unique()
 
 observations_aggregated <- observations_aggregated %>%
   filter(site_id %in% sites_to_keep)
+
+################################################
+# QA Check, the sites/years in the final version
+# actually have recorded surveys
+surveys <- surveys %>%
+  mutate(year = lubridate::year(survey_date)) %>%
+  select(site_id, year) %>%
+  distinct() %>%
+  mutate(was_surveyed = TRUE)
+
+observations_aggregated <- observations_aggregated %>%
+  left_join(surveys, by=c('site_id','year'))
+
+if(!all(observations_aggregated$was_surveyed)) stop('Potentially unsurveyed year/sites in final dataset')
+################################################
 
 
 # Convert to final working group format
