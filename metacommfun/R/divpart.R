@@ -15,7 +15,6 @@
 
 library(tidyverse)
 library(vegetarian)
-library(plyr) # for ldply
 
 divpart <- function(
                     dat.in.long = d.in.long,
@@ -29,7 +28,7 @@ divpart <- function(
 
     dat.list <- split(dat, dat$DATE)
 
-    div <- ldply(dat.list, function(x){
+    div <- plyr::ldply(dat.list, function(x){
         as.data.frame(cbind(
             alpha = vegetarian::d(x[,-c(1:2)], lev = 'alpha', q = 0), 
             beta = vegetarian::d(x[,-c(1:2)], lev = 'beta', q = 0),
