@@ -37,6 +37,12 @@ data <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", da
 data <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-lizards/JornadaStudy_007_npp_lizard_pitfall_trap_data.csv", skip = 47, stringsAsFactors=F)
 
 # direct download from LTER Data Portal
+# Package ID: knb-lter-jrn.210007001.36 Cataloging System:https://pasta.edirepository.org.
+# Data set title: Lizard pitfall trap data (LTER-II, LTER-III).
+# Data set creator:  David Lightfoot -  
+# Metadata Provider:    - Jornada Basin LTER 
+# Contact:    - Data Manager Jornada Basin LTER  - datamanager@jornada-vmail.nmsu.edu
+# Contact:  John Anderson -    - 
 data <- read.csv('https://portal.lternet.edu/nis/dataviewer?packageid=knb-lter-jrn.210007001.36&entityid=21cc9e0b7c5d27d1efd8d5e1db3ac4f1', skip = 47, stringsAsFactors = F)
 
 #in this table, each row represents a lizard. Remove columns with data measured on indivudal lizards (i.e. svl, sex, toe number)
