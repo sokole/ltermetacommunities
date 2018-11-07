@@ -282,7 +282,6 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
   theme_bw() +
   theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none")
-#
   dev.off()
 # ---------------------------------------------------------------------------------------------------
 # SITE-SPECIFIC AND TOTAL SPECIES ACCUMULATION CURVES
