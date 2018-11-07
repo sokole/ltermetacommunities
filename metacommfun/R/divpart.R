@@ -13,29 +13,31 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
-# Requires long-form. 
-
 library(tidyverse)
 library(vegetarian)
+library(plyr) # for ldply
 
 divpart <- function(
-  site.id.vect,
-  spp.vect,
-  abund.vect,
-  ...){
-  if(length(site.id.vect > 2) & (length(unique(spp.vect)) > 1)){
-    df.wide <- tidyr::spread(
-      data.frame(
-        site.id.vect,
-        spp.vect,
-        abund.vect
-      ),
-      spp.vect,
-      abund.vect,
-      fill = 0)[,-1]
-    
-    return(vegetarian::d(df.wide, wts = rowSums(df.wide), ...))
-  }else{
-    return(NA)
-  }
+                    dat.in.long = d.in.long,
+                    location_name = 'SITE_ID',
+                    time_step_name = 'DATE',
+                    taxon_name = 'VARIABLE_NAME',
+                    taxon_count_name = 'VALUE',
+                    ...){
+
+    dat <- long_to_wide(dat.in.long)
+
+    dat.list <- split(dat, dat$DATE)
+
+    div <- ldply(dat.list, function(x){
+        as.data.frame(cbind(
+            alpha = vegetarian::d(x[,-c(1:2)], lev = 'alpha', q = 0), 
+            beta = vegetarian::d(x[,-c(1:2)], lev = 'beta', q = 0),
+            gamma = vegetarian::d(x[,-c(1:2)], lev = 'gamma', q = 0)
+        ))        
+    }, .id = 'year'
+    )
+
+    return(div)
+
 }
