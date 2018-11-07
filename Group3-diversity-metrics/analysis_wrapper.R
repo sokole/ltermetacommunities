@@ -132,11 +132,17 @@ for(i in 1:nrow(data_list)){
         gamma_temporal_bd_rate = gamma_temporal_bd / n_years
       )
       
-      divpart_list[[data_list[[i,"name"]]]] <- divpart(d.in.long, 
+      div.part.i <- divpart(d.in.long, 
               location_name = 'SITE_ID',
               time_step_name = 'DATE',
               taxon_name = 'VARIABLE_NAME',
               taxon_count_name = 'VALUE')
+      
+      divpart_list[[data_list[[i,"name"]]]] <- div.part.i
+      mean.div <- colMeans(div.part.i[-1,-1])
+      d.bd$alpha_mean <- mean.div[1]
+      d.bd$beta_mean <- mean.div[2]
+      d.bd$gamma_mean <- mean.div[3]
       
       data_ALL <- rbind(
         data_ALL,
@@ -150,31 +156,50 @@ for(i in 1:nrow(data_list)){
 #write results locally
 write.csv(data_ALL, 
           file.path("Group3-diversity-metrics", 
-                    paste0('dat-comp-variability-components_',Sys.Date(),'.csv')),
+                    paste0('dat-comp-variability-components.csv')),
           row.names = FALSE)
 
 #######################################################
 # -- Make figures
 #######################################################
+biomes <- read_csv(file = paste0("https://docs.google.com/spreadsheets/export?id=",
+                       "1_IyFiruxf8vp_DY_q_5YaPmoZSUp0l2jnx9v7B1Ujf8",
+                       "&format=csv"))
 
+# how do alpha, gamma, and beta variability over a metacom richness gradient?
 
-# link to read in spreadsheet from google drive
-l0_id <- "1wP_-hmmB81cpGklhBZRZybDrVOWaDX2rijBVcrlAdfQ"
-
-download_l0 <-paste0("https://docs.google.com/spreadsheets/export?id=",
-                                             l0_id,
-                                             "&format=csv")
-
-l0 <- read_csv(file = download_l0)
-
-data_cats <- l0 %>% select(`data directory`, organism, `body size`, `dispersal type`, `trophic group`, biome) %>% 
-  mutate(name = paste0("L3-", str_to_lower(`data directory`), ".csv")) %>% 
-  select(-'data directory')
-
-
-data_ALL %>% 
+left_join(data_ALL, biomes) %>% filter(gamma_mean < 100) %>% 
   gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
-  ggplot(aes(x = n_locations, y = bd)) + 
-  facet_grid(scale ~ .) +
-  geom_point() + 
-  geom_smooth()
+  ggplot(aes(x = gamma_mean, y = bd, color = biome, fill = biome)) + 
+  facet_grid(scale ~ ., scales = "free_y") +
+  geom_point(alpha = 0.5) + 
+  geom_smooth(method = 'lm', formula = y ~ x, alpha = 0.15) + 
+  theme_minimal() +
+  ggsave("Group3-diversity-metrics/figures/gammadiv-stability.png",
+         width = 7, height = 7, dpi = 300, units = "in")
+
+left_join(data_ALL, biomes) %>% filter(alpha_mean < 100) %>% 
+  ggplot(aes(x = alpha_mean, y = mean_alpha_temporal_bd, color = biome, fill = biome)) +
+  geom_point(alpha = 0.5) + 
+  geom_smooth(method = 'lm', formula = y ~ x, alpha = 0.15) + 
+  theme_minimal() + 
+  ggsave("Group3-diversity-metrics/figures/div-stab-relation-alpha.png",
+         width = 7, height = 7, dpi = 300, units = "in")
+
+left_join(data_ALL, biomes) %>% filter(gamma_mean < 100) %>% 
+  ggplot(aes(x = gamma_mean, y = gamma_temporal_bd, color = biome, fill = biome)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = 'lm', formula = y ~ x, alpha = 0.15) +
+  theme_minimal() +
+  ggsave("Group3-diversity-metrics/figures/div-stab-relation-gamma.png",
+         width = 7, height = 7, dpi = 300, units = "in")
+
+left_join(data_ALL, biomes) %>% filter(alpha_mean < 100) %>% 
+  gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
+  ggplot(aes(x = alpha_mean, y = bd, color = biome, fill = biome)) + 
+  facet_grid(scale ~ ., scales = "free_y") +
+  geom_point(alpha = 0.5) + 
+  geom_smooth(method = 'lm', formula = y ~ x, alpha = 0.15) + 
+  theme_minimal() + 
+  ggsave("Group3-diversity-metrics/figures/alphadiv-stability.png",
+         width = 7, height = 7, dpi = 300, units = "in")
