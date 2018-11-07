@@ -12,13 +12,14 @@ options(stringsAsFactors = FALSE)
 #########################
 library(tidyverse)
 library(googledrive)
-library(ggrepel)
 
 #########################
 # source all the functions for metacommunity analysis
 #########################
 source("metacommfun/R/bd_vegan.R")
 source("metacommfun/R/comp_stability_components.R")
+source("metacommfun/R/long_to_wide.R")
+source("metacommfun/R/divpart.R")
 
 
 #######################################################
@@ -58,6 +59,7 @@ data_list <- working_dir %>% filter(grepl('(?i)\\.csv', name))
 
 # loop to read in data, call wrapper function, write results to data_ALL
 data_ALL <- data.frame()
+divpart_list <- list()
 for(i in 1:nrow(data_list)){
   try_result <- try({
     
@@ -129,6 +131,12 @@ for(i in 1:nrow(data_list)){
         alpha_temporal_bd_rate = mean_alpha_temporal_bd / n_years,
         gamma_temporal_bd_rate = gamma_temporal_bd / n_years
       )
+      
+      divpart_list[[data_list[[i,"name"]]]] <- divpart(d.in.long, 
+              location_name = 'SITE_ID',
+              time_step_name = 'DATE',
+              taxon_name = 'VARIABLE_NAME',
+              taxon_count_name = 'VALUE')
       
       data_ALL <- rbind(
         data_ALL,
