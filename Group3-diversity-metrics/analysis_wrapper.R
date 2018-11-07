@@ -11,7 +11,8 @@ options(stringsAsFactors = FALSE)
 # libraries
 #########################
 library(tidyverse)
-
+library(googledrive)
+library(ggrepel)
 
 #########################
 # source all the functions for metacommunity analysis
@@ -24,29 +25,31 @@ source("metacommfun/R/comp_stability_components.R")
 # -- download list of data sets off google drive using google-id
 #######################################################
 
+working_dir <- drive_ls(path = as_id("0BxUZSA1Gn1HZamlITk9DZzc1c1E"))
+data_list <- working_dir %>% filter(grepl('(?i)\\.csv', name))
 
-# google id for L3-DATA-list google sheet
-id_google_data_list <- '17IKwyA1zniMP15kM8hMe_zCuYfML74_7l2io7FhaiBo'
-
-
-# download L3-DATA-list as a .csv
-download.link <- paste0("https://docs.google.com/spreadsheets/export?id=",
-                        id_google_data_list,
-                        "&format=csv")
-data_list <- read.csv(file = download.link, 
-                      header = T,
-                      stringsAsFactors = FALSE) 
-
-#find google.id column, and rename 'google.id' 
-col_names <- names(data_list)
-col_names[grep('google.id',col_names)] <- 'google.id'
-names(data_list) <- col_names
-
-#only keep necessary columns
-data_list <- data_list %>% 
-  filter(LTER.site != 'EXAMPLE') %>%
-  filter(nchar(google.id) > 0)
-
+# # google id for L3-DATA-list google sheet
+# id_google_data_list <- '17IKwyA1zniMP15kM8hMe_zCuYfML74_7l2io7FhaiBo'
+# 
+# 
+# # download L3-DATA-list as a .csv
+# download.link <- paste0("https://docs.google.com/spreadsheets/export?id=",
+#                         id_google_data_list,
+#                         "&format=csv")
+# data_list <- read.csv(file = download.link, 
+#                       header = T,
+#                       stringsAsFactors = FALSE) 
+# 
+# #find google.id column, and rename 'google.id' 
+# col_names <- names(data_list)
+# col_names[grep('google.id',col_names)] <- 'google.id'
+# names(data_list) <- col_names
+# 
+# #only keep necessary columns
+# data_list <- data_list %>% 
+#   filter(LTER.site != 'EXAMPLE') %>%
+#   filter(nchar(google.id) > 0)
+# 
 
 #######################################################
 # -- Loop through data sets and call functions
@@ -62,7 +65,7 @@ for(i in 1:nrow(data_list)){
     i_data_record <- data_list[i,]
     
     # get google id used to download data
-    data_id_googledrive <- i_data_record$google.id
+    data_id_googledrive <- i_data_record$id
     
     # link to read in spreadsheet from google drive
     download.link <- paste0("https://drive.google.com/uc?export=download&id=",
@@ -112,7 +115,7 @@ for(i in 1:nrow(data_list)){
     d.bd <- data.frame()
     if(nrow(d.in.long) > 0){
       d.bd <- data.frame(
-        i_data_record[,c('data_set','LTER.site','google.id','organism','body.size','dispersal.type','trophic.group','biome')],
+        i_data_record[,c("name","id")],
         comp_stability_components(d.in.long,
                                      location_name = 'SITE_ID',
                                      time_step_name = 'DATE',
@@ -136,3 +139,34 @@ for(i in 1:nrow(data_list)){
   print(i_data_record)
 }
 
+#write results locally
+write.csv(data_ALL, 
+          file.path("Group3-diversity-metrics", 
+                    paste0('dat-comp-variability-components_',Sys.Date(),'.csv')),
+          row.names = FALSE)
+
+#######################################################
+# -- Make figures
+#######################################################
+
+
+# link to read in spreadsheet from google drive
+l0_id <- "1wP_-hmmB81cpGklhBZRZybDrVOWaDX2rijBVcrlAdfQ"
+
+download_l0 <-paste0("https://docs.google.com/spreadsheets/export?id=",
+                                             l0_id,
+                                             "&format=csv")
+
+l0 <- read_csv(file = download_l0)
+
+data_cats <- l0 %>% select(`data directory`, organism, `body size`, `dispersal type`, `trophic group`, biome) %>% 
+  mutate(name = paste0("L3-", str_to_lower(`data directory`), ".csv")) %>% 
+  select(-'data directory')
+
+
+data_ALL %>% 
+  gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
+  ggplot(aes(x = n_locations, y = bd)) + 
+  facet_grid(scale ~ .) +
+  geom_point() + 
+  geom_smooth()
