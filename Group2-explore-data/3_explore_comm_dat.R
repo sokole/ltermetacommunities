@@ -61,9 +61,14 @@ data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID
 data.set <- "usvi-coral-castorani"
 data.key <- "0BxUZSA1Gn1HZZGowdUVCTTdtXzg" # Google Drive file ID
 
-# mcr-coral-castorani
+# hbr-birds-sillett
 data.set <- "hbr-birds-sillett"
 data.key <- "" # Google Drive file ID
+
+# bes-birds-nilon
+data.set <- "bes-birds-nilon"
+data.key <- "" # Google Drive file ID
+
 
 #these datasets are being updated by PI. Redo formatting as they are posted in EDI and subset further prior to analysis:
 # sbc-algae-castorani (survey)
@@ -156,7 +161,7 @@ data.key <- "" # Google Drive file ID
 
 #----------------------------------------------------------------------------------------------------
 # IMPORT DATA
-L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), stringsAsFactors=F) 
+#L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), stringsAsFactors=F) 
 
 #Alternative using Google Drive File Stream. Works the same whether streaming data or data are cached locally:
 L3dat <- read.csv(paste("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-", data.set, ".csv", sep=""), stringsAsFactors=F)
@@ -277,7 +282,7 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
   theme_bw() +
   theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none")
-
+#
   dev.off()
 # ---------------------------------------------------------------------------------------------------
 # SITE-SPECIFIC AND TOTAL SPECIES ACCUMULATION CURVES
@@ -352,8 +357,6 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   theme_bw()  +
   theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none") #
 dev.off()
-
-
 
 
 #---------------------------------------------------------------------------------------------------

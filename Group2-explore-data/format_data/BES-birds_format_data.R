@@ -179,6 +179,12 @@ sites_to_keep <- observations_aggregated %>%
 observations_aggregated <- observations_aggregated %>%
   filter(site_id %in% sites_to_keep)
 
+# Drop any species which aren't ever actually observed.
+observations_aggregated <- observations_aggregated %>%
+  group_by(species_id) %>%
+  filter(sum(count) > 0) %>%
+  ungroup()
+
 ################################################
 # QA Check, the sites/years in the final version
 # actually have recorded surveys
@@ -206,4 +212,8 @@ final_format <- observations_aggregated %>%
          VARIABLE_UNITS,
          VALUE = count)
 
-readr::write_csv(final_format, 'L3-bes-birds-nilon.csv')
+
+write.csv(final_format, 
+          file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-bes-birds-nilon.csv",
+          row.names = F)
+
