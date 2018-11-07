@@ -10,7 +10,24 @@
 #Make one script for each dataset that converts the data from the form we originally got it in to the one we need. This might involve aggregating subplots and/or multiple sampling occasins by year, subsetting out sites or species, etc. It may also be necessary to fill in an abundance of zero for any taxa that appear in the dataset but were not observed at a particular site-year.
 #Save the resulting file in the directory "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated-by-year-and-space". This file should be ready for preliminary analalysis.
 #The next step in the pipeline after this one is to run each dataset through the script 3_explore_comm_dat.R. This script plots the sampling effort (to be sure overvations are balanced), the species accumulation curve, and a time series of species richness at each site as well as in aggragate. If these preliminiary visualizations turn up something problematic, go back to the script spcific to the dataset and add in annotated code to fix the problem.
- 
+
+
+#####################################################
+##### Cleaning steps ################################
+# I applied the following filters to the BES birds dataset
+# 
+# - Only keep observations that were < 40ft distance.
+# - removied uknown species
+# - where there was multipel surveys for a site in a single year,
+#   keep the maximum count for each species among all the surveys.
+# - only kept sites with surveys every year from 2005 - 2009 (126 sites)
+# 
+# A note on spatial coordinates
+# The only indicator for location is Park Names, or numbered locations small regions.
+# (ie. WS 263 Plot 57 stands for Watershed 263). I tried pull lat/longs from a lookup 
+# service, but it only worked on a small subset of sites. If lat/longs are required
+# someone will likely have to go thru and locate them manually, or ask the data provider 
+# directly. 
 
 # Clear environment
 rm(list = ls())
