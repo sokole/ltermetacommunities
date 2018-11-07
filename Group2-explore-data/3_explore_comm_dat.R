@@ -449,10 +449,10 @@ dev.off()
 #make metadata table
 mtdt <- list()
 mtdt$dataset <- data.set
-mtdt$initial.year <- min(dat$comm.wide$DATE)
-mtdt$study.length <- max(dat$comm.wide$DATE) -  min(dat$comm.wide$DATE) +1
-mtdt$n.years <- length(unique(dat$comm.wide$DATE))
-mtdt$n.plots <- length(unique(dat$comm.wide$SITE_ID))
+mtdt$initial.year <- min(dat$comm.long$DATE)
+mtdt$study.length <- max(dat$comm.long$DATE) -  min(dat$comm.long$DATE) +1
+mtdt$n.years <- length(unique(dat$comm.long$DATE))
+mtdt$n.plots <- length(unique(dat$comm.long$SITE_ID))
 mtdt$n.taxa <- length(unique(dat$comm.long$VARIABLE_NAME))
 mtdt$organism <- gsub(".*-(.*)\\-.*", "\\1", data.set)
 #mtdt$units <-  unique(dat$comm.wide$OBSERVATION_TYPE)

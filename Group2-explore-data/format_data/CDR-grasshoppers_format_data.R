@@ -70,6 +70,15 @@ taxa <- cdr_raw %>%
             summarise(total = sum(count) ) %>% 
             as.data.frame %>% 
             arrange(genus, species)
+ 
+#check for duplicated rows
+cdr <- dplyr::distinct(cdr)
+#propogate zeros and check (does not run... duplicate identifiers for rows.) 
+test <- cdr %>% spread(VARIABLE_NAME, VALUE, fill = 0) %>% 
+  gather(VARIABLE_NAME, VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS)
+
+tapply(test$VALUE, list(test$SITE_ID, test$DATE), length)
+
           
 # write file out
 write.csv(cdr, '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cdr-grasshopper-compagnoni.csv', row.names=F)
