@@ -1,19 +1,8 @@
-
-# Hello, world!
+# Takes the long-form data and converts it to wide form. 
 #
-# This is an example function named 'hello' 
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Build and Reload Package:  'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
-
+# The dataframe that is read in must have the following columns:
+# SITE_ID, DATE, VARIABLE_NAME, and VALUE. Variable name here must be
+# taxonomic name and value must be abundances. 
 
 library(tidyverse)
 
