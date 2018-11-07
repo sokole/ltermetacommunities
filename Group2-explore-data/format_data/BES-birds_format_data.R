@@ -179,6 +179,12 @@ sites_to_keep <- observations_aggregated %>%
 observations_aggregated <- observations_aggregated %>%
   filter(site_id %in% sites_to_keep)
 
+# Drop any species which aren't ever actually observed.
+observations_aggregated <- observations_aggregated %>%
+  group_by(species_id) %>%
+  filter(sum(count) > 0) %>%
+  ungroup()
+
 ################################################
 # QA Check, the sites/years in the final version
 # actually have recorded surveys
