@@ -11,6 +11,14 @@ library(stringi)
 # field methods
 # http://www.cedarcreek.umn.edu/research/data/methods?e014
 
+# Package ID: knb-lter-cdr.106.8 Cataloging System:https://pasta.edirepository.org.
+# Data set title: Core Old Field Grasshopper Sampling:Successional Dynamics on a Resampled Chronosequence.
+# Data set creator:  Johannes Knops -  
+# Metadata Provider:    - Cedar Creek LTER 
+# Contact:  Dan Bahauddin - Information Manager Cedar Creek Ecosystem Science Reserve  - webmaster@cedarcreek.umn.edu
+# Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
+
+
 # read data directly from the portal (no idea why this is not in popler.....)
 cdr_raw <- read.csv('https://portal.lternet.edu/nis/dataviewer?packageid=knb-lter-cdr.106.8&entityid=3405c2e271929b0c537492a9ddde102b',
                 sep = '\t') 

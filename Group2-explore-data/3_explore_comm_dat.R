@@ -127,8 +127,20 @@ data.key <- "" # Google Drive file ID
 data.set <- "sev-grasshopper-compagnoni"
 data.key <- "" # Google Drive file ID
 
-#sev-grasshopper-compagnoni
+#cdr-grasshopper-compagnoni
+data.set <- "cdr-grasshopper-compagnoni"
+data.key <- "" # Google Drive file ID
+
+#knz-grasshopper-compagnoni
 data.set <- "knz-grasshopper-compagnoni"
+data.key <- "" # Google Drive file ID
+
+#jrn-677plantdensity-popler
+data.set <- "jrn-677plantdensity-popler"
+data.key <- "" # Google Drive file ID
+
+#sgs-plants-catano
+data.set <- "sgs-plants-catano"
 data.key <- "" # Google Drive file ID
 
 #######################
@@ -261,10 +273,11 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   geom_line(data=no.taxa$total.no.taxa, aes(x=DATE, y=no.taxa), color="black", size=1) +
   xlab("Year") +
   ylab("Number of taxa observed") +
-  guides(color = guide_legend(title = "Site")) +
+#  guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
   theme_bw() +
-  theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) # ,legend.position = "none"
+  theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none")
+
   dev.off()
 # ---------------------------------------------------------------------------------------------------
 # SITE-SPECIFIC AND TOTAL SPECIES ACCUMULATION CURVES
@@ -337,7 +350,7 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
   theme_bw()  +
-  theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) #, legend.position = "none"dev.off()
+  theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none") #
 dev.off()
 
 
@@ -381,10 +394,9 @@ cuml.taxa.space.fun <- function(EX){
 no.taxa.space <- cuml.taxa.space.fun(comm.dat)
 
 pdf(file=paste('MS3-Supp-Info/', data.set,'_species_accumulation_space.pdf', sep=''))
-plot(as.numeric(no.taxa.space$site), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "Cumulative number of taxa", cex=1.5, lwd=3, cex.lab=1.5)
-axis(side=1, at = as.numeric(no.taxa.space$site), labels = seq(1,length(no.taxa.space$site),1))
+plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "Cumulative number of taxa", cex=1.5, lwd=3, cex.lab=1.5)
+axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
 dev.off()
-
 
 # ---------------------------------------------------------------------------------------------------
 # COUNT SHARED SPECIES BETWEEN EACH SITE

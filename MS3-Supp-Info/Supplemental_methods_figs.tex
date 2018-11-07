@@ -300,7 +300,18 @@ Since the time series is so short to begin with, I suggest only including sites 
 
 
 \subsection {fce-fish}
-Rolando obtained the data from the PI and is working on cleaning \citep{fce-fish}.
+Data were obtained from the PI, and are cataloged on EDI  \citep{fce-fish}.
+Catch per unit effort (CPUE) was calculated as (count/distance)*100
+For each species, the CPUE was aggregated by summing the CPUE measured in each bout (i.e., replicate) within each Creek Number | River | YEAR | Season combination.
+The format was re-arranged to reflect the aggregated CPUE (?total CPUE?) per season as columns and mean CPUE column was created by averaging the CPUE across the three seasons.
+NOTE: After the first preliminary examination of the aggregated CPUE values the mean CPUE was ignored due to the unbalanced observations across the years and seasons. 
+So, only the observations in the Wet and Dry season were considered.
+Dry season: In this set, only the sites within RB were considered to create a balanced design for the analysis. 
+Thus, this set encompassed a longer temporal range with a cost of less spatial replication.
+NOTE: Also, YEAR 2004-2005 and 2011 were eliminated due to incomplete representation across the sites
+Wet season: In this set both RB and TB were considered but only after 2010. Thus, this set has a wider spatial replication but a shorter temporal range.
+NOTE: The difference in the spatial replication between seasons is related to the limitation of the sampling approach (electrofishing) which is limited to low salinity conditions. 
+Salinity threshold for electrofishing is often reached in TB during the Dry season (i.e., TB is considered the estuarine portion of the Shark River System).
 Data from the dry season are shown in Figure \ref{fce-fish-dry}.
 Data from the wet season are shown in Figure \ref{fce-fish-wet}.
 
@@ -420,8 +431,8 @@ Not all years were sampled, but all plots were sampled in each year of observati
 
 
 \subsection {and-plants-mtStHelens}
-Data were downloaded from Ecologcial Archives \citep{and-plants}.
-here it is (Figure \ref{and-plants}).
+Data were downloaded from Ecological Archives \citep{and-plants} and are described in \citep{delMoral2005}..
+We used data from the Pumice Plains habitat, which is the longest continuous sampling (about 20 years) for this dataset (Figure \ref{and-plants}).
 
 \begin{figure}[h!]
 \centering
@@ -436,7 +447,14 @@ here it is (Figure \ref{and-plants}).
 
 \subsection {cdr-plants}
 Data were downloaded from EDI \citep{cdr-plants}.
-Needs cleaning still (Figure \ref{cdr-plants}).
+Annual censuses for dataset are incomplete after 2004, so we only consider data until 2004. We used data from control plots only, from all four sites (A, B, C, and D). 
+We cleaned taxonomic data by cleaning clear mistakes (such as `carex sp.' instead of `Carex sp.'), removed non-taxonomic entities (``Miscellaneous litter") and non-plant taxa (`Fungi', and `Mosses \& lichens').
+We also lumped or dropped certain taxonomic information. 
+In particular, we lumped taxonomic information to the genus level when more than 1$\%$ (more than a proportion of 0.01) of the biomass of a genus was not identified to the species level. 
+For example, {\it Cyperus} species are usually identified to the genus level (``Cyperus  sp.") rather than species level (``{\it Cyperus schweinitzii}''), with a minority of the biomass (less than 10$\%$) identified at the specific level. We therefore consider only genus information for {\it Cyperus}. 
+We dropped taxonomic information when within a certain genus, biomass is identified to the genus level. 
+For example, in the genus {\it Viola}, more than 99.8$\%$ of biomass was determined to the species level. We therefore dropped from the dataset the instances when biomass is assigned to 'Viola sp.'.
+Data are shown in figure \ref{cdr-plants}.
 
 \begin{figure}[h!]
 \centering
@@ -483,7 +501,7 @@ Each site represents the reach level (each reach level site is composed of 3 tra
 Surveys from 2012 and March were dropped to standardize sampling efforts temporally. 
 Unidentified species were dropped, species code is the scientific name of species. 
 Taxon count was calculated as the maximum abundance per year in any one of the sampling events (with 3 sampling events per reach in April/May, June/July, and September/October). 
-%The final community dataset prepared for analysis has 7 sites representative of the reach level metacommunity dynamics (3 transects sampled per reach) from 2013-2017 with a total of 18 observed species across all sites.  
+The final community dataset prepared for analysis has 7 sites representative of the reach level metacommunity dynamics (3 transects sampled per reach) from 2013-2017 with a total of 18 observed species across all sites.  
 
 \begin{figure}[h!]
 \centering
@@ -499,6 +517,9 @@ Taxon count was calculated as the maximum abundance per year in any one of the s
 
 \subsection {sev-grasshoppers}
 The data were downloaded from the EDI Data Portal \citep{sev-grasshopper}.
+We retained data from only two habitats (Black grama and Creosotebush) that shared many species, and presented 20 years of temporal replication. This data were collected twice a year, and spatial replication included site, transect, and web. 
+Population (count) data is structured, being collected across sex, age, and substrate. 
+We summed numbers across webs, sex, age, and substrate.
 Data are shown in Figure \ref{sev-grasshoppers}.
   
 
@@ -513,8 +534,44 @@ Data are shown in Figure \ref{sev-grasshoppers}.
 \end{figure}
 
 
+\subsection{cdr-grasshoppers}
+{\bf Finish cleaning so we can make figures.}
+Data were accessed on EDI \citep{cdr-grasshoppers}.
+We removed sites `28' and `11', which were added to the sampling after 1989. 
+Then, we summed the number of individuals across all life stages and all months. 
+We summed across months even if in 2003, June and August samples were lost for some fields. 
+However, as the documentation reports, ``The total counts for these fields were augmented by proportional additions from remaining samples by John Haarstad and crew".
+Taxonomic information is available for only for the {\it Acrididae} family before 1994. 
+We lumped taxonomic identifications to genus level for {\it Conocephalus}, {\it Scudderia}, and {it\ Tetrix}, as too high a proportion of individuals from these genera were not identified at the species level. 
+Similarly, some individuals belonging to the {\it Melanoplus} genus were identified at the genus level only. 
+We removed these records, as they comprised only 6$\%$ of the entire counts in the {\it Melanoplus} genus.
+
+\subsection{knz-grasshoppers}
+Data on grasshopper abundance (1996-2013) were downloaded from \url{http://www2.konza.ksu.edu/sites/default/files/CGR022.csv}.
+{\bf Now there's new data on EDI  knb-lter-knz.29.12.!!! \citep{knz-grasshoppers}} 
+We retained 13 spatial replicates which provide continuous temporal replicates from 1995 to 2013 (2012 is missing). 
+We lumped taxonomic information level whenever the counts at the genus level made up more than 5$\%$ of the total individuals counted. 
+We did not do this lumping for {\it Melanopus} spp. because it is a hyperdiverse genus. 
+In this case, we dropped all {\it Melanopus} records identified at the genus level. 
+Finally, we average count data across a year, because some spatial replicates could occasionally contain more observations within a year.
+Data are shown in Figure \ref{knz-grasshoppers}.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_spp_shared.pdf}
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_space.pdf}
+\caption{{\bf KNZ-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in ... The black lines represent total site-level values across all plots.}
+\label{knz-grasshoppers}
+\end{figure}
+
 \subsection {and-birds}
 The data were downloaded from the EDI Data Portal \citep{and-birds}.
+We used data from the first five years of study (2009 - 2013) because six counts per season were conducted in those years.
+We summed the counts of new individuals observed within the closest distance radius (> 50 m)  of the points during the 10-minute interval for on each sampling occasion, and used the maximum number of individuals of each species recorded at each point as the abundance value for that year.
 Data are shown in Figure \ref{and-birds}.
 
 \begin{figure}[h!]

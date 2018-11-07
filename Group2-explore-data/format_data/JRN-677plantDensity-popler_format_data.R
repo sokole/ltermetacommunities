@@ -1,6 +1,5 @@
 # --------------------------------------------------------- #
-# Format raw data from L0 into L3 format                    #
-# handy code TEMPLATE                                       #
+# Format raw data from L0 into L3 format                                                         #
 # Revised 15 May 2018 by ERS                                #
 # --------------------------------------------------------- #
 
@@ -8,10 +7,6 @@
 # Contributors: Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
 # revised by Eric Sokol
 
-#Here is some template or example code that may be helpful for putting datasets into the format for the LTER metacommunities working group synthesis project and performing a few data checks. 
-#Make one script for each dataset that converts the data from the form we originally got it in to the one we need. This might involve aggregating subplots and/or multiple sampling occasins by year, subsetting out sites or species, etc. It may also be necessary to fill in an abundance of zero for any taxa that appear in the dataset but were not observed at a particular site-year.
-#Save the resulting file in the directory "~/Google Drive/LTER Metacommunities/LTER-DATA/L3-aggregated-by-year-and-space". This file should be ready for preliminary analalysis.
-#The next step in the pipeline after this one is to run each dataset through the script 3_explore_comm_dat.R. This script plots the sampling effort (to be sure overvations are balanced), the species accumulation curve, and a time series of species richness at each site as well as in aggragate. If these preliminiary visualizations turn up something problematic, go back to the script spcific to the dataset and add in annotated code to fix the problem.
 
 options(stringsAsFactors = FALSE)
 library(testthat)

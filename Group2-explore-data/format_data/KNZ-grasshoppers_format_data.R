@@ -7,31 +7,34 @@ library(dplyr)
 library(tidyr)
 library(stringi)
 
-#WE DID NOT USE THE DATA ON EDI!!
-# Package ID: knb-lter-knz.29.7 Cataloging System:https://pasta.lternet.edu.
-# Data set title: CGR02 Sweep Sampling of Grasshoppers on Konza Prairie LTER watersheds (1982-present).
+
+# Package ID: knb-lter-knz.29.12 Cataloging System:https://pasta.edirepository.org.
+# Data set title: CGR02 Sweep Sampling of Grasshoppers on Konza Prairie LTER watersheds.
 # Data set creator:  Anthony Joern -  
-# Contact:    - Information Manager LTER Network Office  - tech-support@lternet.edu
-# Contact:    - KNZ-LTER Data Manager   - knzlter@ksu.edu
-# Metadata Link: https://portal.lternet.edu/nis/metadataviewer?packageid=knb-lter-knz.29.7
+# Metadata Provider:    - Konza LTER 
+# Contact:  Konza LTER -    - knzlter@ksu.edu
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
+#environmental data
+infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-knz/29/12/aaa7b3b477019f6bb96f47a9a6ae8943" 
+infile1 <- sub("^https","http",infile1) 
+ dt1 <-read.csv(infile1, stringsAsFactors=F)
 
-#Data available at the KNZ website go thorugh 2013 but data on EDI only go through 2003. This will read the data in from the website, but I'm not sure the link is permanent:
+#counts 
+infile2  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-knz/29/12/3fb352e2478f776517f7e880fe31b808" 
+infile2 <- sub("^https","http",infile2) 
+ dt2 <-read.csv(infile2, stringsAsFactors=F)
+ 
+site_df <- dt1
+count_df <- dt2
 
 
-#This is CGR021 Data on the environmental variables
-infile1  <- "http://www2.konza.ksu.edu/sites/default/files/CGR021.csv" 
-site_df  <-read.csv(infile1,stringsAsFactors=F)
+# Alternately, read raw data from copy cached on Google Drive by Nina Lany Nov 7, 2018: information on sites, and information on species counts
+#site_df   <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/KNZ-grasshoppers/archive_knb-lter-knz/CGR021.csv") 
+#count_df  <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/KNZ-grasshoppers/archive_knb-lter-knz/CGR022.csv")
 
-#This is CGR022 Data on indivisual sweeps of each grasshopper species
-infile2  <- "http://www2.konza.ksu.edu/sites/default/files/CGR022.csv" 
-count_df <-read.csv(infile2,stringsAsFactors=F)
-
-
-# read raw data from copy cached on Google Drive by Aldo Compagnoni May 24, 2018: information on sites, and information on species counts
-site_df   <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/KNZ-grasshoppers/KNZ-grasshoppers_sites.csv") 
-count_df  <- read.csv("~/Google Drive FIle Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/KNZ-grasshoppers/KNZ-grasshoppers_counts.csv")
+names(count_df) <- toupper(names(count_df))
+names(site_df) <- toupper(names(site_df))
 
 # remove DATACODE, RECTYPE: they will impede a "join". Plus, they are undefined in metadata
 site_df  <- site_df %>% 
@@ -180,5 +183,12 @@ keep_s <- c('0SPB_B_fl', '0SPB_A_fl', '002C_B_fl', '002C_A_fl',
 out <- knz %>% 
           subset( SITE_ID %in% keep_s ) %>% 
           subset( DATE > 1995)
+
+#propogate zeros and check 
+out <- out %>% spread(VARIABLE_NAME, VALUE, fill = 0) %>% 
+  gather(VARIABLE_NAME, VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS)
+
+tapply(out$VALUE, list(out$SITE_ID, out$DATE), length)
+
 
 write.csv(out, '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-knz-grasshopper-compagnoni.csv', row.names=F)
