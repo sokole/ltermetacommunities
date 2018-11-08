@@ -50,6 +50,8 @@ cdr     <- cdr_raw %>%
                     species = replace(species, genus == 'Tetrix', 'spp.') ) %>% 
             # remove genus-level IDs for Melanopus
             subset( !(genus == 'Melanoplus' & species == 'spp.') ) %>% 
+            # remove  'Psinidia??_ ' (only 2 individuals; this is an unknown)
+            subset( !(genus %in% 'Psinidia??') ) %>% 
             select( -Order,-Family ) %>% 
   
             # Sum numbers across "lumped" taxonomic units
