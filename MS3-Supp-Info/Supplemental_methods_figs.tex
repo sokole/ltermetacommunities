@@ -419,15 +419,7 @@ Data are shown in Figure \ref{sgs-plants}.
 \end{figure}
 
 \subsection{jrn-plants}
-I{\bf n prep.
-Need to fix cleaning script.
-Object r\_ids not found. 
-Remove duplicate row identifiers so we can add zeros. 
-Maybe once I can run the cleaning script, the sampling effort plot will look better.}
-Data are shown in Figure \ref{jrn-plants}.
-
-Intended methods:
-We selected a subsample of 6 quadrats that provided 14 years of continuous observations. 
+We selected a subsample of 10 quadrats that provided 18 sampling occasions over 24 years (1915-1938). 
 This is a small subsample of the 114 quadrats that make up this incredible dataset. 
 We then dropped or lumped taxonomic identifiers, because several counts were assigned to a genus rather than to a species. 
 For 25 genera contained in this dataset, counts were sometimes assigned to a species (e.g. Poa secunda) or to a genus (e.g. Poa spp.). 
@@ -436,15 +428,15 @@ When the percentage of counts identified to a genus were less than 5$\%$ of the 
 However, when the the percentage of counts identified at the genus level was more than 5$\%$, we lumped all of the counts assigned to a species into a single genus. 
 We did this because such high proportion of counts assigned to a genus, rather than a species, suggests high uncertainty in species identification.
 NOTE: the species accumulation curve in this dataset saturated quite rapidly. This is potentially an artifact of "lumping" specific information to the genus level. 
-
+Data are shown in Figure \ref{jrn-plants}.
 
 \begin{figure}[h!]
 \centering
-%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_curve.pdf}
-%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{jrn-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
-%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_space.pdf}
-%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spp_shared.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spp_shared.pdf}
 \caption{{\bf JRN-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at the Jornada (JRN) LTER. The black lines represent total site-level values across all plots.}
 \label{jrn-plants}
 \end{figure}
