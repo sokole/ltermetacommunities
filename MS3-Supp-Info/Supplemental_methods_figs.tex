@@ -62,7 +62,7 @@ We also include a table of datasets that were considered, and that we prepared i
 \begin{table}[h!]
 \scriptsize
    \centering
-     \caption{Metadata on the data sets included in the meta-analysis. This table is automatically generated directly from the datasets in the L3 folder. I can make it look prettier once it is final.} 
+     \caption{Metadata on the data sets included in the meta-analysis. This table is automatically generated directly from the datasets in the L3 folder.} 
 
 \csvautotabular{metadata_table.csv}
    \label{metadata} 
@@ -505,6 +505,23 @@ Data are shown in Figure \ref{knz-grasshoppers}.
 \includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_space.pdf}
 \caption{{\bf KNZ-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in ... The black lines represent total site-level values across all plots.}
 \label{knz-grasshoppers}
+\end{figure}
+
+\subsection{luq-snails}
+Data were downloaded from EDI \citep{luq-snails}.
+We averaged number of snails across runs ("Run.ID" in dataset) and seasons ("Seasons" in dataset). 
+There were no codes for unknown or non-living taxa.
+Data are shown in Figure \ref{luq-snails}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_spp_shared.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_species_accumulation_space.pdf}
+\caption{{\bf LUQ-snails:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for snail species observed in Luquillo LTER. The black lines represent total site-level values across all plots.}
+\label{luq-snails}
 \end{figure}
 
 
