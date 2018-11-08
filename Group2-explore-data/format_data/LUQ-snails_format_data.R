@@ -49,6 +49,10 @@ snail     <-read.csv(infile1,
                         "Total.snail.abundance",     
                         "Comments.at.the.field"    ), check.names=TRUE)
 
+snail %>% 
+  subset( grepl('2107',Date) ) %>% 
+  select(Year, Date)
+
 # check how many sites we have every single year
 snail %>% 
   select(Year, Point ) %>% 
@@ -62,24 +66,21 @@ snail_long <- snail %>%
                 gather(spp_code, 
                        count, 
                        Population.size.of.captured.Austroselenites.alticola:Population.size.of.snails.of.unknown.species) %>%
-                # remove data point that lack exact date: popler cannot accomodate this data
-                subset(Date != "") %>% 
                 # format species names
                 mutate( spp_code = gsub('Population.size.of.captured.',
                                         '',
                                         spp_code) ) %>% 
                 mutate( spp_code = gsub('\\.','_',spp_code ) ) %>% 
-                dplyr::select( -Total.snail.abundance, -Comments.at.the.field ) %>% 
-                # separate date column
-                separate( Date, c('month','day','year'), sep='/' ) %>% 
+                dplyr::select( -Date, -Total.snail.abundance, -Comments.at.the.field ) %>% 
                 # get count averages
-                group_by( year, spp_code, Point) %>% 
+                group_by( Year, spp_code, Point) %>% 
                 summarise( count = mean(count, na.rm=T) ) %>% 
-
+                ungroup %>% 
+  
                 # LTERMETACOMM FORMAT
                 rename( SITE_ID       = Point,
                         VARIABLE_NAME = spp_code,
-                        DATE          = year,
+                        DATE          = Year,
                         VALUE         = count ) %>% 
                 mutate( OBSERVATION_TYPE = 'TAXON_COUNT',
                         VARIABLE_UNITS   = 'COUNT (yearly mean)' ) %>% 
@@ -87,6 +88,16 @@ snail_long <- snail %>%
                 select(OBSERVATION_TYPE, SITE_ID, DATE, 
                        VARIABLE_NAME, VARIABLE_UNITS, VALUE)
 
+# keep sites present in every year
+site_keep <- snail_long %>% 
+                dplyr::select(DATE, SITE_ID) %>% 
+                unique %>% 
+                count(SITE_ID) %>% 
+                subset( n == 27 ) %>% 
+                .$SITE_ID
+
+# select the common sites
+snail_out <- snail_long %>% subset( SITE_ID %in% site_keep )
+
 # write file out
 write.csv(snail_long, '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-luq-snails-compagnoni.csv', row.names=F)
-
