@@ -1,0 +1,11 @@
+Eric's email to Sydne
+
+I crated a "Site-list" tab for all the sites for which we should try to grab environmental data here:
+https://docs.google.com/spreadsheets/d/1wP_-hmmB81cpGklhBZRZybDrVOWaDX2rijBVcrlAdfQ/edit?usp=sharing
+
+There are two potential non-LTER sites that have stream invert data that I think we can use:
+
+FRCK -- a USGS data set that is not public, but I know the PI (Bob Zuellig). I've attacked a .kml of the sampling locations. I'm still waiting to hear back from Bob about whether we can use this data set, but I'm pretty sure he'll say yes. 
+
+KCDNRP  -- publicly available data from King County, WA. I talked with Kate MacNeale, who oversees the monitoring program, and she suggested multiple data sets. I've only looked at one so far, which is the King County Ambient Monitoring data set. Here's a permalink to the data with lat/longs for all the sampling locations:
+https://www.pugetsoundstreambenthos.org/Download.aspx?page=Download%2FSamplesWithBioticAttributes.ashx&Agency-Project=King-DNRP%3A%20Ambient%20Monitoring&Stream-Area=All%20Streams%20and%20Rivers&maxO=2000&OO=3 
