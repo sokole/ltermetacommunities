@@ -368,7 +368,7 @@ for(ii in 1:nrow(newvar_df)){
 out <- Reduce(function(...) rbind(...), 
               list(count_d,lat_lon, graz_info) )
 
-write.csv(out,'C:/L3-jrn-plants-compagnoni.csv', row.names=F)     
+write.csv(out, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-jrn-plants-compagnoni.csv", row.names = F)    
 
 # 
 # #4 Combine into one big table
