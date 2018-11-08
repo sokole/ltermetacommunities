@@ -162,13 +162,12 @@ write.csv(data_ALL,
 #######################################################
 # -- Make figures
 #######################################################
-biomes <- read_csv(file = paste0("https://docs.google.com/spreadsheets/export?id=",
-                       "1_IyFiruxf8vp_DY_q_5YaPmoZSUp0l2jnx9v7B1Ujf8",
-                       "&format=csv"))
+env_data <- read_csv(file = "Group3-diversity-metrics/l3_data.csv")
 
+data_ALL <- data_ALL %>% mutate(l3_filename = name)
 # how do alpha, gamma, and beta variability over a metacom richness gradient?
 
-left_join(data_ALL, biomes) %>% filter(gamma_mean < 100) %>% 
+left_join(data_ALL, env_data)  %>% filter(gamma_mean < 100) %>% 
   gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
   ggplot(aes(x = gamma_mean, y = bd, color = biome, fill = biome)) + 
   facet_grid(scale ~ ., scales = "free_y") +
@@ -178,21 +177,6 @@ left_join(data_ALL, biomes) %>% filter(gamma_mean < 100) %>%
   ggsave("Group3-diversity-metrics/figures/gammadiv-stability.png",
          width = 7, height = 7, dpi = 300, units = "in")
 
-left_join(data_ALL, biomes) %>% filter(alpha_mean < 100) %>% 
-  ggplot(aes(x = alpha_mean, y = mean_alpha_temporal_bd, color = biome, fill = biome)) +
-  geom_point(alpha = 0.5) + 
-  geom_smooth(method = 'lm', formula = y ~ x, alpha = 0.15) + 
-  theme_minimal() + 
-  ggsave("Group3-diversity-metrics/figures/div-stab-relation-alpha.png",
-         width = 7, height = 7, dpi = 300, units = "in")
-
-left_join(data_ALL, biomes) %>% filter(gamma_mean < 100) %>% 
-  ggplot(aes(x = gamma_mean, y = gamma_temporal_bd, color = biome, fill = biome)) +
-  geom_point(alpha = 0.5) +
-  geom_smooth(method = 'lm', formula = y ~ x, alpha = 0.15) +
-  theme_minimal() +
-  ggsave("Group3-diversity-metrics/figures/div-stab-relation-gamma.png",
-         width = 7, height = 7, dpi = 300, units = "in")
 
 left_join(data_ALL, biomes) %>% filter(alpha_mean < 100) %>% 
   gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
@@ -202,4 +186,45 @@ left_join(data_ALL, biomes) %>% filter(alpha_mean < 100) %>%
   geom_smooth(method = 'lm', formula = y ~ x, alpha = 0.15) + 
   theme_minimal() + 
   ggsave("Group3-diversity-metrics/figures/alphadiv-stability.png",
+         width = 7, height = 7, dpi = 300, units = "in")
+
+left_join(data_ALL, env_data)  %>% 
+  gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
+  ggplot(aes(x = `dispersal type`, y = bd, color = `dispersal type`, fill = `dispersal type`)) + 
+  facet_grid(scale ~ ., scales = "free_y") +
+  geom_boxplot(alpha = 0.5) + 
+  geom_point(alpha = 0.25) +
+  theme_minimal() +
+  ggsave("Group3-diversity-metrics/figures/dispersaltype-stability.png",
+         width = 7, height = 7, dpi = 300, units = "in")
+
+left_join(data_ALL, env_data)  %>% 
+  gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
+  ggplot(aes(x = `trophic group`, y = bd, color = `trophic group`, fill = `trophic group`)) + 
+  facet_grid(scale ~ ., scales = "free_y") +
+  geom_boxplot(alpha = 0.5) + 
+  geom_point(alpha = 0.25) +
+  theme_minimal() +
+  ggsave("Group3-diversity-metrics/figures/trophicgroup-stability.png",
+         width = 7, height = 7, dpi = 300, units = "in")
+
+left_join(data_ALL, env_data)  %>% filter(gamma_mean < 100) %>% 
+  gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
+  ggplot(aes(x = `body size`, y = bd, color = `body size`, fill = `body size`)) + 
+  facet_grid(scale ~ ., scales = "free_y") +
+  geom_boxplot(alpha = 0.5) + 
+  geom_point(alpha = 0.25) +
+  theme_minimal() +
+  ggsave("Group3-diversity-metrics/figures/bodytype-stability.png",
+         width = 7, height = 7, dpi = 300, units = "in")
+
+left_join(data_ALL, env_data)  %>% filter(gamma_mean < 100) %>% 
+  gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
+  ggplot(aes(x = `organism`, y = bd, color = `organism`, fill = `organism`)) + 
+  facet_grid(scale ~ ., scales = "free_y") +
+  geom_boxplot(alpha = 0.5) + 
+  geom_point(alpha = 0.25) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  ggsave("Group3-diversity-metrics/figures/organism-stability.png",
          width = 7, height = 7, dpi = 300, units = "in")
