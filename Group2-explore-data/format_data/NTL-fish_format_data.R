@@ -17,18 +17,18 @@
 # Contact:  NTL Lead PI -  University of Wisconsin  - ntl.leadpi@gmail.com
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
-#infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/7/24/307b9c3bb1bb42825c3514086fe43acc" 
-#infile1 <- sub("^https","http",infile1) 
-#my_data <-read.csv(infile1,header=F 
+# infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-ntl/7/24/307b9c3bb1bb42825c3514086fe43acc"
+# infile1 <- sub("^https","http",infile1)
+# my_data <-read.csv(infile1,header=F
 #          ,skip=1
-#            ,sep=","  
-#                ,quot='"' 
+#            ,sep=","
+#                ,quot='"'
 #        , col.names=c(
-#                    "lakeid",     
-#                    "year4",     
-#                    "gearid",     
-#                    "effort",     
-#                    "spname",     
+#                    "lakeid",
+#                    "year4",
+#                    "gearid",
+#                    "effort",
+#                    "spname",
 #                    "total_caught"    ), check.names=TRUE, stringsAsFactors=FALSE)
                
 #Google Drive File Stream method
@@ -95,17 +95,24 @@ length(which(long_data$VARIABLE_NAME=="LARVALFISH")) #14
 length(which(long_data$VARIABLE_NAME=="UNIDCHUB")) #1
 length(which(long_data$VARIABLE_NAME=="UNIDENTIFIED")) #21
 length(which(long_data$VARIABLE_NAME=="UNIDDARTER")) #3
-#remove 88 rows with unidentified taxa
-long_data <- long_data %>%
-  dplyr::filter(VARIABLE_NAME != "UNIDSUNFISH",          
-                VARIABLE_NAME != "UNIDMINNOW",
-                VARIABLE_NAME != "UNIDSHINER",
-                VARIABLE_NAME != "LARVALFISH",
-                VARIABLE_NAME != "UNIDCHUB",
-                VARIABLE_NAME != "UNIDENTIFIED",
-                VARIABLE_NAME != "UNIDDARTER"
-                )
 
+# remove unidentified taxa and specific lakes
+long_data <- long_data %>%
+                #remove 88 rows with unidentified taxa
+                filter(VARIABLE_NAME != "UNIDSUNFISH",          
+                       VARIABLE_NAME != "UNIDMINNOW",
+                       VARIABLE_NAME != "UNIDSHINER",
+                       VARIABLE_NAME != "LARVALFISH",
+                       VARIABLE_NAME != "UNIDCHUB",
+                       VARIABLE_NAME != "UNIDENTIFIED",
+                       VARIABLE_NAME != "UNIDDARTER" ) %>% 
+  
+                # Dropping the souther lakes (those at 43 latitude) so the bounding box is not an entire region.
+                filter( !SITE_ID %in% c('FI','ME','MO','WI') ) %>% 
+
+                # #NKL 05/14/2018  remove the two bog lakes (TB and CB) and remove years prior to xxxx for balanced sampling.
+                filter( SITE_ID != "TB",          
+                        SITE_ID != "CB" )
 
 # Code to bring in the coordinates is below. Not included here.
 #are the data propogated (zeros for species not observed)?
@@ -115,19 +122,6 @@ tapply(long_data$VALUE, list(long_data$SITE_ID,long_data$DATE), length) #NO
 wide_data <- spread(long_data, key = VARIABLE_NAME, value = VALUE, fill = 0) 
 long_dat <- gather(wide_data, key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS)
 tapply(long_dat$VALUE, list(long_dat$SITE_ID,long_dat$DATE), length) #YES!
-
-# Dropping the souther lakes (those at 43 latitude) so the bounding box is not an entire region.
-# Shawn Taylor 07-Nov-2018
-long_dat <- long_dat %>%
-  filter(!SITE_ID %in% c('FI','ME','MO','WI'))
-
-#NKL 05/14/2018 remove the two bog lakes (TB and CB) and remove years prior to xxxx for balanced sampling.
-str(long_dat)
-long_dat <- long_dat %>%
-  dplyr::filter(SITE_ID != "TB",          
-                SITE_ID != "CB"
-                )
-
 
 
 # write the L3 output file
