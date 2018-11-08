@@ -36,18 +36,16 @@ for (package in c('googledrive','dplyr', 'tidyr', 'vegetarian', 'vegan', 'metaco
 
 # ---------------------------------------------------------------------------------------------------
 #IMPORT AND FORMAT DATA FROM EDI
-#Some data will come from the EDI portal in the ecocommDP format. Here is code that downloads an ecocommDP dataset diretly from the EDI portaland converts it into the necessary format.
 
-#1. read in flat tables from EDI. The code below was modified from the code that is available on the EDI page for each dataset (look for an 'import data from R' link). Once you obtain this code for the dataset of interest, the rest of the steps should run without modification. Be sure to add 'stringsAsFactors = F' to the code that imports each csv.
+# Package ID: knb-lter-jrn.210351002.75 Cataloging System:https://pasta.edirepository.org.
+# Data set title: Jornada Experimental Range permanent quadrat chart data beginning 1915 - plant density.
+# Data set creator:  William Chapline -  
+# Metadata Provider:    - USDA ARS Jornada Experimental Range (JER) 
+# Contact:    - Data Manager Jornada Basin LTER  - datamanager@jornada-vmail.nmsu.edu
+# Contact:  Darren James -  USDA ARS Jornada Experimental Range (JER)  - 
+# Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
-# # get google_id for Observation table
-# google_id <- ecocom_dp_dir %>% filter(grepl('observation',name)) %>% select(id) %>% unlist()
-# dt1 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", google_id))
-
-# #Sampling location ancillary table
-# google_id <- ecocom_dp_dir %>% filter(grepl('location',name)) %>% select(id) %>% unlist()
-# dt2 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", google_id))
-
+#read in observations data table
 infile1 <- "https://pasta.lternet.edu/package/data/eml/knb-lter-jrn/210351002/75/10c1bf759b5700581368e64387c2a347" 
 infile1 <- sub("^https","http",infile1) 
 main_df <- read.csv( infile1,
@@ -66,29 +64,13 @@ main_df <- read.csv( infile1,
                                   "density"), 
                      check.names=TRUE)
  
-# #dataset summary table
-# infile3  <- "https://pasta.lternet.edu/package/data/eml/edi/124/3/35e680b74d58817276e416d4de63f447" 
-# infile3 <- sub("^https","http",infile3) 
-#  dt3 <-read.csv(infile3,header=F 
-#           ,skip=1
-#             ,sep="\t"  
-#                 ,quot='"' 
-#         , col.names=c(
-#                     "package_id",     
-#                     "original_package_id",     
-#                     "length_of_survey_years",     
-#                     "number_of_years_sampled",     
-#                     "std_dev_interval_betw_years",     
-#                     "max_num_taxa",     
-#                     "geo_extent_bounding_box_m2"    ), check.names=TRUE,
-#                     stringsAsFactors = F)
 
+#Alternately, read in the cached copy of the data from Google Drive:
+#main_df <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-677plantDensity-popler/archive_knb-lter-jrn/JornadaStudy_351_permanent_chart_quadrat_perennial_forb_density_data.csv")
 
 #sampling location table      
-# google_id <- ecocom_dp_dir %>% filter(grepl('location',name)) %>% select(id) %>% unlist()
-# dt4       <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", google_id))
-# read.csv('http://esapubs.org/archive/ecol/E093/132/quad_inventory.csv')
-dt4       <- read.csv('C:/677_location.csv',
+#dt4 <-  read.csv('http://esapubs.org/archive/ecol/E093/132/quad_inventory.csv', stringsAsFactors=F)
+dt4       <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-677plantDensity-popler/ecocomDP_export/677_location.csv',
                       stringsAsFactors = F) %>%
                 mutate( location_name = gsub('quadrat_updated_site_jrn_',
                                              '',
@@ -96,8 +78,8 @@ dt4       <- read.csv('C:/677_location.csv',
                 subset( location_id %in% c('1_1','1_2','1_7',
                                            '1_8','1_9','1_13') )
 
-# information on location
-loc_info  <- read.csv('C:/jrn_677_plot_locations.csv',
+# information on location (Aldo added this file to Google Drive. It contains info on coordinates from popler that are not avail on EDI.)
+loc_info <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/JRN-677plantDensity-popler/jrn_677_plot_locations.csv",
                       stringsAsFactors = F) %>% 
                 .$locs %>% 
                 strsplit(' ') %>% unlist %>% 
@@ -110,7 +92,7 @@ loc_info  <- read.csv('C:/jrn_677_plot_locations.csv',
                 rename( latitude  = lat,
                         longitude = lon )
 
-# quadrat info from ecological archives (http://esapubs.org/archive/ecol/E093/132/)
+# quadrat info from ecological archives (http://esapubs.org/archive/ecol/E093/132/). Contains info on quadrat names, elevation, and grazing status.
 q_info    <- read.csv('http://esapubs.org/archive/ecol/E093/132/quad_info.csv', 
                       stringsAsFactors = F) %>% 
                 mutate( quad.name     = tolower(quad.name) ) %>% 
