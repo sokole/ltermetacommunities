@@ -203,7 +203,7 @@
 \includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
 \includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_species_accumulation_space.pdf}
-%\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_spp_shared.pdf}
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_spp_shared.pdf}
 \caption{{\bf CDR-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed at the Cedar Creek LTER. The black lines represent total site-level values across all plots.}
 \label{cdr-grasshoppers}
 \end{figure}
