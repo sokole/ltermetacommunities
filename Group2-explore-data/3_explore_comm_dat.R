@@ -117,7 +117,7 @@ data.set <- "and-plants-mtStHelens"
 data.key <- "" # Google Drive file ID
 
 #jrn-677plantdensity-popler
-data.set <- "jrn-677plantdensity-popler"
+data.set <- "jrn-plants-compagnoni"
 
 
 #cap-birds-banville
@@ -138,10 +138,6 @@ data.key <- "" # Google Drive file ID
 
 #knz-grasshopper-compagnoni
 data.set <- "knz-grasshopper-compagnoni"
-data.key <- "" # Google Drive file ID
-
-#jrn-677plantdensity-popler
-data.set <- "jrn-677plantdensity-popler"
 data.key <- "" # Google Drive file ID
 
 #sgs-plants-catano

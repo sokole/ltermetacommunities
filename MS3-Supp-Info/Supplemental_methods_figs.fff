@@ -142,17 +142,6 @@
  
 \begin{figure}[h!]
 \centering
-\includegraphics[scale = 0.4]{nwt-plants-hallett_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_spp_shared.pdf}
-\caption{{\bf NWT-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 109 plant species observed at 88 plots in the Niwot Ridge LTER (1989-2014). The black lines represent total site-level values across all plots.}
-\label{nwt-plants}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}[h!]
-\centering
 \includegraphics[scale = 0.4]{and-plants-mtStHelens_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{and-plants-mtStHelens_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{and-plants-mtStHelens_spatiotemporal_sampling_effort.pdf}
@@ -187,24 +176,13 @@
  
 \begin{figure}[h!]
 \centering
-\includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{jrn-lizards-hope_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_space.pdf}
-\includegraphics[scale = 0.4]{jrn-lizards-hope_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{jrn-lizards-hope_spp_shared.pdf}
-\caption{{\bf JRN-lizards:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 20 lizard species observed at 9 plots in the Jornada LTER (1990-2005). The black lines represent total site-level values across all plots.}
-\label{jrn-lizards}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{cap-herps-banville_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{cap-herps-banville_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{cap-herps-banville_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{cap-herps-banville_spp_shared.pdf}
-\caption{{\bf CAP-herps:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for species observed in the Central Area Phoenix LTER (1990-2005). The black lines represent total site-level values across all plots.}
-\label{cap-herps}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_space.pdf}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spp_shared.pdf}
+\caption{{\bf JRN-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at the Jornada (JRN) LTER. The black lines represent total site-level values across all plots.}
+\label{jrn-plants}
 \end{figure}
 \efloatseparator
  
@@ -240,6 +218,29 @@
 \includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_space.pdf}
 \caption{{\bf KNZ-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in ... The black lines represent total site-level values across all plots.}
 \label{knz-grasshoppers}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{jrn-lizards-hope_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{jrn-lizards-hope_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{jrn-lizards-hope_spp_shared.pdf}
+\caption{{\bf JRN-lizards:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 20 lizard species observed at 9 plots in the Jornada LTER (1990-2005). The black lines represent total site-level values across all plots.}
+\label{jrn-lizards}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{cap-herps-banville_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_spp_shared.pdf}
+\caption{{\bf CAP-herps:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for species observed in the Central Area Phoenix LTER (1990-2005). The black lines represent total site-level values across all plots.}
+\label{cap-herps}
 \end{figure}
 \efloatseparator
  

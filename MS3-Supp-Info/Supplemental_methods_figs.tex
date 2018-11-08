@@ -74,9 +74,9 @@ We also include a table of datasets that were considered, and that we prepared i
 
 
 \subsection {csun.usvi-coral}
-Data are from Max Castorani.
+Data were downloaded from \url{http://mcrlter.msi.ucsb.edu/cgi-bin/showCSUNDataset.cgi?docid=knb-csun-usvi.101.4}.
 Need more metadata for this dataset.
-Margaret is looking for data API.
+Margaret is helping.
 Data are in Figure \ref{usvi-coral}.
 
 \begin{figure}[h!]
@@ -230,19 +230,6 @@ The cumulative number of taxa was still increasing at the end of the time series
 \label{mcr-algae}
 \end{figure}
 
-%\subsection {mcm-diatoms}
-%Each site was sampled anywhere from five to nine times over a 20 year period, but not all sites were sampled in all years.
-%Data are in Figure \ref{mcm-diatoms}.
-%We decided not to use this dataset.
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[scale = 0.4]{mcm-diatoms-schulteSokol_species_accumulation_curve.pdf}
-%\includegraphics[scale = 0.4]{mcm-diatoms-schulteSokol_num_taxa_over_time.pdf}
-%\includegraphics[scale = 0.4]{mcm-diatoms-schulteSokol_spatiotemporal_sampling_effort.pdf}
-%\caption{{\bf MCM-diatoms:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 58 diatom taxa observed at five sites in McMurdo LTER.  The black lines represent total site-level values across all plots.}
-%\label{mcm-diatoms}
-%\end{figure}
-
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section {Freshwater datasets}
@@ -282,6 +269,7 @@ Since the time series is so short to begin with, I suggest only including sites 
 
 
 \subsection {fce-fish}
+{\bf Need to select wet or dry season.}
 Data were obtained from the PI, and are cataloged on EDI  \citep{fce-fish}.
 Catch per unit effort (CPUE) was calculated as (count/distance)*100
 For each species, the CPUE was aggregated by summing the CPUE measured in each bout (i.e., replicate) within each Creek Number | River | YEAR | Season combination.
@@ -342,29 +330,7 @@ Data are shown in Figure \ref{ntl-zooplankton}.
 \end{figure}
 
 
-%\subsection {ntl-macroinvertebrate}
-%{\bf The data have not been propagated (i.e. no zero values recorded when a species is absent) and are NOT ready for analysis.}
-%Data are shown in Figure \ref{ntl-macroinvertebrate}.
-%There are only four taxa in this dataset (Chaoborus, Leptodora, Mysis, and Bythotrephes).
-%I don't think that's enough species to meet our criteria.
-%Also note that in some years there appear to be five taxa because Chaoborus larvae and Chaoborus pupae were given separate IDs. 
-%This needs to be fixed prior to analysis.
-%Also, it's unclear whether the data are not propagated, or not all taxa were counted in all years.
-%Four of the 7 sites were not sampled in 1998.
-%I think that year (1998) should be removed.
-%But mostly, I don't think this dataset meets the criteria.
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[scale = 0.4]{ntl-macroinvertebrate-stanleyLottig_species_accumulation_curve.pdf}
-%\includegraphics[scale = 0.4]{ntl-macroinvertebrate-stanleyLottig_num_taxa_over_time.pdf}
-%\includegraphics[scale = 0.4]{ntl-macroinvertebrate-stanleyLottig_spatiotemporal_sampling_effort.pdf}
-%\caption{{\bf NTL-macroinvertebrates:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 4 macroinvertabrate taxa observed at 7 sites North Temperate Lakes LTER . The black lines represent total site-level values across all plots.}
-%\label{ntl-macroinvertebrate}
-%\end{figure}
-
-
 \subsection {ntl-fish}
-
 Data on fish abundance were downloaded from the EDI Data Portal \citep{ntl-fish}.
 Two types of gill nets (VGN and VGN127) and the method  ``ESHOCK" were rarely used, and thus removed from the dataset.% as per a conversation with Noah Lottig at NTL.
 %The gear method ``ESHOCK" was also rarely used and a follow up call is needed to determine how best to handle those data.
@@ -375,7 +341,6 @@ Catch per unit effort (CPUE) was calculated for each species in each lake per ye
 Also, the two bog lakes (CB, TB) had 1-3 species each and were removed. 
 Three of the 11 sites (FI, MO, WI) were initiated in 1995, and therefore the time series was subsetted to include only years after 1994.
 Data are shown in Figure \ref{ntl-fish}.
-
 
 \begin{figure}[h!]
 \centering
@@ -390,26 +355,6 @@ Data are shown in Figure \ref{ntl-fish}.
 
 %%%%%%%%%%%%%%%%%%%
 \section {Terrestrial datasets}
-
-\subsection {nwt-plants}
-{\bf no provenance.}
-The data were obtained from Eric Sokol.
-Not all years were sampled, but all plots were sampled in each year of observation. 
- Number of taxa increased rapidly toward the end of the time series. 
- Data in Figure \ref{nwt-plants}.
- It would be good to collect more metadata and provenance for this dataset.
- The plots comprise at least four distinct habitats.
- Some plots have very few species.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{nwt-plants-hallett_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_spp_shared.pdf}
-\caption{{\bf NWT-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 109 plant species observed at 88 plots in the Niwot Ridge LTER (1989-2014). The black lines represent total site-level values across all plots.}
-\label{nwt-plants}
-\end{figure}
 
 
 \subsection {and-plants-mtStHelens}
@@ -468,53 +413,24 @@ Data are shown in Figure \ref{sgs-plants}.
 \label{sgs-plants}
 \end{figure}
 
-
-
-\subsection {jrn-lizards}
-The data were downloaded from the EDI Data Portal \citep{jrn-lizard}.
-This was a mark-recapture study. 
-Pitfall traps were opened for two weeks four times per year (quarterly). 
-The monthly samples from 1990 and 1991 were removed.
-Individual lizards were identified and the number of unique individuals per site per year were summed. 
-Two sites that were established five years after the start of the study (SUMM and NORT) were excluded. 
-We don't have a key to the species codes.
-Data are shown in Figure \ref{jrn-lizards}.
-The cumulative number of taxa was still increasing at the end of the time series, although with only 20 species total one or two species introductions could cause this pattern.
-
+\subsection{jrn-plants}
+In prep.
+Need to fix cleaning script.
+Object r\_ids not found. 
+Remove duplicate row identifiers so we can add zeros. 
+Maybe once I can run the cleaning script, the sampling effort plot will look better.
+Data are shown in Figure \ref{jrn-plants}.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{jrn-lizards-hope_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_space.pdf}
-\includegraphics[scale = 0.4]{jrn-lizards-hope_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{jrn-lizards-hope_spp_shared.pdf}
-\caption{{\bf JRN-lizards:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 20 lizard species observed at 9 plots in the Jornada LTER (1990-2005). The black lines represent total site-level values across all plots.}
-\label{jrn-lizards}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_space.pdf}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spp_shared.pdf}
+\caption{{\bf JRN-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at the Jornada (JRN) LTER. The black lines represent total site-level values across all plots.}
+\label{jrn-plants}
 \end{figure}
-
-
-
-\subsection {cap-herps}
-The data were downloaded from the EDI Data Portal \citep{cap-herps}.
-Data are shown in Figure \ref{cap-herps}.
-This is a visual encounter survey where herpetofauna observations were nested by 3 plots within 3 transects per site. 
-Each site represents the reach level (each reach level site is composed of 3 transects with equal area sampling efforts). 
-Surveys from 2012 and March were dropped to standardize sampling efforts temporally. 
-Unidentified species were dropped, species code is the scientific name of species. 
-Taxon count was calculated as the maximum abundance per year in any one of the sampling events (with 3 sampling events per reach in April/May, June/July, and September/October). 
-The final community dataset prepared for analysis has 7 sites representative of the reach level metacommunity dynamics (3 transects sampled per reach) from 2013-2017 with a total of 18 observed species across all sites.  
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{cap-herps-banville_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{cap-herps-banville_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{cap-herps-banville_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{cap-herps-banville_spp_shared.pdf}
-\caption{{\bf CAP-herps:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for species observed in the Central Area Phoenix LTER (1990-2005). The black lines represent total site-level values across all plots.}
-\label{cap-herps}
-\end{figure}
-
 
 
 \subsection {sev-grasshoppers}
@@ -562,7 +478,6 @@ Data are shown in Figure \ref{cdr-grasshoppers}.
 
 
 
-
 \subsection{knz-grasshoppers}
 Data on grasshopper abundance (1996-2015) were downloaded from  EDI \citep{knz-grasshoppers}.
 We retained 13 spatial replicates which provide continuous temporal replicates from 1995 to 2013 (2012 is missing). 
@@ -583,6 +498,53 @@ Data are shown in Figure \ref{knz-grasshoppers}.
 \caption{{\bf KNZ-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in ... The black lines represent total site-level values across all plots.}
 \label{knz-grasshoppers}
 \end{figure}
+
+
+\subsection {jrn-lizards}
+The data were downloaded from the EDI Data Portal \citep{jrn-lizard}.
+This was a mark-recapture study. 
+Pitfall traps were opened for two weeks four times per year (quarterly). 
+The monthly samples from 1990 and 1991 were removed.
+Individual lizards were identified and the number of unique individuals per site per year were summed. 
+Two sites that were established five years after the start of the study (SUMM and NORT) were excluded. 
+We don't have a key to the species codes.
+Data are shown in Figure \ref{jrn-lizards}.
+The cumulative number of taxa was still increasing at the end of the time series, although with only 20 species total one or two species introductions could cause this pattern.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{jrn-lizards-hope_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{jrn-lizards-hope_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{jrn-lizards-hope_spp_shared.pdf}
+\caption{{\bf JRN-lizards:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 20 lizard species observed at 9 plots in the Jornada LTER (1990-2005). The black lines represent total site-level values across all plots.}
+\label{jrn-lizards}
+\end{figure}
+
+
+
+\subsection {cap-herps}
+The data were downloaded from the EDI Data Portal \citep{cap-herps}.
+Data are shown in Figure \ref{cap-herps}.
+This is a visual encounter survey where herpetofauna observations were nested by 3 plots within 3 transects per site. 
+Each site represents the reach level (each reach level site is composed of 3 transects with equal area sampling efforts). 
+Surveys from 2012 and March were dropped to standardize sampling efforts temporally. 
+Unidentified species were dropped, species code is the scientific name of species. 
+Taxon count was calculated as the maximum abundance per year in any one of the sampling events (with 3 sampling events per reach in April/May, June/July, and September/October). 
+The final community dataset prepared for analysis has 7 sites representative of the reach level metacommunity dynamics (3 transects sampled per reach) from 2013-2017 with a total of 18 observed species across all sites.  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{cap-herps-banville_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{cap-herps-banville_spp_shared.pdf}
+\caption{{\bf CAP-herps:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for species observed in the Central Area Phoenix LTER (1990-2005). The black lines represent total site-level values across all plots.}
+\label{cap-herps}
+\end{figure}
+
 
 \subsection {and-birds}
 The data were downloaded from the EDI Data Portal \citep{and-birds}.
