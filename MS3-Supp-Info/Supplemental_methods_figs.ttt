@@ -1,7 +1,7 @@
 \begin{table}[h!]
 \scriptsize
    \centering
-     \caption{Metadata on the data sets included in the meta-analysis. This table is automatically generated directly from the datasets in the L3 folder. I can make it look prettier once it is final.}
+     \caption{Metadata on the data sets included in the meta-analysis. This table is automatically generated directly from the datasets in the L3 folder.}
 
 \csvautotabular{metadata_table.csv}
    \label{metadata}
