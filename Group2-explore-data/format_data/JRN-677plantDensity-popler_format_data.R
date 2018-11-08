@@ -319,7 +319,7 @@ newvar_df <- lapply(prop_l[l_gen], lump_spp) %>%
 # update taxonomic IDs
 count_d   <- jrn %>% 
                 # 3A. remove IDS of species identified to genus level only. 
-                subset( !(VARIABLE_NAME %in% r_ids) ) %>% 
+                subset( !(VARIABLE_NAME %in% r_codes) ) %>% 
                 # 3B. lump IDs to the genus level
                 left_join( newvar_df ) %>% 
                 # substitute VARIABLE_NAME with new_var only if new_var IS NOT an NA.
@@ -329,6 +329,12 @@ count_d   <- jrn %>%
 
                         ) %>% 
                 dplyr::select( -new_var ) %>% 
+                
+                # take means AGAIN: lumped taxonomy need be 
+                group_by(OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS) %>% 
+                summarise( VALUE = mean(VALUE, na.rm=T) ) %>% 
+                ungroup() %>% 
+  
                 # introduce zeros
                 spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
                 gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) %>% 
@@ -336,12 +342,10 @@ count_d   <- jrn %>%
                 subset( DATE < 1929 &
                         SITE_ID %in% c('1_1','1_2','1_7','1_8','1_9','1_13') )
 
-
-
 # OVERKILL: test that you did substitude characters correctly
 test_post  <- jrn %>% 
                 # 3A. remove IDS of species identified to genus level only. 
-                subset( !(VARIABLE_NAME %in% r_ids) ) %>% 
+                subset( !(VARIABLE_NAME %in% r_codes) ) %>% 
                 # 3B. lump IDs to the genus level
                 left_join( newvar_df )  %>% 
                 # substitute VARIABLE_NAME with new_var only if new_var IS NOT an NA.
@@ -351,9 +355,9 @@ test_post  <- jrn %>%
 
                         ) %>% 
                 select( -new_var )
-test_pre <- subset(jrn,!(VARIABLE_NAME %in% r_ids) )
+test_pre <- subset(jrn,!(VARIABLE_NAME %in% r_codes) )
 
-
+# perform the actual tests
 expect_equal( nrow(test_pre), nrow(test_post) )
 for(ii in 1:nrow(newvar_df)){
   expect_true( (which(test_post$VARIABLE_NAME == newvar_df$VARIABLE_NAME[ii]) %in% 
