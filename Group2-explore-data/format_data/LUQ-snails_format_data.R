@@ -5,7 +5,6 @@ options(stringsAsFactors = F)
 library(dplyr)
 library(tidyr)
 library(stringi)
-library(popler)
 
 # https://doi.org/10.6073/pasta/ec88f3dd4ed8e172802b52ff3bb82aa8
 
@@ -81,7 +80,7 @@ snail_long <- snail %>%
                 rename( SITE_ID       = Point,
                         VARIABLE_NAME = spp_code,
                         DATE          = year,
-                        VALYE         = count ) %>% 
+                        VALUE         = count ) %>% 
                 mutate( OBSERVATION_TYPE = 'TAXON_COUNT',
                         VARIABLE_UNITS   = 'COUNT (yearly mean)' ) %>% 
                 # order data
@@ -89,5 +88,5 @@ snail_long <- snail %>%
                        VARIABLE_NAME, VARIABLE_UNITS, VALUE)
 
 # write file out
-write.csv(snail_long, 'C:/L3-luq-snails-compagnoni.csv', row.names=F)
+write.csv(snail_long, '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-luq-snails-compagnoni.csv', row.names=F)
 

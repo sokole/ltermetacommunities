@@ -144,6 +144,7 @@ data.key <- "" # Google Drive file ID
 data.set <- "sgs-plants-catano"
 data.key <- "" # Google Drive file ID
 
+data.set <- "luq-snails-compagnoni"
 #######################
 #REMOVED FROM ANALYSIS
 
@@ -455,6 +456,3 @@ mtdt$organism <- gsub(".*-(.*)\\-.*", "\\1", data.set)
 mtdt <- data.frame(mtdt)
 write.csv(mtdt, file = paste("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/metadata_tables/",data.set,"_metadata.csv", sep=""), row.names=F)
  
-
-
-
