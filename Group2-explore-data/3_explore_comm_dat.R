@@ -24,143 +24,44 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 # Assign L3 data set of interest
 # NOTE: Google Drive file ID is different for each dataset
 
-#datasets that are ready to include in meta-analysis
-# jrn-lizard-hope 
-data.set <- "jrn-lizards-hope"
-data.key <- "0B7o8j0RLpcxiYW10X1djMTBGM0U" # Google Drive file ID 
-
-# jrn-lizard-hope 
-data.set <- "cap-herps-banville"
-data.key <- "" # Google Drive file ID 
-
-# mcr-coral-castorani
-data.set <- "mcr-coral-castorani"
-data.key <- "" # Google Drive file ID
-
-# mcr-algae-castorani
-data.set <- "mcr-algae-castorani"
-data.key <- "0BxUZSA1Gn1HZenhxaVJ6bWtVdDg" # Google Drive file ID
-
-# mcr-inverts-castorani
-data.set <- "mcr-inverts-castorani"
-data.key <- "" # Google Drive file ID
- 
-# mcr-fish-castorani
-data.set <- "mcr-fish-castorani"
-data.key <- "" # Google Drive file ID
-
-# ntl-zooplankton-stanleyLottig 
-data.set <- "ntl-zooplankton-stanleyLottig"
-data.key <- "" # Google Drive file ID
-
-# nwt-plants-hallett 
-data.set <- "nwt-plants-hallett"
-data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID 
-
-# CSUN-USVI-coral
+#marine
 data.set <- "usvi-coral-castorani"
-data.key <- "0BxUZSA1Gn1HZZGowdUVCTTdtXzg" # Google Drive file ID
-
-# hbr-birds-sillett
-data.set <- "hbr-birds-sillett"
-data.key <- "" # Google Drive file ID
-
-# bes-birds-nilon
-data.set <- "bes-birds-nilon"
-data.key <- "" # Google Drive file ID
-
-
-#these datasets are being updated by PI. Redo formatting as they are posted in EDI and subset further prior to analysis:
-# sbc-algae-castorani (survey)
+data.set <- "mcr-coral-castorani"
+data.set <- "mcr-algae-castorani"
+data.set <- "mcr-inverts-castorani"
+data.set <- "mcr-fish-castorani"
 data.set <- "sbc-algae-castorani"
-data.key <- "0BxUZSA1Gn1HZZWl6d3BMeVNlT0U" # Google Drive file ID
-
-# sbc-fish-castorani (survey)
 data.set <- "sbc-fish-castorani"
-data.key <- "" # Google Drive file ID
-
-# sbc-mobile_inverts-castorani (survey)
 data.set <- "sbc-mobileInverts-castorani"
-data.key <- "" # Google Drive file ID
-
-# sbc-sessile_inverts-castorani (survey)
 data.set <- "sbc-sessileInverts-castorani"
-data.key <- "" # Google Drive file ID
 
-
-#datasets that need significant work still:
-# ntl-fish-stanleyLottig (Need to decide which years and lakes to include. See notes and figs in the tex file)
+#freshwater
+data.set <- "ntl-zooplankton-stanleyLottig"
 data.set <- "ntl-fish-stanleyLottig"
-data.key <- "" # Google Drive file ID
-
-#"fce-fish-rehage WET SEASON
 data.set <- "fce-fish-rehageWet"
-
-#"fce-fish-rehage DRY SEASON
 data.set <- "fce-fish-rehageDry"
-
-# fce-algae-marazzi (contains duplicated records... double check) Some figs not made yet. (remove a year; very unbalanced)
 data.set <- "fce-algae-marazzi"
-data.key <- "0B2P104M94skvbVdsYUc4amdSLWc" # Google Drive file ID
-
-# fce-diatoms-marazzi (very unbalanced)
 data.set <- "fce-diatoms-marazzi"
-data.key <- "" # Google Drive file ID
 
-
-# and-birds-wisnoski Sampling effort was not equal in all years, causing unexplained dip in Richness in 2014-2016. Need to calculate 'count' of birds differently (not sum; maybe max?). Data not propagated.
-data.set <- "and-birds-wisnoski"
-data.key <- "" # Google Drive file ID
-
-# and-plants-mtStHelens  $##NEEDS babanced sampling
+#terrestrial 
 data.set <- "and-plants-mtStHelens"
-data.key <- "" # Google Drive file ID
-
-#jrn-677plantdensity-popler
 data.set <- "jrn-plants-compagnoni"
-
-
-#cap-birds-banville
-data.set <- "cap-birds-banville"
-data.key <- "" # Google Drive file ID
-
-#cdr-plants-compagnoni
 data.set <- "cdr-plants-compagnoni"
-data.key <- "" # Google Drive file ID
-
-#sev-grasshopper-compagnoni
-data.set <- "sev-grasshopper-compagnoni"
-data.key <- "" # Google Drive file ID
-
-#cdr-grasshopper-compagnoni
-data.set <- "cdr-grasshopper-compagnoni"
-data.key <- "" # Google Drive file ID
-
-#knz-grasshopper-compagnoni
-data.set <- "knz-grasshopper-compagnoni"
-data.key <- "" # Google Drive file ID
-
-#sgs-plants-catano
 data.set <- "sgs-plants-catano"
-data.key <- "" # Google Drive file ID
-
+data.set <- "sev-grasshopper-compagnoni"
+data.set <- "cdr-grasshopper-compagnoni"
+data.set <- "knz-grasshopper-compagnoni"
 data.set <- "luq-snails-compagnoni"
-#######################
-#REMOVED FROM ANALYSIS
+data.set <- "jrn-lizards-hope"
+data.set <- "cap-herps-banville"
+data.set <- "bes-birds-nilon"
+data.set <- "and-birds-wisnoski"
+data.set <- "cap-birds-banville"
 
-# ntl-macroinvertebrates-stanleyLottig (keys for taxa need to be edited - Chaoborus larvae and Chaobotus pupae are given different codes. Also remove 1998 due to incomplete sampling. Also, there are only 4 taxa... too few for analysis?) 
-#data.set <- "ntl-macroinvertebrate-stanleyLottig"
-#data.key <- "" # Google Drive file ID
-
-# mcm-diatoms-schulteSokol 
-#data.set <- "mcm-diatoms-schulteSokol"
-#data.key <- "" # Google Drive file ID 
 
 #----------------------------------------------------------------------------------------------------
 # IMPORT DATA
-#L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), stringsAsFactors=F) 
-
-#Alternative using Google Drive File Stream. Works the same whether streaming data or data are cached locally:
+#Using Google Drive File Stream. Works the same whether streaming data or data are cached locally:
 L3dat <- read.csv(paste("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-", data.set, ".csv", sep=""), stringsAsFactors=F)
 
 # MAKE DATA LIST
@@ -252,17 +153,6 @@ no.taxa.fun <- function(ex) {
 
 # Apply function across community data
 no.taxa <- no.taxa.fun(dat$comm.long) # Result is a list of: (1) no. of taxa at each site; (2) no. of taxa at all sites
-
-# Plot a heatmap of the number of species observed over space and time
-ggplot(data = no.taxa$no.taxa, aes(x = DATE, y = SITE_ID, fill = no.taxa)) +
-  geom_raster() +
-  scale_fill_gradientn(colours = heat.pal.spectral(100), name = "No. of taxa") +
-  theme_bw() +
-  #guides(fill = guide_legend(title = "Number of taxa")) +
-  xlab("Year") +
-  ylab("Site") +
-  theme(aspect.ratio = 1)
-
 
 # Plot number of taxa through time
 # Note that the thick line indicates the total number of taxa among all sites
