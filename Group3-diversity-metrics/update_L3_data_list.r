@@ -28,7 +28,7 @@ l3_data_csv_list <- L3_list_of_files %>% filter(grepl('(?i)\\.csv', name))
 # pull out vars from L0 to propagate to L3 data list
 l0_data_list <- l0_data_list %>% select(dataset_id, `data directory`, `LTER site`, 
                                         contact, `responsible person`, `L3 status`, `provided identifier`, `doi`, `date accessed`, `date published`,
-                                        source_url_or_contact, `body size`, `dispersal type`, `trophic group`, `biome`) %>%
+                                        source_url_or_contact, `body size`, `dispersal habit`, mobility, `trophic group`, `biome`) %>%
   rename(L0_data_directory = `data directory`)
 
 # format data set names from L3 file list
