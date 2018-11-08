@@ -9,9 +9,6 @@
 # Clear environment
 rm(list = ls())
 
-# Set your working environment to the GitHub repository, e.g.: 
-#setwd("~/Documents/ltermetacommunities")
-
 #Check to make sure working directory is correct
 if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
 
