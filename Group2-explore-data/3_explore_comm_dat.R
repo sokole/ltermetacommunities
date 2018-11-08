@@ -40,8 +40,7 @@ data.set <- "ntl-zooplankton-stanleyLottig"
 data.set <- "ntl-fish-stanleyLottig"
 data.set <- "fce-fish-rehageWet"
 data.set <- "fce-fish-rehageDry"
-data.set <- "fce-algae-marazzi"
-data.set <- "fce-diatoms-marazzi"
+data.set <- "fce-diatoms-catano"
 
 #terrestrial 
 data.set <- "and-plants-mtStHelens"
