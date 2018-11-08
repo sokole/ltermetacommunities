@@ -338,9 +338,21 @@ count_d   <- jrn %>%
                 # introduce zeros
                 spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
                 gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) %>% 
-                # 4. remove data after 1980: only two observations years sampled thereafter
-                subset( DATE < 1929 &
-                        SITE_ID %in% c('1_1','1_2','1_7','1_8','1_9','1_13') )
+                
+                # 4. select sites and year BY HAND
+                subset( SITE_ID %in% c( 'a1', 
+                                        'a2',
+                                        'a4',
+                                        'a2',
+                                        'b4',
+                                        'b5',
+                                        'g4',
+                                        'g5',
+                                        'i1',
+                                        'i2',
+                                        'i4') ) %>% 
+                subset( DATE < 1939 ) %>% 
+                subset( !(DATE %in% c(1918,1922,1926,1929,1930,1934)) ) 
 
 # OVERKILL: test that you did substitude characters correctly
 test_post  <- jrn %>% 
@@ -369,6 +381,7 @@ out <- Reduce(function(...) rbind(...),
               list(count_d,lat_lon, graz_info) )
 
 write.csv(out, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-jrn-plants-compagnoni.csv", row.names = F)    
+
 
 # 
 # #4 Combine into one big table
