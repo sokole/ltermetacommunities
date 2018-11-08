@@ -8,21 +8,3 @@
 \end{table}
 \efloatseparator
  
-\begin{table}[h!]
-\scriptsize
-   \centering
-     \caption{This is a record of the datasets we considered using and created an L3 dataset for, but did not make the final cut for one reason or another.}
-   \begin{tabular}{lc}
-\\
-\hline
-\hline
-Dataset &Reason excluded\\
-\hline
-mcm-diatoms & highly irregular sampling\\
-ntl-macroinvertebrates & only four taxa\\
-   \end{tabular}
-
-   \label{not_used}
-\end{table}
-\efloatseparator
- 
