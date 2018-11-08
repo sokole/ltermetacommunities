@@ -177,7 +177,6 @@ left_join(data_ALL, env_data)  %>% filter(gamma_mean < 100) %>%
   ggsave("Group3-diversity-metrics/figures/gammadiv-stability.png",
          width = 7, height = 7, dpi = 300, units = "in")
 
-
 left_join(data_ALL, biomes) %>% filter(alpha_mean < 100) %>% 
   gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
   ggplot(aes(x = alpha_mean, y = bd, color = biome, fill = biome)) + 
@@ -190,7 +189,7 @@ left_join(data_ALL, biomes) %>% filter(alpha_mean < 100) %>%
 
 left_join(data_ALL, env_data)  %>% 
   gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
-  ggplot(aes(x = `dispersal type`, y = bd, color = `dispersal type`, fill = `dispersal type`)) + 
+  ggplot(aes(x = `mobility`, y = bd, color = `dispersal habit`, fill = `dispersal habit`)) + 
   facet_grid(scale ~ ., scales = "free_y") +
   geom_boxplot(alpha = 0.5) + 
   geom_point(alpha = 0.25) +
@@ -220,7 +219,7 @@ left_join(data_ALL, env_data)  %>% filter(gamma_mean < 100) %>%
 
 left_join(data_ALL, env_data)  %>% filter(gamma_mean < 100) %>% 
   gather(gamma_temporal_bd, mean_alpha_temporal_bd, phi_bd, key = "scale", value = "bd") %>% 
-  ggplot(aes(x = `organism`, y = bd, color = `organism`, fill = `organism`)) + 
+  ggplot(aes(x = `organism`, y = bd)) + 
   facet_grid(scale ~ ., scales = "free_y") +
   geom_boxplot(alpha = 0.5) + 
   geom_point(alpha = 0.25) +
