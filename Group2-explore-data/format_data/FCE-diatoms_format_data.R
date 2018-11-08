@@ -4,7 +4,7 @@
 # Revised 01 Jun 2017                                       #
 # --------------------------------------------------------- #
 
-# Contributors: Chris Catano, Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
+# Contributors: Aldo Compagnoni, Chris Catano, Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
 
 # Clear environment
 rm(list = ls())
@@ -16,27 +16,213 @@ rm(list = ls())
 if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
 
 # Check for and install required packages
-for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
+for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2', 'testthat')) {
   if (!require(package, character.only=T, quietly=T)) {
     install.packages(package)
     library(package, character.only=T)
   }
 }
 
-# ---------------------------------------------------------------------------------------------------
 
-# Assign data set of interest
-# NOTE: Google Drive file ID is different for each dataset
+# Aldo's March 2017 formating code FCE env data ----------------------------------
+options( stringsAsFactors = F )
 
+# get data keys
+key_env      <- '1W4jX2Nna1sYJF7L4LaRX8hOK0AcP9Zlc'
+key_diat     <- '1AtXkM-fBhoHXj-d_sTwIFmi8uZd8umrg'
+key_env_nam  <- '1Un2DA-CCraid6tymLIOZRYvPhMPdTHB0'
+
+# download data frames
+fec_env      <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", key_env))
+fec_diat     <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", key_diat))
+env_names    <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", key_env_nam))
+
+# format diatom data
+vars <- c("OBSERVATION_TYPE","SITE_ID","DATE",
+          "VARIABLE_NAME","VARIABLE_UNITS","VALUE")
+
+# coordinates ----------------------------------------------------------------
+
+# find a centroid for each PSU
+centr   <- fec_env %>%
+            mutate(PSU = as.factor(PSU) ) %>%
+            select(PSU, EASTING, NORTHING) %>%
+            group_by(PSU) %>%
+            summarise( east_centroid = mean(EASTING),
+                       north_centroid = mean(NORTHING) )
+
+# check we didn't loose the PSU values (through "as.factor")
+expect_equal(length(intersect(unique(as.character(fec_env$PSU)),
+                       as.character(centr$PSU))),
+             length(unique(fec_env$PSU)))
+
+
+# coordinates data frame
+coord <- data.frame( OBSERVATION_TYPE = "SPATIAL_COORDINATE",
+                      SITE_ID = as.character(centr$PSU),
+                      DATE = NA,
+                      VARIABLE_NAME = "EASTING",
+                      VARIABLE_UNITS = "METERS",
+                      VALUE = centr$east_centroid) %>%
+            rbind( data.frame( OBSERVATION_TYPE = "SPATIAL_COORDINATE",
+                               SITE_ID = as.character(centr$PSU),
+                               DATE = NA,
+                               VARIABLE_NAME = "NORTHING",
+                               VARIABLE_UNITS = "METERS",
+                               VALUE = centr$north_centroid)
+            )
+
+
+
+# taxon count 
+
+# calculate mean of diatom species across samples
+# (NOT NEEDED, number of rows does not change)
+mean_diat <- fec_diat %>% 
+                # # modify the one instance of sampling in january
+                # mutate( Date = replace(Date, 
+                #          grepl('^1/[0-9]{1,2}/2011', Date),
+                #          '12/31/2010') ) %>% 
+                select(Year, PSU, ACBREBRE:UNKNVALV) %>%
+                group_by(Year, PSU) %>%
+                summarise_all( funs(mean) )
+
+# test equality of two data sets
+expect_equal(nrow(mean_diat), nrow(fec_diat) )
+
+# long-form this data set
+diat_long <- fec_diat %>%
+              select(Year, PSU, ACBREBRE:UNKNVALV) %>%
+              gather(VARIABLE_NAME, VALUE,-Year,-PSU) %>%
+              mutate(Year = Year + 2000,
+                     VARIABLE_UNITS = "PERCENT",
+                     OBSERVATION_TYPE = "TAXON_RELATIVE_ABUNDANCE") %>%
+              rename(DATE = Year,
+                     SITE_ID = PSU) %>%
+              select_(.dots = vars)
+  
+
+
+# environmental variables 
+
+# convert from character to numeric
+env_mat   <- fec_env %>%
+              select(Depth_cm:Chl.a..µg.m2.) %>%
+              cbind( select(fec_env, PLT_COVER:HYDROPERIOD_MEAN) )
+
+# identify character columns
+classes   <- env_mat %>%
+              lapply(class) %>%
+              unlist() %>%
+              as.character()
+
+# grep variables which are columns
+char_id   <- which(classes == "character")
+
+# manually inspect each of 22 vars
+unique(env_mat[,char_id[22]])
+
+# introduce NAs in character columsn
+# PLUS, remove ","
+for(i in seq_along(char_id)){
+  
+  # introduce NAs
+  env_mat[,char_id[i]] <- gsub("NS", "NA", env_mat[,char_id[i]])
+  env_mat[,char_id[i]] <- gsub("ns", "NA", env_mat[,char_id[i]])
+  env_mat[,char_id[i]] <- gsub("9999", "NA", env_mat[,char_id[i]])
+  env_mat[,char_id[i]] <- gsub("8888", "NA", env_mat[,char_id[i]])
+  env_mat[,char_id[i]] <- gsub("7777", "NA", env_mat[,char_id[i]])
+  env_mat[,char_id[i]] <- gsub("6666", "NA", env_mat[,char_id[i]])
+  env_mat[,char_id[i]] <- gsub("Z", "NA", env_mat[,char_id[i]])
+  env_mat[,char_id[i]] <- gsub("UP", "NA", env_mat[,char_id[i]])
+  
+  # remove commas
+  env_mat[,char_id[i]] <-gsub(",", "", env_mat[,char_id[i]])
+  
+  # convert to numeric
+  env_mat[,char_id[i]] <- as.numeric( env_mat[,char_id[i]] )
+  
+}
+
+# Remove non-numeric variables
+non_num_vars <- c("Sample.Quantitative...Y.or.N.",
+                  "Plant.Sp1","Plant.Sp2","Plant.Sp3",
+                  "Floating.Sp1","Floating.Sp2","Green.Sp1")
+env_n_mat    <- env_mat[,-which(names(env_mat) %in% non_num_vars)]
+
+# introduce NAs in numeric fields
+for(i in 1:ncol(env_n_mat)){
+
+  env_n_mat[env_n_mat[,i]==9999 & 
+            !is.na(env_n_mat[,i]), i] <- NA
+  
+}
+ 
+# means across replicates
+mean_env <- fec_env %>%
+              select(Year, PSU) %>%
+              cbind(env_n_mat) %>%
+              group_by(Year, PSU) %>%
+              summarise_all(funs(mean))
+
+# Environment in long form
+env_pre  <- mean_env %>%
+              as.data.frame() %>%
+              gather(VARIABLE_NAME, VALUE,-Year,-PSU) %>%
+              mutate(Year = Year + 2000,
+                     OBSERVATION_TYPE = "ENV_VAR") %>%
+              rename(DATE = Year,
+                     SITE_ID = PSU)
+              
+
+# change env_pre variable names to match with file with var. units
+# Change env_names column names
+env_names    <- setNames(env_names, c("VARIABLE_NAME", "VARIABLE_UNITS"))
+# function to update 
+sub_var_name <- function(x, string){
+  x   <- gsub(string,"",x)
+  return(x)
+}
+env_pre$VARIABLE_NAME <- sub_var_name(env_pre$VARIABLE_NAME,"_µs.cm")
+env_pre$VARIABLE_NAME <- sub_var_name(env_pre$VARIABLE_NAME,"_cm")
+#note regular expression trick in following line
+env_pre$VARIABLE_NAME <- sub_var_name(env_pre$VARIABLE_NAME,"_C$") 
+env_pre$VARIABLE_NAME <- sub_var_name(env_pre$VARIABLE_NAME,"_mL")
+env_pre$VARIABLE_NAME <- sub_var_name(env_pre$VARIABLE_NAME,"µg.m2.")
+
+# Test there is not differences
+expect_equal(length(setdiff(unique(env_pre$VARIABLE_NAME), unique(env_names$VARIABLE_NAME))),
+             0)
+
+# finally, env. data in long form 
+env_long <- env_names %>% 
+              merge(env_pre) %>%
+              select_(.dots = vars)
+
+
+# put it all together
+dat.long <- Reduce(function(...) rbind(...),
+                   list(coord, diat_long, env_long)) %>%
+                # convert SITE_ID to numeric
+                mutate( SITE_ID = as.numeric(SITE_ID) )
+
+
+# PART coded by Chris  ---------------------------------------------------------------------------------------------------
+
+# Test that file above correspond to that stored on google drive
 data.set <- "FCE-diatoms"
 data.key <- "0B-HySt4HfBxBM0FxbVRERGtBUlk" # Google Drive file ID 
 
-
 #Google Drive File Stream read in data:
 #dat.long <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/FCE-diatoms-Gaiser-Marazzi/FCE_diatoms_environment_long.csv")
-# ---------------------------------------------------------------------------------------------------
-# IMPORT DATA
-dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
+
+# Importa data to test
+dat.test <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key),
+                      stringsAsFactors = F)
+
+# test passed, we can go ahead!
+expect_true( all.equal(dat.long, dat.test) )
+
 
 str(dat.long)
 levels(dat.long$OBSERVATION_TYPE)
