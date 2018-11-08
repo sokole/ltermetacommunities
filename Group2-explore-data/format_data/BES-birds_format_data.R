@@ -1,7 +1,7 @@
 # --------------------------------------------------------- #
 # Format raw data from L0 into L3 format                    #
-# BES Birds Nilon                                     #
-# Revised 26 Jun 2018 by NKL                                #
+# BES Birds Nilon                                           #
+# Revised 8 Nov 2018 by Shawn Taylor                        #
 # --------------------------------------------------------- #
 
 # Contributors: Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
@@ -185,6 +185,19 @@ observations_aggregated <- observations_aggregated %>%
   filter(sum(count) > 0) %>%
   ungroup()
 
+# Drop sites that had 0 species recorded in a year. These sites
+# won't work with the meta analsysis. 
+sites_with_no_species_in_atleast_one_year = observations_aggregated %>%
+  group_by(site_id, year) %>%
+  summarise(total_abund = sum(count)) %>%
+  ungroup() %>%
+  filter(total_abund == 0) %>%
+  pull(site_id) %>%
+  unique()
+
+observations_aggregated <- observations_aggregated %>%
+  filter(!site_id %in% sites_with_no_species_in_atleast_one_year)
+
 ################################################
 # QA Check, the sites/years in the final version
 # actually have recorded surveys
@@ -210,7 +223,8 @@ final_format <- observations_aggregated %>%
          DATE = year,
          VARIABLE_NAME = species_id,
          VARIABLE_UNITS,
-         VALUE = count)
+         VALUE = count) %>%
+  arrange(DATE)
 
 
 write.csv(final_format, 
