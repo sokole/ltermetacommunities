@@ -16,7 +16,7 @@
 ##### Cleaning steps ################################
 # I applied the following filters to the BES birds dataset
 # 
-# - Only keep observations that were < 40ft distance.
+# - Dropped all observations of distance 'FT", which stands for "fly thru".
 # - removied uknown species
 # - where there was multipel surveys for a site in a single year,
 #   keep the maximum count for each species among all the surveys.
