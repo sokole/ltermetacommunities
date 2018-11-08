@@ -282,7 +282,8 @@
 \includegraphics[scale = 0.4]{bes-birds-nilon_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{bes-birds-nilon_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{bes-birds-nilon_spatiotemporal_sampling_effort.pdf}
-%\includegraphics[scale = 0.4]{bes-birds-nilon_spp_shared.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_spp_shared.pdf}
 \caption{{\bf BES-birds:} }
 \label{bes-birds}
 \end{figure}

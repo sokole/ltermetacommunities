@@ -621,15 +621,18 @@ Taxon count was calculated as the maximum abundance per year during the spring m
 \end{figure}
 
 \subsection{bes-birds}
-Data were downloaded from EDI \citep{bes-birds}. We dropped all observations in the distance catagory "FT" and all observations not identified to species. We only used sites with surveys every year from 2005-2009. When there was multiple surveys per year for a single site, the abundance counts were aggregated to the maximum observed count from any survey for each species at the respective site.
-Very few birds (and bird species) were observed at each point, and many plots had zero observed taxa in an entire year.
-This makes the figures inaccurate (Figure \ref{bes-birds}).
+Data were downloaded from EDI \citep{bes-birds}. We dropped all observations in the distance catagory ``FT" and all observations not identified to species. 
+We only used sites with surveys every year from 2005-2009. 
+When there was multiple surveys per year for a single site, the abundance counts were aggregated to the maximum observed count from any survey for each species at the respective site.
+We only included plots in which at least one bird was observed in each year of study.
+Data are shown in (Figure \ref{bes-birds}).
 \begin{figure}[h!]
 \centering
 \includegraphics[scale = 0.4]{bes-birds-nilon_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{bes-birds-nilon_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{bes-birds-nilon_spatiotemporal_sampling_effort.pdf}
-%\includegraphics[scale = 0.4]{bes-birds-nilon_spp_shared.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_spp_shared.pdf}
 \caption{{\bf BES-birds:} }
 \label{bes-birds}
 \end{figure}
