@@ -283,16 +283,29 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
 # ---------------------------------------------------------------------------------------------------
 # SITE-SPECIFIC AND TOTAL SPECIES ACCUMULATION CURVES
 
+# Make a function that returns the cumulative number of taxa observed for a given set of community data (this version cannot handle missing years)
+#cuml.taxa.fun <- function(EX){
+#  taxa.t.list <- list() # Make empty list
+  
+#  Loop over each year, creating a list that contains the unique taxa found in each year
+#  for(t in 1:length(unique(EX$DATE))){
+#    tmp.dat <- subset(EX, EX$DATE == t + (min(EX$DATE) - 1))
+#    tmp.dat.pres <- subset(tmp.dat, tmp.dat$VALUE > 0) 
+#    taxa.t.list[[t]] <- unique(tmp.dat.pres$VARIABLE_NAME)
+#  }
+ 
+ 
 # Make a function that returns the cumulative number of taxa observed for a given set of community data
 cuml.taxa.fun <- function(EX){
   taxa.t.list <- list() # Make empty list
-  
+  dates <- unique(EX$DATE)
   # Loop over each year, creating a list that contains the unique taxa found in each year
   for(t in 1:length(unique(EX$DATE))){
-    tmp.dat <- subset(EX, EX$DATE == t + (min(EX$DATE) - 1))
+    tmp.dat <- subset(EX, EX$DATE == dates[t])
     tmp.dat.pres <- subset(tmp.dat, tmp.dat$VALUE > 0) 
     taxa.t.list[[t]] <- unique(tmp.dat.pres$VARIABLE_NAME)
   }
+  
   
   # Make cumulative list of taxa through time
   cuml.taxa <- list() # Empty list
