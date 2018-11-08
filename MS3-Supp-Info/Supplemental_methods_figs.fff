@@ -165,12 +165,25 @@
  
 \begin{figure}[h!]
 \centering
-\includegraphics[scale = 0.4]{cdr-plants-compagnoni_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{cdr-plants-compagnoni_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spp_shared.pdf}
-\caption{{\bf CDR-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Cedar Creek. The black lines represent total site-level values across all plots.}
-\label{cdr-plants}
+\includegraphics[scale = 0.4]{cdr-plantsABC-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsABC-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsABC-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsABC-compagnoni_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsABC-compagnoni_spp_shared.pdf}
+\caption{{\bf CDR-plants, A, B, and C fields:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed in the A, B, and C fields at Cedar Creek. The black lines represent total site-level values across all plots.}
+\label{cdrABC-plants}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{cdr-plantsD-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsD-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsD-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsD-compagnoni_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsD-compagnoni_spp_shared.pdf}
+\caption{{\bf CDR-plants, D field:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed in the D field at Cedar Creek. The black lines represent total site-level values across all plots.}
+\label{cdrD-plants}
 \end{figure}
 \efloatseparator
  
