@@ -41,7 +41,7 @@ dt1      <-read.csv(infile1,header=F ,skip=1
 
 
 #ALTERNATIVE: read from cached version on Google Drive          
-dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/CDR-plants/archive_knb-lter-cdr/e001_Plant aboveground biomass data.txt", sep="\t")  
+# dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/CDR-plants/archive_knb-lter-cdr/e001_Plant aboveground biomass data.txt", sep="\t")  
 
 
 # format data ---------------------------------------------------
@@ -195,7 +195,7 @@ biomass_d <- spp_abundance %>%
                 spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
                 gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) 
 
-# outfile
+# outfiles
 form_cdr <- Reduce(function(...) rbind(...), 
                    list(biomass_d, spatialLocation, fire_d) ) %>% 
               # data until 2004 - because all sites represented
@@ -203,7 +203,10 @@ form_cdr <- Reduce(function(...) rbind(...),
               # part of same community (share species pool? Dispersal among patches?)
               subset( DATE < 2005 )
 
-# Write CSV file for cleaned data (L3)
-write.csv(form_cdr, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cdr-plants-compagnoni.csv", row.names = F)
+# separate dataset in sites A,B,C and site D
+cdr_abc  <- subset(form_cdr, !grepl('D_', SITE_ID) )
+cdr_d    <- subset(form_cdr, grepl('D_', SITE_ID) )
 
-#write.csv(form_cdr, 'C:/L3-cdr-plants-compagnoni.csv', row.names = F)
+# Write CSV file for cleaned data (L3)
+write.csv(cdr_abc, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cdr-plantsABC-compagnoni.csv", row.names = F)
+write.csv(cdr_d,   file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-cdr-plantsD-compagnoni.csv", row.names = F)

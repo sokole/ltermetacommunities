@@ -62,28 +62,10 @@ We also include a table of datasets that were considered, and that we prepared i
 \begin{table}[h!]
 \scriptsize
    \centering
-     \caption{Metadata on the data sets included in the meta-analysis. This table is automatically generated directly from the datasets in the L3 folder. I can make it look prettier once it is final.} 
+     \caption{Metadata on the data sets included in the meta-analysis. This table is automatically generated directly from the datasets in the L3 folder.} 
 
 \csvautotabular{metadata_table.csv}
    \label{metadata} 
-\end{table}
-
-
-\begin{table}[h!]
-\scriptsize
-   \centering
-     \caption{This is a record of the datasets we considered using and created an L3 dataset for, but did not make the final cut for one reason or another.} 
-   \begin{tabular}{lc} 
-\\
-\hline 
-\hline
-Dataset &Reason excluded\\
-\hline
-mcm-diatoms & highly irregular sampling\\
-ntl-macroinvertebrates & only four taxa\\
-   \end{tabular}
-
-   \label{not_used} 
 \end{table}
 
 
@@ -92,9 +74,9 @@ ntl-macroinvertebrates & only four taxa\\
 
 
 \subsection {csun.usvi-coral}
-Data are from Max Castorani.
+Data were downloaded from \url{http://mcrlter.msi.ucsb.edu/cgi-bin/showCSUNDataset.cgi?docid=knb-csun-usvi.101.4}.
 Need more metadata for this dataset.
-Margaret is looking for data API.
+Margaret is helping.
 Data are in Figure \ref{usvi-coral}.
 
 \begin{figure}[h!]
@@ -248,58 +230,26 @@ The cumulative number of taxa was still increasing at the end of the time series
 \label{mcr-algae}
 \end{figure}
 
-%\subsection {mcm-diatoms}
-%Each site was sampled anywhere from five to nine times over a 20 year period, but not all sites were sampled in all years.
-%Data are in Figure \ref{mcm-diatoms}.
-%We decided not to use this dataset.
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[scale = 0.4]{mcm-diatoms-schulteSokol_species_accumulation_curve.pdf}
-%\includegraphics[scale = 0.4]{mcm-diatoms-schulteSokol_num_taxa_over_time.pdf}
-%\includegraphics[scale = 0.4]{mcm-diatoms-schulteSokol_spatiotemporal_sampling_effort.pdf}
-%\caption{{\bf MCM-diatoms:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 58 diatom taxa observed at five sites in McMurdo LTER.  The black lines represent total site-level values across all plots.}
-%\label{mcm-diatoms}
-%\end{figure}
-
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section {Freshwater datasets}
 
 \subsection {fce-diatoms}
-{\bf Need to document where the data came from and clean the data.}
-%Data are shown in Figure \ref{fce-diatoms}
-There are over 171 sites in this dataset, but only a fraction of those were sampled in all seven years.
-This could  contribute to variation in total number of taxa observed - the earlier years have the most missing sites and also the lowest total number of taxa.
-Since the time series is so short to begin with, I suggest only including sites will all seven years in the analysis.
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[scale = 0.4]{fce-diatoms-marazzi_species_accumulation_curve.pdf}
-%\includegraphics[scale = 0.4]{fce-diatoms-marazzi_num_taxa_over_time.pdf}
-%\includegraphics[scale = 0.4]{fce-diatoms-marazzi_spatiotemporal_sampling_effort.pdf}
-%\caption{{\bf FCE-diatoms:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 367 diatom taxa observed at 171 sites on Florida Coastal Everglades LTER. The black lines represent total site-level values across all plots.}
-%\label{fce-diatoms}
-%\end{figure}
-
-\subsection {fce-algae}
-{\bf Need to document where the data came from and clean the data.}
-{\bf There are duplicated records in the dataset - NOT ready for analysis.}
-The duplicates cause the errors in the metadata table and the missing figures.
-%Data are shown in Figure \ref{fce-algae}
-There are over 150 sites in this dataset, but only a fraction of those were sampled in all seven years.
-Also, about 1/3 of all sited were not sampled in 2009, and it seems systematic (the sites with higher numbers were not sampled).
-Notice the dip in number of taxa observed in 2009.
-Since the time series is so short to begin with, I suggest only including sites will all seven years in the analysis.
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[scale = 0.4]{fce-algae-marazzi_species_accumulation_curve.pdf}
-%\includegraphics[scale = 0.4]{fce-algae-marazzi_num_taxa_over_time.pdf}
-%\includegraphics[scale = 0.4]{fce-algae-marazzi_spatiotemporal_sampling_effort.pdf}
-%\caption{{\bf FCE-algae:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 249 algae taxa observed at lots of sites on Florida Coastal Everglades LTER. The black lines represent total site-level values across all plots.}
-%\label{fce-algae}
-%\end{figure}
-
+Data were obtained from the PI.
+Metadata and citation can be found on EDI \citep{fce-diatoms}.
+Data are shown in Figure \ref{fce-diatoms}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{fce-diatoms-catano_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{fce-diatoms-catano_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{fce-diatoms-catano_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{fce-diatoms-catano_species_accumulation_space.pdf}
+\caption{{\bf FCE-diatoms:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for diatom taxa observed at  Florida Coastal Everglades LTER. The black lines represent total site-level values across all plots.}
+\label{fce-diatoms}
+\end{figure}
 
 \subsection {fce-fish}
+{\bf Need to select wet or dry season.}
 Data were obtained from the PI, and are cataloged on EDI  \citep{fce-fish}.
 Catch per unit effort (CPUE) was calculated as (count/distance)*100
 For each species, the CPUE was aggregated by summing the CPUE measured in each bout (i.e., replicate) within each Creek Number | River | YEAR | Season combination.
@@ -360,46 +310,25 @@ Data are shown in Figure \ref{ntl-zooplankton}.
 \end{figure}
 
 
-%\subsection {ntl-macroinvertebrate}
-%{\bf The data have not been propagated (i.e. no zero values recorded when a species is absent) and are NOT ready for analysis.}
-%Data are shown in Figure \ref{ntl-macroinvertebrate}.
-%There are only four taxa in this dataset (Chaoborus, Leptodora, Mysis, and Bythotrephes).
-%I don't think that's enough species to meet our criteria.
-%Also note that in some years there appear to be five taxa because Chaoborus larvae and Chaoborus pupae were given separate IDs. 
-%This needs to be fixed prior to analysis.
-%Also, it's unclear whether the data are not propagated, or not all taxa were counted in all years.
-%Four of the 7 sites were not sampled in 1998.
-%I think that year (1998) should be removed.
-%But mostly, I don't think this dataset meets the criteria.
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[scale = 0.4]{ntl-macroinvertebrate-stanleyLottig_species_accumulation_curve.pdf}
-%\includegraphics[scale = 0.4]{ntl-macroinvertebrate-stanleyLottig_num_taxa_over_time.pdf}
-%\includegraphics[scale = 0.4]{ntl-macroinvertebrate-stanleyLottig_spatiotemporal_sampling_effort.pdf}
-%\caption{{\bf NTL-macroinvertebrates:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 4 macroinvertabrate taxa observed at 7 sites North Temperate Lakes LTER . The black lines represent total site-level values across all plots.}
-%\label{ntl-macroinvertebrate}
-%\end{figure}
-
-
 \subsection {ntl-fish}
-
+{\bf species codes from the southern lakes were not dropped, so the metadata indicates there are 81 total species even though there are under 60.}
 Data on fish abundance were downloaded from the EDI Data Portal \citep{ntl-fish}.
 Two types of gill nets (VGN and VGN127) and the method  ``ESHOCK" were rarely used, and thus removed from the dataset.% as per a conversation with Noah Lottig at NTL.
-%The gear method ``ESHOCK" was also rarely used and a follow up call is needed to determine how best to handle those data.
-%They are currently included.
+The gear method ``ESHOCK" was also rarely used and a follow up call is needed to determine how best to handle those data.
+They are currently included.
 Catch per unit effort (CPUE) was calculated for each species in each lake per year across all gear types (electrofishing, gill nets, baited traps) as the total catch divided by the total effort.
-%We should double check with dataset contacts to be sure we did this correctly.
+We should double check with dataset contacts to be sure we did this correctly.
 88 rows containing unidentified species were removed.
 Also, the two bog lakes (CB, TB) had 1-3 species each and were removed. 
-Three of the 11 sites (FI, MO, WI) were initiated in 1995, and therefore the time series was subsetted to include only years after 1994.
+Only data from the northern lakes were included.
 Data are shown in Figure \ref{ntl-fish}.
-
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_species_accumulation_space.pdf}
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_spp_shared.pdf}
 \caption{{\bf NTL-fish:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 81 fish species observed at 9 lakes in the North Temperate Lakes LTER (1995-2016). The black lines represent total site-level values across all plots.}
 \label{ntl-fish}
@@ -408,26 +337,6 @@ Data are shown in Figure \ref{ntl-fish}.
 
 %%%%%%%%%%%%%%%%%%%
 \section {Terrestrial datasets}
-
-\subsection {nwt-plants}
-{\bf no provenance.}
-The data were obtained from Eric Sokol.
-Not all years were sampled, but all plots were sampled in each year of observation. 
- Number of taxa increased rapidly toward the end of the time series. 
- Data in Figure \ref{nwt-plants}.
- It would be good to collect more metadata and provenance for this dataset.
- The plots comprise at least four distinct habitats.
- Some plots have very few species.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{nwt-plants-hallett_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_spp_shared.pdf}
-\caption{{\bf NWT-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 109 plant species observed at 88 plots in the Niwot Ridge LTER (1989-2014). The black lines represent total site-level values across all plots.}
-\label{nwt-plants}
-\end{figure}
 
 
 \subsection {and-plants-mtStHelens}
@@ -466,6 +375,134 @@ Data are shown in figure \ref{cdr-plants}.
 \label{cdr-plants}
 \end{figure}
 
+\subsection{sgs-plants}
+Data were downloaded from EDI \citep{sgs-plants}.
+Plant community composition on the three grassland and three shrubland small mammal trapping webs (hereafter called ?sites?; n = 6). 
+Vegetation measurements were made once per year, usually in mid-July. 
+Percent canopy cover of each plant species was estimated visually in 30 0.10-m2 Daubenmire quadrats on each web. 
+We aggregated plant species percent cover data at the ?site? scale because each year, transects and plot locations were determined based on a randomization procedure (3 trap stations were chosen randomly within each site from a list of 12 permanent points, where transects with random orientations were centered on each trap station location). 
+Trapping web ?31W? was removed because it was sampled in only 2 years (2006 and 2007).
+Samples for year 2007 were removed because not all sites were sampled in 2007.
+Species codes that did not identify plant species were removed (litter, bare ground, etc.).
+Species codes that were otherwise inconsistent (different cases, naming conventions, etc.) were reconciled so that all species were identified by unique 4 letter codes.
+Observations for codes that did not represent plants, or plants were unknown or not resolved to species were removed prior to analysis.
+Data are shown in Figure \ref{sgs-plants}.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{sgs-plants-catano_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{sgs-plants-catano_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{sgs-plants-catano_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{sgs-plants-catano_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{sgs-plants-catano_spp_shared.pdf}
+\caption{{\bf SGS-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at the Shortgrass Steppe (SGS) LTER. The black lines represent total site-level values across all plots.}
+\label{sgs-plants}
+\end{figure}
+
+\subsection{jrn-plants}
+We selected a subsample of 10 quadrats that provided 18 sampling occasions over 24 years (1915-1938). 
+This is a small subsample of the 114 quadrats that make up this incredible dataset. 
+We then dropped or lumped taxonomic identifiers, because several counts were assigned to a genus rather than to a species. 
+For 25 genera contained in this dataset, counts were sometimes assigned to a species (e.g. Poa secunda) or to a genus (e.g. Poa spp.). 
+In such cases, we calculated the total proportion (within the entire dataset) of counts assigned to a genus level. 
+When the percentage of counts identified to a genus were less than 5$\%$ of the total counts, we discarded the information. 
+However, when the the percentage of counts identified at the genus level was more than 5$\%$, we lumped all of the counts assigned to a species into a single genus. 
+We did this because such high proportion of counts assigned to a genus, rather than a species, suggests high uncertainty in species identification.
+NOTE: the species accumulation curve in this dataset saturated quite rapidly. This is potentially an artifact of "lumping" specific information to the genus level. 
+Data are shown in Figure \ref{jrn-plants}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spp_shared.pdf}
+\caption{{\bf JRN-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at the Jornada (JRN) LTER. The black lines represent total site-level values across all plots.}
+\label{jrn-plants}
+\end{figure}
+
+
+\subsection {sev-grasshoppers}
+The data were downloaded from the EDI Data Portal \citep{sev-grasshopper}.
+We retained data from only two habitats (Black grama and Creosotebush) that shared many species, and presented 20 years of temporal replication. This data were collected twice a year, and spatial replication included site, transect, and web. 
+Population (count) data is structured, being collected across sex, age, and substrate. 
+We summed numbers across webs, sex, age, and substrate.
+Data are shown in Figure \ref{sev-grasshoppers}.
+  
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spp_shared.pdf}
+\caption{{\bf SEV-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in Black grama (BOER) and Creosotebush (LATR) habitats the Sevilleta LTER (1992-2013). The black lines represent total site-level values across all plots.}
+\label{sev-grasshoppers}
+\end{figure}
+
+
+\subsection{cdr-grasshoppers}
+Data were accessed on EDI \citep{cdr-grasshoppers}.
+We removed sites `28' and `11', which were added to the sampling after 1989. 
+Then, we summed the number of individuals across all life stages and all months. 
+We summed across months even if in 2003, June and August samples were lost for some fields. 
+However, as the documentation reports, ``The total counts for these fields were augmented by proportional additions from remaining samples by John Haarstad and crew".
+Taxonomic information is available for only for the {\it Acrididae} family before 1994. 
+We lumped taxonomic identifications to genus level for {\it Conocephalus}, {\it Scudderia}, and {it\ Tetrix}, as too high a proportion of individuals from these genera were not identified at the species level. 
+Similarly, some individuals belonging to the {\it Melanoplus} genus were identified at the genus level only. 
+We removed these records, as they comprised only 6$\%$ of the entire counts in the {\it Melanoplus} genus.
+Data are shown in Figure \ref{cdr-grasshoppers}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_spp_shared.pdf}
+\caption{{\bf CDR-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed at the Cedar Creek LTER. The black lines represent total site-level values across all plots.}
+\label{cdr-grasshoppers}
+\end{figure}
+
+
+
+\subsection{knz-grasshoppers}
+Data on grasshopper abundance (1996-2015) were downloaded from  EDI \citep{knz-grasshoppers}.
+We retained 13 spatial replicates which provide continuous temporal replicates from 1995 to 2013 (2012 is missing). 
+We lumped taxonomic information level whenever the counts at the genus level made up more than 5$\%$ of the total individuals counted. 
+We did not do this lumping for {\it Melanopus} spp. because it is a hyperdiverse genus. 
+In this case, we dropped all {\it Melanopus} records identified at the genus level. 
+Finally, we average count data across a year, because some spatial replicates could occasionally contain more observations within a year.
+Data are shown in Figure \ref{knz-grasshoppers}.
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_spp_shared.pdf}
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_space.pdf}
+\caption{{\bf KNZ-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in ... The black lines represent total site-level values across all plots.}
+\label{knz-grasshoppers}
+\end{figure}
+
+\subsection{luq-snails}
+Data were downloaded from EDI \citep{luq-snails}.
+We averaged number of snails across runs ("Run.ID" in dataset) and seasons ("Seasons" in dataset). 
+There were no codes for unknown or non-living taxa.
+Data are shown in Figure \ref{luq-snails}.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_spp_shared.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_species_accumulation_space.pdf}
+\caption{{\bf LUQ-snails:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for snail species observed in Luquillo LTER. The black lines represent total site-level values across all plots.}
+\label{luq-snails}
+\end{figure}
 
 
 \subsection {jrn-lizards}
@@ -513,60 +550,6 @@ The final community dataset prepared for analysis has 7 sites representative of 
 \label{cap-herps}
 \end{figure}
 
-
-
-\subsection {sev-grasshoppers}
-The data were downloaded from the EDI Data Portal \citep{sev-grasshopper}.
-We retained data from only two habitats (Black grama and Creosotebush) that shared many species, and presented 20 years of temporal replication. This data were collected twice a year, and spatial replication included site, transect, and web. 
-Population (count) data is structured, being collected across sex, age, and substrate. 
-We summed numbers across webs, sex, age, and substrate.
-Data are shown in Figure \ref{sev-grasshoppers}.
-  
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spp_shared.pdf}
-\caption{{\bf SEV-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in Black grama (BOER) and Creosotebush (LATR) habitats the Sevilleta LTER (1992-2013). The black lines represent total site-level values across all plots.}
-\label{sev-grasshoppers}
-\end{figure}
-
-
-\subsection{cdr-grasshoppers}
-{\bf Finish cleaning so we can make figures.}
-Data were accessed on EDI \citep{cdr-grasshoppers}.
-We removed sites `28' and `11', which were added to the sampling after 1989. 
-Then, we summed the number of individuals across all life stages and all months. 
-We summed across months even if in 2003, June and August samples were lost for some fields. 
-However, as the documentation reports, ``The total counts for these fields were augmented by proportional additions from remaining samples by John Haarstad and crew".
-Taxonomic information is available for only for the {\it Acrididae} family before 1994. 
-We lumped taxonomic identifications to genus level for {\it Conocephalus}, {\it Scudderia}, and {it\ Tetrix}, as too high a proportion of individuals from these genera were not identified at the species level. 
-Similarly, some individuals belonging to the {\it Melanoplus} genus were identified at the genus level only. 
-We removed these records, as they comprised only 6$\%$ of the entire counts in the {\it Melanoplus} genus.
-
-\subsection{knz-grasshoppers}
-Data on grasshopper abundance (1996-2013) were downloaded from \url{http://www2.konza.ksu.edu/sites/default/files/CGR022.csv}.
-{\bf Now there's new data on EDI  knb-lter-knz.29.12.!!!} 
-We retained 13 spatial replicates which provide continuous temporal replicates from 1995 to 2013 (2012 is missing). 
-We lumped taxonomic information level whenever the counts at the genus level made up more than 5$\%$ of the total individuals counted. 
-We did not do this lumping for {\it Melanopus} spp. because it is a hyperdiverse genus. 
-In this case, we dropped all {\it Melanopus} records identified at the genus level. 
-Finally, we average count data across a year, because some spatial replicates could occasionally contain more observations within a year.
-Data are shown in Figure \ref{knz-grasshoppers}.
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
-%\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_spp_shared.pdf}
-\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_space.pdf}
-\caption{{\bf KNZ-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in ... The black lines represent total site-level values across all plots.}
-\label{knz-grasshoppers}
-\end{figure}
 
 \subsection {and-birds}
 The data were downloaded from the EDI Data Portal \citep{and-birds}.
@@ -627,7 +610,22 @@ Taxon count was calculated as the maximum abundance per year during the spring m
 \label{cap-birds}
 \end{figure}
 
-
+\subsection{bes-birds}
+Data were downloaded from EDI \citep{bes-birds}. We dropped all observations in the distance catagory ``FT" and all observations not identified to species. 
+We only used sites with surveys every year from 2005-2009. 
+When there was multiple surveys per year for a single site, the abundance counts were aggregated to the maximum observed count from any survey for each species at the respective site.
+We only included plots in which at least one bird was observed in each year of study.
+Data are shown in (Figure \ref{bes-birds}).
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{bes-birds-nilon_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_spp_shared.pdf}
+\caption{{\bf BES-birds:} }
+\label{bes-birds}
+\end{figure}
 
 
 \bibliographystyle{apalike}

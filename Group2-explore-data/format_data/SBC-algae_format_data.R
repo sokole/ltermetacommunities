@@ -30,13 +30,16 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 
 # SBC LTER (Santa Barbara Coastal): Macroalgae
 data.set <- "SBC-algae"
-data.key <- "0BxUZSA1Gn1HZRUxaNmV1Y21abmc" # Google Drive file ID 
-
+data.key <- "0BxUZSA1Gn1HZRUxaNmV1Y21abmc" # Google Drive file ID for file in ARCHIVE!!!
 
 # ---------------------------------------------------------------------------------------------------
 # IMPORT DATA
 dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key)) %>%
   dplyr::select(-X) # Remove column that contains rownames
+
+#Alternatively, gead in the data directly from Google Drive:
+
+
 
 # MAKE DATA LIST
 dat <- list()
@@ -179,16 +182,5 @@ summary(dat)
 #clean up the workspace
 rm("comm.long","comm.wide","cord","cord.wide","crs.geo","dat.long", "data.key", "data.set","distance.mat","env.long", "env.wide","package","sites")
 ls()
-
-# Now, explore the data and perform further QA/QC by sourcing this script within the scripts "2_explore_spatial_dat.R", "3_explore_comm_dat.R", and "4_explore_environmental_dat.R"
-
-# ---------------------------------------------------------------------------------------------------
-## WRITE OUT DATA FOR ARCHIVING ##
-#save flat files into 'final_data' folder on Google Drive. 
-
-##### OLD WAY #####
-#write .Rdata object into the "Intermediate_data" directory 
-#filename <- paste(data.set,".Rdata", sep="")
-#save(dat, file = paste("Intermediate_data/",filename,sep=""))
 
 

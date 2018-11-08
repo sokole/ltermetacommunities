@@ -98,6 +98,17 @@
  
 \begin{figure}[h!]
 \centering
+\includegraphics[scale = 0.4]{fce-diatoms-catano_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{fce-diatoms-catano_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{fce-diatoms-catano_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{fce-diatoms-catano_species_accumulation_space.pdf}
+\caption{{\bf FCE-diatoms:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for diatom taxa observed at  Florida Coastal Everglades LTER. The black lines represent total site-level values across all plots.}
+\label{fce-diatoms}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
 \includegraphics[scale = 0.4]{fce-fish-RehageDry_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{fce-fish-RehageDry_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{fce-fish-RehageDry_spatiotemporal_sampling_effort.pdf}
@@ -134,20 +145,10 @@
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_species_accumulation_space.pdf}
 \includegraphics[scale = 0.4]{ntl-fish-stanleyLottig_spp_shared.pdf}
 \caption{{\bf NTL-fish:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 81 fish species observed at 9 lakes in the North Temperate Lakes LTER (1995-2016). The black lines represent total site-level values across all plots.}
 \label{ntl-fish}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{nwt-plants-hallett_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{nwt-plants-hallett_spp_shared.pdf}
-\caption{{\bf NWT-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 109 plant species observed at 88 plots in the Niwot Ridge LTER (1989-2014). The black lines represent total site-level values across all plots.}
-\label{nwt-plants}
 \end{figure}
 \efloatseparator
  
@@ -175,6 +176,77 @@
  
 \begin{figure}[h!]
 \centering
+\includegraphics[scale = 0.4]{sgs-plants-catano_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{sgs-plants-catano_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{sgs-plants-catano_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{sgs-plants-catano_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{sgs-plants-catano_spp_shared.pdf}
+\caption{{\bf SGS-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at the Shortgrass Steppe (SGS) LTER. The black lines represent total site-level values across all plots.}
+\label{sgs-plants}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spp_shared.pdf}
+\caption{{\bf JRN-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at the Jornada (JRN) LTER. The black lines represent total site-level values across all plots.}
+\label{jrn-plants}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spp_shared.pdf}
+\caption{{\bf SEV-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in Black grama (BOER) and Creosotebush (LATR) habitats the Sevilleta LTER (1992-2013). The black lines represent total site-level values across all plots.}
+\label{sev-grasshoppers}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{cdr-grasshopper-compagnoni_spp_shared.pdf}
+\caption{{\bf CDR-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed at the Cedar Creek LTER. The black lines represent total site-level values across all plots.}
+\label{cdr-grasshoppers}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_spp_shared.pdf}
+\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_space.pdf}
+\caption{{\bf KNZ-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in ... The black lines represent total site-level values across all plots.}
+\label{knz-grasshoppers}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_spp_shared.pdf}
+\includegraphics[scale = 0.4]{luq-snails-compagnoni_species_accumulation_space.pdf}
+\caption{{\bf LUQ-snails:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for snail species observed in Luquillo LTER. The black lines represent total site-level values across all plots.}
+\label{luq-snails}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
 \includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{jrn-lizards-hope_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{jrn-lizards-hope_species_accumulation_space.pdf}
@@ -193,29 +265,6 @@
 \includegraphics[scale = 0.4]{cap-herps-banville_spp_shared.pdf}
 \caption{{\bf CAP-herps:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for species observed in the Central Area Phoenix LTER (1990-2005). The black lines represent total site-level values across all plots.}
 \label{cap-herps}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{sev-grasshopper-compagnoni_spp_shared.pdf}
-\caption{{\bf SEV-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in Black grama (BOER) and Creosotebush (LATR) habitats the Sevilleta LTER (1992-2013). The black lines represent total site-level values across all plots.}
-\label{sev-grasshoppers}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_spatiotemporal_sampling_effort.pdf}
-%\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_spp_shared.pdf}
-\includegraphics[scale = 0.4]{knz-grasshopper-compagnoni_species_accumulation_space.pdf}
-\caption{{\bf KNZ-grasshoppers:} Species accumulation curves (top left),  annual richness (top right), spatio-temporal sampling effort (bottom left), and number of shared species (bottom right) for grasshopper species observed in ... The black lines represent total site-level values across all plots.}
-\label{knz-grasshoppers}
 \end{figure}
 \efloatseparator
  
@@ -249,6 +298,18 @@
 \includegraphics[scale = 0.4]{cap-birds-banville_spp_shared.pdf}
 \caption{{\bf CAP-birds:} }
 \label{cap-birds}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{bes-birds-nilon_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{bes-birds-nilon_spp_shared.pdf}
+\caption{{\bf BES-birds:} }
+\label{bes-birds}
 \end{figure}
 \efloatseparator
  

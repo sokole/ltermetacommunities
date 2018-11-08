@@ -4,13 +4,10 @@
 # Revised 01 Jun 2017                                       #
 # --------------------------------------------------------- #
 
-# Contributors: Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
+# Contributors: Chris Catano, Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
 
 # Clear environment
 rm(list = ls())
-
-# Set your working environment to the GitHub repository, e.g.: 
-#setwd("~/Documents/ltermetacommunities")
 
 #Check to make sure working directory is correct
 if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
@@ -33,36 +30,35 @@ data.key <- "0B-HySt4HfBxBM0FxbVRERGtBUlk" # Google Drive file ID
 
 
 #Google Drive File Stream read in data:
-dat.long <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/FCE-diatoms-Gaiser-Marazzi/FCE_diatoms_environment_long.csv")
+#dat.long <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/FCE-diatoms-Gaiser-Marazzi/FCE_diatoms_environment_long.csv")
 # ---------------------------------------------------------------------------------------------------
 # IMPORT DATA
-#dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
+dat.long <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key))
 
 str(dat.long)
 levels(dat.long$OBSERVATION_TYPE)
 
-#change 'TAXON_RELATIVE_ABUNDANCE' to 'TAXON_COUNT'
-
+# Change 'TAXON_RELATIVE_ABUNDANCE' to 'TAXON_COUNT'
 dat.long$OBSERVATION_TYPE <- gsub("TAXON_RELATIVE_ABUNDANCE", "TAXON_COUNT", dat.long$OBSERVATION_TYPE)
 
-
-#write this to the L3 folder in Google Drive 
-write.csv(dat.long, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-diatoms-marazzi.csv")
+# Write this to the L3 folder in Google Drive 
+#write.csv(dat.long, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-diatoms-marazzi.csv")
 
 
 # MAKE DATA LIST
 dat <- list()
 
 # COMMUNITY DATA 
-comm.long <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_RELATIVE_ABUNDANCE", ] 
+comm.long <- dat.long[dat.long$OBSERVATION_TYPE == "TAXON_COUNT", ] 
 comm.long <- comm.long %>%
   droplevels()
 
 str(comm.long)  # Inspect the structure of the community data
 
-#Add number of unique taxa and number of years to data list:
+# Add number of unique taxa and number of years to data list:
 dat$n.spp <- length(levels(comm.long$VARIABLE_NAME))
 dat$n.years <- length(unique(comm.long$DATE))
+
 # Ensure that community data VALUE and DATE are coded as numeric
 comm.long <- comm.long %>%   # Recode if necessary
   mutate_at(vars(c(DATE, VALUE)), as.numeric)
@@ -89,27 +85,112 @@ ifelse(FALSE %in%
   "ERROR: Community columns incorrectly coded.", 
   "OK: Community columns correctly coded.")
 
+#-------------------------------------------------------------------------------
+# IMPORT DIATOM DATASET THAT INCLUDES REGION AND PSU CODES. WILL SUBSET LONG
+# DATA TO ONLY INCLUDE SAMPLES FOR PSUs IN SRS AND TSL
+
+data.key2 <-  "1AtXkM-fBhoHXj-d_sTwIFmi8uZd8umrg"
+
+diatom_sites <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key2))
+unique(diatom_sites$Region)
+
+# get vector of PSUs that are in Regions SRS and TSL
+ENP_sites <- diatom_sites[diatom_sites$Region == "SRS" | diatom_sites$Region == "TSL",
+                          "PSU"]
+
+comm.long.ENP <- comm.long[comm.long$SITE_ID %in% ENP_sites, ] # records dropped
+
+
+# checking for weird taxa names and removing suspicious ones that are rare
+comm.long_gamma_summary <- comm.long.ENP %>% group_by(VARIABLE_NAME) %>% 
+  filter(!is.na(VARIABLE_NAME) & VALUE>0) %>%
+  summarize(mean_value = mean(VALUE, na.rm = TRUE)) %>%
+  ungroup() %>%
+  mutate(RA = mean_value / sum(mean_value))
+
+comm.long_gamma_summary_remove_unk <- comm.long_gamma_summary %>% 
+  filter(!grepl('(?i)unk',VARIABLE_NAME))
+
+if(!nrow(comm.long_gamma_summary) == nrow(comm.long_gamma_summary_remove_unk)){
+  message('WARNING: suspicous taxa removed -- taxaID had "unk"')
+}
+
+# Subset data if necessary
+keep <- comm.long_gamma_summary_remove_unk$VARIABLE_NAME
+comm.long.ENP2 <- comm.long.ENP[comm.long.ENP$VARIABLE_NAME %in% keep, ] # records dropped
+length(unique(comm.long.ENP2$VARIABLE_NAME)) # removed 2 species (UNKNGIRD, UNKNVALV)
+
+
 # ---------------------------------------------------------------------------------------------------
 # Check balanced sampling of species across space and time by inspecting table, and add to data list
-xtabs(~ SITE_ID + DATE, data = comm.long)
-hist(na.omit(comm.long$DATE))
 
-ifelse(length(unique(xtabs(~ SITE_ID + DATE, data = comm.long))) == 1,
+if(length(unique(xtabs(~ SITE_ID + DATE, data = comm.long.ENP2))) > 1){
+  comm.long2 <- comm.long.ENP2 %>%
+    spread(VARIABLE_NAME, VALUE, fill = 0) %>%
+    gather('VARIABLE_NAME','VALUE', -c(SITE_ID, DATE, VARIABLE_UNITS))
+}
+
+(cont.table <- xtabs(~ SITE_ID + DATE, data = comm.long2)) #number of taxa should be same in all
+cont.table <- as.data.frame(cont.table)
+hist(na.omit(comm.long2$DATE)) #frequency should be same (even distribution)
+
+
+ifelse(length(unique(xtabs(~ SITE_ID + DATE, data = comm.long.ENP2))) == 1,
        "OK: Equal number of taxa recorded across space and time.", 
        "ERROR: Unequal numbers of observations across space and time, or taxa list not fully propagated across space and time. Inspect contingency table.")
 
-# ---------------------------------------------------------------------------------------------------
-# Add to dat list the unique taxa
-dat$comm.long <- comm.long
+# keep sites that have same sample coverage/spacing (remove those with gaps)
+a <- cont.table[cont.table$Freq == 0, ]
+irregular <- unique(a$SITE_ID)
+comm.long.ENP3 <- comm.long.ENP2[!(comm.long.ENP2$SITE_ID %in% irregular), ]
 
+xtabs(~ SITE_ID + DATE, data = comm.long.ENP3) #number of taxa should be same in all
+hist(na.omit(comm.long.ENP3$DATE)) #frequency should be same (even distribution)
+
+
+
+# ---------------------------------------------------------------------------------------------------
 # Convert community data to wide form
-comm.wide <- comm.long %>%
+comm.wide <- comm.long.ENP3 %>%
   select(-VARIABLE_UNITS) %>%
   spread(VARIABLE_NAME,  VALUE)
 
-dat$comm.wide <- comm.wide
-summary(dat)
+# check to make sure each species is sampled at least once
+zero <- colSums(comm.wide[, c(4:268)]) == 0
+zero <- as.data.frame(zero)
+zero$species <- rownames(zero)
 
+# Remove species with zero occurence (zero = True)
+zero2 <- zero[!(zero$zero == TRUE), ]
+species <- zero2[, -1]
+
+# long form data
+dat.long.ENP <- comm.long.ENP3[comm.long.ENP3$VARIABLE_NAME %in% species, ] # records dropped
+
+# Convert community data to wide form
+comm.wide.ENP <- dat.long.ENP %>%
+  select(-VARIABLE_UNITS) %>%
+  spread(VARIABLE_NAME,  VALUE)
+
+length(unique(dat.long.ENP$SITE_ID)) # 30 sites 
+unique(dat.long.ENP$DATE) # 7 years (2005-2011)
+length(unique(dat.long.ENP$VARIABLE_NAME)) # 192 species
+
+
+write.csv(dat.long.ENP, 
+          file = '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-fce-diatoms-catano.csv', 
+          row.names = F)
+
+
+
+
+
+
+
+
+#--------------------------------------------------------
+
+# no spatial or environmental data; did not run code below
 # ---------------------------------------------------------------------------------------------------
 # SPATIAL DATA
 # Check for and install required packages

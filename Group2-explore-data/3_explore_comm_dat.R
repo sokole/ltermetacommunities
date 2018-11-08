@@ -24,137 +24,43 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2',
 # Assign L3 data set of interest
 # NOTE: Google Drive file ID is different for each dataset
 
-#datasets that are ready to include in meta-analysis
-# jrn-lizard-hope 
-data.set <- "jrn-lizards-hope"
-data.key <- "0B7o8j0RLpcxiYW10X1djMTBGM0U" # Google Drive file ID 
-
-# jrn-lizard-hope 
-data.set <- "cap-herps-banville"
-data.key <- "" # Google Drive file ID 
-
-# mcr-coral-castorani
-data.set <- "mcr-coral-castorani"
-data.key <- "" # Google Drive file ID
-
-# mcr-algae-castorani
-data.set <- "mcr-algae-castorani"
-data.key <- "0BxUZSA1Gn1HZenhxaVJ6bWtVdDg" # Google Drive file ID
-
-# mcr-inverts-castorani
-data.set <- "mcr-inverts-castorani"
-data.key <- "" # Google Drive file ID
- 
-# mcr-fish-castorani
-data.set <- "mcr-fish-castorani"
-data.key <- "" # Google Drive file ID
-
-# ntl-zooplankton-stanleyLottig 
-data.set <- "ntl-zooplankton-stanleyLottig"
-data.key <- "" # Google Drive file ID
-
-# nwt-plants-hallett 
-data.set <- "nwt-plants-hallett"
-data.key <- "0B2P104M94skvQzE2QUMtNHpCcXc" # Google Drive file ID 
-
-# CSUN-USVI-coral
+#marine
 data.set <- "usvi-coral-castorani"
-data.key <- "0BxUZSA1Gn1HZZGowdUVCTTdtXzg" # Google Drive file ID
-
-# mcr-coral-castorani
-data.set <- "hbr-birds-sillett"
-data.key <- "" # Google Drive file ID
-
-#these datasets are being updated by PI. Redo formatting as they are posted in EDI and subset further prior to analysis:
-# sbc-algae-castorani (survey)
+data.set <- "mcr-coral-castorani"
+data.set <- "mcr-algae-castorani"
+data.set <- "mcr-inverts-castorani"
+data.set <- "mcr-fish-castorani"
 data.set <- "sbc-algae-castorani"
-data.key <- "0BxUZSA1Gn1HZZWl6d3BMeVNlT0U" # Google Drive file ID
-
-# sbc-fish-castorani (survey)
 data.set <- "sbc-fish-castorani"
-data.key <- "" # Google Drive file ID
-
-# sbc-mobile_inverts-castorani (survey)
 data.set <- "sbc-mobileInverts-castorani"
-data.key <- "" # Google Drive file ID
-
-# sbc-sessile_inverts-castorani (survey)
 data.set <- "sbc-sessileInverts-castorani"
-data.key <- "" # Google Drive file ID
 
-
-#datasets that need significant work still:
-# ntl-fish-stanleyLottig (Need to decide which years and lakes to include. See notes and figs in the tex file)
+#freshwater
+data.set <- "ntl-zooplankton-stanleyLottig"
 data.set <- "ntl-fish-stanleyLottig"
-data.key <- "" # Google Drive file ID
-
-#"fce-fish-rehage WET SEASON
 data.set <- "fce-fish-rehageWet"
-
-#"fce-fish-rehage DRY SEASON
 data.set <- "fce-fish-rehageDry"
+data.set <- "fce-diatoms-catano"
 
-# fce-algae-marazzi (contains duplicated records... double check) Some figs not made yet. (remove a year; very unbalanced)
-data.set <- "fce-algae-marazzi"
-data.key <- "0B2P104M94skvbVdsYUc4amdSLWc" # Google Drive file ID
-
-# fce-diatoms-marazzi (very unbalanced)
-data.set <- "fce-diatoms-marazzi"
-data.key <- "" # Google Drive file ID
-
-
-# and-birds-wisnoski Sampling effort was not equal in all years, causing unexplained dip in Richness in 2014-2016. Need to calculate 'count' of birds differently (not sum; maybe max?). Data not propagated.
-data.set <- "and-birds-wisnoski"
-data.key <- "" # Google Drive file ID
-
-# and-plants-mtStHelens  $##NEEDS babanced sampling
+#terrestrial 
 data.set <- "and-plants-mtStHelens"
-data.key <- "" # Google Drive file ID
-
-#jrn-677plantdensity-popler
-data.set <- "jrn-677plantdensity-popler"
-
-
-#cap-birds-banville
-data.set <- "cap-birds-banville"
-data.key <- "" # Google Drive file ID
-
-#cdr-plants-compagnoni
+data.set <- "jrn-plants-compagnoni"
 data.set <- "cdr-plants-compagnoni"
-data.key <- "" # Google Drive file ID
-
-#sev-grasshopper-compagnoni
+data.set <- "sgs-plants-catano"
 data.set <- "sev-grasshopper-compagnoni"
-data.key <- "" # Google Drive file ID
-
-#cdr-grasshopper-compagnoni
 data.set <- "cdr-grasshopper-compagnoni"
-data.key <- "" # Google Drive file ID
-
-#knz-grasshopper-compagnoni
 data.set <- "knz-grasshopper-compagnoni"
-data.key <- "" # Google Drive file ID
+data.set <- "luq-snails-compagnoni"
+data.set <- "jrn-lizards-hope"
+data.set <- "cap-herps-banville"
+data.set <- "bes-birds-nilon"
+data.set <- "and-birds-wisnoski"
+data.set <- "cap-birds-banville"
 
-#jrn-677plantdensity-popler
-data.set <- "jrn-677plantdensity-popler"
-data.key <- "" # Google Drive file ID
-
-#######################
-#REMOVED FROM ANALYSIS
-
-# ntl-macroinvertebrates-stanleyLottig (keys for taxa need to be edited - Chaoborus larvae and Chaobotus pupae are given different codes. Also remove 1998 due to incomplete sampling. Also, there are only 4 taxa... too few for analysis?) 
-#data.set <- "ntl-macroinvertebrate-stanleyLottig"
-#data.key <- "" # Google Drive file ID
-
-# mcm-diatoms-schulteSokol 
-#data.set <- "mcm-diatoms-schulteSokol"
-#data.key <- "" # Google Drive file ID 
 
 #----------------------------------------------------------------------------------------------------
 # IMPORT DATA
-L3dat <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), stringsAsFactors=F) 
-
-#Alternative using Google Drive File Stream. Works the same whether streaming data or data are cached locally:
+#Using Google Drive File Stream. Works the same whether streaming data or data are cached locally:
 L3dat <- read.csv(paste("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-", data.set, ".csv", sep=""), stringsAsFactors=F)
 
 # MAKE DATA LIST
@@ -247,17 +153,6 @@ no.taxa.fun <- function(ex) {
 # Apply function across community data
 no.taxa <- no.taxa.fun(dat$comm.long) # Result is a list of: (1) no. of taxa at each site; (2) no. of taxa at all sites
 
-# Plot a heatmap of the number of species observed over space and time
-ggplot(data = no.taxa$no.taxa, aes(x = DATE, y = SITE_ID, fill = no.taxa)) +
-  geom_raster() +
-  scale_fill_gradientn(colours = heat.pal.spectral(100), name = "No. of taxa") +
-  theme_bw() +
-  #guides(fill = guide_legend(title = "Number of taxa")) +
-  xlab("Year") +
-  ylab("Site") +
-  theme(aspect.ratio = 1)
-
-
 # Plot number of taxa through time
 # Note that the thick line indicates the total number of taxa among all sites
 #write to file:
@@ -269,24 +164,37 @@ ggplot(data=no.taxa$no.taxa, aes(x=DATE, y=no.taxa)) +
   geom_line(data=no.taxa$total.no.taxa, aes(x=DATE, y=no.taxa), color="black", size=1) +
   xlab("Year") +
   ylab("Number of taxa observed") +
-  guides(color = guide_legend(title = "Site")) +
+#  guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(no.taxa$total.no.taxa$no.taxa))) +
   theme_bw() +
-  theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) # ,legend.position = "none"
+  theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none")
   dev.off()
 # ---------------------------------------------------------------------------------------------------
 # SITE-SPECIFIC AND TOTAL SPECIES ACCUMULATION CURVES
 
+# Make a function that returns the cumulative number of taxa observed for a given set of community data (this version cannot handle missing years)
+#cuml.taxa.fun <- function(EX){
+#  taxa.t.list <- list() # Make empty list
+  
+#  Loop over each year, creating a list that contains the unique taxa found in each year
+#  for(t in 1:length(unique(EX$DATE))){
+#    tmp.dat <- subset(EX, EX$DATE == t + (min(EX$DATE) - 1))
+#    tmp.dat.pres <- subset(tmp.dat, tmp.dat$VALUE > 0) 
+#    taxa.t.list[[t]] <- unique(tmp.dat.pres$VARIABLE_NAME)
+#  }
+ 
+ 
 # Make a function that returns the cumulative number of taxa observed for a given set of community data
 cuml.taxa.fun <- function(EX){
   taxa.t.list <- list() # Make empty list
-  
+  dates <- unique(EX$DATE)
   # Loop over each year, creating a list that contains the unique taxa found in each year
   for(t in 1:length(unique(EX$DATE))){
-    tmp.dat <- subset(EX, EX$DATE == t + (min(EX$DATE) - 1))
+    tmp.dat <- subset(EX, EX$DATE == dates[t])
     tmp.dat.pres <- subset(tmp.dat, tmp.dat$VALUE > 0) 
     taxa.t.list[[t]] <- unique(tmp.dat.pres$VARIABLE_NAME)
   }
+  
   
   # Make cumulative list of taxa through time
   cuml.taxa <- list() # Empty list
@@ -345,10 +253,8 @@ ggplot(data=cuml.taxa.by.site, aes(x = year, y = no.taxa)) +
   guides(color = guide_legend(title = "Site")) +
   ylim(c(0, max(cuml.taxa.all.sites$no.taxa))) +
   theme_bw()  +
-  theme(axis.title = element_text(size=20), axis.text = element_text(size=20)) #, legend.position = "none"dev.off()
+  theme(axis.title = element_text(size=20), axis.text = element_text(size=20), legend.position = "none") #
 dev.off()
-
-
 
 
 #---------------------------------------------------------------------------------------------------
@@ -389,10 +295,9 @@ cuml.taxa.space.fun <- function(EX){
 no.taxa.space <- cuml.taxa.space.fun(comm.dat)
 
 pdf(file=paste('MS3-Supp-Info/', data.set,'_species_accumulation_space.pdf', sep=''))
-plot(as.numeric(no.taxa.space$site), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "Cumulative number of taxa", cex=1.5, lwd=3, cex.lab=1.5)
-axis(side=1, at = as.numeric(no.taxa.space$site), labels = seq(1,length(no.taxa.space$site),1))
+plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "Cumulative number of taxa", cex=1.5, lwd=3, cex.lab=1.5)
+axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
 dev.off()
-
 
 # ---------------------------------------------------------------------------------------------------
 # COUNT SHARED SPECIES BETWEEN EACH SITE
@@ -443,16 +348,12 @@ dev.off()
 #make metadata table
 mtdt <- list()
 mtdt$dataset <- data.set
-mtdt$initial.year <- min(dat$comm.wide$DATE)
-mtdt$study.length <- max(dat$comm.wide$DATE) -  min(dat$comm.wide$DATE) +1
-mtdt$n.years <- length(unique(dat$comm.wide$DATE))
-mtdt$n.plots <- length(unique(dat$comm.wide$SITE_ID))
+mtdt$initial.year <- min(dat$comm.long$DATE)
+mtdt$study.length <- max(dat$comm.long$DATE) -  min(dat$comm.long$DATE) +1
+mtdt$n.years <- length(unique(dat$comm.long$DATE))
+mtdt$n.plots <- length(unique(dat$comm.long$SITE_ID))
 mtdt$n.taxa <- length(unique(dat$comm.long$VARIABLE_NAME))
 mtdt$organism <- gsub(".*-(.*)\\-.*", "\\1", data.set)
 #mtdt$units <-  unique(dat$comm.wide$OBSERVATION_TYPE)
 mtdt <- data.frame(mtdt)
 write.csv(mtdt, file = paste("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/metadata_tables/",data.set,"_metadata.csv", sep=""), row.names=F)
- 
-
-
-
