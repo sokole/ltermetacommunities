@@ -294,17 +294,6 @@
  
 \begin{figure}[h!]
 \centering
-\includegraphics[scale = 0.4]{hbr-birds-sillett_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{hbr-birds-sillett_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{hbr-birds-sillett_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{hbr-birds-sillett_spp_shared.pdf}
-\caption{{\bf HBR-birds:} }
-\label{hbr-birds}
-\end{figure}
-\efloatseparator
- 
-\begin{figure}[h!]
-\centering
 \includegraphics[scale = 0.4]{cap-birds-banville_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{cap-birds-banville_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{cap-birds-banville_spatiotemporal_sampling_effort.pdf}
