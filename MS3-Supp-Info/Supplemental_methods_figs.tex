@@ -356,24 +356,40 @@ We used data from the Pumice Plains habitat, which is the longest continuous sam
 
 \subsection {cdr-plants}
 Data were downloaded from EDI \citep{cdr-plants}.
-Annual censuses for dataset are incomplete after 2004, so we only consider data until 2004. We used data from control plots only, from all four sites (A, B, C, and D). 
+Annual censuses for dataset are incomplete after 2004, so we only consider data until 2004. 
+We used data from control plots only, from all four sites (A, B, C, and D). 
+Fields A, B, and C were considered together as a single dataset, while D was considered a separate datasets because of its unique fire history.
 We cleaned taxonomic data by cleaning clear mistakes (such as `carex sp.' instead of `Carex sp.'), removed non-taxonomic entities (``Miscellaneous litter") and non-plant taxa (`Fungi', and `Mosses \& lichens').
 We also lumped or dropped certain taxonomic information. 
 In particular, we lumped taxonomic information to the genus level when more than 1$\%$ (more than a proportion of 0.01) of the biomass of a genus was not identified to the species level. 
 For example, {\it Cyperus} species are usually identified to the genus level (``Cyperus  sp.") rather than species level (``{\it Cyperus schweinitzii}''), with a minority of the biomass (less than 10$\%$) identified at the specific level. We therefore consider only genus information for {\it Cyperus}. 
 We dropped taxonomic information when within a certain genus, biomass is identified to the genus level. 
 For example, in the genus {\it Viola}, more than 99.8$\%$ of biomass was determined to the species level. We therefore dropped from the dataset the instances when biomass is assigned to 'Viola sp.'.
-Data are shown in figure \ref{cdr-plants}.
+Data are shown in figures \ref{cdr-plantsABC} and \ref{cdr-plantsD}.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale = 0.4]{cdr-plants-compagnoni_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{cdr-plants-compagnoni_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{cdr-plants-compagnoni_spp_shared.pdf}
-\caption{{\bf CDR-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Cedar Creek. The black lines represent total site-level values across all plots.}
-\label{cdr-plants}
+\includegraphics[scale = 0.4]{cdr-plantsABC-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsABC-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsABC-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsABC-compagnoni_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsABC-compagnoni_spp_shared.pdf}
+\caption{{\bf CDR-plants, A, B, and C fields:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed in the A, B, and C fields at Cedar Creek. The black lines represent total site-level values across all plots.}
+\label{cdrABC-plants}
 \end{figure}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale = 0.4]{cdr-plantsD-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsD-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsD-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsD-compagnoni_species_accumulation_space.pdf}
+\includegraphics[scale = 0.4]{cdr-plantsD-compagnoni_spp_shared.pdf}
+\caption{{\bf CDR-plants, D field:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed in the D field at Cedar Creek. The black lines represent total site-level values across all plots.}
+\label{cdrD-plants}
+\end{figure}
+
 
 \subsection{sgs-plants}
 Data were downloaded from EDI \citep{sgs-plants}.
