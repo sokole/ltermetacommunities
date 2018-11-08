@@ -100,4 +100,4 @@ site_keep <- snail_long %>%
 snail_out <- snail_long %>% subset( SITE_ID %in% site_keep )
 
 # write file out
-write.csv(snail_long, '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-luq-snails-compagnoni.csv', row.names=F)
+write.csv(snail_out, '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-luq-snails-compagnoni.csv', row.names=F)
