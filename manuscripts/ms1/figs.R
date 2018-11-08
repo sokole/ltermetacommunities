@@ -84,7 +84,7 @@ cuml.taxa.space.fun <- function(EX){
   
   return(cuml.no.taxa.space)
   }
- ---------------------------------------------------------------------------------------------------
+ 
 # PANEL A: cap-birds-banville
 data.set <- "cap-birds-banville"
 id <- "18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw"
