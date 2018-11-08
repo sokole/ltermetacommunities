@@ -33,9 +33,9 @@ l0_data_list <- l0_data_list %>% select(dataset_id, `data directory`, `LTER site
 
 # format data set names from L3 file list
 l3_data_list_filenames_table <- data.frame(
-  dataset_id = L3_filename_list$name %>% gsub('(?i)L3\\-','',.) %>% gsub('\\.csv','', .),
-  l3_filename = L3_filename_list$name,
-  google_id = L3_filename_list$id)
+  dataset_id = l3_data_csv_list$name %>% gsub('(?i)L3\\-','',.) %>% gsub('\\.csv','', .),
+  l3_filename = l3_data_csv_list$name,
+  google_id = l3_data_csv_list$id)
 
 # merge L3 file names, L0 data, and Nina's metadata
 l3_data_list_updated <- l3_data_list_filenames_table%>% left_join(l0_data_list, by = 'dataset_id') %>%
