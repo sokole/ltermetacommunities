@@ -18,17 +18,21 @@ l0_data_list <- l0_data_list_google_id %>%
 L3_list_of_files <- googledrive::drive_ls('LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space')
 l3_data_list_google_id <- L3_list_of_files %>% filter(name == 'L3-DATA-list') %>% select(id) %>% unlist()
 
-# l3_data_list <- l3_data_list_google_id %>%
-#   gs_key(lookup = TRUE) %>%
-#   gs_read()
+l3_data_list <- l3_data_list_google_id %>%
+  gs_key(lookup = TRUE) %>%
+  gs_read()
+
+l3_data_list_blank <- matrix(nrow = nrow(l3_data_list), ncol = ncol(l3_data_list)) %>% as.data.frame()
 
 # make a list of L3 files
 l3_data_csv_list <- L3_list_of_files %>% filter(grepl('(?i)\\.csv', name))
 
 # pull out vars from L0 to propagate to L3 data list
-l0_data_list <- l0_data_list %>% select(dataset_id, `data directory`, `LTER site`, 
-                                        contact, `responsible person`, `L3 status`, `provided identifier`, `doi`, `date accessed`, `date published`,
-                                        source_url_or_contact, `body size`, `dispersal habit`, mobility, `trophic group`, `biome`) %>%
+l0_data_list <- l0_data_list %>% 
+  rename(organism_group = organism) %>%
+  select(dataset_id, `data directory`, `LTER site`, 
+         contact, `responsible person`, `L3 status`, `provided identifier`, `doi`, `date accessed`, `date published`,
+         source_url_or_contact, `body size`, `dispersal habit`, mobility, `trophic group`, `biome`, organism_group) %>%
   rename(L0_data_directory = `data directory`)
 
 # format data set names from L3 file list
@@ -41,11 +45,18 @@ l3_data_list_filenames_table <- data.frame(
 l3_data_list_updated <- l3_data_list_filenames_table%>% left_join(l0_data_list, by = 'dataset_id') %>%
   left_join(auto_metadata, by = c('dataset_id' = 'dataset'))
 
-# update the googlesheet L3-DATA-List
+# # Delete everything in the googlesheet data list
+# googlesheets::gs_edit_cells(
+#   ss = gs_key(l3_data_list_google_id),
+#   ws = 'DATA-list',
+#   input = l3_data_list_blank)
+
+# Write out the updated information to the googlesheet L3-DATA-List
 googlesheets::gs_edit_cells(
   ss = gs_key(l3_data_list_google_id),
   ws = 'DATA-list',
-  input = l3_data_list_updated)
+  input = l3_data_list_updated,
+  trim = TRUE)
 
 # write to github dir
 write_csv(l3_data_list_updated, 'Group3-diversity-metrics/l3_data.csv')
