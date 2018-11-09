@@ -18,11 +18,9 @@ l0_data_list <- l0_data_list_google_id %>%
 L3_list_of_files <- googledrive::drive_ls('LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space')
 l3_data_list_google_id <- L3_list_of_files %>% filter(name == 'L3-DATA-list') %>% select(id) %>% unlist()
 
-l3_data_list <- l3_data_list_google_id %>%
-  gs_key(lookup = TRUE) %>%
-  gs_read()
-
-l3_data_list_blank <- matrix(nrow = nrow(l3_data_list), ncol = ncol(l3_data_list)) %>% as.data.frame()
+# l3_data_list <- l3_data_list_google_id %>%
+#   gs_key(lookup = TRUE) %>%
+#   gs_read()
 
 # make a list of L3 files
 l3_data_csv_list <- L3_list_of_files %>% filter(grepl('(?i)\\.csv', name))
@@ -44,12 +42,6 @@ l3_data_list_filenames_table <- data.frame(
 # merge L3 file names, L0 data, and Nina's metadata
 l3_data_list_updated <- l3_data_list_filenames_table%>% left_join(l0_data_list, by = 'dataset_id') %>%
   left_join(auto_metadata, by = c('dataset_id' = 'dataset'))
-
-# # Delete everything in the googlesheet data list
-# googlesheets::gs_edit_cells(
-#   ss = gs_key(l3_data_list_google_id),
-#   ws = 'DATA-list',
-#   input = l3_data_list_blank)
 
 # Write out the updated information to the googlesheet L3-DATA-List
 googlesheets::gs_edit_cells(
