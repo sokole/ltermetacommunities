@@ -40,7 +40,7 @@ NTL,fish_lake,43.287,-89.652,80.4,
 NTL,lake_mendota,43.099,-89.405,3961.2,
 NTL,lake_wingra,43.053,-89.425,136.2,
 NTL,lake_monona,43.063,-89.361,1359.8,
-AND,mt_st_helens_centroid,46.23221,122.16,,
+AND,mt_st_helens_centroid,46.23221,-122.16,,
 NTL,northern_lakes_no_bogs_centroid,46.03119,-89.48587,,"crystal, big muske, sparkling, allequash, and trout"
 NTL,northern_lakes_with_bogs_centroid,46.02886,-89.57467,,Same as above plus crystal and trout bogs
 CSUN-USVI,yawzi,18.31506678,-64.72551007,,marine site
