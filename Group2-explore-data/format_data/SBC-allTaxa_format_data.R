@@ -1,6 +1,6 @@
 # --------------------------------------------------------- #
 # Format raw data as a list of tables                       #
-# SBC-algae-Lamy-Castorani                                  #
+# separate by taxa to make four separate L3 datasets                                  #
 # Revised Nov 17, 2018 by MCN Castorani                     #
 # --------------------------------------------------------- #
 
@@ -32,7 +32,7 @@ for (package in c('dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')
 
 # SBC LTER (Santa Barbara Coastal): Macroalgae
 data.set <- "SBC-algae"
-data.key <- "0BxUZSA1Gn1HZRUxaNmV1Y21abmc" # Google Drive file ID for file in ARCHIVE!!!
+data.key <- "0BxUZSA1Gn1HZRUxaNmV1Y21abmc" # Google Drive file ID for 'LTER-DATA/L0-raw/SBC/sbc_algae_dat_long.csv'
 
 dat.long.old <-  read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", data.key), stringsAsFactors=F) %>%
   dplyr::select(-X) # Remove column that contains rownames
