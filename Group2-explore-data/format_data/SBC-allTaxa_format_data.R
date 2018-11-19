@@ -101,13 +101,19 @@ rm(tmpDateFormat,tmp1DATE)
 comm.dat.unformatted <- dt1; rm(dt1)
 
 # Recode "-99999" in unformatted community data
-comm.dat.unformatted$PERCENT_COVER[comm.dat.unformatted$PERCENT_COVER < 0] <- NA
-comm.dat.unformatted$DENSITY[comm.dat.unformatted$DENSITY < 0] <- NA
-comm.dat.unformatted$WM_GM2[comm.dat.unformatted$WM_GM2 < 0] <- 0
-comm.dat.unformatted$DM_GM2[comm.dat.unformatted$DM_GM2 < 0] <- 0
-comm.dat.unformatted$SFDM[comm.dat.unformatted$SFDM < 0] <- 0
-comm.dat.unformatted$AFDM[comm.dat.unformatted$AFDM < 0] <- 0
-  
+comm.dat.unformatted[comm.dat.unformatted == -99999] <- NA 
+summary(comm.dat.unformatted)
+#comm.dat.unformatted$PERCENT_COVER[comm.dat.unformatted$PERCENT_COVER < 0] <- NA
+#comm.dat.unformatted$DENSITY[comm.dat.unformatted$DENSITY < 0] <- NA
+#comm.dat.unformatted$WM_GM2[comm.dat.unformatted$WM_GM2 < 0] <- 0
+#comm.dat.unformatted$DM_GM2[comm.dat.unformatted$DM_GM2 < 0] <- 0
+#comm.dat.unformatted$SFDM[comm.dat.unformatted$SFDM < 0] <- 0
+#comm.dat.unformatted$AFDM[comm.dat.unformatted$AFDM < 0] <- 0
+
+#which taxa have NA values in which years? 
+how.many.na <- function(x) {length(which(is.na(x)))}
+Tbl <- tapply(comm.dat.unformatted$DM_GM2, list(comm.dat.unformatted$SCIENTIFIC_NAME, comm.dat.unformatted$YEAR), how.many.na)
+write.csv(Tbl, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/SBC/NA_table.csv", row.names=T)  
 # ---------------------------------------------------------------------------------------------------
 
 # Import temperature data from EDI
