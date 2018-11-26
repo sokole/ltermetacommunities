@@ -31,7 +31,7 @@ clean_data <- function(data, data_name) {
       spread(variable, value) %>%
       mutate(year = as.numeric(year))
   } else {
-    data <- data
+    data <- data 
   }
   
   # rename mean, std to indicate variable
@@ -91,7 +91,7 @@ ndvi_data <- clean_data(ndvi_data, 'ndvi')
 sst_data <- clean_data(sst_data, 'sst')
 
 full_data <- elev_data %>%
-  right_join(lst_data) %>%
+  left_join(lst_data) %>%
   full_join(ndvi_data) %>%
   full_join(sst_data)
 
