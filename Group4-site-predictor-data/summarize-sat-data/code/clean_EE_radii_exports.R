@@ -91,7 +91,7 @@ ndvi_data <- clean_data(ndvi_data, 'ndvi')
 sst_data <- clean_data(sst_data, 'sst')
 
 full_data <- elev_data %>%
-  full_join(lst_data) %>%
+  right_join(lst_data) %>%
   full_join(ndvi_data) %>%
   full_join(sst_data)
 
