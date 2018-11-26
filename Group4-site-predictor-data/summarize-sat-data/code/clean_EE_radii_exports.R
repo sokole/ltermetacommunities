@@ -31,8 +31,7 @@ clean_data <- function(data, data_name) {
       spread(variable, value) %>%
       mutate(year = as.numeric(year))
   } else {
-    data <- data %>%
-      mutate(year = as.numeric(NA))
+    data <- data
   }
   
   # rename mean, std to indicate variable
@@ -53,7 +52,7 @@ clean_data <- function(data, data_name) {
       arrange(site, subsite, radius, year)
   } else {
     data <- data %>%
-      select(5, 7, 9, 2, 1, 8, 4, 3, 6) %>%
+      select(5, 7, 8, 2, 1, 4, 3, 6) %>%
       arrange(site, subsite, radius)
   }
   
@@ -62,7 +61,7 @@ clean_data <- function(data, data_name) {
 
 # import data -------------------------------------------------------------
 
-fp <- '/home/annie/Documents/MSU_postdoc/lter/data/'
+fp <- '/home/annie/Documents/MSU_postdoc/lter/data/radii_data/'
 all_files <- list.files(path = fp, pattern = 'lter_radii', full.names = TRUE, recursive = TRUE)
 
 # elevation (meters)
@@ -99,7 +98,6 @@ full_data <- elev_data %>%
 # export ------------------------------------------------------------------
 
 write.csv(full_data, '/home/annie/Documents/MSU_postdoc/lter/data/lter_radii_data.csv')
-
 
 # plot --------------------------------------------------------------------
 
