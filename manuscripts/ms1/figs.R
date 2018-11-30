@@ -1,4 +1,4 @@
-#MS1 Figure 1: species accumulation curve (richness and time to asymptote) depends on number of sites sampled.
+ #MS1 Figure 1: species accumulation curve (richness and time to asymptote) depends on number of sites sampled.
 #NKL 06/27/2018
 
 
@@ -86,19 +86,7 @@ cuml.taxa.space.fun <- function(EX){
   }
  
 # PANEL A: cap-birds-banville
-data.set <- "cap-birds-banville"
-id <- "18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw"
-
-## IMPORT DATA
-datname <- drive_get(as_id(id))
-
-## download the file locally
-drive_download(datname)
-
-L3dat <- read.csv(datname$name,
-                  header = T,
-                  stringsAsFactors=F)
-
+L3dat <- read.csv("manuscripts/ms1/L3-cap-birds-banville.csv", header = T, stringsAsFactors=F)
 
 # MAKE DATA LIST
 dat <- list()
@@ -237,7 +225,7 @@ mlom_1; confint(mlom_1)
 
 
 #start making figure for Box 1
-pdf(file = "Box_1_sppAccum.pdf", height = 7, width = 7)
+pdf(file = "manuscripts/ms1/Box_1_sppAccum.pdf", height = 7, width = 7)
 colours <- c("coral4", "coral3", "coral2", "coral1")
 par(mfrow = c(2,2))
 par(mar = c(4, 4, 0, 1) + 0.1)
@@ -265,19 +253,7 @@ text(3, 100, "B", cex=2, font = 2)
 
 # ---------------------------------------------------------------------------------------------------
 # PANEL B: sbc-sessileInverts-castorani
-
-data.set <- "sbc-sessileInverts-castorani"
-id <- "0BxUZSA1Gn1HZYVp0MXBod2oxczQ"
-
-## IMPORT DATA
-datname <- drive_get(as_id(id))
-
-## download the file locally
-drive_download(datname)
-
-L3dat <- read.csv(datname$name,
-                  header = T,
-                  stringsAsFactors=F)
+L3dat <- read.csv("manuscripts/ms1/L3-sbc-sessileInverts-castorani.csv", header = T, stringsAsFactors=F)
 
 
 # MAKE DATA LIST
@@ -447,19 +423,7 @@ dev.off()
 
 # FIGURE 2: Succession and species invasions ---------------------------------------------------------------------------------------------------
 # PANEL A: and-plants-mtStHelens
-
-data.set <- "and-plants-mtStHelens"
-id <- "18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S"
-
-## IMPORT DATA
-datname <- drive_get(as_id(id))
-
-## download the file locally
-drive_download(datname)
-
-L3dat <- read.csv(datname$name,
-                  header = T,
-                  stringsAsFactors=F)
+L3dat <- read.csv("manuscripts/ms1/L3-and-plants-mtStHelens.csv", header = T, stringsAsFactors=F)
 
 
 # MAKE DATA LIST
@@ -588,8 +552,8 @@ mmic_1; confint(mmic_1)
 #lines(xtmp, predict(mmic_1, newdata=data.frame(year=xtmp)), lwd=2, col = 4)
 
 
-#start making Figure 2 (don't plot fits for now, but ask for input)
-pdf(file = "Box_1_Fig2.pdf", height = 3.5, width = 7)
+#start making Figure 2 (don't plot fits, it's succession.)
+pdf(file = "manuscripts/ms1/Box_1_Fig2.pdf", height = 3.5, width = 7)
 colours = c("coral4", "coral3", "coral2", "coral1")
 par(mfrow = c(1,2))
 par(mar = c(4, 4, 0, 1) + 0.1)
