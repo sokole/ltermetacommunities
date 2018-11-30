@@ -59,7 +59,11 @@ rm(dat.long.old)
 # Contact:    - Information Manager, Santa Barbara Coastal LTER   - sbclter@msi.ucsb.edu
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
-infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-sbc/50/6/24d18d9ebe4f6e8b94e222840096963c" 
+infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-sbc/50/7/24d18d9ebe4f6e8b94e222840096963c" 
+
+infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-sbc/50/7/24d18d9ebe4f6e8b94e222840096963c" 
+
+
 infile1 <- sub("^https","http",infile1) 
 dt1 <-read.csv(infile1,header=F 
                ,skip=1
@@ -87,7 +91,8 @@ dt1 <-read.csv(infile1,header=F
                  "TAXON_GENUS",     
                  "GROUP",     
                  "MOBILITY",     
-                 "GROWTH_MORPH"    ), check.names=TRUE, stringsAsFactors=F)
+                 "GROWTH_MORPH",
+                 "COARSE_GROUPING"), check.names=TRUE, stringsAsFactors=F)
 
 
 # attempting to convert dt1$DATE dateTime string to R date structure (date or POSIXct)                                
@@ -113,7 +118,8 @@ summary(comm.dat.unformatted)
 #which taxa have NA values in which years? 
 how.many.na <- function(x) {length(which(is.na(x)))}
 Tbl <- tapply(comm.dat.unformatted$DM_GM2, list(comm.dat.unformatted$SCIENTIFIC_NAME, comm.dat.unformatted$YEAR), how.many.na)
-write.csv(Tbl, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/SBC/NA_table.csv", row.names=T)  
+#problem of many NA values in early years for some taxa that was present in knb.sbc.50.6 now appears to be fixed. A few NA in a few years only.
+ 
 # ---------------------------------------------------------------------------------------------------
 
 # Import temperature data from EDI
