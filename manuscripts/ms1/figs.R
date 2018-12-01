@@ -244,9 +244,17 @@ text(1, 100, "A", cex=2, font = 2)
 
 ## accumulation over space
 no.taxa.space <- cuml.taxa.space.fun(dat$comm.long)
+num.tax <- no.taxa.space$no.taxa
+site <- seq(1, length(unique(dat$comm.long$SITE_ID)),1)
+mlom <- nls(num.tax ~ SSlomolino(site, Smax, A50, Hill)) 
+mmic <- nls(num.tax ~ SSmicmen(site, slope, Asym))
+marr <- nls(num.tax ~ SSarrhenius(site, k, z))
 
-plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "", ylab = "", cex=0.75, ylim = c(0,max(no.taxa.space$no.taxa)+1))
+allmods <- list(Arrhenius = marr, Lomolino = mlom, MicMen= mmic)
+sapply(allmods, AIC)
 
+plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19,  xaxt="n", bty="l", xlab = "", ylab = "", cex=0.75, ylim = c(0,max(no.taxa.space$no.taxa)+1), col = "coral4") #type = "o",
+lines(site, predict(mmic, newdata=data.frame(site=site)), lwd=2, col = "coral4")
 axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
 
 text(3, 100, "B", cex=2, font = 2)
@@ -409,9 +417,17 @@ text(1, 65, "C", cex=2, font = 2)
 
 ## accumulation over space
 no.taxa.space <- cuml.taxa.space.fun(dat$comm.long)
+num.tax <- no.taxa.space$no.taxa
+site <- seq(1, length(unique(dat$comm.long$SITE_ID)),1)
+mlom <- nls(num.tax ~ SSlomolino(site, Smax, A50, Hill)) 
+mmic <- nls(num.tax ~ SSmicmen(site, slope, Asym))
+marr <- nls(num.tax ~ SSarrhenius(site, k, z))
 
-plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "", cex=0.75, ylim = c(0,max(no.taxa.space$no.taxa)+1))
+allmods <- list(Arrhenius = marr, Lomolino = mlom, MicMen= mmic)
+sapply(allmods, AIC)
 
+plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19,  xaxt="n", bty="l", xlab = "", ylab = "", cex=1, ylim = c(0,max(no.taxa.space$no.taxa)+1), col = "cadetblue4") #type = "o",
+lines(site, predict(mmic, newdata=data.frame(site=site)), lwd=2, col = "cadetblue4")
 axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
 
 text(1.5, 65, "D", cex=2, font = 2)
