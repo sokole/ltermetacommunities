@@ -9,7 +9,8 @@
 # Contact:  Information Manager Sevilleta LTER -  SEV LTER  - data-use@sevilleta.unm.edu
 # Metadata Link: https://portal.lternet.edu/nis/metadataviewer?packageid=knb-lter-sev.106.214968
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
-
+library(tidyr)
+library(dplyr)
 
 infile1 <- "https://pasta.lternet.edu/package/data/eml/knb-lter-sev/106/214968/1def46af7a0b7d367705caaf2697f0d2" 
 infile1 <- sub("^https","http",infile1)
@@ -46,6 +47,9 @@ dt1 <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-D
 
 # format 
 count_d <- dt1 %>% 
+            mutate( Species = replace(Species, 
+                                      Species %in% c("M.ARIDUS"), 
+                                      'MEAR') ) %>% 
             separate(col = 'Date', into = c('month','day','year') ) %>% 
             # sum counts over years, sex, age ground, and substrate
             group_by(year,Site,Web,Species) %>% 
@@ -65,7 +69,8 @@ count_d <- dt1 %>%
             spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
             gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) %>% 
             # select LATR and BOGR (because longest rep with lots of shared species)
-            subset( grepl('LATR|BOER',SITE_ID) )
+            subset( grepl('LATR|BOER',SITE_ID) ) %>% 
+            subset( !(VARIABLE_NAME %in% 'NONE') )
 
 
 # species codes (Aldo put this file in Google Drive L0). Not used here.
