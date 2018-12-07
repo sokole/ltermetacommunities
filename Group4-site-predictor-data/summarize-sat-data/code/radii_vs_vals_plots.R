@@ -7,6 +7,8 @@
 # load packages -----------------------------------------------------------
 
 library(ggplot2)
+library(dplyr)
+library(tidyr)
 
 # load data ---------------------------------------------------------------
 
@@ -35,20 +37,97 @@ simple_data <- data %>%
 # explore plots -----------------------------------------------------------
 
 # plotting function
-plot_rad <- function(site, subsite, var) {
-  # takes characters for site, subsite, and variable (e.g., sst, ndvi)
+plot_rad <- function(site, subsite, var, metric) {
+  # takes characters for site, subsite, variable (e.g., sst, ndvi), and metric (mean, etc.)
   # returns plot
-  if (is.na(subsite)) {
-    radplot <- ggplot(data[data$var == var & data$site == site & is.na(data$subsite), ], aes(x = radius, y = mean, group = year)) +
-      geom_line()
-  } else {
-    radplot <- ggplot(data[data$var == var & data$site == site & data$subsite == subsite, ], aes(x = radius, y = mean, group = year)) +
-      geom_line()
+  
+  if (metric == 'mean'){
+    if (is.na(subsite)) {
+      radplot <- ggplot(data[data$var == var & data$site == site & is.na(data$subsite), ], aes(x = radius, y = mean, group = year)) +
+        geom_line() +
+        xlab('Radius (km)') +
+        ylab('Mean') +
+        theme_bw() +
+        theme(panel.grid = element_blank())
+    } else {
+      radplot <- ggplot(data[data$var == var & data$site == site & data$subsite == subsite, ], aes(x = radius, y = mean, group = year)) +
+        geom_line() +
+        xlab('Radius (km)') +
+        ylab('Mean') +
+        theme_bw() +
+        theme(panel.grid = element_blank())
+    }
+  } else if (metric == 'sd') {
+    if (is.na(subsite)) {
+      radplot <- ggplot(data[data$var == var & data$site == site & is.na(data$subsite), ], aes(x = radius, y = sd, group = year)) +
+        geom_line() +
+        xlab('Radius (km)') +
+        ylab('Std. Dev.') +
+        theme_bw() +
+        theme(panel.grid = element_blank())
+    } else {
+      radplot <- ggplot(data[data$var == var & data$site == site & data$subsite == subsite, ], aes(x = radius, y = sd, group = year)) +
+        geom_line() +
+        xlab('Radius (km)') +
+        ylab('Std. Dev.') +
+        theme_bw() +
+        theme(panel.grid = element_blank())
+    }
   }
   
   return(radplot)
 }
 
 # each line represents a year
-plot_rad('VCR', as.character(NA), 'sst')
 
+# create and export plot for each site, subsite, variable, metric combination
+for (i in unique(data$site)) {
+  for (j in c('mean', 'sd')) {
+    for (k in unique(data$var)) {
+      site_data <- data[data$site == i & data$var == k,]
+      if (length(unique(site_data$subsite)) > 1) {
+        for (s in unique(site_data$subsite)) {
+          meanplot <- plot_rad(i, s, k, 'mean')
+          sdplot <- plot_rad(i, s, k, 'sd')
+          
+          ggsave(paste('/home/annie/Documents/MSU_postdoc/lter/figures/', 
+                       i, '_', s, '_', k, '_mean_plot.png', sep = ''), meanplot, device = 'png')
+          ggsave(paste('/home/annie/Documents/MSU_postdoc/lter/figures/', 
+                       i, '_', s, '_', k, '_sd_plot.png', sep = ''), sdplot, device = 'png')
+        }
+      } else if (!is.na(site_data$subsite[1])) {
+        meanplot <- plot_rad(i, site_data$subsite[1], k, 'mean')
+        sdplot <- plot_rad(i, site_data$subsite[1], k, 'sd')
+        
+        ggsave(paste('/home/annie/Documents/MSU_postdoc/lter/figures/', 
+                     i, '_', site_data$subsite[1],'_', k, '_mean_plot.png', sep = ''), 
+               meanplot, device = 'png')
+        ggsave(paste('/home/annie/Documents/MSU_postdoc/lter/figures/', 
+                     i, '_', site_data$subsite[1], '_', k, '_sd_plot.png', sep = ''), 
+               sdplot, device = 'png')
+      } else {
+        meanplot <- plot_rad(i, as.character(NA), k, 'mean')
+        sdplot <- plot_rad(i, as.character(NA), k, 'sd')
+        
+        ggsave(paste('/home/annie/Documents/MSU_postdoc/lter/figures/', 
+                     i, '_NA_', k, '_mean_plot.png', sep = ''), 
+               meanplot, device = 'png')
+        ggsave(paste('/home/annie/Documents/MSU_postdoc/lter/figures/', 
+                     i, '_NA_', k, '_sd_plot.png', sep = ''), 
+               sdplot, device = 'png')
+      }
+    }
+  }
+}
+
+
+# calculate temporal variability ------------------------------------------
+
+# we will grab the SD for the radius that best matches the actual 
+# size of the site
+temp_var <- data %>%
+  group_by(site, subsite, radius, var) %>%
+  summarize(mean_sd = sd(mean, na.rm = TRUE),
+            sd_sd = sd(mean, na.rm = TRUE))
+
+write.csv(temp_var, '/home/annie/Documents/MSU_postdoc/lter/data/temporal_sd.csv')
