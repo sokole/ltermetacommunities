@@ -18,7 +18,15 @@ dt1       <-read.csv(infile1,header=F,
                                   "ScienceName",     
                                   "Comments"    ), 
                      check.names=TRUE,
-                     stringsAsFactors = F)
+                     stringsAsFactors = F) %>% 
+                # include unknowns in "ScienceName" column
+                mutate( ScienceName = replace(ScienceName,
+                                              AbName == 'CRAY',
+                                              'Unidentified crayfish') ) %>% 
+                mutate( ScienceName = replace(ScienceName,
+                                              AbName == 'TADPOLE',
+                                              'Unidentified tadpole') ) 
+  
                
 
 # second file
@@ -65,24 +73,41 @@ knz_fish <- dt2 %>%
               gather( AbName, count, CAMANO:TADPOLE ) %>% 
               separate( recdate, c('month','day','year') ) %>% 
               # combine with scientific names
-              left_join( select(dt1,AbName,ScienceName) ) %>% 
+              left_join( select(dt1, AbName, ScienceName) ) %>% 
+              # remove not needed columns
+              select( -datacode, -rectype, -day ) %>% 
               # remove watersheds with little replication
-              subset( !(watershed %in% c('MID','K2A')) ) %>% 
-              # take means across 
+              subset( !(watershed %in% c('MID','K2A')) ) %>%
+              # remove "combined" habitat
+              subset( !(habitat %in% 'combined') ) %>% 
+              # select only seasons where 
+              subset( month %in% c(8,9,11,12) ) %>% 
+              # take sums across years
+              group_by( year, watershed, habitat, replicate, ScienceName) %>% 
+              summarise( count = sum(count) ) %>% 
+              ungroup %>% 
+              # combine spatial replicates
+              mutate( SITE_ID = paste(watershed, habitat, replicate, sep = '_') ) %>% 
+              # remove originals site information
+              select( -watershed, -habitat, -replicate ) %>% 
+              # rename variables according to LTERmetacommunities data standard
+              rename( DATE             = year,
+                      VARIABLE_NAME    = ScienceName,
+                      VALUE            = count ) %>% 
+              mutate( OBSERVATION_TYPE = 'TAXON_COUNT',
+                      VARIABLE_UNITS   = 'COUNT (summer + fall)' ) %>% 
+              # order variables
+              select( OBSERVATION_TYPE, 
+                      SITE_ID, 
+                      DATE, 
+                      VARIABLE_UNITS, 
+                      VARIABLE_NAME, 
+                      VALUE) %>% 
+              # propagate zeros (just in case)
+              spread(VARIABLE_NAME, VALUE, fill = 0) %>% 
+              gather(VARIABLE_NAME, VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS)
 
+              	
+# store formatted file
+write.csv(knz_fish, "C:/L3-knz-fish-compagnoni.csv", row.names=F)
 
-knz_fish %>% 
-  count(year,watershed,habitat)
-
-knz_fish %>% 
-  select(year, month) %>% unique
-
-knz_fish %>% 
-  select(year, month) %>% 
-  unique %>% count( year )
-
-pop_fish %>% head
-
-pop_fish <- pplr_get_data( proj_metadata_key == 763.0 )
-
-pplr_browse( lterid == 'KNZ')
