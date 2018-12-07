@@ -3,6 +3,15 @@ library(dplyr)
 library(tidyr)
 library(popler)
 
+# Package ID: knb-lter-knz.87.6 Cataloging System:https://pasta.edirepository.org.
+# Data set title: CFP01 Fish population on selected watersheds at Konza Prairie.
+# Data set creator:  Keith Gido -  
+# Metadata Provider:    - Konza LTER 
+# Contact:  Konza LTER -    - knzlter@ksu.edu
+# Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
+
+
+
 # first file
 infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-knz/87/6/2279085bc3c7964149330c2dd8d7e284" 
 infile1   <- sub("^https","http",infile1) 
@@ -112,5 +121,5 @@ knz_fish <- dt2 %>%
 
               	
 # store formatted file
-write.csv(knz_fish, "C:/L3-knz-fish-compagnoni.csv", row.names=F)
+write.csv(knz_fish, "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-knz-fish-compagnoni.csv", row.names=F)
 
