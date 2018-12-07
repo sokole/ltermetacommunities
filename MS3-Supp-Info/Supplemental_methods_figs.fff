@@ -137,6 +137,17 @@
  
 \begin{figure}[h!]
 \centering
+%\includegraphics[scale = 0.4]{knz-fish-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{knz-fish-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{knz-fish-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{knz-fish-compagnoni_spp_shared.pdf}
+\caption{{\bf KNZ-fish:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for fish taxa observed in streams at the Konza Prarie LTER . The black lines represent total site-level values across all plots.}
+\label{knz-fish}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}[h!]
+\centering
 \includegraphics[scale = 0.4]{ntl-zooplankton-stanleyLottig_species_accumulation_curve.pdf}
 \includegraphics[scale = 0.4]{ntl-zooplankton-stanleyLottig_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{ntl-zooplankton-stanleyLottig_spatiotemporal_sampling_effort.pdf}
