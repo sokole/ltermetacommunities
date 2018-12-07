@@ -105,7 +105,10 @@ knz_fish <- dt2 %>%
                       VALUE) %>% 
               # propagate zeros (just in case)
               spread(VARIABLE_NAME, VALUE, fill = 0) %>% 
-              gather(VARIABLE_NAME, VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS)
+              gather(VARIABLE_NAME, VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) %>% 
+              # remove 
+              subset( !(VARIABLE_NAME %in% c("Unidentified crayfish",
+                                             "Unidentified tadpole")) )
 
               	
 # store formatted file
