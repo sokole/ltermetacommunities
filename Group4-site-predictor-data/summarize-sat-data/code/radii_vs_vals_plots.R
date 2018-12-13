@@ -20,10 +20,10 @@ data <- read.csv('/home/annie/Documents/MSU_postdoc/lter/data/lter_radii_data.cs
 
 # gather into mean, sd, with var as separate column
 data <- data %>%
-  gather(key = 'var', value = 'value', c(8, 9, seq(11, 16))) %>%
-  extract(var, c('summary_stat', 'var'), "([a-zA-z]+)\\_([a-zA-z]+)") %>%
+  gather(key = 'var', value = 'value', c(8, 9, seq(11, 18))) %>%
+  tidyr::extract(var, c('summary_stat', 'var'), "([a-zA-z]+)\\_([a-zA-z]+)") %>%
   spread(summary_stat, value) %>%
-  select(-X)
+  dplyr::select(-X)
 
 # add single site column
 data$siteid <- paste(data$site, data$subsite, sep = '_')
@@ -200,8 +200,8 @@ plot_cv <- function(site, subsite) {
       ylab('CV') +
       ggtitle(paste(toupper(site), toupper(subsite), '\n', 'CV of MEAN')) +
       scale_colour_manual(values = palette1[1:3], 
-                          breaks = c("lst", "sst", "ndvi"),
-                          labels = c("LST", "SST", "NDVI")) +
+                          breaks = c("lst", "sst", "ndvi", 'chla'),
+                          labels = c("LST", "SST", "NDVI", "CHL-A")) +
       theme_bw() +
       theme(panel.grid = element_blank(),
             plot.title = element_text(size = 16, face = "bold", hjust = c(0.5, 0.5)),
