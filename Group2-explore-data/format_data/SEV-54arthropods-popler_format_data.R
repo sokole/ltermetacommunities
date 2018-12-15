@@ -7,6 +7,7 @@
 
 # Contributors: Riley Andrade, Max Castorani, Nina Lany, Sydne Record, Nicole Voelker
 # revised by Eric Sokol
+# revised by Aldo Compagnoni
 
 #Here is some template or example code that may be helpful for putting datasets into the format for the LTER metacommunities working group synthesis project and performing a few data checks. 
 #Make one script for each dataset that converts the data from the form we originally got it in to the one we need. This might involve aggregating subplots and/or multiple sampling occasins by year, subsetting out sites or species, etc. It may also be necessary to fill in an abundance of zero for any taxa that appear in the dataset but were not observed at a particular site-year.
@@ -77,6 +78,93 @@ dt4 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", goog
 #taxon table
 google_id <- ecocom_dp_dir %>% filter(grepl('taxon',name)) %>% select(id) %>% unlist()
 dt5 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", google_id))
+
+
+# 
+infile1   <- "https://pasta.lternet.edu/package/data/eml/knb-lter-sev/29/175390/1a8ca1a97279d2e189452071665ae584" 
+infile1   <- sub("^https","http",infile1) 
+dt1       <-read.csv(infile1,header=T ,sep=",", 
+                     col.names=c(
+                    "Year",     
+                    "Month",     
+                    "Day",     
+                    "Site",     
+                    "Line.",     
+                    "Trap",     
+                    "Order",     
+                    "Family",     
+                    "Genus",     
+                    "Species",     
+                    "Count",     
+                    "comments"    ), 
+        check.names=TRUE,
+        stringsAsFactors = F)
+
+# function to remove NAs (-888)
+remove_888 <- function(x) replace(x, x == -888, NA)
+ 
+# format the SEV dataset
+sev <- dt1 %>% 
+          # remove missing site information (!!!)
+          subset( !(Site %in% '') ) %>%
+          # remove sites with less inconsistent sampling
+          subset( !(Site %in% c('P','B')) ) %>% 
+          # remove "pooled" line information
+          subset( !(Line. %in% 'pooled') ) %>%
+          # remove missing Trap information
+          subset( !is.na(Trap) ) %>%
+          # remove missing Trap information
+          subset( !(Trap %in% c(2,4,6)) ) %>% 
+          # trim white spaces
+          mutate( Line.   = trimws(Line.) ) %>% 
+          mutate( Genus   = trimws(Genus) ) %>%
+          mutate( Species = trimws(Species) ) %>% 
+          # substitute -888 with NAs
+          mutate( Order   = remove_888(Order) ) %>% 
+          mutate( Family  = remove_888(Family) ) %>% 
+          mutate( Genus   = remove_888(Genus) ) %>% 
+          mutate( Species = remove_888(Species) ) %>% 
+          mutate( Count   = remove_888(Count) ) %>% 
+          # "The traps within each trap line are subsamples, 
+          # and data from those should be summed or averaged 
+          # for a single value per line, per sample period
+          # I get means because sampling is not 6 times/year as stated
+          group_by( Year, Site, Line.,    
+                    Order, Family, Genus, Species ) %>% 
+          summarise( mean_count = mean(Count, na.rm=T) ) %>% 
+          ungroup %>% 
+          # collapse taxonomic information and spatial rep value
+          mutate( taxa_id  = paste(Order, Family, 
+                                   Genus, Species, sep='_') ) %>% 
+          mutate( spat_rep = paste(Site,Line.,sep='_') ) %>% 
+          select( -Site, -Line., -Order, -Family, -Genus, -Species) %>% 
+          # ltermetacomm format
+          rename( SITE_ID          = spat_rep, 
+                  DATE             = Year,
+                  VARIABLE_NAME    = taxa_id,
+                  VALUE            = mean_count ) %>% 
+          mutate( VARIABLE_UNITS   = 'Average_count',
+                  OBSERVATION_TYPE = 'TAXON_COUNT') %>% 
+          select(OBSERVATION_TYPE,SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE) %>% 
+          # introduce zeros (if need be!)
+          spread(VARIABLE_NAME, VALUE, fill = 0) %>% 
+          gather(VARIABLE_NAME, VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS)
+        
+
+
+# check replication
+ggplot2::ggplot(data = sev, 
+                ggplot2::aes(x = DATE,
+                             y = SITE_ID)) +
+    ggplot2::geom_point(size = 5) +
+    ggplot2::theme_bw() + 
+    ggplot2::xlab("Year with available data") + 
+    ggplot2::ylab("Site")
+
+# write file out
+write.csv(cdr, 'L3-sev-arthropods-compagnoni.csv', row.names=F)
+
+
 
 #2 Make TAXON_COUNT from the Observation table (dt1)
 #select the columns of interest
