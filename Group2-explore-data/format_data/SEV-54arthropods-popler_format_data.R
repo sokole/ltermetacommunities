@@ -116,9 +116,11 @@ sev <- dt1 %>%
           # remove missing Trap information
           subset( !(Trap %in% c(2,4,6)) ) %>% 
           # trim white spaces
-          mutate( Line.   = trimws(Line.) ) %>% 
-          mutate( Genus   = trimws(Genus) ) %>%
-          mutate( Species = trimws(Species) ) %>% 
+          mutate( Line.   = trimws(Line.),
+                  Order   = trimws(Order),
+                  Order   = trimws(Family),
+                  Genus   = trimws(Genus),
+                  Species = trimws(Species) ) %>% 
           # substitute -888 with NAs
           mutate( Order   = remove_888(Order) ) %>% 
           mutate( Family  = remove_888(Family) ) %>% 
@@ -162,7 +164,7 @@ ggplot2::ggplot(data = sev,
     ggplot2::ylab("Site")
 
 # write file out
-write.csv(cdr, 'L3-sev-arthropods-compagnoni.csv', row.names=F)
+write.csv(sev, 'L3-sev-arthropods-compagnoni.csv', row.names=F)
 
 
 
