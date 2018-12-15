@@ -127,6 +127,11 @@ sev <- dt1 %>%
           mutate( Genus   = remove_888(Genus) ) %>% 
           mutate( Species = remove_888(Species) ) %>% 
           mutate( Count   = remove_888(Count) ) %>% 
+          # remove taxa not identified to the species level
+          subset( !grepl('[0-9]',Order ) ) %>%        
+          subset( !grepl('[0-9]',Family ) ) %>%
+          subset( !grepl('[0-9]',Genus ) ) %>% 
+          subset( !grepl('[0-9]',Species ) ) %>% 
           # "The traps within each trap line are subsamples, 
           # and data from those should be summed or averaged 
           # for a single value per line, per sample period
