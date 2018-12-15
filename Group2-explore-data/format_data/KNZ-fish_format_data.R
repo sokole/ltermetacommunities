@@ -108,9 +108,24 @@ knz_fish <- dt2 %>%
               gather(VARIABLE_NAME, VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) %>% 
               # remove 
               subset( !(VARIABLE_NAME %in% c("Unidentified crayfish",
-                                             "Unidentified tadpole")) )
+                                             "Unidentified tadpole")) ) %>% 
+              # select only sites with high replication
+              subset( SITE_ID %in% c('NT_RIFFLE_1', 'NT_RIFFLE_2', 
+                                     'NT_POOL_1',   'NT_POOL_2', 
+                                     'N4D_POOL_1', 'N4D_POOL_2', 
+                                     'N4D_POOL_3', 'N1B_POOL_1', 
+                                     'N1B_POOL_2') )
+              
+       
+# ggplot2::ggplot(data = knz_fish,
+#                 ggplot2::aes(x = DATE,
+#                              y = SITE_ID) ) +
+#     ggplot2::geom_point(size = 5) +
+#     ggplot2::theme_bw() + 
+#     ggplot2::xlab("Year with available data") + 
+#     ggplot2::ylab("Site")
 
-              	
+       	
 # store formatted file
 write.csv(knz_fish, "C:/L3-knz-fish-compagnoni.csv", row.names=F)
 
