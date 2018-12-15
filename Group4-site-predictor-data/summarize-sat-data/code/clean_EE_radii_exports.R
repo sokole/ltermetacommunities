@@ -27,11 +27,11 @@ clean_data <- function(data, data_name) {
   if (ts == TRUE) {
     data <- data %>%
       gather(key = 'year', value = 'value', names(data)[grep('year', names(data))]) %>%
-      extract(year, c("year", "variable"), "year(\\d+)\\_([a-zA-z]+)") %>%
+      tidyr::extract(year, c("year", "variable"), "year(\\d+)\\_([a-zA-z]+)") %>%
       spread(variable, value) %>%
       mutate(year = as.numeric(year))
   } else {
-    data <- data 
+    data <- as_tibble(data) 
   }
   
   # rename mean, std to indicate variable
@@ -40,19 +40,19 @@ clean_data <- function(data, data_name) {
   
   # remove unnecessary columns, add latitude
   data <- data %>%
-    select(-.geo, -system.index, -notes) %>%
+    dplyr::select(-.geo, -system.index, -notes) %>%
     left_join(site_data, by = c('site', 'subsite', 'lon')) %>%
-    select(-notes, -area_ha.y) %>%
+    dplyr::select(-notes, -area_ha.y) %>%
     rename(area_ha = area_ha.x) 
   
   # order columns nicely
   if (ts == TRUE) {
     data <- data %>%
-      select(4, 5, 9, 2, 1, 6, 3, 7, 8) %>%
+      dplyr::select(4, 5, 9, 2, 1, 6, 3, 7, 8) %>%
       arrange(site, subsite, radius, year)
   } else {
     data <- data %>%
-      select(5, 7, 8, 2, 1, 4, 3, 6) %>%
+      dplyr::select(5, 7, 8, 2, 1, 4, 3, 6) %>%
       arrange(site, subsite, radius)
   }
   
@@ -80,6 +80,10 @@ ndvi_data <- combine_csvs(file_list = ndvi_files)
 sst_files <- all_files[grep('sst', all_files)]
 sst_data <- combine_csvs(file_list = sst_files)
 
+# sea surface temperature (celcius)
+chla_files <- all_files[grep('chla', all_files)]
+chla_data <- combine_csvs(file_list = chla_files)
+
 # original site data (for coordinates)
 site_data <- read.csv('/home/annie/Documents/MSU_postdoc/ltermetacommunities/Group4-site-predictor-data/summarize-sat-data/data/LTER_coordinates_all.csv', stringsAsFactors = FALSE)
 
@@ -89,11 +93,13 @@ elev_data <- clean_data(elev_data, 'elev')
 lst_data <- clean_data(lst_data, 'lst')
 ndvi_data <- clean_data(ndvi_data, 'ndvi')
 sst_data <- clean_data(sst_data, 'sst')
+chla_data <- clean_data(chla_data, 'chla')
 
 full_data <- elev_data %>%
   left_join(lst_data) %>%
   full_join(ndvi_data) %>%
-  full_join(sst_data)
+  full_join(sst_data) %>%
+  full_join(chla_data)
 
 # export ------------------------------------------------------------------
 

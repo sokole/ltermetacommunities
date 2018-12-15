@@ -260,7 +260,7 @@ Data are shown in Figure \ref{fce-diatoms}
 Data were obtained from the PI, and are cataloged on EDI  \citep{fce-fish}.
 Catch per unit effort (CPUE) was calculated as (count/distance)*100
 For each species, the CPUE was aggregated by summing the CPUE measured in each bout (i.e., replicate) within each Creek Number | River | YEAR | Season combination.
-The format was re-arranged to reflect the aggregated CPUE (?total CPUE?) per season as columns and mean CPUE column was created by averaging the CPUE across the three seasons.
+The format was re-arranged to reflect the aggregated CPUE (`total CPUE') per season as columns and mean CPUE column was created by averaging the CPUE across the three seasons.
 NOTE: After the first preliminary examination of the aggregated CPUE values the mean CPUE was ignored due to the unbalanced observations across the years and seasons. 
 So, only the observations in the Wet and Dry season were considered.
 Dry season: In this set, only the sites within RB were considered to create a balanced design for the analysis. 
@@ -282,6 +282,7 @@ Data from the wet season are shown in Figure \ref{fce-fish-wet}.
 \label{fce-fish-dry}
 \end{figure}
 
+
 \begin{figure}[h!]
 \centering
 \includegraphics[scale = 0.4]{fce-fish-RehageWet_species_accumulation_curve.pdf}
@@ -294,7 +295,20 @@ Data from the wet season are shown in Figure \ref{fce-fish-wet}.
 
 
 
-\newpage
+\subsection {knz-fish}
+Sampling unbalanced (Figire \ref{knz-fish}). Also, what to do about pool vs. riffle habitat. Not all streams have both, and communities seem different.
+Data were downloaded from EDI \citep{knz-fish}.
+\begin{figure}[h!]
+\centering
+%\includegraphics[scale = 0.4]{knz-fish-compagnoni_species_accumulation_curve.pdf}
+\includegraphics[scale = 0.4]{knz-fish-compagnoni_num_taxa_over_time.pdf}
+\includegraphics[scale = 0.4]{knz-fish-compagnoni_spatiotemporal_sampling_effort.pdf}
+\includegraphics[scale = 0.4]{knz-fish-compagnoni_spp_shared.pdf}
+\caption{{\bf KNZ-fish:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for fish taxa observed in streams at the Konza Prarie LTER . The black lines represent total site-level values across all plots.}
+\label{knz-fish}
+\end{figure}
+
+
 \subsection {ntl-zooplankton}
 The data were downloaded from the EDI Data Portal \citep{ntl-zooplankton}.
 Samples were taken  via vertical tows at fortnightly intervals on a minimum of five occasions per year (range = 5 - 18 occasions per year).
@@ -372,7 +386,7 @@ In particular, we lumped taxonomic information to the genus level when more than
 For example, {\it Cyperus} species are usually identified to the genus level (``Cyperus  sp.") rather than species level (``{\it Cyperus schweinitzii}''), with a minority of the biomass (less than 10$\%$) identified at the specific level. We therefore consider only genus information for {\it Cyperus}. 
 We dropped taxonomic information when within a certain genus, biomass is identified to the genus level. 
 For example, in the genus {\it Viola}, more than 99.8$\%$ of biomass was determined to the species level. We therefore dropped from the dataset the instances when biomass is assigned to 'Viola sp.'.
-Data are shown in figures \ref{cdr-plantsABC} and \ref{cdr-plantsD}.
+Data are shown in figures \ref{cdrABC-plants} and \ref{cdrD-plants}.
 
 \begin{figure}[h!]
 \centering
