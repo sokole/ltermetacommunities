@@ -158,7 +158,6 @@ sev <- dt1 %>%
           gather(VARIABLE_NAME, VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS)
         
 
-
 # check replication
 ggplot2::ggplot(data = sev, 
                 ggplot2::aes(x = DATE,
