@@ -78,6 +78,69 @@ dt4 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", goog
 google_id <- ecocom_dp_dir %>% filter(grepl('taxon',name)) %>% select(id) %>% unlist()
 dt5 <- read.csv(sprintf("https://docs.google.com/uc?id=%s&export=download", google_id))
 
+# read directly from EDI internet site
+infile1   <- "https://pasta.lternet.edu/package/data/eml/knb-lter-sev/278/245672/43eb46261b04ab1e5d250b86ebf7fc35" 
+infile1   <- sub("^https","http",infile1) 
+dt1       <-read.csv(infile1,header=F,skip=1,sep=","  
+        , col.names=c(
+                    "year",     
+                    "season",     
+                    "date",     
+                    "site",     
+                    "treatment",     
+                    "plot",     
+                    "transect",     
+                    "quad",     
+                    "species",     
+                    "obs",     
+                    "cover",     
+                    "height",     
+                    "count",     
+                    "comments"    ), 
+                    check.names=TRUE,
+                    stringsAsFactors = F)  
+  
+# function to remove NAs (-888)
+remove_888 <- function(x) replace(x, x == -888, NA)
+remove_999 <- function(x) replace(x, x == -999, NA)
+      
+
+sev <- dt1 %>% 
+          # remove season 1 (not always sampled)
+          subset( !(season %in% 1) ) %>% 
+          # remove lines with -999
+          subset( !(count %in% -999) ) %>% 
+          subset( !(species %in% -999) ) %>% 
+          mutate( DATE = paste(year,season,sep='.') ) %>% 
+          mutate( DATE = as.numeric(DATE) ) %>% 
+          group_by( DATE, site, plot, species) %>% 
+          summarise( VALUE = sum(count,na.rm=T) ) %>% 
+          ungroup() %>% 
+          mutate( SITE_ID = paste(site,
+                                  plot,sep='_') ) %>% 
+          rename( VARIABLE_NAME   = species ) %>% 
+          mutate( VARIABLE_UNITS  = 'count') %>% 
+          mutate(OBSERVATION_TYPE = 'TAXON_COUNT') %>%
+          select(OBSERVATION_TYPE,
+                 SITE_ID, DATE, VARIABLE_NAME, 
+                 VARIABLE_UNITS, VALUE) %>% 
+          # introduce zeros (if need be!)
+          spread(VARIABLE_NAME, VALUE, fill = 0) %>% 
+          gather(VARIABLE_NAME, VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) %>% 
+          unique
+
+L3dat<-sev
+# check replication
+ggplot(data  = sev, 
+       aes(x = DATE,
+           y = SITE_ID)) +
+    geom_point(size = 5) +
+    theme_bw() + 
+    xlab("Year with available data") + 
+    ylab("Site")
+
+ 
+ 
 #2 Make TAXON_COUNT from the Observation table (dt1)
 #select the columns of interest
 dat1 <- dt1 %>% 
