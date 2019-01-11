@@ -52,14 +52,13 @@ rm(dat.long.old)
 
 # Import community data from EDI
 
-# Package ID: knb-lter-sbc.50.6 Cataloging System:https://pasta.edirepository.org.
+# Package ID: knb-lter-sbc.50.7 Cataloging System:https://pasta.edirepository.org.
 # Data set title: SBC LTER: Reef: Annual time series of biomass for kelp forest species, ongoing since 2000.
 # Data set creator:    - Santa Barbara Coastal LTER 
 # Data set creator:  Daniel C Reed -  
 # Contact:    - Information Manager, Santa Barbara Coastal LTER   - sbclter@msi.ucsb.edu
 # Stylesheet for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
-infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-sbc/50/7/24d18d9ebe4f6e8b94e222840096963c" 
 
 infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-sbc/50/7/24d18d9ebe4f6e8b94e222840096963c" 
 
