@@ -1,8 +1,7 @@
-### checks relationship between radius and mean/sd for lter satellite data ###
+### puts data in correct format and plots relationships between radii and values ###
 
 # Written by AC Smith 26 Nov 2018
-# Last edited by AC Smith 26 Nov 2018
-
+# Last edited by AC Smith 07 Jan 2019
 
 # load packages -----------------------------------------------------------
 
@@ -35,6 +34,57 @@ simple_data <- data %>%
             max_sd = max(sd, na.rm = TRUE), min_sd = min(sd, na.rm = TRUE),
             mean = mean(mean, na.rm = TRUE), sd = mean(sd, na.rm = TRUE)) %>%
   as.data.frame
+
+# calculate temporal variability ------------------------------------------
+
+# we will grab the CV (%) for the radius that best matches the actual 
+# size of the site (if there are actually any differences across radii)
+temp_var <- data %>%
+  group_by(site, subsite, radius, var) %>%
+  summarize(mean_sd = sd(mean, na.rm = TRUE),
+            sd_sd = sd(mean, na.rm = TRUE)) %>%
+  filter(var != 'elev')
+
+# calculate linear slope up to 60km ---------------------------------------
+
+# average slope of mean/sd (for all years) from 1 - 60 km radius
+slope_data <- data %>%
+  group_by(site, subsite, var) %>%
+  filter(radius <= 60) %>%
+  summarize(slope_60km_mean = if (sum(!is.na(mean)) < 2) {as.numeric(NA)} else {lm(mean ~ radius)$coefficients[[2]]},
+            slope_60km_sd = if (sum(!is.na(sd)) < 2) {as.numeric(NA)} else {lm(sd ~ radius)$coefficients[[2]]})
+
+# create main model dataframe ---------------------------------------------
+
+# slim down the data
+main_data <- data %>%
+  filter(radius <= 1 & year == 2014 & var == 'elev') %>%
+  dplyr::select(site, subsite, lat, lon) 
+
+# add temporal SD info
+main_data <- main_data %>%
+  left_join(temp_var, by = c('site', 'subsite')) %>% 
+  dplyr::select(-sd_sd) %>%
+  filter(radius <= 1) %>%
+  spread(var, mean_sd) %>%
+  rename(lst_temporal_sd = lst,
+         ndvi_temporal_sd = ndvi,
+         chla_temporal_sd = chla,
+         sst_temporal_sd = sst)
+
+# add spatial SD info
+main_data <- main_data %>%
+  left_join(slope_data, by = c('site', 'subsite')) %>%
+  dplyr::select(-slope_60km_mean) %>%
+  spread(var, slope_60km_sd) %>%
+  dplyr::select(-lst, -ndvi, -sst, -chla) %>%
+  rename(elevation_spatial_sd_slope_60km = elev)
+
+# can slim down further if you know what are marine vs. 
+# terrestrial sites (to temperature/productivity/elevation)
+# can also make a readme
+
+write.csv(main_data, '/home/annie/Documents/MSU_postdoc/ltermetacommunities/Group4-site-predictor-data/summarize-sat-data/data/lter_centroid_satdata.csv', row.names = FALSE)
 
 # explore plots -----------------------------------------------------------
 
@@ -150,19 +200,6 @@ for (i in unique(data$site)) {
   }
 }
 
-
-# calculate temporal variability ------------------------------------------
-
-# we will grab the CV (%) for the radius that best matches the actual 
-# size of the site (if there are actually any differences across radii)
-temp_var <- data %>%
-  group_by(site, subsite, radius, var) %>%
-  summarize(mean_cv = cv(mean, na.rm = TRUE),
-            sd_cv = cv(mean, na.rm = TRUE)) %>%
-  filter(var != 'elev')
-
-write.csv(temp_var, '/home/annie/Documents/MSU_postdoc/lter/data/temporal_cv.csv')
-
 # plot radii vs. temporal CV ----------------------------------------------
 
 # define color palette(Pantone 2018, 'Attitude')
@@ -240,14 +277,3 @@ for (i in unique(data$site)) {
            meanplot, device = 'png')
   }
 }
-
-# calculate linear slope up to 60km ---------------------------------------
-
-# average slope of mean/sd (for all years) from 1 - 60 km radius
-slope_data <- data %>%
-  group_by(site, subsite, var) %>%
-  filter(radius <= 60) %>%
-  summarize(slope_60km_mean = if (sum(!is.na(mean)) < 2) {as.numeric(NA)} else {lm(mean ~ radius)$coefficients[[2]]},
-            slope_60km_sd = if (sum(!is.na(sd)) < 2) {as.numeric(NA)} else {lm(sd ~ radius)$coefficients[[2]]})
-
-write.csv(slope_data, '/home/annie/Documents/MSU_postdoc/lter/data/spatial_slope.csv')

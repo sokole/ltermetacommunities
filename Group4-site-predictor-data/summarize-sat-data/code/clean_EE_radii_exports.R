@@ -84,6 +84,10 @@ sst_data <- combine_csvs(file_list = sst_files)
 chla_files <- all_files[grep('chla', all_files)]
 chla_data <- combine_csvs(file_list = chla_files)
 
+# sea surface temperature (celcius)
+bath_files <- all_files[grep('bath', all_files)]
+bath_data <- combine_csvs(file_list = bath_files)
+
 # original site data (for coordinates)
 site_data <- read.csv('/home/annie/Documents/MSU_postdoc/ltermetacommunities/Group4-site-predictor-data/summarize-sat-data/data/LTER_coordinates_all.csv', stringsAsFactors = FALSE)
 
@@ -94,16 +98,22 @@ lst_data <- clean_data(lst_data, 'lst')
 ndvi_data <- clean_data(ndvi_data, 'ndvi')
 sst_data <- clean_data(sst_data, 'sst')
 chla_data <- clean_data(chla_data, 'chla')
+bath_data <- clean_data(bath_data, 'bath')
 
 full_data <- elev_data %>%
   left_join(lst_data) %>%
   full_join(ndvi_data) %>%
   full_join(sst_data) %>%
-  full_join(chla_data)
+  full_join(chla_data) %>%
+  full_join(bath_data)
+
+# fix ndvi to be 0-100 just like chl-a
+full_data$mean_ndvi <- full_data$mean_ndvi * 100
+full_data$sd_ndvi <- full_data$sd_ndvi * 100
 
 # export ------------------------------------------------------------------
 
-write.csv(full_data, '/home/annie/Documents/MSU_postdoc/lter/data/lter_radii_data.csv')
+write.csv(full_data, '/home/annie/Documents/MSU_postdoc/lter/data/lter_radii_data.csv', row.names = FALSE)
 
 # plot --------------------------------------------------------------------
 
