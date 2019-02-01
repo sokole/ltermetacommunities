@@ -1,6 +1,7 @@
 #update the L3-DATA-List gsheet on google drive
 library(tidyverse)
-require(googlesheets)
+library(googlesheets)
+library(googledrive)
 
 # read Nina's metadata table
 auto_metadata <- read_csv('https://raw.githubusercontent.com/sokole/ltermetacommunities/master/MS3-Supp-Info/metadata_table.csv')
