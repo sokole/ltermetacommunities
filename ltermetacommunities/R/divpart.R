@@ -91,13 +91,17 @@ divpart <- function(
   requireNamespace('vegetarian')
   requireNamespace('purrr')
 
-  browser()
+  # browser()
 
   # if data are long, make wide. If data are wide, check to make sure taxon_list is provided.
   if(is.null(data_wide)){
     data_wide <- data_long %>%
       tidyr::spread(taxon_id_col_name, biomass_col_name, fill = 0)
-    taxon_list <- data_long %>% dplyr::select_at(dplyr::vars(taxon_id_col_name)) %>% unlist() %>% unique()
+    taxon_list <- data_long %>%
+      dplyr::select_at(dplyr::vars(taxon_id_col_name)) %>%
+      unlist() %>%
+      as.character() %>%
+      unique()
   }else if(!is.null(data_wide) & is.null(taxon_list)){
     stop('please provide a taxon_list')
   }
