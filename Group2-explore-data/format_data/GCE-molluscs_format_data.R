@@ -4,11 +4,11 @@ library(dplyr)
 options(stringsAsFactors = F)
 
 
-# # get mollusc data links from popler
-# mollusc_links <- pplr_browse(proj_metadata_key == 298,
-#                              full_tbl=T)$metalink %>% 
-#                     strsplit('; ') %>% 
-#                     unlist( recursive = F )
+# get mollusc data links from popler
+mollusc_links <- pplr_browse(proj_metadata_key == 298,
+                             full_tbl=T)$metalink %>%
+                    strsplit('; ') %>%
+                    unlist( recursive = F )
 # 
 # # links to dois
 # get_text <- function(x, node_str){
@@ -470,21 +470,28 @@ cases <- sapply(all_cases, function(x)
 
 # put it all together
 all_df <- dplyr::bind_rows( df ) %>% 
-            dplyr::select( subset(cases,logical)$col_name ) %>% 
+            dplyr::select(subset(cases,logical)$col_name ) %>% 
             dplyr::select( -Location_Notes ) %>% 
-            # remove 
-     dplyr::rename( VALUE            = Mollusc_Density,
-                    VARIABLE_NAME    = Species,
-                    DATE             = Year ) %>% 
-            mutate( SITE_ID          = paste(Site, Zone, Plot, sep='_'),
-                    OBSERVATION_TYPE = "TAXON_COUNT",
-                    VARIABLE_UNITS   = "DENSITY",
-                    VARIABLE_NAME    = as.character(VARIABLE_NAME) ) %>% 
-     dplyr::select( -Month, -Day, -Site, -Zone, -Plot,  
-                    -Location, -Longitude, -Latitude,
-                    -Mollusc_Count, -Quadrat_Area) %>% 
-     dplyr::arrange( DATE, SITE_ID, VARIABLE_NAME )
+            
+            # average by Plot
+            group_by(Year, Site, Zone) %>% 
+            summarise( Mollusc_Density = mean(Mollusc_Density) )
+            # ltermetacomm format!
+           dplyr::rename( VALUE            = Mollusc_Density,
+                          VARIABLE_NAME    = Species,
+                          DATE             = Year ) %>% 
+                  mutate( SITE_ID          = paste(Site, Zone, Plot, sep='_'),
+                          OBSERVATION_TYPE = "TAXON_COUNT",
+                          VARIABLE_UNITS   = "DENSITY",
+                          VARIABLE_NAME    = as.character(VARIABLE_NAME) ) %>% 
+           dplyr::select( -Month, -Day, -Site, -Zone, -Plot,  
+                          -Location, -Longitude, -Latitude,
+                          -Mollusc_Count, -Quadrat_Area) %>% 
+           dplyr::arrange( DATE, SITE_ID, VARIABLE_NAME )
 
+           spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
+            gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) %>% 
+           
 # only keep sites that are present in every single year
 keep_site <- all_df %>% 
                 select(DATE,SITE_ID) %>% 
