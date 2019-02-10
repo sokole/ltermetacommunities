@@ -1,2 +1,4 @@
+^notes$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^\.httr-oauth$
