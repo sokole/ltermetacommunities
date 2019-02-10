@@ -472,25 +472,27 @@ cases <- sapply(all_cases, function(x)
 all_df <- dplyr::bind_rows( df ) %>% 
             dplyr::select(subset(cases,logical)$col_name ) %>% 
             dplyr::select( -Location_Notes ) %>% 
-            
+            subset( !is.na(Mollusc_Density) ) %>% 
             # average by Plot
-            group_by(Year, Site, Zone) %>% 
-            summarise( Mollusc_Density = mean(Mollusc_Density) )
+            group_by(Year, Species, Site, Zone) %>% 
+            # remove NAs, as these do not seem to be zeros
+            summarise( Mollusc_Density = mean(Mollusc_Density,na.rm=T) ) %>% 
+            ungroup %>% 
             # ltermetacomm format!
            dplyr::rename( VALUE            = Mollusc_Density,
                           VARIABLE_NAME    = Species,
                           DATE             = Year ) %>% 
-                  mutate( SITE_ID          = paste(Site, Zone, Plot, sep='_'),
+                  mutate( SITE_ID          = paste(Site, Zone,sep='_'), # Plot, 
                           OBSERVATION_TYPE = "TAXON_COUNT",
                           VARIABLE_UNITS   = "DENSITY",
                           VARIABLE_NAME    = as.character(VARIABLE_NAME) ) %>% 
-           dplyr::select( -Month, -Day, -Site, -Zone, -Plot,  
-                          -Location, -Longitude, -Latitude,
-                          -Mollusc_Count, -Quadrat_Area) %>% 
-           dplyr::arrange( DATE, SITE_ID, VARIABLE_NAME )
-
+           # dplyr::select( -Month, -Day, -Site, -Zone, -Plot,  
+           #                -Location, -Longitude, -Latitude,
+           #                -Mollusc_Count, -Quadrat_Area) %>% 
+           dplyr::arrange( DATE, SITE_ID, VARIABLE_NAME ) %>% 
+           # introduce zeros
            spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
-            gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) %>% 
+           gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) 
            
 # only keep sites that are present in every single year
 keep_site <- all_df %>% 
@@ -502,7 +504,6 @@ keep_site <- all_df %>%
 
 # only keep 
 all_df_keep <- all_df %>% subset( SITE_ID %in% keep_site )
-
 
 write.csv(all_df_keep, 
           'C:/L3-gce-mollusc-compagnoni.csv',
