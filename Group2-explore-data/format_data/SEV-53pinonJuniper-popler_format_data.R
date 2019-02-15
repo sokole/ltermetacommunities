@@ -96,14 +96,7 @@ sev <- dt1 %>%
           subset( !(species %in% -999) ) %>% 
           # remove plots connected to different transects (A, B, C, D)
           subset( !(plot %in% 3) ) %>% 
-          # assign the month of year connected to "season"
-          mutate( season = replace(season, 
-                                   season == 2,
-                                   5) ) %>% 
-          mutate( season = replace(season, 
-                                   season == 3,
-                                   9) ) %>% 
-          mutate( DATE = paste(year,season,sep='.') ) %>% 
+          mutate( DATE = year ) %>% 
           mutate( DATE = as.numeric(DATE) ) %>% 
           group_by( DATE, site, plot, transect, species) %>% 
           summarise( VALUE = sum(count,na.rm=T) ) %>% 
