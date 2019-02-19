@@ -46,7 +46,9 @@ utils::globalVariables(names = c("%>%", "."))
 #'
 #' # long data
 #' temporal_BD(data_in = dat_long,
-#'             time_step_col_name = 'my_time_step', taxon_id_col_name = 'my_species', biomass_col_name = 'my_biomass')
+#'             time_step_col_name = 'my_time_step',
+#'             taxon_id_col_name = 'my_species',
+#'             biomass_col_name = 'my_biomass')
 #'
 #' @export
 temporal_BD <- function(

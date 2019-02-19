@@ -51,7 +51,9 @@ temporal_BD(data_in = dat_1site_5times_with_time_col,
 
 # long data
 temporal_BD(data_in = dat_long,
-            time_step_col_name = 'my_time_step', taxon_id_col_name = 'my_species', biomass_col_name = 'my_biomass')
+            time_step_col_name = 'my_time_step',
+            taxon_id_col_name = 'my_species',
+            biomass_col_name = 'my_biomass')
 
 }
 \author{
