@@ -9,9 +9,6 @@ options(stringsAsFactors = FALSE)
 # Clear environment
 rm(list = ls())
 
-# user vars
-data_product_directory_name <- 'SGS-63plants-popler'
-
 
 #Check to make sure working directory is set to the ltermetacommunities github
 if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
@@ -58,8 +55,23 @@ sgs   <- dt1 %>%
             # insert zeros
             spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
             gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) 
-           
+          
+# check taxonomy using popler's information
+library(popler)
+
+# get the sppcodes where genus/species == NA
+sgs_pplr  <- pplr_get_data( proj_metadata_key == 74 )
+na_taxa   <- sgs_pplr %>% 
+                as.data.frame() %>% 
+                dplyr::select(sppcode, genus, species) %>% 
+                subset( species =='NA' | genus == 'NA') %>% 
+                .$sppcode %>% 
+                unique()
+
+# remove na_taxa
+sgs_out <- subset(sgs, !(VARIABLE_NAME %in% na_taxa) ) 
+
 # write it down 
-write.csv(sgs, 
+write.csv(sgs_out, 
           'C:/L3-sgs-plants-compagnoni.csv',
           row.names=F)
