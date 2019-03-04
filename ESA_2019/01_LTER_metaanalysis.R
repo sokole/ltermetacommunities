@@ -66,3 +66,76 @@ agg.wide %>% select_if(is.numeric) %>%
     facet_grid(. ~ biome) +
     theme_bw())
 
+ggplot(hT, aes(x = ndvi_temporal_sd, y = metric_value, 
+               color = biome, shape = body.size)) + 
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~ metric, scales = "free_y") +
+  ggsave("ESA_2019/figs/ndvi_var.png")
+
+ggplot(hT, aes(x = temp_temporal_sd, y = metric_value, 
+               color = biome, shape = body.size)) + 
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~ metric, scales = "free_y") +
+  ggsave("ESA_2019/figs/temp_var.png")
+
+ggplot(hT, aes(x = lat, y = metric_value, 
+               color = biome, shape = body.size)) + 
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~ metric, scales = "free_y") +
+  ggsave("ESA_2019/figs/lat_var.png")
+
+
+
+
+
+
+library(maps)
+library(ggrepel)
+scale_x_longitude <- function(xmin=-180, xmax=180, step=1, ...) {
+  xbreaks <- seq(xmin,xmax,step)
+  xlabels <- unlist(lapply(xbreaks, function(x) ifelse(x < 0, parse(text=paste0(x,"^o", "*W")), ifelse(x > 0, parse(text=paste0(x,"^o", "*E")),x))))
+  return(scale_x_continuous("Longitude", breaks = xbreaks, labels = xlabels, expand = c(0, 0), ...))
+}
+scale_y_latitude <- function(ymin=-90, ymax=90, step=0.5, ...) {
+  ybreaks <- seq(ymin,ymax,step)
+  ylabels <- unlist(lapply(ybreaks, function(x) ifelse(x < 0, parse(text=paste0(x,"^o", "*S")), ifelse(x > 0, parse(text=paste0(x,"^o", "*N")),x))))
+  return(scale_y_continuous("Latitude", breaks = ybreaks, labels = ylabels, expand = c(0, 0), ...))
+}    
+
+us_states <- map_data("state")
+
+hT %>% filter(metric == "phi_var") %>% 
+  ggplot(aes(x = lon, y = lat, 
+               color = metric_value)) + 
+  geom_polygon(data = us_states, mapping = aes(x = long, y = lat, group = group),
+               fill = "white", color = "black") +
+  coord_map(projection = "albers", lat0 = 39, lat1 = 45) +
+  geom_point(alpha = 0.5, size = 4) +
+  geom_label_repel(aes(label = site)) +
+  scale_color_viridis_c() +
+  scale_x_longitude(xmin = -150, step = 30) +
+  scale_y_latitude(step = 30) +
+  labs(x = "", y = "", color = "Spatial Synchrony (phi)")
+
+
+
+
+# create models. 
+q.mod <- lm(gamma_div_cv ~ (ndvi_temporal_sd + temp_temporal_sd +
+                              env_heterogeneity) * biome * organism_group * dispersal.habit, data = q.wide)
+q.mod.sel <- step(q.mod)
+summary(q.mod.sel)
+
+var.h.mod <- lm(gamma_var ~ (ndvi_temporal_sd + temp_temporal_sd +
+                               env_heterogeneity) * biome * organism_group * dispersal.habit, data = var.h)
+var.h.mod.sel <- step(var.h.mod)
+summary(var.h.mod.sel)
+
+agg.mod <- lm(gamma_div_cv ~ (ndvi_temporal_sd + temp_temporal_sd +
+                                env_heterogeneity) * biome * organism_group * dispersal.habit, data = agg.wide)
+q.mod.sel <- step(q.mod)
+summary(q.mod.sel)
+
