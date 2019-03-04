@@ -3,10 +3,10 @@ library(dplyr)
 library(tidyr)
 
 # read files from my own machine (can't do it online)
-hays     <- read.csv('C:/Users/ac22qawo/Desktop/allrec_hays.csv') 
-spp_list <- read.csv('C:/Users/ac22qawo/Desktop/species_list.csv')
-quad_info<- read.csv('C:/Users/ac22qawo/Desktop/quadrat_info.csv')
-quad_inv <- read.csv('C:/Users/ac22qawo/Desktop/quadrat_inventory.csv')
+hays     <- read.csv('C:/allrec_hays.csv') 
+spp_list <- read.csv('C:/species_list.csv')
+quad_info<- read.csv('C:/quadrat_info.csv')
+quad_inv <- read.csv('C:/quadrat_inventory.csv')
   
 # hays raw
 hays_raw <- hays %>% 
@@ -31,8 +31,7 @@ hays_raw <- hays %>%
                                        'Fragment',
                                        'Bare ground')) )
 
-
-# visually examine which
+# visually examine items with unclear taxonomic ID
 hays_raw %>% 
   group_by(species) %>% 
   summarise(all_n = sum(n) ) %>% 
@@ -83,7 +82,8 @@ keep_plot <- hays_out %>%
               select(SITE_ID,DATE) %>% 
               unique %>% 
               count(SITE_ID) %>% 
-              subset( n == 35) %>% .$SITE_ID
+              subset( n == 35) %>% 
+              .$SITE_ID
 
 # write it out
 hays_out %>% 
