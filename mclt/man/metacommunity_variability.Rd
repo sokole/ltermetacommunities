@@ -68,7 +68,7 @@ metacommunity_variability(
 
 }
 \references{
-Wang, S., and M. Loreau. 2014. Ecosystem stability in space: alpha, beta and gamma variability. Ecology Letters 17:891–901. https://doi.org/10.1111/ele.12292.
+Wang, S., and M. Loreau. 2014. Ecosystem stability in space: alpha, beta and gamma variability. Ecology Letters 17:891-901. https://doi.org/10.1111/ele.12292.
 }
 \author{
 Eric R. Sokol \email{sokole@gmail.com}
