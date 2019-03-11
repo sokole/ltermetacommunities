@@ -174,7 +174,7 @@ comb.data[comb.data$biome == "marine", ]$temp_temporal_sd <- comb.data[comb.data
 
 # env: marine sites use "bathymetry..."; freshwater and terrestrial use "elevation..."
 comb.data$env_heterogeneity <- comb.data$elevation_spatial_sd_slope_60km
-comb.data[comb.data$biome == "marine", ]$temp_temporal_sd <- comb.data[comb.data$biome == "marine", ]$bathymetry_spatial_sd_slope_60km
+comb.data[comb.data$biome == "marine", ]$env_heterogeneity <- comb.data[comb.data$biome == "marine", ]$bathymetry_spatial_sd_slope_60km
 
 comb.data <- comb.data %>%
   select(-c(lst_temporal_sd, sst_temporal_sd, elevation_spatial_sd_slope_60km, bathymetry_spatial_sd_slope_60km))
