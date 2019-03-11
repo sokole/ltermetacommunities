@@ -20,9 +20,13 @@ options(stringsAsFactors = FALSE)
 library(tidyverse)
 library(googledrive)
 
-# install ltermetacommunities package from github
-devtools::install_github('sokole/ltermetacommunities/ltermetacommunities')
-library(ltermetacommunities)
+# install mclt package from github
+installed_package_list <- installed.packages() %>% as.data.frame()
+if(!'mclt' %in% installed_package_list$Package){
+  devtools::install_github('sokole/ltermetacommunities/mclt')
+}
+
+library(mclt)
 
 #######################################################
 # -- download list of data sets off google drive using google-id
@@ -182,7 +186,7 @@ for(i in 1:nrow(data_list)){
       
       # d.bd.h
       d.bd.h <- data.frame()
-      d.bd.h <- ltermetacommunities::metacommunity_variability(
+      d.bd.h <- mclt::metacommunity_variability(
           data_long = d.in.long,
           site_id_col_name = 'SITE_ID',
           time_step_col_name = 'DATE',
@@ -197,7 +201,7 @@ for(i in 1:nrow(data_list)){
       
       # d.bd.hT
       d.bd.hT <- data.frame()
-      d.bd.hT <- ltermetacommunities::metacommunity_variability(
+      d.bd.hT <- mclt::metacommunity_variability(
           data_long = d.in.long,
           site_id_col_name = 'SITE_ID',
           time_step_col_name = 'DATE',
@@ -212,7 +216,7 @@ for(i in 1:nrow(data_list)){
       
       # d.bd.agg
       d.bd.agg <- data.frame()
-      d.bd.agg <- ltermetacommunities::metacommunity_variability(
+      d.bd.agg <- mclt::metacommunity_variability(
           data_long = d.in.long,
           site_id_col_name = 'SITE_ID',
           time_step_col_name = 'DATE',
@@ -228,7 +232,7 @@ for(i in 1:nrow(data_list)){
       # div partitioning
       
       div.part <- data.frame(
-        ltermetacommunities::divpart(
+        mclt::divpart(
           data_long = d.in.long, 
           site_id_col_name = 'SITE_ID',
           time_step_col_name = 'DATE',
@@ -240,11 +244,11 @@ for(i in 1:nrow(data_list)){
         standardization_method = 'q_order_0',
         div.part %>% summarize(
           alpha_div_mean = mean(alpha_div),
-          alpha_div_cv = ltermetacommunities::cv(alpha_div),
+          alpha_div_cv = mclt::cv(alpha_div),
           beta_div_mean = mean(beta_div),
-          beta_div_cv = ltermetacommunities::cv(beta_div),
+          beta_div_cv = mclt::cv(beta_div),
           gamma_div_mean = mean(gamma_div),
-          gamma_div_cv = ltermetacommunities::cv(gamma_div)
+          gamma_div_cv = mclt::cv(gamma_div)
         )) %>%
         tidyr::gather(metric, metric_value, -c(variability_type, standardization_method))
       
