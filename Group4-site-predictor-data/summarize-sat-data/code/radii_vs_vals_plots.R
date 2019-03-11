@@ -19,10 +19,9 @@ data <- read.csv('/home/annie/Documents/MSU_postdoc/lter/data/lter_radii_data.cs
 
 # gather into mean, sd, with var as separate column
 data <- data %>%
-  gather(key = 'var', value = 'value', c(8, 9, seq(11, 18))) %>%
+  gather(key = 'var', value = 'value', c(7, 8, seq(10, 19))) %>%
   tidyr::extract(var, c('summary_stat', 'var'), "([a-zA-z]+)\\_([a-zA-z]+)") %>%
-  spread(summary_stat, value) %>%
-  dplyr::select(-X)
+  spread(summary_stat, value)
 
 # add single site column
 data$siteid <- paste(data$site, data$subsite, sep = '_')
@@ -42,7 +41,7 @@ simple_data <- data %>%
 temp_var <- data %>%
   group_by(site, subsite, radius, var) %>%
   summarize(mean_sd = sd(mean, na.rm = TRUE),
-            sd_sd = sd(mean, na.rm = TRUE)) %>%
+            sd_sd = sd(sd, na.rm = TRUE)) %>%
   filter(var != 'elev')
 
 # calculate linear slope up to 60km ---------------------------------------
@@ -78,7 +77,8 @@ main_data <- main_data %>%
   dplyr::select(-slope_60km_mean) %>%
   spread(var, slope_60km_sd) %>%
   dplyr::select(-lst, -ndvi, -sst, -chla) %>%
-  rename(elevation_spatial_sd_slope_60km = elev)
+  rename(elevation_spatial_sd_slope_60km = elev,
+         bathymetry_spatial_sd_slope_60km = bath)
 
 # can slim down further if you know what are marine vs. 
 # terrestrial sites (to temperature/productivity/elevation)
