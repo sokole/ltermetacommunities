@@ -2,11 +2,27 @@
 library(dplyr)
 library(tidyr)
 
-# read files from my own machine (can't do it online)
-hays     <- read.csv('C:/allrec_hays.csv') 
-spp_list <- read.csv('C:/species_list.csv')
-quad_info<- read.csv('C:/quadrat_info.csv')
-quad_inv <- read.csv('C:/quadrat_inventory.csv')
+
+#Data are from Ecologcial Archives
+## http://esapubs.org/archive/ecol/E088/161/
+##Peter B. Adler, William R. Tyburczy, and William K. Lauenroth. 2007. Long-term mapped quadrats from Kansas prairie: demographic information for herbaceaous plants. Ecology 88:2673.
+#Downloaded by to the L0 diretory in the Google Drive by NKL on Nov 16, 2018. 
+
+# read files from my own (Aldo's) machine (can't do it online)
+#hays     <- read.csv('C:/allrec_hays.csv') 
+#spp_list <- read.csv('C:/species_list.csv')
+#quad_info<- read.csv('C:/quadrat_info.csv')
+#quad_inv <- read.csv('C:/quadrat_inventory.csv')
+  
+  
+#read in files from Google Drive:
+hays <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/allrecords.csv') 
+spp_list <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/species_list.csv')
+quad_info<- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/quadrat_info.csv')
+quad_inv <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/quadrat_inventory.csv')
+  
+
+  
   
 # hays raw
 hays_raw <- hays %>% 
@@ -89,4 +105,4 @@ keep_plot <- hays_out %>%
 hays_out %>% 
   subset( SITE_ID %in% keep_plot) %>% 
   subset( DATE >37 ) %>% 
-  write.csv('C:/L3-hays.csv',row.names=F)  
+  write.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-hays-plants-compagnoni.csv',row.names=F)  

@@ -45,6 +45,7 @@ data.set <- "fce-diatoms-catano"
 
 #terrestrial 
 data.set <- "and-plants-mtStHelens"
+data.set <- "hays-plants-compagnoni"
 data.set <- "jrn-plants-compagnoni"
 data.set <- "cdr-plantsABC-compagnoni"
 data.set <- "cdr-plantsD-compagnoni"
