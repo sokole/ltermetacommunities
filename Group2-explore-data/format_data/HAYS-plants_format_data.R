@@ -1,4 +1,7 @@
 # Aldo Compagnoni Nov 2018
+#modified by NKL 03/25/2019
+rm(list = ls())
+
 library(dplyr)
 library(tidyr)
 
@@ -8,6 +11,13 @@ library(tidyr)
 ##Peter B. Adler, William R. Tyburczy, and William K. Lauenroth. 2007. Long-term mapped quadrats from Kansas prairie: demographic information for herbaceaous plants. Ecology 88:2673.
 #Downloaded by to the L0 diretory in the Google Drive by NKL on Nov 16, 2018. 
 
+
+hays <- read.csv('http://esapubs.org/archive/ecol/E088/161/allrecords.csv', stringsAsFactors=F) 
+spp_list <- read.csv('http://esapubs.org/archive/ecol/E088/161/species_list.csv', stringsAsFactors=F) 
+quad_info <- read.csv('http://esapubs.org/archive/ecol/E088/161/quadrat_info.csv', stringsAsFactors=F) 
+quad_inv <- read.csv('http://esapubs.org/archive/ecol/E088/161/quadrat_inventory.csv', stringsAsFactors=F)
+
+
 # read files from my own (Aldo's) machine (can't do it online)
 #hays     <- read.csv('C:/allrec_hays.csv') 
 #spp_list <- read.csv('C:/species_list.csv')
@@ -16,12 +26,10 @@ library(tidyr)
   
   
 #read in files from Google Drive:
-hays <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/allrecords.csv') 
-spp_list <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/species_list.csv')
-quad_info<- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/quadrat_info.csv')
-quad_inv <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/quadrat_inventory.csv')
-  
-
+#hays <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/allrecords.csv') 
+#spp_list <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/species_list.csv')
+#quad_info<- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/quadrat_info.csv')
+#quad_inv <- read.csv('~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/HAYS-plants/quadrat_inventory.csv')
   
   
 # hays raw
