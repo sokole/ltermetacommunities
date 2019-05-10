@@ -162,7 +162,7 @@ metacommunity_variability <- function(
         standardization_method = standardization_method)
 
     gamma_var <- data_regional_long %>%
-      mclt::temporal_BD(
+      ltmc::temporal_BD(
         time_step_col_name = time_step_col_name,
         taxon_id_col_name = 'taxon_id',
         biomass_col_name = 'taxon_regional_biomass_standardize')

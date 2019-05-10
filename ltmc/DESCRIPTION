@@ -1,11 +1,12 @@
-Package: mclt
+Package: ltmc
 Type: Package
-Title: Long-term metacommunities
+Title: Long-term metacommunity analysis
 Version: 0.1.0
 Author: LTER metacommunities working group
 Maintainer: Eric Sokol <sokole@gmail.com>
 Description: Functions to calculate metacommunity stability metrics
-    as well and other helper functions to explore metacommunity dynamics.
+    as well and other helper functions to explore metacommunity dynamics
+	in long-term data sets.
 Imports: dplyr, tidyr, vegetarian, purrr, magrittr
 License: AGPL-3
 Encoding: UTF-8
