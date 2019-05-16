@@ -2,6 +2,7 @@
 
 export(cv)
 export(divpart)
+export(local_variability)
 export(metacommunity_variability)
 export(temporal_BD)
 import(dplyr)
