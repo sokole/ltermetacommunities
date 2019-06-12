@@ -136,7 +136,33 @@ metacommunity_variability <- function(
       tidyr::unnest()
 
     if(tolower(standardization_method) == 'h'){
-      alpha_var <- temporal_BD_by_site$BD %>% mean
+
+      # calculate each site's mean total biomass over time
+      site_total_biomass_averaged_over_time <- data_long %>%
+        dplyr::group_by_at(
+          dplyr::vars(site_id_col_name, time_step_col_name)) %>%
+        dplyr::summarize(
+          total_site_biomass_per_time = sum(biomass)) %>%
+        dplyr::ungroup() %>%
+        dplyr::group_by_at(
+          dplyr::vars(site_id_col_name)) %>%
+        dplyr::summarize(
+          mean_total_biomass = mean(total_site_biomass_per_time))
+
+      # use site total biomass (averaged over time) to calculate weights
+      # for how much each site contributes to alpha variation (alpha var
+      # averaged across sites)
+      site_total_biomass_averaged_over_time$weights <- site_total_biomass_averaged_over_time$mean_total_biomass / sum(site_total_biomass_averaged_over_time$mean_total_biomass)
+
+      # use weights to average local (alpha) temporal beta diversity across sites
+      # weighted by site total biomass (averaged over time)
+      joined_site_data <- temporal_BD_by_site %>%
+        dplyr::left_join(site_total_biomass_averaged_over_time) %>%
+        mutate(BD_x_wi = BD * weights)
+
+      # calculate alpha var for the entire metacommunity
+      alpha_var <- joined_site_data$BD_x_wi %>% sum
+
     }else if(grepl('(?i)hT',standardization_method)){
       alpha_var <- temporal_BD_by_site$BD %>% sum
     }
