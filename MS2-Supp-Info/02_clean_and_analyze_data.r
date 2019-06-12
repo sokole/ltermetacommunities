@@ -1,5 +1,5 @@
 #' ################################################
-#' Data cleaning script
+#' Data cleaning and analysis script
 #' 
 #' Last updated -- Eric Sokol -- 12 June 2019
 #' 
