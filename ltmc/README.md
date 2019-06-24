@@ -1,4 +1,4 @@
-## mclt (MetaCommunities Long-Term)
+## ltmc (Long-term metacommunities)
 An R package for the analysis of long-term metacommunity data. 
 
 ### To install and load the package in R
