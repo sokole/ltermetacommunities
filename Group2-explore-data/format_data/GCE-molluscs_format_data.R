@@ -4,12 +4,23 @@ library(dplyr)
 library(tidyr)
 options(stringsAsFactors = F)
 
+#Check to make sure working directory is set to the ltermetacommunities github
+if(basename(getwd())!="ltermetacommunities"){cat("Plz change your working directory. It should be 'ltermetacommunities'")}
+
+# Check for and install required packages
+for (package in c('googledrive','dplyr', 'tidyr', 'vegetarian', 'vegan', 'metacom', 'ggplot2')) {
+  if (!require(package, character.only=T, quietly=T)) {
+    install.packages(package)
+    library(package, character.only=T)
+  }
+}
 
 # get mollusc data links from popler
 mollusc_links <- pplr_browse(proj_metadata_key == 298,
                              full_tbl=T)$metalink %>%
                     strsplit('; ') %>%
                     unlist( recursive = F )
+
 # 
 # # links to dois
 # get_text <- function(x, node_str){
@@ -468,10 +479,9 @@ cases <- sapply(all_cases, function(x)
                 tibble::add_column(row.names(.),.before=1) %>% 
                 setNames( c('col_name','logical') )
 
-
 # put it all together
 all_df <- dplyr::bind_rows( df ) %>% 
-            dplyr::select(subset(cases,logical)$col_name ) %>% 
+            dplyr::select( subset(cases,logical)$col_name ) %>% 
             dplyr::select( -Location_Notes ) %>% 
             subset( !is.na(Mollusc_Density) ) %>% 
             # average by Plot
@@ -480,33 +490,80 @@ all_df <- dplyr::bind_rows( df ) %>%
             summarise( Mollusc_Density = mean(Mollusc_Density,na.rm=T) ) %>% 
             ungroup %>% 
             # ltermetacomm format!
-           dplyr::rename( VALUE            = Mollusc_Density,
-                          VARIABLE_NAME    = Species,
-                          DATE             = Year ) %>% 
-                  mutate( SITE_ID          = paste(Site, Zone,sep='_'), # Plot, 
-                          OBSERVATION_TYPE = "TAXON_COUNT",
-                          VARIABLE_UNITS   = "DENSITY",
-                          VARIABLE_NAME    = as.character(VARIABLE_NAME) ) %>% 
-           # dplyr::select( -Month, -Day, -Site, -Zone, -Plot,  
-           #                -Location, -Longitude, -Latitude,
-           #                -Mollusc_Count, -Quadrat_Area) %>% 
+            dplyr::rename( VALUE            = Mollusc_Density,
+                           VARIABLE_NAME    = Species,
+                           DATE             = Year ) %>% 
+                   mutate( SITE_ID          = paste(Site, Zone,sep='_'), # Plot, 
+                           OBSERVATION_TYPE = "TAXON_COUNT",
+                           VARIABLE_UNITS   = "DENSITY",
+                           VARIABLE_NAME    = as.character(VARIABLE_NAME) ) %>% 
+           dplyr::select( -Site, -Zone ) %>%
            dplyr::arrange( DATE, SITE_ID, VARIABLE_NAME ) %>% 
+           # remove species "Slug" (it doesn't really mean anything!)
+           subset( !(VARIABLE_NAME %in% 'Slug') ) %>% 
            # introduce zeros
            spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
            gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) 
            
 # only keep sites that are present in every single year
 keep_site <- all_df %>% 
-                select(DATE,SITE_ID) %>% 
+                select(DATE, SITE_ID) %>% 
                 unique %>% 
                 count(SITE_ID) %>% 
                 subset( n == 14 ) %>% 
                 .$SITE_ID
 
-# only keep 
-all_df_keep <- all_df %>% subset( SITE_ID %in% keep_site )
+# records to keep 
+all_df_keep <- all_df %>% 
+                  # sites that are present in every single year
+                  subset( SITE_ID %in% keep_site ) %>% 
+                  # Remove un-identified hybrid
+                  subset( !(VARIABLE_NAME %in% 'Hydrobiidae' ) )
 
-write.csv(all_df_keep, 
+
+# Spatial coordinates --------------------------------------------------
+
+# Calculate Lat/Lons
+crd_df  <- dplyr::bind_rows( df ) %>% 
+            dplyr::select( subset(cases,logical)$col_name ) %>% 
+            dplyr::select( -Location_Notes ) %>% 
+            subset( !is.na(Mollusc_Density) ) %>% 
+            mutate( SITE_ID = paste(Site, Zone, sep='_') ) %>% 
+            # sites that are present in every single year
+            subset( SITE_ID %in% keep_site ) %>% 
+            # average lat/lon by Plot
+            group_by( SITE_ID ) %>% 
+            summarise( lat = mean(Latitude,  na.rm=T),
+                       lon = mean(Longitude, na.rm=T) )
+
+
+
+plot_lon    <- crd_df %>% 
+                  mutate( OBSERVATION_TYPE = "ENV_VAR", 
+                          DATE = NA, # NA because non-temporal
+                          VARIABLE_NAME = "longitude", 
+                          VARIABLE_UNITS = "dec.degrees") %>% 
+                  rename( VALUE = lon ) 
+
+plot_lat    <- crd_df %>% 
+                  mutate( OBSERVATION_TYPE = "ENV_VAR", 
+                          DATE = NA, # NA because non-temporal
+                          VARIABLE_NAME = "latitude", 
+                          VARIABLE_UNITS = "dec.degrees") %>% 
+                  rename( VALUE = lat ) 
+                  
+
+# Stack longitude and latitude together
+plot_coord  <- bind_rows(plot_lon,plot_lat) %>% 
+                  dplyr::select(-lon,-lat)
+
+
+# put it all out ---------------------------------------------
+
+
+out <- bind_rows(all_df_keep, plot_coord)
+
+write.csv(out, 
           'C:/L3-gce-mollusc-compagnoni.csv',
           row.names=F)
 
