@@ -181,7 +181,7 @@ comb.data <- comb.data %>%
 
 
 # Read in the metacommunity variability responses sent by Eric Sokal
-response <- read.csv("ESA_2019/data/L4_metacommunity_variability_analysis_results_20190204.csv")
+response <- read.csv("ESA_2019/data/L4_metacommunity_variability_analysis_results_2019-03-11.csv")
 
 # Check conrguence between data sets in this file with data available from the
 # environmental file
