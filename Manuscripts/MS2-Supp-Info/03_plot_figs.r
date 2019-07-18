@@ -166,8 +166,9 @@ dev.off()
 ######
 
 pdf(file = 'FIG_NMDS.pdf',
-    width = 5, height = 5)
+    width = 6, height = 5)
 
+# windows(width = 6, height = 5)
 
 # number of local communities (s)
 s <- length(unique(sbc.wide.sessile$SITE_ID))
@@ -204,7 +205,9 @@ ylim_scrs <- range(sites_scrs[,2], sites_scrs[,2])
 # plot
 # layout(matrix(c(1, 2, 1, 3), ncol=2, byrow=TRUE), widths=c(2, 1))
 
-plot(nmds2k.all, type="n", xlim=xlim_scrs, ylim=ylim_scrs, yaxt="n", xaxt="n", ylab="Axis 2", xlab="Axis 1", main="")
+plot(nmds2k.all, type="n", 
+     xlim=c(xlim_scrs[1], xlim_scrs[2]+.5), 
+     ylim=ylim_scrs, yaxt="n", xaxt="n", ylab="Axis 2", xlab="Axis 1", main="")
 axis(1,labels=seq(-2, 2, by=0.2),at=seq(-2, 2, by=0.2),tck=-0.01, cex.axis=1)
 axis(2,labels=seq(-2, 2, by=0.2),at=seq(-2, 2, by=0.2), las=1, tck=-0.01, cex.axis=1)
 
@@ -223,9 +226,20 @@ arrows(sites_scrs[(t*(s+1)-1),1], sites_scrs[(t*(s+1)-1),2], sites_scrs[(t*(s+1)
 # add species
 tresh_spp <- abs(spps_scrs[,1])>0.3 & abs(spps_scrs[,2])>0.15
 text(spps_scrs[tresh_spp,], row.names(spps_scrs[tresh_spp,]),  col="grey", pch="+", cex=0.8)
+
+legend(title = 'Site ID',
+       x = 'bottomright',
+       col = col,
+       lty = 1,
+       lwd = c(rep(2, s), 4),
+       legend = c(unique(sbc.wide.sessile$SITE_ID), 'Metacommunity'),
+       bty = 'o',
+       cex = .75)
 # # add pp1 and pp2
 # vp.TopRight <- viewport(height=unit(.5, "npc"), width=unit(0.33, "npc"), just=c("right", "top"), x=1, y=1)
 # vp.BottomRight <- viewport(height=unit(.5, "npc"), width=unit(0.33, "npc"), just=c("right", "top"), x=1, y=0.5)
 # print(pp2, vp=vp.TopRight)
 # print(pp1, vp=vp.BottomRight)
 dev.off()
+
+
