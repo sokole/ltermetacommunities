@@ -95,7 +95,7 @@ plot_metacommunity <- ggplot(plot.comp.regional, aes(x = DATE, y = bio, fill = V
 # dev.off()
 
 # print pdf
-pdf(file = 'FIG_local_metacommunity_composition_by_time.pdf',
+pdf(file = 'FIG_metacommunity_composition_by_time.pdf',
     width = 7, height = 5)
 print(plot_metacommunity)
 dev.off()
@@ -123,14 +123,28 @@ dev.off()
 #############################################
 # plot metacomm var results
 ########################
-pp2 <- ggplot(metacomm.var, aes(x=factor(variable), y=value, fill=factor(variable))) + 
+
+metacomm_var_labels <- c(expression(CV[alpha]^{2}), expression(CV[gamma]^{2}), expression(CV[phi]^{2}),
+                         expression(BD[alpha]^{hT}), expression(BD[gamma]^{hT}), expression(BD[phi]^{hT}),
+                         expression(BD[alpha]^{h}), expression(BD[gamma]^{h}), expression(BD[phi]^{h}))
+
+metacomm.var$variable_factor_ordered <- factor(
+  metacomm.var$variable,
+  ordered = TRUE,
+  levels = c('AlphaCV','GammaCV','PhiCV',
+             'AlphaTBD','GammaTBD','PhiTBD',
+             'AlphaHBD','GammaHBD','PhiHBD'))
+
+metacomm.var$var_type <- c('CV', 'CV','CV',
+                           'TBD','TBD','TBD',
+                           'HBD','HBD','HBD')
+
+pp2 <- ggplot(metacomm.var, aes(x=variable_factor_ordered, y=value, fill=factor(var_type))) + 
   geom_bar(stat="identity", color="black") +
   geom_text(aes(label=round(value,3)), vjust=-0.3, size=3.5) +
   ylim(0, max(metacomm.var$value)+0.1) +
-  scale_x_discrete(labels=c(expression(CV[alpha]^{2}), expression(CV[gamma]^{2}), expression(CV[phi]^{2}),
-                            expression(BD[alpha]^{hT}), expression(BD[gamma]^{hT}), expression(BD[phi]^{hT}),
-                            expression(BD[alpha]^{h}), expression(BD[gamma]^{h}), expression(BD[phi]^{h}))) +
-  scale_fill_manual(values=c(rep("coral2",3), rep("steelblue2", 3), rep("lightsteelblue", 3))) + 
+  scale_x_discrete(labels=metacomm_var_labels) +
+  scale_fill_manual(values=c("coral2","steelblue2","lightsteelblue")) + 
   xlab("") + ylab("") + labs(title = "") +
   gg_theme + theme(axis.text=element_text(size=10), 
                    axis.title=element_text(size=16,face="bold"),
