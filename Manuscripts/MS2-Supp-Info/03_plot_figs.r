@@ -145,7 +145,7 @@ pp2 <- ggplot(metacomm.var, aes(x=variable_factor_ordered, y=value, fill=factor(
   ylim(0, max(metacomm.var$value)+0.1) +
   scale_x_discrete(labels=metacomm_var_labels) +
   scale_fill_manual(values=c("coral2","steelblue2","lightsteelblue")) + 
-  xlab("") + ylab("") + labs(title = "") +
+  xlab("") + ylab("Metric value") + labs(title = "") +
   gg_theme + theme(axis.text=element_text(size=10), 
                    axis.title=element_text(size=16,face="bold"),
                    legend.position="none")
@@ -166,9 +166,9 @@ dev.off()
 ######
 
 pdf(file = 'FIG_NMDS.pdf',
-    width = 6, height = 5)
+    width = 5, height = 5)
 
-# windows(width = 6, height = 5)
+# windows(width = 5, height = 5)
 
 # number of local communities (s)
 s <- length(unique(sbc.wide.sessile$SITE_ID))
@@ -206,7 +206,7 @@ ylim_scrs <- range(sites_scrs[,2], sites_scrs[,2])
 # layout(matrix(c(1, 2, 1, 3), ncol=2, byrow=TRUE), widths=c(2, 1))
 
 plot(nmds2k.all, type="n", 
-     xlim=c(xlim_scrs[1], xlim_scrs[2]+.5), 
+     xlim=c(xlim_scrs[1] - .1, xlim_scrs[2]+.75), 
      ylim=ylim_scrs, yaxt="n", xaxt="n", ylab="Axis 2", xlab="Axis 1", main="")
 axis(1,labels=seq(-2, 2, by=0.2),at=seq(-2, 2, by=0.2),tck=-0.01, cex.axis=1)
 axis(2,labels=seq(-2, 2, by=0.2),at=seq(-2, 2, by=0.2), las=1, tck=-0.01, cex.axis=1)
@@ -234,7 +234,7 @@ legend(title = 'Site ID',
        lwd = c(rep(2, s), 4),
        legend = c(unique(sbc.wide.sessile$SITE_ID), 'Metacommunity'),
        bty = 'o',
-       cex = .75)
+       cex = .65)
 # # add pp1 and pp2
 # vp.TopRight <- viewport(height=unit(.5, "npc"), width=unit(0.33, "npc"), just=c("right", "top"), x=1, y=1)
 # vp.BottomRight <- viewport(height=unit(.5, "npc"), width=unit(0.33, "npc"), just=c("right", "top"), x=1, y=0.5)

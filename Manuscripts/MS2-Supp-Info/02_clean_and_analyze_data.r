@@ -22,8 +22,11 @@ library(ltmc)
 # they should return the same results
 source('space_stab.R')
 
-# files downloaded in script 01
-dt1 <- read_csv('RAW_DOWNLOAD_2019-06-12.csv')
+# file downloaded in script 01 -- pick the first one if there were repeat downloads.
+my_local_file_list <- list.files()
+my_raw_data_file <- my_local_file_list %>% 
+  .[grep('RAW_DOWNLOAD_', .)] %>% .[1]
+dt1 <- read_csv(my_raw_data_file)
 
 ######################################################
 # some basic data munging
