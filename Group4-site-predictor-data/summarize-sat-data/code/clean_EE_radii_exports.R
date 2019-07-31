@@ -113,7 +113,7 @@ full_data$sd_ndvi <- full_data$sd_ndvi * 100
 
 # export ------------------------------------------------------------------
 
-write.csv(full_data, '/home/annie/Documents/MSU_postdoc/lter/data/lter_radii_data.csv', row.names = FALSE)
+write.csv(full_data, '/home/annie/Documents/MSU_postdoc/lter/data/lter_radii_data_July302019.csv', row.names = FALSE)
 
 # plot --------------------------------------------------------------------
 
