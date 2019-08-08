@@ -174,6 +174,7 @@ for(i in 1:nrow(data_list)){
     
     # loop to apply functions to each window
     while(i_end_year <= max(year_list)){
+      d.window.long <- data.frame()
       d.window.long <- d.in.long %>% 
         filter(as.numeric(DATE) %in% c(i_start_year:i_end_year))
       
@@ -280,30 +281,31 @@ for(i in 1:nrow(data_list)){
             d.bd.agg_window,
             d.bd.h_window,
             d.bd.hT_window))
-        
-        # add a messages column if necessary
-        if(length(messages_i) > 0 & nrow(analysis_results_i) == 0){
-          analysis_results_i <- data.frame(
-            dataset_file_name = i_data_record$name,
-            dataset_google_id = i_data_record$id,
-            messages = messages_i)
-        }else if(length(messages_i) > 0 & nrow(analysis_results_i) > 0){
-          analysis_results_i[,'messages'] <- messages_i
-        }
-        
-        # combine results
-        analysis_results <- bind_rows(
-          analysis_results,
-          analysis_results_i)
-        
-        # message at comletion
-        message(paste0('completed window ', i_start_year, '-', i_end_year, ' for ', i_data_record$name))
-        
-        # increment years
-        i_start_year <- i_start_year + 1
-        i_end_year <- i_end_year + 1
+
       }
       
+      
+      # add a messages column if necessary
+      if(length(messages_i) > 0 & nrow(analysis_results_i) == 0){
+        analysis_results_i <- data.frame(
+          dataset_file_name = i_data_record$name,
+          dataset_google_id = i_data_record$id,
+          messages = messages_i)
+      }else if(length(messages_i) > 0 & nrow(analysis_results_i) > 0){
+        analysis_results_i[,'messages'] <- messages_i
+      }
+      
+      # combine results
+      analysis_results <- bind_rows(
+        analysis_results,
+        analysis_results_i)
+      
+      # message at comletion
+      message(paste0('completed window ', i_start_year, '-', i_end_year, ' for ', i_data_record$name))
+      
+      # increment years
+      i_start_year <- i_start_year + 1
+      i_end_year <- i_end_year + 1
     }
   
   })
