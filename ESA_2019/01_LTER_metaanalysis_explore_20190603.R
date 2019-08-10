@@ -225,9 +225,10 @@ plot_grid(div_stab_gamma_agg, div_stab_gamma_h,
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
-plot_grid(div_stab_phi_agg + labs(x = ""), div_stab_phi_h, 
-          align = "hv", ncol = 1) +
-  ggsave("ESA_2019/figs/beta_phi.png", width = 4, height = 6, units = "in", dpi = 600)
+plot_grid(div_stab_phi_agg, div_stab_phi_h, 
+          align = "hv", ncol = 2) +
+  ggsave("ESA_2019/figs/beta_phi.png", width = 2*4, height = 3, units = "in", dpi = 600) + 
+  ggsave("ESA_2019/figs/beta_phi.pdf", width = 2*4, height = 3, units = "in")
 
 agg.mod <-  lm(log(gamma_var_rate) ~ log(alpha_div_mean) + beta_div_mean, data = div_stab_agg)
 comp.mod <- lm(log(gamma_var_rate) ~ log(alpha_div_mean) + beta_div_mean, data = div_stab_comp)
@@ -319,7 +320,7 @@ comp_agg_stab %>%
          name = paste(site, organism),
          agg_diff = agg_alpha_var_rate - agg_gamma_var_rate,
          comp_diff = alpha_var_rate - gamma_var_rate,
-         total_diff = sqrt(agg_diff^2 + comp_diff^2)) %>% 
+         total_diff = sqrt(1/agg_phi_var + 1/phi_var)) %>% 
   arrange(ratio) %>% filter(!is.na(ratio)) %>% 
   ggplot(aes(x = ratio, xend = 0, 
              y = reorder(name, ratio), yend = reorder(name, ratio))) +
@@ -330,6 +331,22 @@ comp_agg_stab %>%
   labs(y = "", x = expression(paste("Log"["10"], "(", phi["agg."], "/", phi["comp."], ")"))) +
   ggsave("ESA_2019/figs/phi_ratio.png", width = 7, height = 7*3/4, units = "in", dpi = 600)
 
+
+# explaining comp vs. var stability
+comp_agg_stab_derived <- comp_agg_stab %>% 
+  mutate(ratio = log10(agg_phi_var/phi_var), 
+         name = paste(site, organism),
+         agg_diff = agg_alpha_var_rate - agg_gamma_var_rate,
+         comp_diff = alpha_var_rate - gamma_var_rate,
+         total_diff = sqrt(agg_diff^2 + comp_diff^2)) %>% 
+  bind_cols(div.wide[,21:26])
+comp_agg_stab_derived %>% 
+  ggplot(aes(x = env_heterogeneity, y = total_diff)) +
+  geom_point() +
+  geom_smooth(method = 'lm')
+comp_agg_stab_derived %>% 
+  ggplot(aes(x = beta_div_mean, y = log(total_diff))) +
+  geom_point()
 
 #--------------
 # How do variability component differ with metacommunity features
