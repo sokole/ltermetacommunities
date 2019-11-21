@@ -25,8 +25,8 @@ daa     <- read.csv( paste0(in_file, 'CensusData.csv') ) %>%
                   plot.habitat.replicate, plot_group, 
                   species ) %>% 
             mutate( SITE_ID = paste0(plot.habitat.replicate, 
-                                     plot_group, 
-                                     sep='_') ) %>% 
+                                     '_',
+                                     plot_group) ) %>% 
             # LTERMETACOMM FORMAT
             rename( VARIABLE_NAME = species,
                     DATE          = Year,
@@ -35,45 +35,23 @@ daa     <- read.csv( paste0(in_file, 'CensusData.csv') ) %>%
                     VARIABLE_UNITS   = 'COUNT' ) %>% 
             # order data
             select(OBSERVATION_TYPE, SITE_ID, DATE, 
-                   VARIABLE_NAME, VARIABLE_UNITS, VALUE)
+                   VARIABLE_NAME, VARIABLE_UNITS, VALUE) %>% 
+            # introduce zeros
+            spread(key = VARIABLE_NAME, value = VALUE, fill = 0) %>% 
+            gather(key = VARIABLE_NAME, value = VALUE, -DATE, -SITE_ID, -OBSERVATION_TYPE, -VARIABLE_UNITS) 
 
 # keep sites 
-daa %>% 
-  select(DATE, SITE_ID) %>% 
-  unique %>% 
-  count(DATE) %>% 
-
-
-daa     <- read.csv( paste0(in_file, 'CensusData.csv') ) %>% 
-            # count individuals
-            count(Year, 
-                  plot.habitat.replicate,
-                  species ) %>% 
-            rename( SITE_ID = plot.habitat.replicate ) %>% 
-            # LTERMETACOMM FORMAT
-            rename( VARIABLE_NAME = species,
-                    DATE          = Year,
-                    VALUE         = n ) %>% 
-            mutate( OBSERVATION_TYPE = 'TAXON_COUNT',
-                    VARIABLE_UNITS   = 'COUNT' ) %>% 
-            # order data
-            select(OBSERVATION_TYPE, SITE_ID, DATE, 
-                   VARIABLE_NAME, VARIABLE_UNITS, VALUE)
-
-      
-
-daa
-     
-# keep sites present in every year
-site_keep <- snail_long %>% 
-                dplyr::select(DATE, SITE_ID) %>% 
+keep_sites <- daa %>% 
+                select(DATE, SITE_ID) %>% 
                 unique %>% 
-                count(SITE_ID) %>% 
-                subset( n == 27 ) %>% 
+                count(SITE_ID) %>%
+                # only keep the sites with highest temporal replication
+                subset(n > 28) %>% 
                 .$SITE_ID
 
-# select the common sites
-snail_out <- snail_long %>% subset( SITE_ID %in% site_keep )
+daa_out    <- daa %>% subset( SITE_ID %in% keep_sites )
 
 # write file out
-write.csv(snail_out, '~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-luq-snails-compagnoni.csv', row.names=F)
+write.csv(daa_out, 
+          'C:/L3-daa-plants-compagnoni.csv',
+          row.names=F)
