@@ -1,0 +1,615 @@
+dataset_file_name,dataset_google_id,start_year,end_year,n_years_observed,study_duration,organism_count_type,variability_type,standardization_method,metric,metric_value,messages
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,divpart_time_series,q_order_0,alpha_div_mean,5.987755102040817,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,divpart_time_series,q_order_0,alpha_div_cv,0.18233077439251877,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,divpart_time_series,q_order_0,beta_div_mean,4.138779052465531,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,divpart_time_series,q_order_0,beta_div_cv,0.09193397867355044,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,divpart_time_series,q_order_0,gamma_div_mean,24.742857142857144,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,divpart_time_series,q_order_0,gamma_div_cv,0.1929183183189099,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,agg,NA,gamma_var,0.20914972978606303,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,agg,NA,alpha_var,0.39002038086961366,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,agg,NA,phi_var,0.5362533345558245,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,agg,NA,gamma_var_rate,0.0061514626407665595,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,agg,NA,alpha_var_rate,0.011471187672635696,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,com,h,gamma_var,0.17405539677392556,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,com,h,alpha_var,0.31499410174056586,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,com,h,phi_var,0.5525671617726999,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,com,h,gamma_var_rate,0.005119276375703693,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,com,h,alpha_var_rate,0.00926453240413429,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,com,hT,gamma_var,0.005729475000814076,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,com,hT,alpha_var,0.010022952364616672,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,com,hT,phi_var,0.5716354615273281,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,com,hT,gamma_var_rate,1.685139706121787e-4,NA
+L3-hays-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,COUNT,com,hT,alpha_var_rate,2.947927166063727e-4,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,divpart_time_series,q_order_0,alpha_div_mean,13.75,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,divpart_time_series,q_order_0,alpha_div_cv,0.17389089908186492,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,divpart_time_series,q_order_0,beta_div_mean,2.106317555403744,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,divpart_time_series,q_order_0,beta_div_cv,0.07761405699399165,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,divpart_time_series,q_order_0,gamma_div_mean,28.857142857142858,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,divpart_time_series,q_order_0,gamma_div_cv,0.17662399776832383,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,agg,NA,gamma_var,0.04828142015064944,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,agg,NA,alpha_var,0.08482627241637204,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,agg,NA,phi_var,0.56918002848998,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,agg,NA,gamma_var_rate,0.0037139553962038034,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,agg,NA,alpha_var_rate,0.006525097878182465,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,com,h,gamma_var,0.1301685136547647,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,com,h,alpha_var,0.2609600020096892,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,com,h,phi_var,0.49880637895585106,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,com,h,gamma_var_rate,0.010012962588828054,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,com,h,alpha_var_rate,0.020073846308437632,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,com,hT,gamma_var,0.009997144040310057,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,com,hT,alpha_var,0.019769251449379462,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,com,hT,phi_var,0.5056915819958301,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,com,hT,gamma_var_rate,7.690110800238505e-4,NA
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,PERCENT_COVER,com,hT,alpha_var_rate,0.0015207116499522664,NA
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,NA,NA,NA,NA,NA,NA,NA,NA,NA,WARNING: no data for L3-sev-plants-compagnoni.csv
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,NA,NA,NA,NA,NA,NA,NA,NA,NA,WARNING: no data for L3-gce-mollusc-compagnoni.csv
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,divpart_time_series,q_order_0,alpha_div_mean,28.176923076923078,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,divpart_time_series,q_order_0,alpha_div_cv,0.18451493151906667,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,divpart_time_series,q_order_0,beta_div_mean,2.651272996455165,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,divpart_time_series,q_order_0,beta_div_cv,0.3030724469406025,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,divpart_time_series,q_order_0,gamma_div_mean,74.76923076923077,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,divpart_time_series,q_order_0,gamma_div_cv,0.3475717135601056,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,agg,NA,gamma_var,0.07085155662536789,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,agg,NA,alpha_var,0.11414314283029878,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,agg,NA,phi_var,0.6207254756486402,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,agg,NA,gamma_var_rate,0.005904296385447324,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,agg,NA,alpha_var_rate,0.009511928569191565,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,com,h,gamma_var,0.6008298798415443,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,com,h,alpha_var,0.7113392781238038,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,com,h,phi_var,0.8446460055267382,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,com,h,gamma_var_rate,0.05006915665346203,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,com,h,alpha_var_rate,0.05927827317698365,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,com,hT,gamma_var,0.047177756221611356,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,com,hT,alpha_var,0.0555274165378754,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,com,hT,phi_var,0.8496299515291024,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,com,hT,gamma_var_rate,0.00393147968513428,NA
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,Average_count,com,hT,alpha_var_rate,0.004627284711489617,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),divpart_time_series,q_order_0,alpha_div_mean,10.14090909090909,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),divpart_time_series,q_order_0,alpha_div_cv,0.20485995670233614,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),divpart_time_series,q_order_0,beta_div_mean,2.3313544706161813,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),divpart_time_series,q_order_0,beta_div_cv,0.1356405015278552,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),divpart_time_series,q_order_0,gamma_div_mean,23.181818181818183,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),divpart_time_series,q_order_0,gamma_div_cv,0.14191114989328352,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),agg,NA,gamma_var,0.2470879332850922,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),agg,NA,alpha_var,0.30138489066086904,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),agg,NA,phi_var,0.8198418067451362,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),agg,NA,gamma_var_rate,0.011766092061194867,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),agg,NA,alpha_var_rate,0.014351661460041383,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),com,h,gamma_var,0.19234619527079877,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),com,h,alpha_var,0.28844737988368774,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),com,h,phi_var,0.6668328738099809,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),com,h,gamma_var_rate,0.0091593426319428,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),com,h,alpha_var_rate,0.013735589518270844,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),com,hT,gamma_var,0.010710734921169552,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),com,hT,alpha_var,0.015056228629655468,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),com,hT,phi_var,0.7113823245266863,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),com,hT,gamma_var_rate,5.100349962461691e-4,NA
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,Count (two censuses a year),com,hT,alpha_var_rate,7.169632680788319e-4,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),divpart_time_series,q_order_0,alpha_div_mean,4.116512345679013,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),divpart_time_series,q_order_0,alpha_div_cv,0.18892387176230513,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),divpart_time_series,q_order_0,beta_div_mean,2.375727007776023,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),divpart_time_series,q_order_0,beta_div_cv,0.11508295840388057,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),divpart_time_series,q_order_0,gamma_div_mean,9.833333333333334,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),divpart_time_series,q_order_0,gamma_div_cv,0.24971044623818703,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),agg,NA,gamma_var,0.32004253207387623,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),agg,NA,alpha_var,0.8359959687103592,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),agg,NA,phi_var,0.38282784134424314,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),agg,NA,gamma_var_rate,0.018826031298463306,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),agg,NA,alpha_var_rate,0.049176233453550544,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),com,h,gamma_var,0.051603554440615075,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),com,h,alpha_var,NA,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),com,h,phi_var,NA,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),com,h,gamma_var_rate,0.003035503202389122,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),com,h,alpha_var_rate,NA,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),com,hT,gamma_var,0.006797893899116744,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),com,hT,alpha_var,0.014571964425111454,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),com,hT,phi_var,0.4665049749505376,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),com,hT,gamma_var_rate,3.9987611171274964e-4,NA
+L3-knz-fish-compagnoni.csv,1HNv4FKhRyfLvxk9ceWDFmSHjzkQITIpP,1999,2016,18,17,COUNT (summer + fall),com,hT,alpha_var_rate,8.571743779477326e-4,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,alpha_div_mean,12.135802469135802,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,alpha_div_cv,0.19203903878985232,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,beta_div_mean,2.944590938046286,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,beta_div_cv,0.14947092223303235,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,gamma_div_mean,35.111111111111114,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,gamma_div_cv,0.14118990105489634,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,agg,NA,gamma_var,0.23395712489107287,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,agg,NA,alpha_var,1.3027459021124743,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,agg,NA,phi_var,0.17958768821433135,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,agg,NA,gamma_var_rate,0.013762183817121933,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,agg,NA,alpha_var_rate,0.07663211188896908,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,com,h,gamma_var,0.3574667501579737,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,com,h,alpha_var,0.6156254638215697,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,com,h,phi_var,0.5806562125272654,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,com,h,gamma_var_rate,0.02102745589164551,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,com,h,alpha_var_rate,0.036213262577739394,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,com,hT,gamma_var,0.022479574788802557,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,com,hT,alpha_var,0.035271972311805365,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,com,hT,phi_var,0.637321173595919,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,com,hT,gamma_var_rate,0.0013223279287530917,NA
+L3-sbc-fish-castorani.csv,0BxUZSA1Gn1HZeEtNSEtJRDQxa2M,2001,2018,18,17,g dry per m2,com,hT,alpha_var_rate,0.0020748219006944332,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,alpha_div_mean,12.697530864197532,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,alpha_div_cv,0.08625169741859808,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,beta_div_mean,2.2247039979495065,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,beta_div_cv,0.08492003000452145,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,gamma_div_mean,28.11111111111111,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,gamma_div_cv,0.06670638576706012,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,agg,NA,gamma_var,0.19859644689335193,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,agg,NA,alpha_var,0.3788353426830948,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,agg,NA,phi_var,0.5242289314581792,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,agg,NA,gamma_var_rate,0.011682143934903055,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,agg,NA,alpha_var_rate,0.02228443192253499,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,com,h,gamma_var,0.10189113673270868,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,com,h,alpha_var,0.3382936236263968,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,com,h,phi_var,0.30119141957353224,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,com,h,gamma_var_rate,0.005993596278394628,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,com,h,alpha_var_rate,0.01989962491919981,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,com,hT,gamma_var,0.007642553898995696,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,com,hT,alpha_var,0.013609089431296913,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,com,hT,phi_var,0.5615771677875865,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,com,hT,gamma_var_rate,4.495619940585704e-4,NA
+L3-sbc-mobileInverts-castorani.csv,0BxUZSA1Gn1HZWVZsdFdrRmhpTm8,2001,2018,18,17,g dry per m2,com,hT,alpha_var_rate,8.005346724292301e-4,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,alpha_div_mean,17.69753086419753,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,alpha_div_cv,0.1289881453474337,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,beta_div_mean,2.7874209284911635,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,beta_div_cv,0.09556817918888853,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,gamma_div_mean,49.05555555555556,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,gamma_div_cv,0.11392312284832419,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,agg,NA,gamma_var,0.2814369760599189,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,agg,NA,alpha_var,0.5207009554473284,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,agg,NA,phi_var,0.540496369587299,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,agg,NA,gamma_var_rate,0.016555116238818758,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,agg,NA,alpha_var_rate,0.030629467967489908,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,com,h,gamma_var,0.01065197138689657,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,com,h,alpha_var,0.14039064370862112,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,com,h,phi_var,0.07587379832095216,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,com,h,gamma_var_rate,6.265865521703865e-4,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,com,h,alpha_var_rate,0.008258273159330655,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,com,hT,gamma_var,0.004340992112789397,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,com,hT,alpha_var,0.008724415602958883,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,com,hT,phi_var,0.4975682395640518,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,com,hT,gamma_var_rate,2.553524772229057e-4,NA
+L3-sbc-sessileInverts-castorani.csv,0BxUZSA1Gn1HZYVp0MXBod2oxczQ,2001,2018,18,17,g dry per m2,com,hT,alpha_var_rate,5.132009178211108e-4,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,alpha_div_mean,17.895061728395063,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,alpha_div_cv,0.09205728234156597,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,beta_div_mean,2.311546773142605,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,beta_div_cv,0.07651233048732964,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,gamma_div_mean,41.388888888888886,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,divpart_time_series,q_order_0,gamma_div_cv,0.12462190809553715,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,agg,NA,gamma_var,0.04545194105039231,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,agg,NA,alpha_var,0.23589770453669667,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,agg,NA,phi_var,0.1926764872072832,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,agg,NA,gamma_var_rate,0.0026736435911995475,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,agg,NA,alpha_var_rate,0.013876335560982157,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,com,h,gamma_var,0.0545326817661008,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,com,h,alpha_var,NA,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,com,h,phi_var,NA,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,com,h,gamma_var_rate,0.0032078048097706354,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,com,h,alpha_var_rate,NA,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,com,hT,gamma_var,0.0035557478632397546,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,com,hT,alpha_var,0.011029060225658508,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,com,hT,phi_var,0.32239808202039744,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,com,hT,gamma_var_rate,2.0916163901410321e-4,NA
+L3-sbc-algae-castorani.csv,0BxUZSA1Gn1HZZWl6d3BMeVNlT0U,2001,2018,18,17,g dry per m2,com,hT,alpha_var_rate,6.487682485681475e-4,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,divpart_time_series,q_order_0,alpha_div_mean,2.986111111111111,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,divpart_time_series,q_order_0,alpha_div_cv,0.17233170123772149,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,divpart_time_series,q_order_0,beta_div_mean,3.411284989751791,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,divpart_time_series,q_order_0,beta_div_cv,0.12469024046894452,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,divpart_time_series,q_order_0,gamma_div_mean,10.125,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,divpart_time_series,q_order_0,gamma_div_cv,0.17248641181800475,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,agg,NA,gamma_var,0.11224085091040203,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,agg,NA,alpha_var,0.28670835821174284,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,agg,NA,phi_var,0.3914809167422624,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,agg,NA,gamma_var_rate,0.007482723394026803,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,agg,NA,alpha_var_rate,0.01911389054744952,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,com,h,gamma_var,0.09664923904197867,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,com,h,alpha_var,0.2539455110669314,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,com,h,phi_var,0.38059046066975055,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,com,h,gamma_var_rate,0.006443282602798578,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,com,h,alpha_var_rate,0.016929700737795428,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,com,hT,gamma_var,0.007379601735454727,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,com,hT,alpha_var,0.01694003112936168,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,com,hT,phi_var,0.435630943007175,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,com,hT,gamma_var_rate,4.919734490303151e-4,NA
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,count,com,hT,alpha_var_rate,0.001129335408624112,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,alpha_div_mean,9.033816425120772,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,alpha_div_cv,0.23230823840075257,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,beta_div_mean,5.206562274123331,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,beta_div_cv,0.11562198773766359,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,gamma_div_mean,46,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,gamma_div_cv,0.13416920215410022,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,agg,NA,gamma_var,0.042431823268845405,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,agg,NA,alpha_var,0.15028730409916263,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,agg,NA,phi_var,0.28233804261235546,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,agg,NA,gamma_var_rate,0.001928719239492973,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,agg,NA,alpha_var_rate,0.006831241095416483,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,com,h,gamma_var,0.13134126639213445,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,com,h,alpha_var,0.23526792282225126,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,com,h,phi_var,0.5582625324208134,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,com,h,gamma_var_rate,0.0059700575632788385,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,com,h,alpha_var_rate,0.010693996491920512,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,com,hT,gamma_var,0.006075872934767559,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,com,hT,alpha_var,0.012540321546193152,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,com,hT,phi_var,0.48450694923464727,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,com,hT,gamma_var_rate,2.761760424894345e-4,NA
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,BIOMASS,com,hT,alpha_var_rate,5.700146157360523e-4,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,alpha_div_mean,13.860869565217392,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,alpha_div_cv,0.13298959833046411,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,beta_div_mean,2.228108098935068,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,beta_div_cv,0.08945426166225853,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,gamma_div_mean,30.695652173913043,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,divpart_time_series,q_order_0,gamma_div_cv,0.11473326272548008,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,agg,NA,gamma_var,0.12685796506412372,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,agg,NA,alpha_var,0.25774262219545385,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,agg,NA,phi_var,0.4921885405818661,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,agg,NA,gamma_var_rate,0.005766271139278351,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,agg,NA,alpha_var_rate,0.011715573736156993,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,com,h,gamma_var,0.31641610395779324,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,com,h,alpha_var,0.4502553633111069,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,com,h,phi_var,0.7027481063877155,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,com,h,gamma_var_rate,0.014382550179899693,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,com,h,alpha_var_rate,0.020466152877777585,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,com,hT,gamma_var,0.014648815322280353,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,com,hT,alpha_var,0.020982813900482046,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,com,hT,phi_var,0.6981339772519176,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,com,hT,gamma_var_rate,6.658552419218342e-4,NA
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,BIOMASS,com,hT,alpha_var_rate,9.537642682037294e-4,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,divpart_time_series,q_order_0,alpha_div_mean,14.766666666666666,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,divpart_time_series,q_order_0,alpha_div_cv,0.07150211598618268,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,divpart_time_series,q_order_0,beta_div_mean,4.767292326527647,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,divpart_time_series,q_order_0,beta_div_cv,0.14258946860468133,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,divpart_time_series,q_order_0,gamma_div_mean,70.85714285714286,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,divpart_time_series,q_order_0,gamma_div_cv,0.19782051491717192,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,agg,NA,gamma_var,4.9001555712371865e-5,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,agg,NA,alpha_var,7.746463437261366e-5,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,agg,NA,phi_var,0.6325667978586051,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,agg,NA,gamma_var_rate,8.166925952061978e-6,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,agg,NA,alpha_var_rate,1.291077239543561e-5,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,com,h,gamma_var,0.04876614681859187,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,com,h,alpha_var,0.15881656529470745,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,com,h,phi_var,0.3070595735910743,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,com,h,gamma_var_rate,0.008127691136431978,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,com,h,alpha_var_rate,0.026469427549117908,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,com,hT,gamma_var,0.006965038397406819,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,com,hT,alpha_var,0.022675265206899775,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,com,hT,phi_var,0.3071645836930477,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,com,hT,gamma_var_rate,0.0011608397329011366,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,PERCENT,com,hT,alpha_var_rate,0.003779210867816629,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,NA,NA,NA,NA,NA,NA,NA,NA,NA,"WARNING: missing column names: OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE for L3-and-plants-mtStHelens.csv | WARNING: data not formatted correctly for L3-and-plants-mtStHelens.csv"
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),divpart_time_series,q_order_0,alpha_div_mean,5.192592592592592,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),divpart_time_series,q_order_0,alpha_div_cv,0.1503924896044176,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),divpart_time_series,q_order_0,beta_div_mean,3.1063466738948584,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),divpart_time_series,q_order_0,beta_div_cv,0.1113042496868964,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),divpart_time_series,q_order_0,gamma_div_mean,15.925925925925926,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),divpart_time_series,q_order_0,gamma_div_cv,0.09202957645306689,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),agg,NA,gamma_var,0.13358764031107576,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),agg,NA,alpha_var,0.3239187999957678,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),agg,NA,phi_var,0.4124108891265995,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),agg,NA,gamma_var_rate,0.005137986165810606,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),agg,NA,alpha_var_rate,0.012458415384452607,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),com,h,gamma_var,0.06226627919916476,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),com,h,alpha_var,NA,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),com,h,phi_var,NA,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),com,h,gamma_var_rate,0.0023948568922755676,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),com,h,alpha_var_rate,NA,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),com,hT,gamma_var,0.003371940210991482,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),com,hT,alpha_var,0.008690507750639117,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),com,hT,phi_var,0.3880026700101042,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),com,hT,gamma_var_rate,1.29690008115057e-4,NA
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,COUNT (yearly mean),com,hT,alpha_var_rate,3.342502981015045e-4,NA
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,NA,NA,NA,NA,NA,NA,NA,NA,NA,"WARNING: missing column names: OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE for L3-cap-birds-banville.csv | WARNING: data not formatted correctly for L3-cap-birds-banville.csv"
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),divpart_time_series,q_order_0,alpha_div_mean,0,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),divpart_time_series,q_order_0,alpha_div_cv,NaN,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),divpart_time_series,q_order_0,beta_div_mean,NaN,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),divpart_time_series,q_order_0,beta_div_cv,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),divpart_time_series,q_order_0,gamma_div_mean,0,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),divpart_time_series,q_order_0,gamma_div_cv,NaN,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),agg,NA,gamma_var,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),agg,NA,alpha_var,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),agg,NA,phi_var,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),agg,NA,gamma_var_rate,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),agg,NA,alpha_var_rate,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),com,h,gamma_var,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),com,h,alpha_var,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),com,h,phi_var,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),com,h,gamma_var_rate,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),com,h,alpha_var_rate,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),com,hT,gamma_var,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),com,hT,alpha_var,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),com,hT,phi_var,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),com,hT,gamma_var_rate,NA,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,count (average),com,hT,alpha_var_rate,NA,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),divpart_time_series,q_order_0,alpha_div_mean,11.25438596491228,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),divpart_time_series,q_order_0,alpha_div_cv,0.24001843657669947,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),divpart_time_series,q_order_0,beta_div_mean,2.840752952828736,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),divpart_time_series,q_order_0,beta_div_cv,0.14927670685111794,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),divpart_time_series,q_order_0,gamma_div_mean,31.055555555555557,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),divpart_time_series,q_order_0,gamma_div_cv,0.11970680141786647,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),agg,NA,gamma_var,0.3816088401560951,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),agg,NA,alpha_var,0.6259349220938164,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),agg,NA,phi_var,0.6096621656442724,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),agg,NA,gamma_var_rate,0.022447578832711475,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),agg,NA,alpha_var_rate,0.03681970129963626,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),com,h,gamma_var,0.13770141702454852,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),com,h,alpha_var,0.2583683068080281,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),com,h,phi_var,0.5329655898037949,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),com,h,gamma_var_rate,0.008100083354385208,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),com,h,alpha_var_rate,0.015198135694589887,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),com,hT,gamma_var,0.013055065939762125,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),com,hT,alpha_var,0.019575020771412793,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),com,hT,phi_var,0.6669247553917103,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),com,hT,gamma_var_rate,7.67945055280125e-4,NA
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,COUNT (monthly sum),com,hT,alpha_var_rate,0.0011514718100831055,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,divpart_time_series,q_order_0,alpha_div_mean,16.37837837837838,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,divpart_time_series,q_order_0,alpha_div_cv,0.06894407958403011,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,divpart_time_series,q_order_0,beta_div_mean,1.9579648373671832,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,divpart_time_series,q_order_0,beta_div_cv,0.06461155797217925,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,divpart_time_series,q_order_0,gamma_div_mean,32.027027027027025,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,divpart_time_series,q_order_0,gamma_div_cv,0.07840056571861836,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,agg,NA,gamma_var,0.6428622457269273,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,agg,NA,alpha_var,1.2867346126612917,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,agg,NA,phi_var,0.49960748657978976,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,agg,NA,gamma_var_rate,0.017857284603525758,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,agg,NA,alpha_var_rate,0.03574262812948033,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,com,h,gamma_var,0.17023589986527377,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,com,h,alpha_var,0.27683745059431325,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,com,h,phi_var,0.6149308899493626,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,com,h,gamma_var_rate,0.004728774996257605,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,com,h,alpha_var_rate,0.007689929183175368,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,com,hT,gamma_var,0.007540229526602055,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,com,hT,alpha_var,0.011470546332853469,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,com,hT,phi_var,0.6573557446872116,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,com,hT,gamma_var_rate,2.094508201833904e-4,NA
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,CPUE,com,hT,alpha_var_rate,3.1862628702370745e-4,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,divpart_time_series,q_order_0,alpha_div_mean,2.0538461538461537,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,divpart_time_series,q_order_0,alpha_div_cv,0.1494318660479819,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,divpart_time_series,q_order_0,beta_div_mean,5.2309208846927175,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,divpart_time_series,q_order_0,beta_div_cv,0.16470909523009938,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,divpart_time_series,q_order_0,gamma_div_mean,10.8,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,divpart_time_series,q_order_0,gamma_div_cv,0.25693401713910385,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,agg,NA,gamma_var,0.03172328681464544,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,agg,NA,alpha_var,0.4465472821599455,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,agg,NA,phi_var,0.07104127173543676,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,agg,NA,gamma_var_rate,0.00793082170366136,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,agg,NA,alpha_var_rate,0.11163682053998637,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,com,h,gamma_var,0.03355614178018997,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,com,h,alpha_var,0.4491323495016699,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,com,h,phi_var,0.07471325950451317,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,com,h,gamma_var_rate,0.008389035445047493,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,com,h,alpha_var_rate,0.11228308737541748,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,com,hT,gamma_var,0.008237596626032991,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,com,hT,alpha_var,0.08994859536393718,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,com,hT,phi_var,0.09158115913542843,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,com,hT,gamma_var_rate,0.0020593991565082477,NA
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,count,com,hT,alpha_var_rate,0.022487148840984295,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,divpart_time_series,q_order_0,alpha_div_mean,17.666666666666668,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,divpart_time_series,q_order_0,alpha_div_cv,0.2214183587915132,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,divpart_time_series,q_order_0,beta_div_mean,2.0741584771414705,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,divpart_time_series,q_order_0,beta_div_cv,0.08343246631776859,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,divpart_time_series,q_order_0,gamma_div_mean,37,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,divpart_time_series,q_order_0,gamma_div_cv,0.28087310393008824,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,agg,NA,gamma_var,0.18291007452692312,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,agg,NA,alpha_var,0.22003088269360288,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,agg,NA,phi_var,0.8312927362184372,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,agg,NA,gamma_var_rate,0.026130010646703304,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,agg,NA,alpha_var_rate,0.03143298324194327,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,com,h,gamma_var,0.19430467330274176,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,com,h,alpha_var,0.3199593051805551,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,com,h,phi_var,0.6072793325797928,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,com,h,gamma_var_rate,0.02775781047182025,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,com,h,alpha_var_rate,0.045708472168650725,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,com,hT,gamma_var,0.028976197615928952,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,com,hT,alpha_var,0.04605198520155237,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,com,hT,phi_var,0.6292062652480873,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,com,hT,gamma_var_rate,0.004139456802275564,NA
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,PCT_COVER,com,hT,alpha_var_rate,0.006578855028793196,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),divpart_time_series,q_order_0,alpha_div_mean,9.558704453441296,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),divpart_time_series,q_order_0,alpha_div_cv,0.24912191620283147,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),divpart_time_series,q_order_0,beta_div_mean,2.1883407737012677,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),divpart_time_series,q_order_0,beta_div_cv,0.14442154855482398,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),divpart_time_series,q_order_0,gamma_div_mean,20.31578947368421,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),divpart_time_series,q_order_0,gamma_div_cv,0.15483474401537758,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),agg,NA,gamma_var,0.4541537203812543,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),agg,NA,alpha_var,0.6396289397510605,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),agg,NA,phi_var,0.7100268486257173,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),agg,NA,gamma_var_rate,0.023902827388487067,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),agg,NA,alpha_var_rate,0.0336646810395295,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),com,h,gamma_var,0.14576207731853175,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),com,h,alpha_var,0.2444667940825745,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),com,h,phi_var,0.5962448923402544,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),com,h,gamma_var_rate,0.007671688279922723,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),com,h,alpha_var_rate,0.012866673372767078,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),com,hT,gamma_var,0.012302174538917684,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),com,hT,alpha_var,0.017706411931644038,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),com,hT,phi_var,0.694786418976949,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),com,hT,gamma_var_rate,6.474828704693518e-4,NA
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,COUNT (average),com,hT,alpha_var_rate,9.319164174549494e-4,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,alpha_div_mean,7.654761904761905,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,alpha_div_cv,0.1355336698634259,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,beta_div_mean,3.4134690127782314,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,beta_div_cv,0.1801980008165931,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,gamma_div_mean,25.833333333333332,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,gamma_div_cv,0.168583496883402,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,agg,NA,gamma_var,0.060595757627474496,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,agg,NA,alpha_var,0.27990341744592107,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,agg,NA,phi_var,0.21648809500220534,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,agg,NA,gamma_var_rate,0.0121191515254949,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,agg,NA,alpha_var_rate,0.05598068348918421,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,com,h,gamma_var,0.1096260069478585,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,com,h,alpha_var,0.4147881034467381,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,com,h,phi_var,0.26429399984451407,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,com,h,gamma_var_rate,0.0219252013895717,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,com,h,alpha_var_rate,0.08295762068934762,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,com,hT,gamma_var,0.020801285107006264,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,com,hT,alpha_var,0.07313346787480375,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,com,hT,phi_var,0.2844290816704565,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,com,hT,gamma_var_rate,0.004160257021401253,NA
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,CPUE = (COUNT / DISTANCE (M))*100,com,hT,alpha_var_rate,0.01462669357496075,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,alpha_div_mean,9.445454545454545,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,alpha_div_cv,0.17001210488349958,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,beta_div_mean,2.5249908797130742,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,beta_div_cv,0.13192460952777604,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,gamma_div_mean,23.545454545454547,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,divpart_time_series,q_order_0,gamma_div_cv,0.14132539977483619,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,agg,NA,gamma_var,0.288704942436791,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,agg,NA,alpha_var,0.5360723390948506,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,agg,NA,phi_var,0.5385559399021866,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,agg,NA,gamma_var_rate,0.026245903857890093,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,agg,NA,alpha_var_rate,0.048733849008622786,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,com,h,gamma_var,0.17696851807751912,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,com,h,alpha_var,NA,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,com,h,phi_var,NA,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,com,h,gamma_var_rate,0.016088047097956283,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,com,h,alpha_var_rate,NA,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,com,hT,gamma_var,0.021430558948665065,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,com,hT,alpha_var,0.03741525968207755,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,com,hT,phi_var,0.5727758976087133,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,com,hT,gamma_var_rate,0.0019482326316968242,NA
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,CPUE = (COUNT / DISTANCE (M))*100,com,hT,alpha_var_rate,0.0034013872438252313,NA
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,NA,NA,NA,NA,NA,NA,NA,NA,NA,"WARNING: missing column names: OBSERVATION_TYPE, SITE_ID, DATE, VARIABLE_NAME, VARIABLE_UNITS, VALUE for L3-and-birds-wisnoski.csv | WARNING: data not formatted correctly for L3-and-birds-wisnoski.csv"
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,divpart_time_series,q_order_0,alpha_div_mean,3.6,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,divpart_time_series,q_order_0,alpha_div_cv,0.129804978046001,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,divpart_time_series,q_order_0,beta_div_mean,2.484,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,divpart_time_series,q_order_0,beta_div_cv,0.10046683257529185,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,divpart_time_series,q_order_0,gamma_div_mean,9,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,divpart_time_series,q_order_0,gamma_div_cv,0.19245008972987523,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,agg,NA,gamma_var,0.10304902646494601,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,agg,NA,alpha_var,0.147532649353871,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,agg,NA,phi_var,0.6984828572946805,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,agg,NA,gamma_var_rate,0.025762256616236504,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,agg,NA,alpha_var_rate,0.03688316233846775,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,com,h,gamma_var,0.050680159332837205,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,com,h,alpha_var,0.09497394828605053,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,com,h,phi_var,0.5336216957116959,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,com,h,gamma_var_rate,0.012670039833209301,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,com,h,alpha_var_rate,0.023743487071512633,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,com,hT,gamma_var,0.015353914006330113,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,com,hT,alpha_var,0.02630061920027825,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,com,hT,phi_var,0.583785267160846,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,com,hT,gamma_var_rate,0.0038384785015825283,NA
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,count,com,hT,alpha_var_rate,0.006575154800069562,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,divpart_time_series,q_order_0,alpha_div_mean,141.71666666666667,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,divpart_time_series,q_order_0,alpha_div_cv,0.04080025679680856,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,divpart_time_series,q_order_0,beta_div_mean,1.5701003487979586,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,divpart_time_series,q_order_0,beta_div_cv,0.03755640605536463,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,divpart_time_series,q_order_0,gamma_div_mean,222.3,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,divpart_time_series,q_order_0,gamma_div_cv,0.03167053458969195,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,agg,NA,gamma_var,0.1840393178105168,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,agg,NA,alpha_var,0.3480735774642493,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,agg,NA,phi_var,0.528736823838401,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,agg,NA,gamma_var_rate,0.020448813090057423,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,agg,NA,alpha_var_rate,0.03867484194047214,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,com,h,gamma_var,0.25623458826129003,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,com,h,alpha_var,0.39781226988562796,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,com,h,phi_var,0.6441093140112499,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,com,h,gamma_var_rate,0.028470509806810002,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,com,h,alpha_var_rate,0.044201363320625325,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,com,hT,gamma_var,0.029523107835102206,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,com,hT,alpha_var,0.04756138736622706,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,com,hT,phi_var,0.6207368933074126,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,com,hT,gamma_var_rate,0.003280345315011356,NA
+L3-mcr-fish-castorani.csv,0BxUZSA1Gn1HZV3BuelZVN1NRUnc,2006,2015,10,9,mean.biomass.per.250_m2,com,hT,alpha_var_rate,0.005284598596247451,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,divpart_time_series,q_order_0,alpha_div_mean,4.803030303030303,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,divpart_time_series,q_order_0,alpha_div_cv,0.17544651199095898,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,divpart_time_series,q_order_0,beta_div_mean,1.5815677548186258,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,divpart_time_series,q_order_0,beta_div_cv,0.14677261631937666,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,divpart_time_series,q_order_0,gamma_div_mean,7.545454545454546,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,divpart_time_series,q_order_0,gamma_div_cv,0.19979667411779517,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,agg,NA,gamma_var,0.20203043252489056,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,agg,NA,alpha_var,0.40809355222016325,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,agg,NA,phi_var,0.49505911432753225,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,agg,NA,gamma_var_rate,0.020203043252489054,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,agg,NA,alpha_var_rate,0.04080935522201633,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,com,h,gamma_var,0.04847734455120409,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,com,h,alpha_var,0.0937739580326828,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,com,h,phi_var,0.5169595649818727,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,com,h,gamma_var_rate,0.004847734455120409,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,com,h,alpha_var_rate,0.00937739580326828,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,com,hT,gamma_var,0.009074539093393926,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,com,hT,alpha_var,0.015713705591222864,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,com,hT,phi_var,0.5774919888064246,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,com,hT,gamma_var_rate,9.074539093393925e-4,NA
+L3-mcr-inverts-castorani.csv,0BxUZSA1Gn1HZTnYzZVdwM3hyN2M,2005,2015,11,10,mean.count.per.1_m2,com,hT,alpha_var_rate,0.0015713705591222863,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,alpha_div_mean,16.433333333333334,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,alpha_div_cv,0.253806496052414,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,beta_div_mean,1.9040021636082383,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,beta_div_cv,0.0759606601076126,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,gamma_div_mean,31.4,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,gamma_div_cv,0.26864252378576026,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,agg,NA,gamma_var,0.011681995836461718,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,agg,NA,alpha_var,0.013205628112803186,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,agg,NA,phi_var,0.8846225061521861,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,agg,NA,gamma_var_rate,0.0012979995373846353,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,agg,NA,alpha_var_rate,0.0014672920125336872,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,com,h,gamma_var,0.06428084052316288,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,com,h,alpha_var,0.08395430430238272,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,com,h,phi_var,0.7656646202634129,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,com,h,gamma_var_rate,0.007142315613684764,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,com,h,alpha_var_rate,0.009328256033598081,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,com,hT,gamma_var,0.006581243877808378,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,com,hT,alpha_var,0.008593080244956999,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,com,hT,phi_var,0.7658771581553305,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,com,hT,gamma_var_rate,7.312493197564864e-4,NA
+L3-mcr-algae-castorani.csv,0BxUZSA1Gn1HZenhxaVJ6bWtVdDg,2006,2015,10,9,mean.percent.cover.per.0.25_m2,com,hT,alpha_var_rate,9.54786693884111e-4,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,alpha_div_mean,15.742424242424242,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,alpha_div_cv,0.11962617193072826,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,beta_div_mean,1.3291203735542794,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,beta_div_cv,0.08122667197366738,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,gamma_div_mean,20.90909090909091,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,divpart_time_series,q_order_0,gamma_div_cv,0.13771014187707237,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,agg,NA,gamma_var,0.4300362031735896,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,agg,NA,alpha_var,0.44835495859871916,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,agg,NA,phi_var,0.9591422932348452,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,agg,NA,gamma_var_rate,0.04300362031735896,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,agg,NA,alpha_var_rate,0.04483549585987191,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,com,h,gamma_var,0.2634062884347594,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,com,h,alpha_var,0.28958652925916717,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,com,h,phi_var,0.9095944107228219,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,com,h,gamma_var_rate,0.02634062884347594,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,com,h,alpha_var_rate,0.028958652925916716,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,com,hT,gamma_var,0.028987112268267903,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,com,hT,alpha_var,0.03304175124627304,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,com,hT,phi_var,0.8772874068391735,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,com,hT,gamma_var_rate,0.0028987112268267904,NA
+L3-mcr-coral-castorani.csv,0BxUZSA1Gn1HZZGR2VjdMbmU3Mm8,2005,2015,11,10,mean.percent.cover.per.0.25_m2,com,hT,alpha_var_rate,0.0033041751246273036,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,divpart_time_series,q_order_0,alpha_div_mean,36,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,divpart_time_series,q_order_0,alpha_div_cv,0.08948257385102441,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,divpart_time_series,q_order_0,beta_div_mean,1.9883862064100974,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,divpart_time_series,q_order_0,beta_div_cv,0.09468465102081615,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,divpart_time_series,q_order_0,gamma_div_mean,71.29411764705883,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,divpart_time_series,q_order_0,gamma_div_cv,0.094913943344704,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,agg,NA,gamma_var,0.13580966509394693,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,agg,NA,alpha_var,0.38037242268244764,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,agg,NA,phi_var,0.35704393114567895,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,agg,NA,gamma_var_rate,0.004115444396786271,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,agg,NA,alpha_var_rate,0.011526437050983262,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,com,h,gamma_var,0.13681151629365865,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,com,h,alpha_var,0.27393809024145965,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,com,h,phi_var,0.49942494734145104,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,com,h,gamma_var_rate,0.004145803524050262,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,com,h,alpha_var_rate,0.008301154249741202,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,com,hT,gamma_var,0.004766684522751617,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,com,hT,alpha_var,0.009774471812974703,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,com,hT,phi_var,0.4876667112001169,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,com,hT,gamma_var_rate,1.444449855379278e-4,NA
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,max annual density; number per liter,com,hT,alpha_var_rate,2.9619611554468795e-4,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,divpart_time_series,q_order_0,alpha_div_mean,9.868055555555555,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,divpart_time_series,q_order_0,alpha_div_cv,0.27779011975529944,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,divpart_time_series,q_order_0,beta_div_mean,1.9036689192787295,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,divpart_time_series,q_order_0,beta_div_cv,0.1579004619521204,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,divpart_time_series,q_order_0,gamma_div_mean,18.166666666666668,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,divpart_time_series,q_order_0,gamma_div_cv,0.189761075563147,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,agg,NA,gamma_var,0.013464099937116702,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,agg,NA,alpha_var,0.0747879809889277,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,agg,NA,phi_var,0.18003026367445396,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,agg,NA,gamma_var_rate,5.853956494398567e-4,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,agg,NA,alpha_var_rate,0.0032516513473446825,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,com,h,gamma_var,0.16669641758605802,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,com,h,alpha_var,0.3133371842105216,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,com,h,phi_var,0.5320033050212765,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,com,h,gamma_var_rate,0.007247670329828609,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,com,h,alpha_var_rate,0.01362335583524007,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,com,hT,gamma_var,0.007154376536502872,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,com,hT,alpha_var,0.013041508001363479,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,com,hT,phi_var,0.54858506667748,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,com,hT,gamma_var_rate,3.1105984941316836e-4,NA
+L3-usvi-coral-castorani.csv,0BxUZSA1Gn1HZZGowdUVCTTdtXzg,1992,2015,24,23,percent.cover,com,hT,alpha_var_rate,5.670220870158035e-4,NA

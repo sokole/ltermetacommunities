@@ -13,13 +13,13 @@ library(raster)
 
 # load data ---------------------------------------------------------------
 
-data <- read.csv('/home/annie/Documents/MSU_postdoc/lter/data/lter_radii_data.csv', stringsAsFactors = FALSE)
+data <- read.csv('/home/annie/Documents/MSU_postdoc/lter/data/lter_radii_data_July302019.csv', stringsAsFactors = FALSE)
 
 # change form of data for plotting ----------------------------------------
 
 # gather into mean, sd, with var as separate column
 data <- data %>%
-  gather(key = 'var', value = 'value', c(7, 8, seq(10, 19))) %>%
+  gather(key = 'var', value = 'value', c(2, 6, 9, seq(11, 19))) %>%
   tidyr::extract(var, c('summary_stat', 'var'), "([a-zA-z]+)\\_([a-zA-z]+)") %>%
   spread(summary_stat, value)
 
@@ -28,6 +28,7 @@ data$siteid <- paste(data$site, data$subsite, sep = '_')
 
 # condense to make ribbon plot
 simple_data <- data %>%
+  rename(lat = lat.x) %>%
   group_by(site, subsite, siteid, lat, lon, radius, var) %>%
   summarize(max_mean = max(mean, na.rm = TRUE), min_mean = min(mean, na.rm = TRUE),
             max_sd = max(sd, na.rm = TRUE), min_sd = min(sd, na.rm = TRUE),
@@ -58,6 +59,7 @@ slope_data <- data %>%
 # slim down the data
 main_data <- data %>%
   filter(radius <= 1 & year == 2014 & var == 'elev') %>%
+  rename(lat = lat.x) %>%
   dplyr::select(site, subsite, lat, lon) 
 
 # add temporal SD info
@@ -84,7 +86,7 @@ main_data <- main_data %>%
 # terrestrial sites (to temperature/productivity/elevation)
 # can also make a readme
 
-write.csv(main_data, '/home/annie/Documents/MSU_postdoc/ltermetacommunities/Group4-site-predictor-data/summarize-sat-data/data/lter_centroid_satdata.csv', row.names = FALSE)
+write.csv(main_data, '/home/annie/Documents/MSU_postdoc/ltermetacommunities/Group4-site-predictor-data/summarize-sat-data/data/lter_centroid_satdata_July302019.csv', row.names = FALSE)
 
 # explore plots -----------------------------------------------------------
 
