@@ -21,8 +21,8 @@ library(reshape2)
 # read in data
 #################
 
-sbc.data.sessile <- read_csv('DATA_sbc.data.sessile.long.csv')
-sbc.wide.sessile <- read_csv('DATA_sbc.data.sessile.csv')
+data.long <- read_csv('DATA_long.csv')
+data.wide <- read_csv('DATA_wide.csv')
 
 plot.tot.bio.local <- read_csv('DATA_plot.tot.bio.local.csv')
 plot.tot.bio.regional <- read_csv('DATA_plot.tot.bio.regional.csv')
@@ -58,7 +58,7 @@ gg_theme <- theme(panel.grid.major=element_blank(),
 # local scale
 # setwd(paste(my_wd, "Figures", sep=""))
 # pdf("Compositional_metric_local.pdf", width=8, height=5)
-plot_local_communities <- ggplot(sbc.data.sessile, aes(x = DATE, y = VALUE, fill = VARIABLE_NAME)) +
+plot_local_communities <- ggplot(data.long, aes(x = DATE, y = VALUE, fill = SP_CODE)) +
   geom_area(stat = "identity") +
   facet_wrap( ~ SITE_ID) +
   scale_fill_discrete(guide=FALSE) +
@@ -77,13 +77,13 @@ print(plot_local_communities)
 dev.off()
 
 # regional scale
-plot.comp.regional <- sbc.data.sessile %>%
-  group_by(DATE, VARIABLE_NAME) %>%
+plot.comp.regional <- data.long %>%
+  group_by(DATE, SP_CODE) %>%
   summarize(bio = sum(VALUE)) %>%
   ungroup() %>% as.data.frame()
 # setwd(paste(my_wd, "Figures", sep=""))
 # pdf("Compositional_metric_regional.pdf", width=6, height=5)
-plot_metacommunity <- ggplot(plot.comp.regional, aes(x = DATE, y = bio, fill = VARIABLE_NAME)) +
+plot_metacommunity <- ggplot(plot.comp.regional, aes(x = DATE, y = bio, fill = SP_CODE)) +
   geom_area(stat = "identity") +
   scale_fill_discrete(guide=FALSE) +
   xlab("Year") + ylab(expression(bold(paste("Total metacommunity biomass (g dry ", m^-2, ")")))) + labs(title = "") +
@@ -150,9 +150,9 @@ pp2 <- ggplot(metacomm.var, aes(x=variable_factor_ordered, y=value, fill=factor(
                    axis.title=element_text(size=16,face="bold"),
                    legend.position="none")
 
-# # view in windows
-# windows(6, 5)
-# print(pp2)
+# view in windows
+windows(6, 5)
+print(pp2)
 # dev.off()
 
 # print pdf
@@ -165,17 +165,20 @@ dev.off()
 # NMDS
 ######
 
-pdf(file = 'FIG_NMDS.pdf',
-    width = 5, height = 5)
+# # pdf is too big
+# pdf(file = 'FIG_NMDS.pdf',
+#     width = 5, height = 5)
 
-# windows(width = 5, height = 5)
+
+
+# windows(width = 7, height = 7)
 
 # number of local communities (s)
-s <- length(unique(sbc.wide.sessile$SITE_ID))
+s <- length(unique(data.wide$SITE_ID))
 # number of sampled years (t)
-t <- length(unique(sbc.wide.sessile$DATE))
+t <- length(unique(data.wide$DATE))
 # community matrix (Y)
-Y <- sbc.wide.sessile[,3:dim(sbc.wide.sessile)[2]]
+Y <- data.wide[,3:dim(data.wide)[2]]
 # removing species never sampled
 which(apply(Y, 2, sum) == 0)
 # PHTO SELO 
@@ -194,7 +197,14 @@ bio.h.all <- decostand(Y.all, method="hell")
 # Nonmetric Multidimensional Scaling (NMDS)
 set.seed(1234)
 nmds2k.all <- metaMDS(bio.h.all, distance="euclidean", trace=TRUE, trymax=1000, k=2)
+
+jpeg(file = 'FIG_NMDS_stress_plot.jpg',
+     width = 7, height = 7,
+     res = 300,
+     units = 'in')
 stressplot(nmds2k.all, dist(bio.h.all))
+dev.off()
+
 # extract scrs
 sites_scrs <- scores(nmds2k.all, display="sites")
 spps_scrs  <- scores(nmds2k.all, display="species")
@@ -204,6 +214,10 @@ ylim_scrs <- range(sites_scrs[,2], sites_scrs[,2])
 
 # plot
 # layout(matrix(c(1, 2, 1, 3), ncol=2, byrow=TRUE), widths=c(2, 1))
+jpeg(file = 'FIG_NMDS.jpg',
+     width = 7, height = 7,
+     res = 300,
+     units = 'in')
 
 plot(nmds2k.all, type="n", 
      xlim=c(xlim_scrs[1] - .1, xlim_scrs[2]+.75), 
@@ -232,7 +246,7 @@ legend(title = 'Site ID',
        col = col,
        lty = 1,
        lwd = c(rep(2, s), 4),
-       legend = c(unique(sbc.wide.sessile$SITE_ID), 'Metacommunity'),
+       legend = c(unique(data.wide$SITE_ID), 'Metacommunity'),
        bty = 'o',
        cex = .65)
 # # add pp1 and pp2

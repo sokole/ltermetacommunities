@@ -9,6 +9,12 @@
 # Contact:    - Information Manager, Santa Barbara Coastal LTER   - sbclter@msi.ucsb.edu
 # Stylesheet v2.7 for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
 
+
+# Clean out workspace
+rm(list = ls())
+gc()
+
+
 library(tidyverse)
 
 infile1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-sbc/50/7/24d18d9ebe4f6e8b94e222840096963c" 
