@@ -19,18 +19,16 @@ for (package in c('tidyverse', 'PerformanceAnalytics', 'ggthemes',
   }
 }
 
-#devtools::install_github('sokole/ltermetacommunities/ltmc')
-library("ltmc")
 
 # 1. IMPORT DATA SETS ------------------------------------------------------------
 
 # Metacommunity characteristics and site data
-metacom.data <- read.csv("Group3-diversity-metrics/l3_data.csv")
+metacom.data <- read.csv("ESA_2019/data/L3_DATA_list.csv")
 # Change name of "LTEr.name" to match environmantal data
 colnames(metacom.data)[5] <- "site"
 
 # Environmental data
-env.data <- read.csv("Group4-site-predictor-data/summarize-sat-data/data/lter_centroid_satdata_July302019.csv")
+env.data <- read.csv("ESA_2019/data/lter_centroid_satdata.csv")
 
 # Change site name for USVI so matching in both data sets
 env.data$site <- as.character(env.data$site)
@@ -96,11 +94,6 @@ summary(metacom.data$organism_group)
 keep.env <- env.data[env.data$site %in% metacom.data$site, ]
 # Check that all sites in metacom.data are found in keep.env (should be 0)
 length(row.names(metacom.data[!(metacom.data$site %in% keep.env$site), ]))
-length(unique(keep.env$site))
-length(unique(metacom.data$site))
-
-# subset metacom to env vars
-metacom.data <- subset(metacom.data, site %in% unique(keep.env$site))
 keep.env <- keep.env %>%
   select(-radius)
 
@@ -188,7 +181,7 @@ comb.data <- comb.data %>%
 
 
 # Read in the metacommunity variability responses sent by Eric Sokal
-response <- read.csv("Manuscripts/MS3/data/L4_metacommunity_variability_analysis_results_2019-03-11.csv")
+response <- read.csv("ESA_2019/data/L4_metacommunity_variability_analysis_results_2019-03-11.csv")
 
 # Check conrguence between data sets in this file with data available from the
 # environmental file
