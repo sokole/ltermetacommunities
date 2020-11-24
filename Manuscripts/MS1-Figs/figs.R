@@ -86,7 +86,7 @@ cuml.taxa.space.fun <- function(EX){
   }
  
 # PANEL A: cap-birds-banville
-L3dat <- read.csv("manuscripts/ms1/L3-cap-birds-banville.csv", header = T, stringsAsFactors=F)
+L3dat <- read.csv("L3-cap-birds-banville.csv", header = T, stringsAsFactors=F)
 
 # MAKE DATA LIST
 dat <- list()
@@ -261,7 +261,7 @@ text(3, 100, "B", cex=2, font = 2)
 
 # ---------------------------------------------------------------------------------------------------
 # PANEL B: sbc-sessileInverts-castorani
-L3dat <- read.csv("manuscripts/ms1/L3-sbc-sessileInverts-castorani.csv", header = T, stringsAsFactors=F)
+L3dat <- read.csv("L3-sbc-sessileInverts-castorani.csv", header = T, stringsAsFactors=F)
 
 
 # MAKE DATA LIST
