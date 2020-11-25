@@ -1,4 +1,4 @@
- #MS1 Figure 1: species accumulation curve (richness and time to asymptote) depends on number of sites sampled.
+#MS1 Box 1 Figures: species accumulation curve (richness and time to asymptote) depends on number of sites sampled.
 #NKL 06/27/2018
 
 
@@ -51,7 +51,6 @@ cuml.taxa.fun <- function(EX){
   return(cuml.no.taxa)
   }
 
-
 #---------------------------------------------------------------------------------------------------
 # SPECIES ACCUMULATION CURVE FUNCTION - OVER SPACE
 
@@ -85,7 +84,7 @@ cuml.taxa.space.fun <- function(EX){
   return(cuml.no.taxa.space)
   }
  
-# PANEL A: cap-birds-banville
+# Box 1, Figure 1a-b: cap-birds-banville
 L3dat <- read.csv("L3-cap-birds-banville.csv", header = T, stringsAsFactors=F)
 
 # MAKE DATA LIST
@@ -141,7 +140,6 @@ cum.taxa.one.site <- cuml.taxa.fun(EX = one.site)
 cum.taxa.five.sites <- cuml.taxa.fun(EX = five.sites)
 cum.taxa.twenty.sites <- cuml.taxa.fun(EX = twenty.sites)
 
-
 ####
 ##### TEST DIFFERENT SPP ACCUM MODELS ###########
 #with vegan, fit species accumulation curve:
@@ -154,6 +152,7 @@ S <- cum.taxa.all.sites$no.taxa
 marr <- nls( S ~SSarrhenius(year, k, z))
 confint(marr) #z = steepness and k = expected number of species
 
+# This plot was used for exploratory data analysis of the different models, so it is commented out.
 #plot(S ~ year, xlab = "Time (years)", ylab = "Number of Species", ylim = c(1, max(S)))
 #lines(xtmp, predict(marr, newdata=data.frame(year = xtmp)), lwd=2)
 
@@ -179,10 +178,9 @@ S_1 <- cum.taxa.one.site$no.taxa
 S_5 <- cum.taxa.five.sites$no.taxa
 S_20 <- cum.taxa.twenty.sites$no.taxa
 
-#for looking at fits
+#Commented out exploratory data analysis for looking at fits
 #plot(year, S, pch = 19, ylim = c(0,max(cum.taxa.all.sites$no.taxa)+1), ylab = "Cumulative species richness", xlab = "Time (years)", bty="l", xaxt="n", main = "Sessile inverts at SBC LTER")
 #lines(xtmp, pred_all, lwd=2)
-
 
 #20 sites
 #points(year, S_20, pch = 19, col=2)
@@ -195,7 +193,6 @@ sapply(allmods, AIC)
 pred_20 <- predict(mlom_20, newdata = data.frame(year=xtmp))
 mlom_20; confint(mlom_20)
 #lines(xtmp, predict(mlom_5, newdata=data.frame(year=xtmp)), lwd=2, col = 2)
-
 
 #5 sites
 #points(year, S_5, pch = 19, col=3)
@@ -210,7 +207,6 @@ pred_5 <- predict(marr_5, newdata = data.frame(year=xtmp))
 marr_5; confint(marr_5)
 #lines(xtmp, predict(mlom_5, newdata=data.frame(year=xtmp)), lwd=2, col = 3)
 
-
 #1 site
 #points(year, S_1, pch = 19, col=4)
 mlom_1 <- nls(S_1 ~ SSlomolino(year, Smax, A50, Hill)) #error
@@ -223,8 +219,7 @@ pred_1 <- predict(mlom_1, newdata = data.frame(year=xtmp))
 mlom_1; confint(mlom_1)
 #lines(xtmp, predict(marr_1, newdata=data.frame(year=xtmp)), lwd=2, col = 4)
 
-
-#start making figure for Box 1
+# Start making figure 1a for Box 1
 pdf(file = "manuscripts/ms1/Box_1_sppAccum.pdf", height = 7, width = 7)
 colours <- c("coral4", "coral3", "coral2", "coral1")
 par(mfrow = c(2,2))
@@ -253,6 +248,7 @@ marr <- nls(num.tax ~ SSarrhenius(site, k, z))
 allmods <- list(Arrhenius = marr, Lomolino = mlom, MicMen= mmic)
 sapply(allmods, AIC)
 
+# generate plot for Box 1 Figure 1b
 plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19,  xaxt="n", bty="l", xlab = "", ylab = "", cex=0.75, ylim = c(0,max(no.taxa.space$no.taxa)+1), col = "coral4") #type = "o",
 lines(site, predict(mmic, newdata=data.frame(site=site)), lwd=2, col = "coral4")
 axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
@@ -260,9 +256,8 @@ axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$s
 text(3, 100, "B", cex=2, font = 2)
 
 # ---------------------------------------------------------------------------------------------------
-# PANEL B: sbc-sessileInverts-castorani
+# Box 1, Figures 1c-d sbc-sessileInverts-castorani
 L3dat <- read.csv("L3-sbc-sessileInverts-castorani.csv", header = T, stringsAsFactors=F)
-
 
 # MAKE DATA LIST
 dat <- list()
@@ -311,6 +306,7 @@ cum.taxa.one.site <- cuml.taxa.fun(EX = one.site)
 cum.taxa.two.sites <- cuml.taxa.fun(EX = two.sites)
 cum.taxa.five.sites <- cuml.taxa.fun(EX = five.sites)
 
+# Exploratory data analysis that is commented out
 #plot(cum.taxa.all.sites$year, cum.taxa.all.sites$no.taxa, type = "o", pch = 19, ylim = c(0,max(cum.taxa.all.sites$no.taxa)+1), ylab = "Cumulative species richness", xlab = "Time (years)", bty="l", xaxt="n", main = "Sessile inverts at SBC LTER")
 #points(cum.taxa.five.sites$year, cum.taxa.five.sites$no.taxa, type = "o", pch = 19, lty=2)
 #points(cum.taxa.two.sites$year, cum.taxa.two.sites$no.taxa, type = "o", pch = 19, lty=3)
@@ -330,6 +326,7 @@ S <- cum.taxa.all.sites$no.taxa
 marr <- nls( S ~SSarrhenius(year, k, z))
 confint(marr) #z = steepness and k = expected number of species
 
+#Commented out exploratory data analysis
 #plot(S ~ year, xlab = "Time (years)", ylab = "Number of Species", ylim = c(1, max(S)))
 #lines(xtmp, predict(marr, newdata=data.frame(year = xtmp)), lwd=2)
 
@@ -355,7 +352,7 @@ S_1 <- cum.taxa.one.site$no.taxa
 S_2 <- cum.taxa.two.sites$no.taxa
 S_5 <- cum.taxa.five.sites$no.taxa
 
-#for looking at fits
+#for looking at fits commented out exploratory data analysis
 #plot(year, S, pch = 19, ylim = c(0,max(cum.taxa.all.sites$no.taxa)+1), ylab = "Cumulative species richness", xlab = "Time (years)", bty="l", xaxt="n", main = "Sessile inverts at SBC LTER")
 #lines(xtmp, pred_all, lwd=2)
 
@@ -399,7 +396,7 @@ marr_1; confint(marr_1)
 #lines(xtmp, predict(marr_1, newdata=data.frame(year=xtmp)), lwd=2, col = 4)
 
 
-#plot
+#plot for Box 1 Figure 1c
 par(mar = c(4, 4, 0, 1) + 0.1)
 colours <- c("cadetblue4", "cadetblue3", "cadetblue2", "cadetblue1")
 plot(year, S, pch = 19, ylim = c(0,max(cum.taxa.all.sites$no.taxa)+1), ylab = "Cumulative species richness", xlab = "Time (years)", bty="l",  main = "", xlim = c(0,16), col = "cadetblue4")
@@ -413,8 +410,6 @@ lines(xtmp, pred_1, col="cadetblue1")
 legend("bottomright", col = colours, lty = 1, legend = c("11 sites", "5 sites","2 sites","1 site"), cex=0.7)
 text(1, 65, "C", cex=2, font = 2)
 
-
-
 ## accumulation over space
 no.taxa.space <- cuml.taxa.space.fun(dat$comm.long)
 num.tax <- no.taxa.space$no.taxa
@@ -426,6 +421,7 @@ marr <- nls(num.tax ~ SSarrhenius(site, k, z))
 allmods <- list(Arrhenius = marr, Lomolino = mlom, MicMen= mmic)
 sapply(allmods, AIC)
 
+# Box 1 Figure 1d
 plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19,  xaxt="n", bty="l", xlab = "", ylab = "", cex=1, ylim = c(0,max(no.taxa.space$no.taxa)+1), col = "cadetblue4") #type = "o",
 lines(site, predict(mmic, newdata=data.frame(site=site)), lwd=2, col = "cadetblue4")
 axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
@@ -434,13 +430,9 @@ text(1.5, 65, "D", cex=2, font = 2)
 
 dev.off()
 
-
-
-
 # FIGURE 2: Succession and species invasions ---------------------------------------------------------------------------------------------------
 # PANEL A: and-plants-mtStHelens
 L3dat <- read.csv("manuscripts/ms1/L3-and-plants-mtStHelens.csv", header = T, stringsAsFactors=F)
-
 
 # MAKE DATA LIST
 dat <- list()
@@ -498,6 +490,7 @@ S <- cum.taxa.all.sites$no.taxa
 marr <- nls( S ~SSarrhenius(year, k, z))
 confint(marr) #z = steepness and k = expected number of species
 
+# Plot commented out - exploratory data analysis
 #plot(S ~ year, xlab = "Time (years)", ylab = "Number of Species", ylim = c(1, max(S)))
 #lines(xtmp, predict(marr, newdata=data.frame(year = xtmp)), lwd=2)
 
@@ -568,7 +561,7 @@ mmic_1; confint(mmic_1)
 #lines(xtmp, predict(mmic_1, newdata=data.frame(year=xtmp)), lwd=2, col = 4)
 
 
-#start making Figure 2 (don't plot fits, it's succession.)
+#start making Figure 2a (don't plot fits, it's succession.)
 pdf(file = "manuscripts/ms1/Box_1_Fig2.pdf", height = 3.5, width = 7)
 colours = c("coral4", "coral3", "coral2", "coral1")
 par(mfrow = c(1,2))
@@ -588,6 +581,7 @@ text(2, 39, "A", cex=2, font = 2)
 ## accumulation over space
 no.taxa.space <- cuml.taxa.space.fun(dat$comm.long)
 
+# Box 1 Figure 2b
 plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "", cex=0.75, ylim = c(0,max(no.taxa.space$no.taxa)+1))
 
 axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
