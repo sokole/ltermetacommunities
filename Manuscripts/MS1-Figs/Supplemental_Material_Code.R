@@ -653,21 +653,25 @@ mlom_1; confint(mlom_1)
 #lines(xtmp, predict(marr_1, newdata=data.frame(year=xtmp)), lwd=2, col = 4)
 
 # Start making figure 1a for Box 1
-pdf(file = "manuscripts/ms1/Box_1_sppAccum.pdf", height = 7, width = 7)
+pdf(file = "Box_1_Fig1.pdf", height = 7, width = 7)
 colours <- c("coral4", "coral3", "coral2", "coral1")
-par(mfrow = c(2,2))
-par(mar = c(4, 4, 0, 1) + 0.1)
-plot(year, S, pch = 19, ylim = c(0,max(cum.taxa.all.sites$no.taxa)+1), ylab = "Cumulative species richness", xlab = "", xaxt = "n", bty="l",  main = "", xlim = c(0,16), col = "coral4")
+par(mfrow = c(2,3))
+par(mar = c(4, 6, 4, 1) + 0.1)
+plot(year, S, pch = 19, ylim = c(0,max(cum.taxa.all.sites$no.taxa)+1), ylab = "Cumulative species richness", xlab = "", xaxt = "n", bty="l",  main = "", xlim = c(0,16), col = "coral4", cex=1.75, cex.axis=1.75, cex.lab=1.75)
 lines(xtmp, pred_all, lwd=2, col = "coral4")
-points(year, S_20, col="coral3", pch=19, cex=0.75)
+points(year, S_20, col="coral3", pch=19, cex=1.75)
 lines(xtmp, pred_20, col="coral3")
-points(year, S_5, col="coral2", pch=19, cex=0.75)
+points(year, S_5, col="coral2", pch=19, cex=1.75)
 lines(xtmp, pred_5, col="coral2")
-points(year, S_1, col="coral1", pch=19, cex=0.75)
+points(year, S_1, col="coral1", pch=19, cex=1.75)
 lines(xtmp, pred_1, col="coral1")
-axis(1, at = c (0,5,10,15))
-legend("bottomright", col = colours, lty = 1, legend = c("35 sites", "20 sites","5 sites","1 site"), cex = 0.7)
-text(1, 100, "A", cex=2, font = 2)
+axis(1, at = c (0,5,10,15), cex.axis=1.75)
+text(1, 105, "A", cex=2, font = 2)
+#plot legend
+par(mar = c(4, 0, 4, 0) + 0.1)
+plot.new()
+legend("left", fill = colours, legend = c("35 sites", "20 sites","5 sites","1 site"), cex = 1.75, bty='n')
+
 #note the graphics (Quartz) window is still open
 
 ## accumulation over space
@@ -682,11 +686,12 @@ allmods <- list(Arrhenius = marr, Lomolino = mlom, MicMen= mmic)
 sapply(allmods, AIC)
 
 # generate plot for Box 1 Figure 1b
-plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19,  xaxt="n", bty="l", xlab = "", ylab = "", cex=0.75, ylim = c(0,max(no.taxa.space$no.taxa)+1), col = "coral4") #type = "o",
+par(mar = c(4, 0, 4, 2) + 0.1)
+plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19,  xaxt="n", bty="l", xlab = "", ylab = "", ylim = c(0,max(no.taxa.space$no.taxa)+1), col = "coral4", cex=1.75, cex.lab=1.75, cex.axis=1.75) #type = "o",
 lines(site, predict(mmic, newdata=data.frame(site=site)), lwd=2, col = "coral4")
-axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
+axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1), cex.axis=1.75)
 
-text(3, 100, "B", cex=2, font = 2)
+text(3, 105, "B", cex=2, font = 2)
 
 # ---------------------------------------------------------------------------------------------------
 # Box 1, Figures 1c-d sbc-sessileInverts-castorani
@@ -830,18 +835,21 @@ marr_1; confint(marr_1)
 
 
 #plot for Box 1 Figure 1c
-par(mar = c(4, 4, 0, 1) + 0.1)
+par(mar = c(6, 6, 2, 1) + 0.1)
 colours <- c("cadetblue4", "cadetblue3", "cadetblue2", "cadetblue1")
-plot(year, S, pch = 19, ylim = c(0,max(cum.taxa.all.sites$no.taxa)+1), ylab = "Cumulative species richness", xlab = "Time (years)", bty="l",  main = "", xlim = c(0,16), col = "cadetblue4")
+plot(year, S, pch = 19, ylim = c(0,max(cum.taxa.all.sites$no.taxa)+1), ylab = "Cumulative species richness", xlab = "Time (years)", bty="l",  main = "", xlim = c(0,16), col = "cadetblue4", cex=1.75, cex.axis=1.75, cex.lab=1.75)
 lines(xtmp, pred_all, lwd=2, col = "cadetblue4")
-points(year, S_5, col="cadetblue3", pch=19, cex=0.75)
+points(year, S_5, col="cadetblue3", pch=19, cex=1.75)
 lines(xtmp, pred_5, col="cadetblue3")
-points(year, S_2, col="cadetblue2", pch=19, cex=0.75)
+points(year, S_2, col="cadetblue2", pch=19, cex=1.75)
 lines(xtmp, pred_2, col="cadetblue2")
-points(year, S_1, col="cadetblue1", pch=19, cex=0.75)
+points(year, S_1, col="cadetblue1", pch=19, cex=1.75)
 lines(xtmp, pred_1, col="cadetblue1")
-legend("bottomright", col = colours, lty = 1, legend = c("11 sites", "5 sites","2 sites","1 site"), cex=0.7)
-text(1, 65, "C", cex=2, font = 2)
+text(1, 70, "C", cex=2, font = 2)
+
+par(mar = c(6, 0, 2, 1) + 0.1)
+plot.new()
+legend("left", fill = colours, bty = 'n', legend = c("11 sites", "5 sites","2 sites","1 site"), cex=1.75)
 
 ## accumulation over space
 no.taxa.space <- cuml.taxa.space.fun(dat$comm.long)
@@ -855,11 +863,12 @@ allmods <- list(Arrhenius = marr, Lomolino = mlom, MicMen= mmic)
 sapply(allmods, AIC)
 
 # Box 1 Figure 1d
-plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19,  xaxt="n", bty="l", xlab = "", ylab = "", cex=1, ylim = c(0,max(no.taxa.space$no.taxa)+1), col = "cadetblue4") #type = "o",
+par(mar = c(6, 1, 2, 1) + 0.1)
+plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19,  xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "", ylim = c(0,max(no.taxa.space$no.taxa)+1), col = "cadetblue4", cex=1.75, cex.lab=1.75, cex.axis=1.75) #type = "o",
 lines(site, predict(mmic, newdata=data.frame(site=site)), lwd=2, col = "cadetblue4")
-axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
+axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1), cex.axis=1.75)
 
-text(1.5, 65, "D", cex=2, font = 2)
+text(1.5, 70, "D", cex=2, font = 2)
 
 dev.off()
 
@@ -995,31 +1004,34 @@ mmic_1; confint(mmic_1)
 
 
 #start making Figure 2a (don't plot fits, it's succession.)
-pdf(file = "manuscripts/ms1/Box_1_Fig2.pdf", height = 3.5, width = 7)
+pdf(file = "Box_1_Fig2-revised.pdf", height = 3.5, width = 7)
 colours = c("coral4", "coral3", "coral2", "coral1")
-par(mfrow = c(1,2))
-par(mar = c(4, 4, 0, 1) + 0.1)
-plot(year, S, pch = 19, ylim = c(0,max(cum.taxa.all.sites$no.taxa)+1), ylab = "Cumulative species richness", xlab = "Time (years)", bty="l",  main = "", type = "o", col = "coral4")
+par(mfrow = c(1,3))
+par(mar = c(4, 6, 1, 1) + 0.1)
+plot(year, S, pch = 19, ylim = c(0,max(cum.taxa.all.sites$no.taxa)+1), ylab = "Cumulative species richness", xlab = "Time (years)", bty="l",  main = "", type = "o", col = "coral4", cex=1.75, cex.axis=1.75, cex.lab=1.75)
 #lines(xtmp, pred_all, lwd=2)
-points(year, S_6, pch=19, cex=0.75, type = "o", col = "coral3")
+points(year, S_6, pch=19, cex=1.75, type = "o", col = "coral3")
 #lines(xtmp, pred_6, col="coral3")
-points(year, S_2, col="coral2", pch=19, cex=0.75, type = "o")
+points(year, S_2, col="coral2", pch=19, cex=1.75, type = "o")
 #lines(xtmp, pred_2, col="coral2)
-points(year, S_1, col="coral1", pch=19, cex=0.75, type = "o")
+points(year, S_1, col="coral1", pch=19, cex=1.75, type = "o")
 #lines(xtmp, pred_1, col="coral1)
-legend("bottomright", col = colours, lty = 1, legend = c("12 sites", "6 sites","2 sites","1 site"), cex=0.75, lwd = c(2,1,1,1))
-text(2, 39, "A", cex=2, font = 2)
+text(1.5, 70, "A", cex=2, font = 2)
 
+par(mar = c(4, 0, 1, 1) + 0.1)
+plot.new()
+legend("left", fill = colours, legend = c("12 sites", "6 sites","2 sites","1 site"), cex=1.75, bty= 'n')
 
 ## accumulation over space
 no.taxa.space <- cuml.taxa.space.fun(dat$comm.long)
 
 # Box 1 Figure 2b
-plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "", cex=0.75, ylim = c(0,max(no.taxa.space$no.taxa)+1))
+par(mar = c(4, 4, 1, 4) + 0.1)
+plot(rownames(no.taxa.space), no.taxa.space$no.taxa, pch = 19, type = "o", xaxt="n", bty="l", xlab = "Cumulative number of sites", ylab = "", cex=1.75, ylim = c(0,max(no.taxa.space$no.taxa)+1), cex.axis=1.75, cex.lab=1.75)
 
-axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1))
+axis(side=1, at = rownames(no.taxa.space), labels = seq(1,length(no.taxa.space$site),1), cex.axis=1.75)
 
-text(2, 39, "B", cex=2, font = 2)
+text(1.5, 70, "B", cex=2, font = 2)
 
 dev.off()
 
