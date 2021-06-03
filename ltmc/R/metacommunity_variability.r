@@ -1,5 +1,3 @@
-utils::globalVariables(names = c("%>%", "."))
-
 #' @title Metacommunity variability
 #'
 #'
@@ -9,10 +7,6 @@ utils::globalVariables(names = c("%>%", "."))
 #'
 #' @description Calculates local (alpha) and regional (gamma) metacommunity variability and the scaling factor (phi)
 #'
-#' @importFrom magrittr %>%
-#' @importFrom stats sd
-#' @import dplyr
-#' @import tidyr
 #'
 #'
 #' @param data_long Data input for analysis (should be \code{NULL} if input is wide format data). Long format data frame (or tibble) with species counts (or biomass measurements) for multiple sites observed over multiple time periods
@@ -78,14 +72,6 @@ metacommunity_variability <- function(
   variability_type = NULL #'comp' or 'agg'
   ){
 
-  # dependencies
-  requireNamespace('magrittr', quietly = TRUE)
-  requireNamespace('dplyr', quietly = TRUE)
-  requireNamespace('tidyr', quietly = TRUE)
-
-  ################
-  ################
-  # browser()
 
   # make data long if provide in wide format
   if(is.null(data_long)){
@@ -126,11 +112,12 @@ metacommunity_variability <- function(
     temporal_BD_by_site <- data_long %>%
       tidyr::nest(-one_of(site_id_col_name)) %>%
       mutate(
-        BD = map(.x = .$data,
-                 .f = temporal_BD,
-                 time_step_col_name = time_step_col_name,
-                 taxon_id_col_name = 'taxon_id',
-                 biomass_col_name = 'biomass_standardized')
+        BD = purrr::map(
+          .x = .$data,
+          .f = temporal_BD,
+          time_step_col_name = time_step_col_name,
+          taxon_id_col_name = 'taxon_id',
+          biomass_col_name = 'biomass_standardized')
       ) %>%
       dplyr::select(-data) %>%
       tidyr::unnest()

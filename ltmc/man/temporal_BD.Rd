@@ -4,9 +4,13 @@
 \alias{temporal_BD}
 \title{Temporal beta-diversity}
 \usage{
-temporal_BD(data_in = NULL, time_step_col_name = NULL,
-  taxon_list = NULL, taxon_id_col_name = NULL,
-  biomass_col_name = NULL)
+temporal_BD(
+  data_in = NULL,
+  time_step_col_name = NULL,
+  taxon_list = NULL,
+  taxon_id_col_name = NULL,
+  biomass_col_name = NULL
+)
 }
 \arguments{
 \item{data_in}{Data input for analysis (can be either long or wide format). When \code{data_in} is wide format and rows are times and columns are taxa, no other parameters are requred. See examples for different \code{data_in} format types that are accepted.}

@@ -1,19 +1,3 @@
-# ########################
-# data_long = J.long_i
-# data_wide = NULL
-# time_step_col_name = 'timestep'
-# site_id_col_name = 'site'
-# taxon_list = NULL
-# taxon_id_col_name = 'spp'
-# biomass_col_name = 'count'
-# variability_type = 'comp'
-# standardization_method = 'h'
-# ###########################
-
-
-
-utils::globalVariables(names = c("%>%", "."))
-
 #' @title local variability
 #'
 #'
@@ -22,11 +6,6 @@ utils::globalVariables(names = c("%>%", "."))
 #'
 #'
 #' @description Calculates local (alpha) variability for each site in a metacommunity
-#'
-#' @importFrom magrittr %>%
-#' @importFrom stats sd
-#' @import dplyr
-#' @import tidyr
 #'
 #'
 #' @param data_long Data input for analysis (should be \code{NULL} if input is wide format data). Long format data frame (or tibble) with species counts (or biomass measurements) for multiple sites observed over multiple time periods
@@ -91,38 +70,30 @@ local_variability <- function(
   standardization_method = NULL, #'hT' or 'h'
   variability_type = NULL #'comp' or 'agg'
 ){
-  
-  # dependencies
-  requireNamespace('magrittr', quietly = TRUE)
-  requireNamespace('dplyr', quietly = TRUE)
-  requireNamespace('tidyr', quietly = TRUE)
-  
-  ################
-  ################
-  # browser()
-  
+
+
   # make data long if provide in wide format
   if(is.null(data_long)){
     data_long <- data_wide %>%
       dplyr::select(
         dplyr::one_of(site_id_col_name, time_step_col_name, taxon_list)) %>%
       tidyr::gather(taxon_id, biomass, dplyr::one_of(taxon_list))
-    
+
   }else if(!is.null(data_long)){ #otherwise, if already long, identify which col is the taxon names and biomass values
     if(is.null(taxon_id_col_name)) stop('which col name is the taxon names?')
     data_long <- as.data.frame(data_long)
     data_long$taxon_id = data_long[,taxon_id_col_name]
-    
+
     if(is.null(biomass_col_name)) stop('indicate the name of the biomass column?')
     data_long$biomass = data_long[,biomass_col_name]
   }
-  
+
   # calc total metacommunity biomass, needed for BD_hT
   data_long$total_metacommunity_biomass <- data_long$biomass %>% sum
-  
+
   # compositinoal variability calculations
   if(grepl('(?i)com', variability_type) |  grepl('(?i)BD', variability_type) | grepl('(?i)beta', variability_type)){
-    
+
     # use long format data as input -- standardize biomass values using Hellinger or modified Hellinger transforms
     data_long <- data_long %>%
       dplyr::group_by_at(
@@ -135,20 +106,21 @@ local_variability <- function(
           tolower(standardization_method) == 'h' ~ sqrt(biomass/total_site_biomass_per_time),
           grepl('(?i)hT',standardization_method) ~ sqrt(biomass/total_metacommunity_biomass)),
         standardization_method = standardization_method)
-    
+
     # calculate temporal BD by site using temporal_BD() function
     temporal_BD_by_site <- data_long %>%
       tidyr::nest(-one_of(site_id_col_name)) %>%
       mutate(
-        BD = map(.x = .$data,
-                 .f = temporal_BD,
-                 time_step_col_name = time_step_col_name,
-                 taxon_id_col_name = 'taxon_id',
-                 biomass_col_name = 'biomass_standardized')
+        BD = purrr::map(
+          .x = .$data,
+          .f = temporal_BD,
+          time_step_col_name = time_step_col_name,
+          taxon_id_col_name = 'taxon_id',
+          biomass_col_name = 'biomass_standardized')
       ) %>%
       dplyr::select(-data) %>%
       tidyr::unnest()
-    
+
     # make data_out table, add info on method used
     if(tolower(standardization_method) == 'h'){
 
@@ -156,17 +128,17 @@ local_variability <- function(
         temporal_BD_by_site,
         variability_type,
         metric_type = 'BD_h')
-      
+
     }else if(grepl('(?i)hT',standardization_method)){
-      
+
       data_out <- data.frame(
         temporal_BD_by_site,
         variability_type,
         metric_type = 'BD_hT')}
-    
+
     # calc temporal BD using aggregate method
   }else if(grepl('(i?)agg',variability_type)){
-    
+
     sd_T_by_site <- data_long %>%
       dplyr::select(
         dplyr::one_of(site_id_col_name, time_step_col_name), biomass) %>%
@@ -183,8 +155,8 @@ local_variability <- function(
       variability_type,
       metric_type = 'CV_biomass')
   }
-  
-  
+
+
   return(data_out)
 } #END FUNCTION
 

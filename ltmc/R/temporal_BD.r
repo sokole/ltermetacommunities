@@ -1,5 +1,3 @@
-utils::globalVariables(names = c("%>%", "."))
-
 #' @title Temporal beta-diversity
 #'
 #'
@@ -8,12 +6,6 @@ utils::globalVariables(names = c("%>%", "."))
 #'
 #'
 #' @description Calculates temporal beta-diversity for a single site
-#'
-#'
-#' @importFrom stats var
-#' @importFrom magrittr %>%
-#' @import dplyr
-#' @import tidyr
 #'
 #'
 #' @param data_in Data input for analysis (can be either long or wide format). When \code{data_in} is wide format and rows are times and columns are taxa, no other parameters are requred. See examples for different \code{data_in} format types that are accepted.
@@ -67,10 +59,6 @@ temporal_BD <- function(
   taxon_id_col_name = NULL,
   biomass_col_name = NULL){
 
-  # dependencies
-  requireNamespace('magrittr', quietly = TRUE)
-  requireNamespace('dplyr', quietly = TRUE)
-  requireNamespace('tidyr', quietly = TRUE)
 
 
   #force to be data frame

@@ -4,11 +4,17 @@
 \alias{local_variability}
 \title{local variability}
 \usage{
-local_variability(data_long = NULL, data_wide = NULL,
-  time_step_col_name = NULL, site_id_col_name = NULL,
-  taxon_list = NULL, taxon_id_col_name = NULL,
-  biomass_col_name = NULL, standardization_method = NULL,
-  variability_type = NULL)
+local_variability(
+  data_long = NULL,
+  data_wide = NULL,
+  time_step_col_name = NULL,
+  site_id_col_name = NULL,
+  taxon_list = NULL,
+  taxon_id_col_name = NULL,
+  biomass_col_name = NULL,
+  standardization_method = NULL,
+  variability_type = NULL
+)
 }
 \arguments{
 \item{data_long}{Data input for analysis (should be \code{NULL} if input is wide format data). Long format data frame (or tibble) with species counts (or biomass measurements) for multiple sites observed over multiple time periods}

@@ -4,11 +4,17 @@
 \alias{metacommunity_variability}
 \title{Metacommunity variability}
 \usage{
-metacommunity_variability(data_long = NULL, data_wide = NULL,
-  time_step_col_name = NULL, site_id_col_name = NULL,
-  taxon_list = NULL, taxon_id_col_name = NULL,
-  biomass_col_name = NULL, standardization_method = NULL,
-  variability_type = NULL)
+metacommunity_variability(
+  data_long = NULL,
+  data_wide = NULL,
+  time_step_col_name = NULL,
+  site_id_col_name = NULL,
+  taxon_list = NULL,
+  taxon_id_col_name = NULL,
+  biomass_col_name = NULL,
+  standardization_method = NULL,
+  variability_type = NULL
+)
 }
 \arguments{
 \item{data_long}{Data input for analysis (should be \code{NULL} if input is wide format data). Long format data frame (or tibble) with species counts (or biomass measurements) for multiple sites observed over multiple time periods}
