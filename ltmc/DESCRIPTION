@@ -10,7 +10,6 @@ Description: Functions to calculate metacommunity stability metrics
 Imports: 
     dplyr,
     tidyr,
-    vegetarian,
     purrr,
     magrittr,
     vegan,
