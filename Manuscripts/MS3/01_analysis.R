@@ -173,7 +173,8 @@ div_stab_alpha_mod$r.squared
          y = expression(paste("Comp. ", alpha, "-variability")),
          color = "Organism group") +
     scale_color_manual(values = pal, drop = FALSE) +
-    scale_x_log10() 
+    scale_x_log10() +
+    annotate("text", x = 100, y = 0.1, label = bquote("p = 0.40"))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
@@ -210,7 +211,7 @@ div_stab_beta_mod$r.squared
     labs(x = expression(paste("Mean ", beta, "-diversity")),
          y = expression(paste("Comp. ", gamma, "-variability")),
          color = "Organism group") +
-    annotate("text", x = 4.75, y = 0.045, label = bquote("p = 0.408"))
+    annotate("text", x = 4.75, y = 0.045, label = bquote("p = 0.41"))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
@@ -232,7 +233,7 @@ div_stab_gamma_agg_mod$r.squared
          y = expression(paste("Agg. ", gamma, "-variability")),
          color = "Organism group") +
     scale_x_log10() +
-    annotate("text", x = 120, y = 0.04, label = bquote("p = 0.395"))
+    annotate("text", x = 120, y = 0.04, label = bquote("p = 0.40"))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
@@ -250,7 +251,8 @@ div_stab_alpha_agg_mod$r.squared
     labs(x = expression(paste("Mean ", alpha, "-diversity")),
          y = expression(paste("Agg. ", alpha, "-variability")),
          color = "Organism group")  +
-    scale_x_log10()
+    scale_x_log10() +
+    annotate("text", x = 100, y = 0.1, label = bquote("p = 0.10"))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
@@ -268,7 +270,7 @@ div_stab_alpha_gamma_agg_mod$r.squared
          y = expression(paste("Agg. ", gamma, "-variability")),
          color = "Organism group")  +
     scale_x_log10() +
-    annotate("text", x = 90, y = 0.04, label = bquote("p = 0.879"))
+    annotate("text", x = 90, y = 0.04, label = bquote("p = 0.88"))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
@@ -316,7 +318,7 @@ div_stab_phi_mod$r.squared
     scale_color_manual(values = pal, drop = FALSE) +
   #geom_label_repel(size = 2) +
     labs(x = expression(paste("Mean ", beta, "-diversity")),
-         y = expression(paste("Comp. ", phi, "-variability")),
+         y = expression(paste("Comp. Synchrony (", BD[phi], ")")),
          color = "Organism group")  +
     annotate("text", x = 4.75, y = 0.9, label = bquote(atop(paste(r^2, "= 0.31"),
                                                                "p = 0.006")))
@@ -334,7 +336,7 @@ div_stab_phi_agg_mod$r.squared
     scale_color_manual(values = pal, drop = FALSE) +
     #geom_label_repel(size = 2) +
     labs(x = expression(paste("Mean ", beta, "-diversity")),
-         y = expression(paste("Agg. ", phi, "-variability")),
+         y = expression(paste("Agg. Synchrony (",phi,")")),
          color = "Organism group") +
     annotate("text", x = 4.75, y = 0.9, label = bquote(atop(paste(r^2, "= 0.21"),
                                                              "p = 0.02")))
@@ -362,6 +364,12 @@ phi.comp.mod <- lm(phi_var ~  beta_div_mean, data = div_stab_comp)
 summary(phi.agg.mod)
 summary(phi.comp.mod)
 
+div_stab_gamma_agg + div_stab_gamma_h +
+  div_stab_phi_agg + div_stab_phi_h +
+  div_stab_alpha_agg + div_stab_alpha_h +
+  plot_annotation(tag_levels = "A") +
+  plot_layout(guides = "collect", nrow = 3) +
+  ggsave("Manuscripts/MS3/figs/diversity_variability_multiscale.png", width = 2.5*4, height = 3*3, units = "in", dpi = 1000)
 
 # ## Possible environmental drivers
 # bind_rows(div_stab_agg, div_stab_comp) %>% 
@@ -489,9 +497,23 @@ tot_stab_fig <- comp_agg_stab %>%
       color = "Organism group") +
   ggsave("Manuscripts/MS3/figs/total_spatial_stabilization.png", width = 7, height = 7, units = "in", dpi = 600)
 
-comp_agg_fig + tot_stab_fig + 
+
+phi_compare <- comp_agg_stab %>% 
+  ggplot(aes(y = agg_phi_var,
+             x = phi_var,  label = site, 
+             color = organism_group, group = paste(site, organism))) +
+  geom_abline(slope = 1, intercept = 0, alpha = 0.25, linetype = "dashed") +
+  geom_point(size = 3, alpha = 0.75) +
+  scale_color_manual(values = pal, drop = FALSE) +
+  geom_text_repel(show.legend = F, size = 2) +
+  labs(color = "Organism group",
+       y = expression(paste("Agg. Spatial Synchrony (",phi,")")),
+       x = expression(paste("Comp. Spatial Synchrony (",BD[phi],")"))) +
+  coord_fixed() + 
+  ggsave("Manuscripts/MS3/figs/phi_comparison.png", width = 6, height = 3/4*6, dpi = 600)
+
+comp_agg_fig + phi_compare + 
   plot_annotation(tag_levels = "A") +
   plot_layout(guides = "collect", nrow = 2) +
   ggsave("Manuscripts/MS3/figs/agg_comp_panel.png", width = 7, height = 10, dpi = 1000)
-
 
