@@ -84,13 +84,21 @@ temporal_BD <- function(
     biomass_col_name <- 'biomass'
 
     comm_long <- data_in %>%
-      tidyr::gather('taxon_id','biomass', one_of(taxon_list)) %>%
+      # tidyr::gather('taxon_id','biomass', one_of(taxon_list)) %>%
+      tidyr::pivot_longer(
+        cols = dplyr::any_of(taxon_list),
+        names_to = "taxon_id",
+        values_to = "biomass") %>%
       dplyr::select(
-        dplyr::one_of(time_step_col_name, taxon_id_col_name, biomass_col_name))
+        dplyr::all_of(c(time_step_col_name, taxon_id_col_name, biomass_col_name)))
+
+
+
   }else if(is.null(taxon_list) & !is.null(taxon_id_col_name)){
     comm_long <- data_in %>%
       dplyr::select(
-        dplyr::one_of(time_step_col_name, taxon_id_col_name, biomass_col_name))
+        dplyr::all_of(c(time_step_col_name, taxon_id_col_name, biomass_col_name)))
+
   }else{
     stop('input not formatted correctly')
   }
@@ -101,12 +109,12 @@ temporal_BD <- function(
   comm_long$biomass <- comm_long[,biomass_col_name]
   comm_long <- comm_long %>%
     dplyr::select(
-      dplyr::one_of(time_step_col_name), taxon_id, biomass)
+      dplyr::all_of(time_step_col_name), .data$taxon_id, .data$biomass)
 
   comm_temporal_var <- comm_long %>%
-    dplyr::group_by(taxon_id) %>%
+    dplyr::group_by(.data$taxon_id) %>%
     dplyr::summarize(
-      var_biomass = stats::var(biomass)) %>%
+      var_biomass = stats::var(.data$biomass)) %>%
     dplyr::ungroup()
 
   return(sum(comm_temporal_var$var_biomass))

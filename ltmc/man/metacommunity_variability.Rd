@@ -12,7 +12,7 @@ metacommunity_variability(
   taxon_list = NULL,
   taxon_id_col_name = NULL,
   biomass_col_name = NULL,
-  standardization_method = NULL,
+  standardization_method = "h",
   variability_type = NULL
 )
 }
@@ -31,7 +31,7 @@ metacommunity_variability(
 
 \item{biomass_col_name}{Character string indicating column name in \code{data_long} that contains biomass measurements (or species counts).}
 
-\item{standardization_method}{Only used when \code{variability_type} is "comp". Character string ("h" or "hT") denoting standardization method, either Hellinger ("h") or modified Hellinger ("hT")}
+\item{standardization_method}{Only used when \code{variability_type} is "comp". Character string denoting standardization method. Currently, only Hellinger ("h") is implemented.}
 
 \item{variability_type}{Character string indicating type of analysis. Either "comp" or "agg".}
 }
@@ -58,7 +58,7 @@ metacommunity_variability(
   site_id_col_name = 'my_sites',
   taxon_id_col_name = 'my_spp',
   biomass_col_name = 'my_biomass',
-  standardization_method = 'hT', #or 'h'
+  standardization_method = 'h',
   variability_type = 'comm')
 
 # Variability in aggregate biomass folloing

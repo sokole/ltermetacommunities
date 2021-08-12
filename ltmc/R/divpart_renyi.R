@@ -103,7 +103,7 @@ divpart_renyi <- function(
   data_nested <- data_wide %>%
     dplyr::group_by_at(dplyr::vars(time_step_col_name)) %>%
     dplyr::select_at(dplyr::vars(taxon_list)) %>%
-    tidyr::nest(taxon_list)
+    tidyr::nest(data = dplyr::any_of(taxon_list))
 
 
   # browser()
@@ -113,22 +113,22 @@ divpart_renyi <- function(
   # calculate Jost (2007) diversity metrics for all sites in each time period.
   data_results <- data_nested %>%
     dplyr::mutate(
-      n_obs = purrr::map_int(data, ~ nrow(.)),
+      n_obs = purrr::map_int(.data$data, ~ nrow(.)),
       alpha_div = purrr::map_dbl(
-        .x = data,
+        .x = .data$data,
         .f = ~ vegan::renyi(x = .,
                             hill = TRUE,
                             scales = q_value) %>% mean()),
       gamma_div = purrr::map_dbl(
-        .x = data,
+        .x = .data$data,
         .f = ~ vegan::renyi(x = colMeans(.),
                             hill = TRUE,
                             scales = q_value)),
-      beta_div = gamma_div / alpha_div)
+      beta_div = .data$gamma_div / .data$alpha_div)
 
   # remove nested data
   data_results <- data_results %>%
-    dplyr::select(-data) %>%
+    dplyr::select(-.data$data) %>%
     as.data.frame()
 
   return(data_results)

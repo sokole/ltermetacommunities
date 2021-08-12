@@ -16,7 +16,7 @@
 #' @param taxon_list Vector (character) of taxon IDs, used to indicate which columns in \code{data_wide} are species counts (or biomass measurements)
 #' @param taxon_id_col_name Character string indicating column name in \code{data_long} that contains taxon IDs.
 #' @param biomass_col_name Character string indicating column name in \code{data_long} that contains biomass measurements (or species counts).
-#' @param standardization_method Only used when \code{variability_type} is "comp". Character string ("h" or "hT") denoting standardization method, either Hellinger ("h") or modified Hellinger ("hT")
+#' @param standardization_method Only used when \code{variability_type} is "comp". Character string denoting standardization method. Currently, only Hellinger ("h") is implemented.
 #' @param variability_type Character string indicating type of analysis. Either "comp" or "agg".
 #'
 #'
@@ -40,7 +40,7 @@
 #'   site_id_col_name = 'my_sites',
 #'   taxon_id_col_name = 'my_spp',
 #'   biomass_col_name = 'my_biomass',
-#'   standardization_method = 'hT', #or 'h'
+#'   standardization_method = 'h',
 #'   variability_type = 'comm')
 #'
 #' # Variability in aggregate biomass folloing
@@ -68,17 +68,28 @@ metacommunity_variability <- function(
   taxon_list = NULL,
   taxon_id_col_name = NULL,
   biomass_col_name = NULL,
-  standardization_method = NULL, #'hT' or 'h'
+  standardization_method = "h", # or 'h'
   variability_type = NULL #'comp' or 'agg'
   ){
 
 
   # make data long if provide in wide format
   if(is.null(data_long)){
+
+    # infer taxon_list if it is NULL
+    if(is.null(taxon_list)){
+      taxon_list <- dplyr::setdiff(names(data_wide), c(time_step_col_name, site_id_col_name))
+    }
+
+    # make long
     data_long <- data_wide %>%
       dplyr::select(
-        dplyr::one_of(site_id_col_name, time_step_col_name, taxon_list)) %>%
-      tidyr::gather(taxon_id, biomass, dplyr::one_of(taxon_list))
+        dplyr::any_of(c(site_id_col_name, time_step_col_name, taxon_list))) %>%
+      # tidyr::gather(taxon_id, biomass, dplyr::one_of(taxon_list))
+      tidyr::pivot_longer(
+        cols = dplyr::any_of(taxon_list),
+        names_to = "taxon_id",
+        values_to = "biomass")
 
   }else if(!is.null(data_long)){ #otherwise, if already long, identify which col is the taxon names and biomass values
     if(is.null(taxon_id_col_name)) stop('which col name is the taxon names?')
@@ -89,8 +100,8 @@ metacommunity_variability <- function(
     data_long$biomass = data_long[,biomass_col_name]
   }
 
-  # calc total metacommunity biomass, needed for BD_hT
-  data_long$total_metacommunity_biomass <- data_long$biomass %>% sum
+  # # calc total metacommunity biomass, needed for BD_hT
+  # data_long$total_metacommunity_biomass <- data_long$biomass %>% sum
 
   # compositinoal variability calculations
   if(grepl('(?i)com', variability_type) |  grepl('(?i)BD', variability_type) | grepl('(?i)beta', variability_type)){
@@ -100,27 +111,32 @@ metacommunity_variability <- function(
       dplyr::group_by_at(
         dplyr::vars(site_id_col_name, time_step_col_name)) %>%
       dplyr::mutate(
-        total_site_biomass_per_time = sum(biomass)) %>%
+        total_site_biomass_per_time = sum(.data$biomass)) %>%
       dplyr::ungroup() %>%
       dplyr::mutate(
         biomass_standardized = dplyr::case_when(
-          tolower(standardization_method) == 'h' ~ sqrt(biomass/total_site_biomass_per_time),
-          grepl('(?i)hT',standardization_method) ~ sqrt(biomass/total_metacommunity_biomass)),
+          tolower(standardization_method) == 'h' ~
+            sqrt(.data$biomass/.data$total_site_biomass_per_time) %>%
+            ifelse(is.na(.), 0, .)),
         standardization_method = standardization_method)
+
+
 
     # calculate temporal BD by site using temporal_BD() function
     temporal_BD_by_site <- data_long %>%
-      tidyr::nest(-one_of(site_id_col_name)) %>%
-      mutate(
+      tidyr::nest(data = -dplyr::any_of(site_id_col_name)) %>%
+      dplyr::mutate(
         BD = purrr::map(
           .x = .$data,
-          .f = temporal_BD,
+          .f = ltmc::temporal_BD,
           time_step_col_name = time_step_col_name,
           taxon_id_col_name = 'taxon_id',
           biomass_col_name = 'biomass_standardized')
       ) %>%
-      dplyr::select(-data) %>%
-      tidyr::unnest()
+      dplyr::select(-.data$data) %>%
+      tidyr::unnest(cols = c(.data$BD))
+
+
 
     if(tolower(standardization_method) == 'h'){
 
@@ -129,12 +145,12 @@ metacommunity_variability <- function(
         dplyr::group_by_at(
           dplyr::vars(site_id_col_name, time_step_col_name)) %>%
         dplyr::summarize(
-          total_site_biomass_per_time = sum(biomass)) %>%
+          total_site_biomass_per_time = sum(.data$biomass)) %>%
         dplyr::ungroup() %>%
         dplyr::group_by_at(
           dplyr::vars(site_id_col_name)) %>%
         dplyr::summarize(
-          mean_total_biomass = mean(total_site_biomass_per_time))
+          mean_total_biomass = mean(.data$total_site_biomass_per_time))
 
       # use site total biomass (averaged over time) to calculate weights
       # for how much each site contributes to alpha variation (alpha var
@@ -145,33 +161,35 @@ metacommunity_variability <- function(
       # weighted by site total biomass (averaged over time)
       joined_site_data <- temporal_BD_by_site %>%
         dplyr::left_join(site_total_biomass_averaged_over_time) %>%
-        mutate(BD_x_wi = BD * weights)
+        dplyr::mutate(BD_x_wi = .data$BD * .data$weights)
 
       # calculate alpha var for the entire metacommunity
       alpha_var <- joined_site_data$BD_x_wi %>% sum
 
-    }else if(grepl('(?i)hT',standardization_method)){
-      alpha_var <- temporal_BD_by_site$BD %>% sum
+    }else{
+      alpha_var <- NA
+      stop("please provide a valid 'standardization_method'")
     }
+
 
     # regional scale
     data_regional_long <- data_long %>%
       dplyr::group_by_at(
-        dplyr::vars(time_step_col_name, taxon_id, total_metacommunity_biomass)) %>%
+        dplyr::vars(time_step_col_name, .data$taxon_id)) %>%
       dplyr::summarize(
-        taxon_agg_biomass = sum(biomass)
+        taxon_agg_biomass = sum(.data$biomass)
       ) %>%
       dplyr::ungroup() %>%
       dplyr::group_by_at(
         dplyr::vars(time_step_col_name)) %>%
       dplyr::mutate(
-        total_metacommunity_biomass_by_time = sum(taxon_agg_biomass)
+        total_metacommunity_biomass_by_time = sum(.data$taxon_agg_biomass)
       ) %>%
       dplyr::ungroup() %>%
       dplyr::mutate(
         taxon_regional_biomass_standardize = dplyr::case_when(
-          tolower(standardization_method) == 'h' ~ sqrt(taxon_agg_biomass/total_metacommunity_biomass_by_time),
-          grepl('(?i)hT',standardization_method) ~ sqrt(taxon_agg_biomass/total_metacommunity_biomass)),
+          tolower(standardization_method) == 'h' ~
+            sqrt(.data$taxon_agg_biomass/.data$total_metacommunity_biomass_by_time)),
         standardization_method = standardization_method)
 
     gamma_var <- data_regional_long %>%
@@ -190,35 +208,36 @@ metacommunity_variability <- function(
   }else if(grepl('(i?)agg',variability_type)){
     mu_TT <- data_long %>%
       dplyr::select(
-        dplyr::one_of(time_step_col_name), biomass) %>%
+        dplyr::any_of(time_step_col_name), .data$biomass) %>%
       dplyr::group_by_at(
         dplyr::vars(time_step_col_name)) %>%
-      dplyr::summarize(agg_metacommunity_biomass_by_time = sum(biomass)) %>%
+      dplyr::summarize(agg_metacommunity_biomass_by_time = sum(.data$biomass)) %>%
       dplyr::ungroup() %>%
-      dplyr::summarize(mu_TT = mean(agg_metacommunity_biomass_by_time)) %>%
+      dplyr::summarize(mu_TT = mean(.data$agg_metacommunity_biomass_by_time)) %>%
       unlist
 
     sigma_TT <- data_long %>%
       dplyr::select(
-        dplyr::one_of(time_step_col_name), biomass) %>%
+        dplyr::one_of(time_step_col_name), .data$biomass) %>%
       dplyr::group_by_at(
         dplyr::vars(time_step_col_name)) %>%
-      dplyr::summarize(agg_metacommunity_biomass_by_time = sum(biomass)) %>%
+      dplyr::summarize(agg_metacommunity_biomass_by_time = sum(.data$biomass)) %>%
       dplyr::ungroup() %>%
-      dplyr::summarize(mu_TT = stats::sd(agg_metacommunity_biomass_by_time)) %>% unlist
+      dplyr::summarize(mu_TT = stats::sd(.data$agg_metacommunity_biomass_by_time)) %>%
+      unlist
 
     CV2_gamma <- (sigma_TT / mu_TT)^2 %>% unlist
 
     sd_T_by_site <- data_long %>%
       dplyr::select(
-        dplyr::one_of(site_id_col_name, time_step_col_name), biomass) %>%
+        dplyr::any_of(c(site_id_col_name, time_step_col_name)), .data$biomass) %>%
       dplyr::group_by_at(
         dplyr::vars(site_id_col_name, time_step_col_name)) %>%
-      dplyr::summarize(agg_biomass = sum(biomass)) %>%
+      dplyr::summarize(agg_biomass = sum(.data$biomass)) %>%
       dplyr::ungroup() %>%
       dplyr::group_by_at(
         dplyr::vars(site_id_col_name)) %>%
-      dplyr::summarize(sd_agg_biomass = stats::sd(agg_biomass))
+      dplyr::summarize(sd_agg_biomass = stats::sd(.data$agg_biomass))
 
     CV2_alpha <- (sum(sd_T_by_site$sd_agg_biomass) / mu_TT)^2 %>% unlist
     phi_agg = CV2_gamma / CV2_alpha
