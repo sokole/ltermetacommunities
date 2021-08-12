@@ -2,8 +2,16 @@ Package: ltmc
 Type: Package
 Title: Long-term metacommunity analysis
 Version: 0.1.0
-Author: LTER metacommunities working group
-Maintainer: Eric Sokol <sokole@gmail.com>
+Authors@R: 
+    c(person(given = "Eric",
+             family = "Sokol", 
+             role = c("aut", "cre", "cph"), 
+             email = "sokole@gmail.com", 
+             comment = c(ORCID = "0000-0001-5923-0917")),
+	  person(given = "Thomas",
+             family = "Lamy", 
+             role = c("aut"), 
+             email = "thomas.lamy27@gmail.com"))
 Description: Functions to calculate metacommunity stability metrics
     as well and other helper functions to explore metacommunity dynamics
 	in long-term data sets.
