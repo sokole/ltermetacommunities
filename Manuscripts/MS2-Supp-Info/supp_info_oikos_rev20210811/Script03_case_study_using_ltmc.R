@@ -3,6 +3,7 @@
 ## SBC LTER: understory macroalgal communities                                    ##
 ####################################################################################
 ## Thomas Lamy, April 18th 2017
+## updated by Eric Sokol, Aug 12 2021
 
 #### setting R ####
 # load packages
@@ -11,12 +12,12 @@ library(reshape2)
 
 
 ## load function space_stab to compute compositional and aggregate stability across spatial scales
-source("testing/space_stab.R")
+source("space_stab.R")
 
 
 #### load data ####
 ## load Package ID: knb-lter-sbc.50.7 as R object sbc.data
-source("testing/SBC_LTER_data.R")
+source("SBC_LTER_data.R")
 
 
 #### Format data ####
@@ -73,7 +74,8 @@ res <- space_stab(Y, s, t)
 print(res)
 
 # using ltmc
-devtools::install_github("sokole/ltermetacommunities/ltmc")
+# use devtools to install package from GitHub repo
+# devtools::install_github("sokole/ltermetacommunities/ltmc")
 library(ltmc)
 
 ltmc::metacommunity_variability(
