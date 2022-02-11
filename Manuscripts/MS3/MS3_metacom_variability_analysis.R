@@ -1,16 +1,6 @@
-
-
-rm(list = ls())
-
-# Check for and install required packages
-for (package in c('tidyverse', 'PerformanceAnalytics', 'ggthemes', 'vegan', 
-                  'gridExtra', 'grid', 'viridis', 'lme4', 'lmerTest', 'car',
-                  'ggpubr', 'ggrepel', 'cowplot', 'RLRsim', 'broom', 'patchwork')) {
-  if (!require(package, character.only = T, quietly = T)) {
-    install.packages(package)
-    library(package, character.only = T)
-  }
-}
+library(here)
+library(tidyverse)
+library(ggthemes)
 
 theme_set(theme_base() + 
             theme(plot.background = element_blank(),
@@ -20,63 +10,38 @@ theme_set(theme_base() +
 pal <- colorspace::darken(RColorBrewer::brewer.pal(n = 10, name = "Set3"), amount = .2)
 
 # 1. IMPORT DATA SETS ------------------------------------------------------------
-df <- read_csv("Manuscripts/MS3/output/metacom_data_for_models.csv")
-length(unique(df$l3_filename)) #33 
+metacom_var <- read_csv(here("Manuscripts/MS3/data/L4_metacommunity_variability_analysis_results_2022-02-10.csv"))
+local_var <- read_csv(here("Manuscripts/MS3/data/L4_local_variability_analysis_results_2022-02-10.csv"))
+env_var <- read_csv(here("Manuscripts/MS3/data/lter_centroid_satdata.csv"))
+data_list <- read_csv(here("Manuscripts/MS3/data/L3_DATA_list.csv"))
 
-colnames(df)
-df <- df %>%
-  select(-c(X1, dataset_id, l3_filename, start_year, end_year, n_years_observed, 
-            study_duration, messages, dataset_google_id)) 
+metacom_var <- data_list %>% 
+  rename(dataset_file_name = l3_filename) %>% 
+  left_join(metacom_var, by = "dataset_file_name")
 
-#combine micro and meso (only two micro, not enough to parse out), then change
-# terminology to large vs small body organisms. 
-# NOTE: For now considering molluscs active dispersers since they are "mobile"
-df <- df %>%
-  mutate(body.size = replace(body.size, body.size == "micro", "meso")) %>%
-  mutate(body.size = replace(body.size, body.size == "macro", "large")) %>%
-  mutate(body.size = replace(body.size, body.size == "meso", "small")) %>%
-  mutate(dispersal.habit = replace(dispersal.habit, 
-                                   dispersal.habit == "need to look at taxa", "active"))
+local_var <- data_list %>% 
+  rename(dataset_file_name = l3_filename) %>% 
+  left_join(local_var, by = "dataset_file_name")
 
-df$organism_group <- as.factor(df$organism_group)
+
+# check for local diversity-stability relationships
+local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism, metric, metric_value) %>% 
+  pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
+                          
+  ggplot(aes(x = site_mean_alpha_div, y = BD)) + 
+  geom_point(mapping = aes(grouping = dataset_id, color = organism), alpha = 0.5) + 
+  geom_smooth(mapping = aes(grouping = dataset_id, color = organism), method = "lm", se = F) + 
+  geom_smooth(method = "lm", se = F, color = "black", size = 2) +
+  labs(x = "Mean alpha-diversity", y = "Local compositional variability (BD)")
+
+local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism, metric, metric_value) %>% 
+  pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
   
-
-# pull out diversity values
-div <- filter(df, variability_type == "divpart_time_series")
-
-# Subset data by standardization type
-q.0 <- filter(df, standardization_method == "q_order_0")
-h   <- filter(df, standardization_method == "h") 
-hT  <- filter(df, standardization_method == "hT") 
-
-#subset data for wang & Loreau aggregate metric
-agg <- filter(df, variability_type == "agg") 
-
-
-# Spread to wide format
-q0.wide <- spread(q.0, metric, metric_value)
-h.wide <- spread(h, metric, metric_value)
-hT.wide <- spread(hT, metric, metric_value)
-agg.wide <- spread(agg, metric, metric_value)
-div.wide <- spread(div, metric, metric_value)
-
-length(q0.wide$site)
-length(h.wide$site)
-length(hT.wide$site)
-length(agg.wide$site)
-length(div.wide$site)
-
-# Visiualize correlations between continuous variables
-var.h <- h.wide %>%
-  na.omit()
-var.h %>% select_if(is.numeric) %>% 
-  chart.Correlation(., histogram = TRUE, pch = "+")
-
-
-# initial models -----------------------------------------------------------------
-#For now use hellenger transformed metrics of community turnover 
-# (based on relative abundances) until we know which data sets have measures of
-# abundance 
+  ggplot(aes(x = site_mean_alpha_div, y = CV)) + 
+  geom_point(mapping = aes(grouping = dataset_id, color = organism), alpha = 0.5) + 
+  geom_smooth(mapping = aes(grouping = dataset_id, color = organism), method = "lm", se = F) + 
+  geom_smooth(method = "lm", se = F, color = "black", size = 2) +
+  labs(x = "Mean alpha-diversity", y = "Local aggregate variability (CV)")
 
 # Relative importance of local and spatial variability for regional variability
 lm_gamma_alpha <- lm(log(gamma_var) ~ log(alpha_var), 
@@ -103,7 +68,7 @@ plot(lm_gamma_phi)
 summary(lm_gamma_phi)
 
 (phi_vs_gamma_var <- ggplot(aes(x = phi_var, y = gamma_var_rate, label = site),
-                              data = h.wide) +
+                            data = h.wide) +
     stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7) +
     geom_label_repel(size = 2) +
@@ -117,7 +82,7 @@ summary(lm_gamma_phi)
 
 # alpha and phi are independent
 (alpha_vs_phi_var <- ggplot(aes(x = alpha_var_rate, y = phi_var, label = site),
-                              data = h.wide) +
+                            data = h.wide) +
     stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7) +
     geom_label_repel(size = 2) +
@@ -145,7 +110,7 @@ div_stab_gamma_mod <- glance(div_stab_gamma_mod)
 summary(lm((gamma_var_rate) ~ log10(gamma_div_mean), data = div_stab_comp))
 
 (div_stab_gamma_h <- div_stab_comp %>% 
-   ggplot(aes(x = gamma_div_mean, y = gamma_var_rate, label = site)) +
+    ggplot(aes(x = gamma_div_mean, y = gamma_var_rate, label = site)) +
     stat_smooth(method = "lm", se = T, size = 1, linetype = "dashed", color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     #geom_label_repel(size = 2) +
@@ -155,8 +120,8 @@ summary(lm((gamma_var_rate) ~ log10(gamma_div_mean), data = div_stab_comp))
     scale_x_log10() +
     scale_color_manual(values = pal, drop = FALSE) +
     annotate("text", x = 10, y = 0.045, label = bquote(atop(paste(r^2, "= 0.13"),
-                                                                 "p = 0.07")))
-    #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
+                                                            "p = 0.07")))
+  #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
 div_stab_alpha_mod <- (lm((alpha_var_rate) ~ log10(alpha_div_mean), data = div_stab_comp))
@@ -194,7 +159,7 @@ div_stab_alpha_gamma_mod$r.squared
     scale_color_manual(values = pal, drop = FALSE) +
     scale_x_log10()  +
     annotate("text", x = 3, y = 0.045, label = bquote(atop(paste(r^2, "= 0.15"),
-                                                            "p = 0.05")))  #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
+                                                           "p = 0.05")))  #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
 div_stab_beta_mod <- (lm((gamma_var_rate) ~ log10(beta_div_mean), data = div_stab_comp))
@@ -288,7 +253,7 @@ div_stab_beta_agg_mod$r.squared
          y = expression(paste("Agg. ", gamma, "-variability")),
          color = "Organism group")  + 
     annotate("text", x = 4.75, y = 0.0375, label = bquote(atop(paste(r^2, "= 0.20"),
-                                                            "p = 0.02")))
+                                                               "p = 0.02")))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
@@ -312,17 +277,17 @@ div_stab_phi_mod$p.value
 div_stab_phi_mod$r.squared
 (div_stab_phi_h <- div_stab_comp %>% 
     ggplot(aes(x = beta_div_mean, y = phi_var, label = site)) +
-  stat_smooth(method = "lm", se = T, size = 1, color = "black") +
-  geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
+    stat_smooth(method = "lm", se = T, size = 1, color = "black") +
+    geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     scale_y_continuous(limits = c(0,1)) +
     scale_color_manual(values = pal, drop = FALSE) +
-  #geom_label_repel(size = 2) +
+    #geom_label_repel(size = 2) +
     labs(x = expression(paste("Mean ", beta, "-diversity")),
          y = expression(paste("Comp. Synchrony (", BD[phi], ")")),
          color = "Organism group")  +
     annotate("text", x = 4.75, y = 0.9, label = bquote(atop(paste(r^2, "= 0.31"),
-                                                               "p = 0.006")))
-#ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
+                                                            "p = 0.006")))
+  #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
 div_stab_phi_agg_mod <- broom::glance(lm(phi_var ~ (beta_div_mean), data = div_stab_agg))
@@ -339,7 +304,7 @@ div_stab_phi_agg_mod$r.squared
          y = expression(paste("Agg. Synchrony (",phi,")")),
          color = "Organism group") +
     annotate("text", x = 4.75, y = 0.9, label = bquote(atop(paste(r^2, "= 0.21"),
-                                                             "p = 0.02")))
+                                                            "p = 0.02")))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
@@ -408,7 +373,7 @@ comp_agg_fig <- na.omit(comp_agg_stab) %>%
   geom_point(mapping = aes(x = alpha_var_rate, y = agg_alpha_var_rate), alpha = 0.75, size = 3, shape = 22) +
   geom_point(mapping = aes(x = gamma_var_rate, y = agg_gamma_var_rate), alpha = 0.75, size = 3, shape = 19) +
   geom_segment(aes(x = alpha_var_rate, xend = gamma_var_rate, 
-                  y = agg_alpha_var_rate, yend = agg_gamma_var_rate),
+                   y = agg_alpha_var_rate, yend = agg_gamma_var_rate),
                alpha = 0.5, arrow = arrow(length = unit(.2, "cm"))) +
   geom_text_repel(mapping = aes(x = gamma_var_rate, y = agg_gamma_var_rate), show.legend = F, size = 2) +
   scale_x_log10() + 
@@ -490,11 +455,11 @@ tot_stab_fig <- comp_agg_stab %>%
   scale_color_manual(values = pal, drop = FALSE) +
   geom_text_repel(show.legend = F, size = 2) +
   labs(y = bquote(atop("Total spatial stabilization",
-        scriptstyle(paste("(",
-              sqrt(paste("(CV"[alpha]^2 - "CV"[gamma]^2, ")"^2 + 
-                      "(BD"[alpha]^"h" - "BD"[gamma]^"h",")"^2)))))),
-      x = expression(paste("Log"["10"], "(", phi["agg."], "/", phi["comp."], ")")),
-      color = "Organism group") +
+                       scriptstyle(paste("(",
+                                         sqrt(paste("(CV"[alpha]^2 - "CV"[gamma]^2, ")"^2 + 
+                                                      "(BD"[alpha]^"h" - "BD"[gamma]^"h",")"^2)))))),
+       x = expression(paste("Log"["10"], "(", phi["agg."], "/", phi["comp."], ")")),
+       color = "Organism group") +
   ggsave("Manuscripts/MS3/figs/total_spatial_stabilization.png", width = 7, height = 7, units = "in", dpi = 600)
 
 

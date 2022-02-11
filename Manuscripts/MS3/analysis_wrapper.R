@@ -19,12 +19,13 @@ options(stringsAsFactors = FALSE)
 #########################
 library(tidyverse)
 library(googledrive)
+library(here)
 
 # install ltmc package from github
-installed_package_list <- installed.packages() %>% as.data.frame()
-if(!'ltmc' %in% installed_package_list$Package){
-  devtools::install_github('sokole/ltermetacommunities/ltmc')
-}
+# installed_package_list <- installed.packages() %>% as.data.frame()
+# if(!'ltmc' %in% installed_package_list$Package){
+#   devtools::install_github('sokole/ltermetacommunities/ltmc')
+# }
 
 library(ltmc)
 
@@ -35,7 +36,7 @@ library(ltmc)
 # working_dir <- drive_ls(path = as_id("0BxUZSA1Gn1HZamlITk9DZzc1c1E"))
 working_dir <- googledrive::drive_ls('LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space') #human readable path to directory
 data_list <- working_dir %>% filter(grepl('(?i)\\.csv', name))
-save_data_dir <- "Manuscripts/MS3/data/L3_datasets/"
+save_data_dir <- here("Manuscripts/MS3/data/L3_datasets/")
 setwd(save_data_dir)
 
 #######################################################
@@ -46,7 +47,7 @@ setwd(save_data_dir)
 # loop to read in data, call wrapper function, write results to data_ALL
 # data_ALL <- data.frame()
 analysis_results <- data.frame()
-
+local_analysis_results <- data.frame()
 # i = 6 -- should work
 # i = 14 -- L3-and-plants-mtStHelens.csv is problem record
 
@@ -203,20 +204,6 @@ for(i in 1:nrow(data_list)){
                alpha_var_rate = alpha_var / study_duration) %>%
         tidyr::gather(metric, metric_value, -c(variability_type, standardization_method))
       
-      # d.bd.hT
-      d.bd.hT <- data.frame()
-      d.bd.hT <- ltmc::metacommunity_variability(
-          data_long = d.in.long,
-          site_id_col_name = 'SITE_ID',
-          time_step_col_name = 'DATE',
-          taxon_id_col_name = 'VARIABLE_NAME',
-          biomass_col_name = 'VALUE',
-          standardization_method = 'hT',
-          variability_type = 'com')  %>% 
-        as.data.frame() %>%
-        mutate(gamma_var_rate = gamma_var / study_duration,
-               alpha_var_rate = alpha_var / study_duration) %>%
-        tidyr::gather(metric, metric_value, -c(variability_type, standardization_method))
       
       # d.bd.agg
       d.bd.agg <- data.frame()
@@ -232,11 +219,37 @@ for(i in 1:nrow(data_list)){
                alpha_var_rate = alpha_var / study_duration) %>%
         tidyr::gather(metric, metric_value, -c(variability_type, standardization_method))
       
+      
+      #########################
+      # local variability
+      # d.lvar.h
+      d.lvar.h <- data.frame()
+      d.lvar.h <- ltmc::local_variability(
+        data_long = d.in.long,
+        site_id_col_name = 'SITE_ID',
+        time_step_col_name = 'DATE',
+        taxon_id_col_name = 'VARIABLE_NAME',
+        biomass_col_name = 'VALUE',
+        standardization_method = 'h',
+        variability_type = 'comp') %>% 
+        as.data.frame()
+      
+      # d.lvar.agg
+      d.lvar.agg <- data.frame()
+      d.lvar.agg <- ltmc::local_variability(
+        data_long = d.in.long,
+        site_id_col_name = 'SITE_ID',
+        time_step_col_name = 'DATE',
+        taxon_id_col_name = 'VARIABLE_NAME',
+        biomass_col_name = 'VALUE',
+        variability_type = 'agg')  %>% 
+        as.data.frame() 
+      
       #########################
       # div partitioning
       
       div.part <- data.frame(
-        ltmc::divpart(
+        ltmc::divpart_renyi(
           data_long = d.in.long, 
           site_id_col_name = 'SITE_ID',
           time_step_col_name = 'DATE',
@@ -256,6 +269,16 @@ for(i in 1:nrow(data_list)){
         )) %>%
         tidyr::gather(metric, metric_value, -c(variability_type, standardization_method))
       
+      local.div <- d.in.long %>% 
+        filter(OBSERVATION_TYPE == "TAXON_COUNT",
+               VALUE > 0) %>% 
+        mutate(present = 1*(VALUE > 0)) %>% 
+        group_by(SITE_ID, DATE) %>% 
+        summarize(richness = sum(present)) %>% 
+        summarize(site_mean_alpha_div = mean(richness))
+        
+        
+      
       # combine results in one long-fromat dataframe
       analysis_results_i <- data.frame(
         dataset_file_name = i_data_record$name,
@@ -264,12 +287,31 @@ for(i in 1:nrow(data_list)){
         end_year= end_year,
         n_years_observed = n_years_observed,
         study_duration = study_duration,
-        organism_count_type = d.in.long$VARIABLE_UNITS %>% unique() %>% paste(collapse = ' | '),
+        organism_count_type = d.in.long$VARIABLE_UNITS %>% unique() %>% paste(collapse = ' | '))
+      analysis_results_i <- analysis_results_i %>% bind_cols(
         bind_rows(
           div.part.var,
           d.bd.agg,
           d.bd.h,
-          d.bd.hT))
+          d.bd.hT)
+      ) 
+      
+      local_analysis_results_i <- data.frame(
+        dataset_file_name = i_data_record$name,
+        dataset_google_id = i_data_record$id,
+        start_year = start_year,
+        end_year= end_year,
+        n_years_observed = n_years_observed,
+        study_duration = study_duration,
+        scale = "local",
+        organism_count_type = d.in.long$VARIABLE_UNITS %>% unique() %>% paste(collapse = ' | '))
+      
+      local_analysis_results_i <- local_analysis_results_i %>% bind_cols(
+        bind_rows(d.lvar.h %>% pivot_longer(BD, names_to = "metric", values_to = "metric_value"),
+                d.lvar.agg %>% pivot_longer(CV, names_to = "metric", values_to = "metric_value"), 
+                local.div %>% pivot_longer(site_mean_alpha_div, names_to = "metric", values_to = "metric_value"))
+      )
+        
     }
     
   })
@@ -289,6 +331,10 @@ for(i in 1:nrow(data_list)){
     analysis_results,
     analysis_results_i)
   
+  local_analysis_results <- bind_rows(
+    local_analysis_results,
+    local_analysis_results_i)
+  
   print(i_data_record$name)
 }
 
@@ -306,9 +352,11 @@ write_path <- '~/LTER Metacommunities/LTER-DATA/L4-derived_data/'
 my_file_list <- drive_ls(write_path)
 
 write_filename <- paste0('L4_metacommunity_variability_analysis_results_', Sys.Date(), '.csv')
+write_filename_local <- paste0('L4_local_variability_analysis_results_', Sys.Date(), '.csv')
 
 # temp write local
-readr::write_csv(analysis_results, write_filename)
+readr::write_csv(analysis_results, file = here(paste0("Manuscripts/MS3/data/",write_filename)))
+readr::write_csv(local_analysis_results, file = here(paste0("Manuscripts/MS3/data/",write_filename_local)))
 
 # write local file to google drive
 # conditional depending on if we need to overwrite or create new
@@ -324,8 +372,20 @@ if(!write_filename %in% my_file_list$name){
                media = write_filename)
 }
 
+if(!write_filename_local %in% my_file_list$name){
+  drive_upload(write_filename_local, 
+               path = write_path, 
+               name = write_filename_local, 
+               type = NULL,
+               verbose = TRUE)
+}else{
+  google_id <- my_file_list %>% filter(name == write_filename_local) %>% select(id) %>% unlist()
+  drive_update(file = as_id(google_id), 
+               media = write_filename_local)
+}
+
 # remove local file
-file.remove(write_filename)
+#file.remove(write_filename)
 
 
 # #######################################################

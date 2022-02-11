@@ -1,0 +1,1099 @@
+dataset_file_name,dataset_google_id,start_year,end_year,n_years_observed,study_duration,scale,organism_count_type,SITE_ID,variability_type,metric_type,metric,metric_value
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AA-17,comp,BD_h,BD,0.2340918981175073
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AA-20,comp,BD_h,BD,0.24819264950881387
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AB-19,comp,BD_h,BD,0.18785226346463782
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AC-16,comp,BD_h,BD,0.2840734574384712
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AD-10,comp,BD_h,BD,0.4825808070860411
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AD-21,comp,BD_h,BD,0.4136003648234799
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AE-23,comp,BD_h,BD,0.44807954131850186
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AF-12,comp,BD_h,BD,0.6270915899952205
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,F-8,comp,BD_h,BD,0.6500958156616027
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,G-15,comp,BD_h,BD,0.6843126203443011
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,I-11,comp,BD_h,BD,0.6553357015869438
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,I-17,comp,BD_h,BD,0.5663622347004106
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,M-16,comp,BD_h,BD,0.27609244168311303
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,N-12,comp,BD_h,BD,0.39285606582028965
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,O-9,comp,BD_h,BD,0.7751846284698625
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,P-16,comp,BD_h,BD,0.2583880572305922
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,P-18,comp,BD_h,BD,0.5267129676123414
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,Q-7,comp,BD_h,BD,0.7830728484070297
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,R-12,comp,BD_h,BD,0.31704798148351215
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,S-16,comp,BD_h,BD,0.2321255924536035
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,T-11,comp,BD_h,BD,0.3168103684428374
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,T-13,comp,BD_h,BD,0.3127103204463841
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,T-19,comp,BD_h,BD,0.3931280995118324
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,U-12,comp,BD_h,BD,0.22842434663146227
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,U-13,comp,BD_h,BD,0.4088304462282139
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,U-8,comp,BD_h,BD,0.5470761689980748
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,V-13,comp,BD_h,BD,0.1802897002820347
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,V-14,comp,BD_h,BD,0.21040064660575022
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,V-20,comp,BD_h,BD,0.5121154402537357
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,W-15,comp,BD_h,BD,0.22675869437368507
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,W-17,comp,BD_h,BD,0.23179969173579695
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,W-6,comp,BD_h,BD,0.3463788116697484
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,X-18,comp,BD_h,BD,0.21682972814695917
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,Y-19,comp,BD_h,BD,0.18687124183716003
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,Z-23,comp,BD_h,BD,0.4548649110181816
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AA-17,agg,CV_biomass,CV,0.2959240082501493
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AA-20,agg,CV_biomass,CV,0.38669459561826547
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AB-19,agg,CV_biomass,CV,0.2573039329723743
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AC-16,agg,CV_biomass,CV,0.26580449153571034
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AD-10,agg,CV_biomass,CV,0.5053526967239556
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AD-21,agg,CV_biomass,CV,0.5851772362248207
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AE-23,agg,CV_biomass,CV,0.39085847173253463
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,AF-12,agg,CV_biomass,CV,0.41727664541782933
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,F-8,agg,CV_biomass,CV,0.6244985894973684
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,G-15,agg,CV_biomass,CV,0.8991893681681649
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,I-11,agg,CV_biomass,CV,0.7460314758527036
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,I-17,agg,CV_biomass,CV,0.4898613908733729
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,M-16,agg,CV_biomass,CV,0.26402108272619834
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,N-12,agg,CV_biomass,CV,0.4355148544930791
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,O-9,agg,CV_biomass,CV,0.7692172714027952
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,P-16,agg,CV_biomass,CV,0.31892679924764766
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,P-18,agg,CV_biomass,CV,0.47078524888304113
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,Q-7,agg,CV_biomass,CV,0.8695338136277172
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,R-12,agg,CV_biomass,CV,0.5072877829891099
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,S-16,agg,CV_biomass,CV,0.4201477373596112
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,T-11,agg,CV_biomass,CV,0.5254922758516013
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,T-13,agg,CV_biomass,CV,0.6042341298883224
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,T-19,agg,CV_biomass,CV,0.3343360010092592
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,U-12,agg,CV_biomass,CV,0.3051735873868186
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,U-13,agg,CV_biomass,CV,0.35468871613708525
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,U-8,agg,CV_biomass,CV,0.5680362879655192
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,V-13,agg,CV_biomass,CV,0.23986455717082095
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,V-14,agg,CV_biomass,CV,0.22379642285741871
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,V-20,agg,CV_biomass,CV,0.6449638585386568
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,W-15,agg,CV_biomass,CV,0.29581994983944504
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,W-17,agg,CV_biomass,CV,0.3033331819695078
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,W-6,agg,CV_biomass,CV,0.44317937595139967
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,X-18,agg,CV_biomass,CV,0.3868626312571439
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,Y-19,agg,CV_biomass,CV,0.21226743144089985
+L3-cap-birds-banville.csv,18fvkVN_x2DYCY7ssCSOGANgYjVCFUHZw,2001,2016,16,15,local,count,Z-23,agg,CV_biomass,CV,0.6010227427240082
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,1_TB,comp,BD_h,BD,0.2632073126168722
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,10_RB,comp,BD_h,BD,0.43800008360304254
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,11_RB,comp,BD_h,BD,0.3424572629232882
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,12_RB,comp,BD_h,BD,0.460001850607378
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,13_RB,comp,BD_h,BD,0.5070959038386575
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,14_RB,comp,BD_h,BD,0.5633378817800099
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,15_RB,comp,BD_h,BD,0.4880686144280475
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,16_RB,comp,BD_h,BD,0.3936971172133262
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,2_TB,comp,BD_h,BD,0.2815696459649613
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,3_TB,comp,BD_h,BD,0.4041881049726239
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,4_TB,comp,BD_h,BD,0.4625854492287455
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,7_RB,comp,BD_h,BD,0.37867348613285645
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,8_RB,comp,BD_h,BD,0.4544566061592422
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,9_RB,comp,BD_h,BD,0.36969412878528174
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,1_TB,agg,CV_biomass,CV,0.3337272723100612
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,10_RB,agg,CV_biomass,CV,0.962216500452417
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,11_RB,agg,CV_biomass,CV,0.3458429655230734
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,12_RB,agg,CV_biomass,CV,0.3719456850822557
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,13_RB,agg,CV_biomass,CV,0.3776232586047379
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,14_RB,agg,CV_biomass,CV,0.42851422557829105
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,15_RB,agg,CV_biomass,CV,0.6349055902064015
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,16_RB,agg,CV_biomass,CV,0.34246552818171694
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,2_TB,agg,CV_biomass,CV,0.531680355762522
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,3_TB,agg,CV_biomass,CV,0.9505045876296125
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,4_TB,agg,CV_biomass,CV,0.36556152654665025
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,7_RB,agg,CV_biomass,CV,0.5859795633351083
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,8_RB,agg,CV_biomass,CV,0.5241700240187471
+L3-fce-fish-rehageWet.csv,19aoF1lPfeqh3kLFZkgTMqXp_DU025vJu,2011,2016,6,5,local,CPUE = (COUNT / DISTANCE (M))*100,9_RB,agg,CV_biomass,CV,0.6191251679638828
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA002,comp,BD_h,BD,0.3438023123506895
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA003,comp,BD_h,BD,0.3455864415881869
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA004,comp,BD_h,BD,0.38744164142359905
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA005,comp,BD_h,BD,0.34560618057518994
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA006,comp,BD_h,BD,0.32894735408004067
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA009,comp,BD_h,BD,0.38603839063722173
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA010,comp,BD_h,BD,0.32870519849091456
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA011,comp,BD_h,BD,0.42266878667869534
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA012,comp,BD_h,BD,0.46460296302383824
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA013,comp,BD_h,BD,0.3906126080874042
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA016,comp,BD_h,BD,0.38588621392068523
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA017,comp,BD_h,BD,0.4336729667538374
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA018,comp,BD_h,BD,0.2935141209075087
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA019,comp,BD_h,BD,0.33261544133029247
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA020,comp,BD_h,BD,0.40532545604157744
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA021,comp,BD_h,BD,0.41001025329941254
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA023,comp,BD_h,BD,0.30751574370927814
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA027,comp,BD_h,BD,0.31734292304292855
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA028,comp,BD_h,BD,0.34198961425305047
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA029,comp,BD_h,BD,0.40980950377287134
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA031,comp,BD_h,BD,0.30257928253766414
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA032,comp,BD_h,BD,0.4146174568151967
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA036,comp,BD_h,BD,0.3576695752114013
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA037,comp,BD_h,BD,0.4232570039047719
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA038,comp,BD_h,BD,0.35817332299857924
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA039,comp,BD_h,BD,0.3828799411461868
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA040,comp,BD_h,BD,0.3367418671922088
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA041,comp,BD_h,BD,0.37176643636139467
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA042,comp,BD_h,BD,0.48256465436872653
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA044,comp,BD_h,BD,0.4127215365854644
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA045,comp,BD_h,BD,0.3846001934411073
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA048,comp,BD_h,BD,0.44704425192136504
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA051,comp,BD_h,BD,0.3167421255255394
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA053,comp,BD_h,BD,0.41188055798162626
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA054,comp,BD_h,BD,0.45873924519822884
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA059,comp,BD_h,BD,0.23864973489503322
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA062,comp,BD_h,BD,0.41360421673171077
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA063,comp,BD_h,BD,0.36940764752226946
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA064,comp,BD_h,BD,0.4592290755997225
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA065,comp,BD_h,BD,0.35239701984292937
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA066,comp,BD_h,BD,0.30966944982968175
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA076,comp,BD_h,BD,0.3346214649179372
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA077,comp,BD_h,BD,0.3903123454188959
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA078,comp,BD_h,BD,0.3698856496671023
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA079,comp,BD_h,BD,0.3865702052399939
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA080,comp,BD_h,BD,0.4178464459991868
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA081,comp,BD_h,BD,0.4002896477598691
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA200,comp,BD_h,BD,0.2599130610470857
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA203,comp,BD_h,BD,0.40031883598518614
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA204,comp,BD_h,BD,0.35731975118762643
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA207,comp,BD_h,BD,0.4985955823727422
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA208,comp,BD_h,BD,0.44817048111112573
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA209,comp,BD_h,BD,0.4591163788971317
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA210,comp,BD_h,BD,0.27492588980887306
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA211,comp,BD_h,BD,0.3171637642530895
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA217,comp,BD_h,BD,0.42481805392573313
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA224,comp,BD_h,BD,0.36644872972839887
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA226,comp,BD_h,BD,0.3356775822577717
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA233,comp,BD_h,BD,0.42061031951831884
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA234,comp,BD_h,BD,0.42102096277292045
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA235,comp,BD_h,BD,0.36562625784917
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA239,comp,BD_h,BD,0.3492314344528484
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA240,comp,BD_h,BD,0.4023593833508299
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA241,comp,BD_h,BD,0.41414748151792335
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA243,comp,BD_h,BD,0.2781359854734129
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA245,comp,BD_h,BD,0.5126635419648885
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA246,comp,BD_h,BD,0.4082400363151187
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA247,comp,BD_h,BD,0.3823299409826637
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA248,comp,BD_h,BD,0.323605853770643
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA249,comp,BD_h,BD,0.44052605279270607
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA250,comp,BD_h,BD,0.42078727510168545
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA252,comp,BD_h,BD,0.39787086716385817
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA253,comp,BD_h,BD,0.33227274559386577
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA256,comp,BD_h,BD,0.42850862211168367
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA257,comp,BD_h,BD,0.465950578841643
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA258,comp,BD_h,BD,0.4680314233406673
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA259,comp,BD_h,BD,0.3871705712105441
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA260,comp,BD_h,BD,0.3806681454715898
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA265,comp,BD_h,BD,0.44765590176497516
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA266,comp,BD_h,BD,0.32912091804336463
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA270,comp,BD_h,BD,0.4359286794512153
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA272,comp,BD_h,BD,0.5228411749530879
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA273,comp,BD_h,BD,0.3535268547404344
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA274,comp,BD_h,BD,0.3963550717482933
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA275,comp,BD_h,BD,0.38046897061782464
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA276,comp,BD_h,BD,0.27235024789210427
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA277,comp,BD_h,BD,0.38026030024653584
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA279,comp,BD_h,BD,0.31271362949960296
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA303,comp,BD_h,BD,0.48622131249158823
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA304,comp,BD_h,BD,0.4320242803558348
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA305,comp,BD_h,BD,0.43100031396679644
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA306,comp,BD_h,BD,0.37418478727269655
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA307,comp,BD_h,BD,0.4384783759086124
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA308,comp,BD_h,BD,0.42992682114323943
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA309,comp,BD_h,BD,0.47506813136724974
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA310,comp,BD_h,BD,0.4948780550485359
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA311,comp,BD_h,BD,0.49065295420058874
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA312,comp,BD_h,BD,0.4385824353138584
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA314,comp,BD_h,BD,0.3323618758767892
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA315,comp,BD_h,BD,0.42280367822426895
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA317,comp,BD_h,BD,0.5018887899831357
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA318,comp,BD_h,BD,0.35535924861179413
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA322,comp,BD_h,BD,0.45897093648895815
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA323,comp,BD_h,BD,0.39353652344851603
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA324,comp,BD_h,BD,0.459282729239064
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA327,comp,BD_h,BD,0.46213995760297405
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA328,comp,BD_h,BD,0.40215812595473505
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA329,comp,BD_h,BD,0.3336136825255165
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA330,comp,BD_h,BD,0.2880187593247356
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA334,comp,BD_h,BD,0.320763735227823
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA336,comp,BD_h,BD,0.37602070694246015
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA338,comp,BD_h,BD,0.4723688149028199
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA339,comp,BD_h,BD,0.4402551723766214
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA340,comp,BD_h,BD,0.38353168089860157
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA341,comp,BD_h,BD,0.36748177561058104
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA342,comp,BD_h,BD,0.44398543796331896
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA344,comp,BD_h,BD,0.29228477655000096
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA345,comp,BD_h,BD,0.3511696651369053
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA347,comp,BD_h,BD,0.4003244457319465
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA348,comp,BD_h,BD,0.3037525616343562
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA349,comp,BD_h,BD,0.2880919992909212
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA350,comp,BD_h,BD,0.41744077117156697
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA351,comp,BD_h,BD,0.3454557855606676
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA352,comp,BD_h,BD,0.38145653449305206
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA353,comp,BD_h,BD,0.3194659405673183
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA354,comp,BD_h,BD,0.40477293633589945
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA400,comp,BD_h,BD,0.33969662764609093
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB008,comp,BD_h,BD,0.37935274255805407
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB014,comp,BD_h,BD,0.31982118873027776
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB022,comp,BD_h,BD,0.3592449568813869
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB030,comp,BD_h,BD,0.45526875305516973
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB046,comp,BD_h,BD,0.48782836557677667
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB047,comp,BD_h,BD,0.3847615627294355
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB052,comp,BD_h,BD,0.4421948348444222
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB055,comp,BD_h,BD,0.4836563788851985
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB060,comp,BD_h,BD,0.41673656856717384
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB067,comp,BD_h,BD,0.4154594228987537
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB201,comp,BD_h,BD,0.32788372074641514
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB202,comp,BD_h,BD,0.2852489085669257
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB206,comp,BD_h,BD,0.3122941821831202
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB216,comp,BD_h,BD,0.3785121412513409
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB225,comp,BD_h,BD,0.34563694555828095
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB242,comp,BD_h,BD,0.30113344190787217
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB244,comp,BD_h,BD,0.31681151804132535
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB251,comp,BD_h,BD,0.31158040200251363
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB254,comp,BD_h,BD,0.3240546920043622
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB255,comp,BD_h,BD,0.3333672109519442
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB264,comp,BD_h,BD,0.40834561187389035
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB267,comp,BD_h,BD,0.3957625396963513
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB268,comp,BD_h,BD,0.33059162217185334
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB269,comp,BD_h,BD,0.32612350248440103
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB271,comp,BD_h,BD,0.407126891897522
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB278,comp,BD_h,BD,0.4167363227226009
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB302,comp,BD_h,BD,0.3213102299788427
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB316,comp,BD_h,BD,0.4056525111618136
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB325,comp,BD_h,BD,0.4655123793538214
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB326,comp,BD_h,BD,0.41893756864409887
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB331,comp,BD_h,BD,0.42930566177576246
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB332,comp,BD_h,BD,0.31491148400557417
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB333,comp,BD_h,BD,0.35029849240084704
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB335,comp,BD_h,BD,0.3262762433610663
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB337,comp,BD_h,BD,0.38598867552408106
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB343,comp,BD_h,BD,0.41857966607019836
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB346,comp,BD_h,BD,0.34671136216437215
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB356,comp,BD_h,BD,0.4016515212787592
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB357,comp,BD_h,BD,0.4674126423641775
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB358,comp,BD_h,BD,0.35781913145868616
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC001,comp,BD_h,BD,0.34889642009083977
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC002,comp,BD_h,BD,0.3450899600701804
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC004,comp,BD_h,BD,0.47365506539804847
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC005,comp,BD_h,BD,0.4530220312701433
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC006,comp,BD_h,BD,0.3971147140195274
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC007,comp,BD_h,BD,0.3430398087951392
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC008,comp,BD_h,BD,0.3490790059285556
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC009,comp,BD_h,BD,0.4163840884661637
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC010,comp,BD_h,BD,0.3401896211139129
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC011,comp,BD_h,BD,0.37837235084414506
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC012,comp,BD_h,BD,0.48052607809376857
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC013,comp,BD_h,BD,0.37074769495284104
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC014,comp,BD_h,BD,0.4030137012015456
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC015,comp,BD_h,BD,0.3442464279708216
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC016,comp,BD_h,BD,0.40120676781890696
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC017,comp,BD_h,BD,0.3295076527311571
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC018,comp,BD_h,BD,0.3966806077645926
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA002,agg,CV_biomass,CV,0.2242345688526016
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA003,agg,CV_biomass,CV,0.15797657175107396
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA004,agg,CV_biomass,CV,0.4545319422918644
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA005,agg,CV_biomass,CV,0.1354604511385306
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA006,agg,CV_biomass,CV,0.2916610405434508
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA009,agg,CV_biomass,CV,0.26504326794751365
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA010,agg,CV_biomass,CV,0.30276993463926816
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA011,agg,CV_biomass,CV,0.2163775930691575
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA012,agg,CV_biomass,CV,0.27841452626883534
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA013,agg,CV_biomass,CV,0.30900827029565264
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA016,agg,CV_biomass,CV,0.11049495602038387
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA017,agg,CV_biomass,CV,0.19543398999264291
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA018,agg,CV_biomass,CV,0.3636434628817441
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA019,agg,CV_biomass,CV,0.25693401713910385
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA020,agg,CV_biomass,CV,0.26987027314652634
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA021,agg,CV_biomass,CV,0.1850583025494013
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA023,agg,CV_biomass,CV,0.24122306001307414
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA027,agg,CV_biomass,CV,0.10647942749999
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA028,agg,CV_biomass,CV,0.34525012317598824
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA029,agg,CV_biomass,CV,0.308287726505694
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA031,agg,CV_biomass,CV,0.21994111254096294
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA032,agg,CV_biomass,CV,0.18886984741557453
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA036,agg,CV_biomass,CV,0.22356380884296825
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA037,agg,CV_biomass,CV,0.2435099410963388
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA038,agg,CV_biomass,CV,0.21066252211737155
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA039,agg,CV_biomass,CV,0.24295632895188754
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA040,agg,CV_biomass,CV,0.24222607082590245
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA041,agg,CV_biomass,CV,0.13925149767080494
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA042,agg,CV_biomass,CV,0.27397951877990306
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA044,agg,CV_biomass,CV,0.28361356831663576
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA045,agg,CV_biomass,CV,0.19325007205070135
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA048,agg,CV_biomass,CV,0.2271998977130622
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA051,agg,CV_biomass,CV,0.18691400411461281
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA053,agg,CV_biomass,CV,0.16767017066484677
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA054,agg,CV_biomass,CV,0.2932298208072482
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA059,agg,CV_biomass,CV,0.2548916242661565
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA062,agg,CV_biomass,CV,0.26791242761106776
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA063,agg,CV_biomass,CV,0.1346522165800501
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA064,agg,CV_biomass,CV,0.15309310892394862
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA065,agg,CV_biomass,CV,0.1822842127541519
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA066,agg,CV_biomass,CV,0.3045873232752801
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA076,agg,CV_biomass,CV,0.18221724671391565
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA077,agg,CV_biomass,CV,0.26246692913372704
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA078,agg,CV_biomass,CV,0.29627723898538916
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA079,agg,CV_biomass,CV,0.08979058319756822
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA080,agg,CV_biomass,CV,0.16317848796612633
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA081,agg,CV_biomass,CV,0.3681787005729087
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA200,agg,CV_biomass,CV,0.12615209808739547
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA203,agg,CV_biomass,CV,0.23570226039551587
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA204,agg,CV_biomass,CV,0.15720636040014457
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA207,agg,CV_biomass,CV,0.4065578140908709
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA208,agg,CV_biomass,CV,0.11641432866433302
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA209,agg,CV_biomass,CV,0.28220403583864234
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA210,agg,CV_biomass,CV,0.16457493137561682
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA211,agg,CV_biomass,CV,0.196279429200728
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA217,agg,CV_biomass,CV,0.2889482241811437
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA224,agg,CV_biomass,CV,0.21932973947038645
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA226,agg,CV_biomass,CV,0.19405106847042927
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA233,agg,CV_biomass,CV,0.29298643207956926
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA234,agg,CV_biomass,CV,0.3330099066222879
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA235,agg,CV_biomass,CV,0.250861736029427
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA239,agg,CV_biomass,CV,0.22137905931628846
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA240,agg,CV_biomass,CV,0.22568712322315124
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA241,agg,CV_biomass,CV,0.20307266507643001
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA243,agg,CV_biomass,CV,0.12442398715469144
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA245,agg,CV_biomass,CV,0.16457493137561682
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA246,agg,CV_biomass,CV,0.0918197521859528
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA247,agg,CV_biomass,CV,0.23233645630464408
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA248,agg,CV_biomass,CV,0.2969792245024493
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA249,agg,CV_biomass,CV,0.3133586711657921
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA250,agg,CV_biomass,CV,0.1
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA252,agg,CV_biomass,CV,0.4004027464896232
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA253,agg,CV_biomass,CV,0.2961277788652543
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA256,agg,CV_biomass,CV,0.13257853780222537
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA257,agg,CV_biomass,CV,0.27284791254378576
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA258,agg,CV_biomass,CV,0.342436258756333
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA259,agg,CV_biomass,CV,0.2639391780067362
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA260,agg,CV_biomass,CV,0.23018346827203717
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA265,agg,CV_biomass,CV,0.2825970826302195
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA266,agg,CV_biomass,CV,0.1853858512190171
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA270,agg,CV_biomass,CV,0.10540925533894599
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA272,agg,CV_biomass,CV,0.32777738867854445
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA273,agg,CV_biomass,CV,0.15971914124998499
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA274,agg,CV_biomass,CV,0.18189860836252383
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA275,agg,CV_biomass,CV,0.15474956233826656
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA276,agg,CV_biomass,CV,0.28020063649858984
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA277,agg,CV_biomass,CV,0.38087979694691226
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA279,agg,CV_biomass,CV,0.21979349113192898
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA303,agg,CV_biomass,CV,0.14649921068213667
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA304,agg,CV_biomass,CV,0.4459849843997146
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA305,agg,CV_biomass,CV,0.13176156917368248
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA306,agg,CV_biomass,CV,0.23696485762661093
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA307,agg,CV_biomass,CV,0.3512570247933722
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA308,agg,CV_biomass,CV,0.10001538816659106
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA309,agg,CV_biomass,CV,0.2121668705827014
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA310,agg,CV_biomass,CV,0.35653701640614627
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA311,agg,CV_biomass,CV,0.27721063108129024
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA312,agg,CV_biomass,CV,0.252581824078201
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA314,agg,CV_biomass,CV,0.10878565864408424
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA315,agg,CV_biomass,CV,0.24331892972495994
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA317,agg,CV_biomass,CV,0.3632415786283895
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA318,agg,CV_biomass,CV,0.22612433149569608
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA322,agg,CV_biomass,CV,0.16010860571811872
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA323,agg,CV_biomass,CV,0.14417382638559484
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA324,agg,CV_biomass,CV,0.15786038236491992
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA327,agg,CV_biomass,CV,0.30496242582562966
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA328,agg,CV_biomass,CV,0.45263542341559204
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA329,agg,CV_biomass,CV,0.2311103411704426
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA330,agg,CV_biomass,CV,0.18086873312595944
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA334,agg,CV_biomass,CV,0.23700449273870694
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA336,agg,CV_biomass,CV,0.17319559084751662
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA338,agg,CV_biomass,CV,0.18255838059883697
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA339,agg,CV_biomass,CV,0.13280317881493264
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA340,agg,CV_biomass,CV,0.22017369119317778
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA341,agg,CV_biomass,CV,0.128564869306645
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA342,agg,CV_biomass,CV,0.12036310228653255
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA344,agg,CV_biomass,CV,0.18652088103614564
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA345,agg,CV_biomass,CV,0.10387500608289794
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA347,agg,CV_biomass,CV,0.16381446839458857
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA348,agg,CV_biomass,CV,0.3204031877768261
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA349,agg,CV_biomass,CV,0.10878565864408424
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA350,agg,CV_biomass,CV,0.20360275448198892
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA351,agg,CV_biomass,CV,0.2309401076758503
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA352,agg,CV_biomass,CV,0.15660260452228406
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA353,agg,CV_biomass,CV,0.2624865994092116
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA354,agg,CV_biomass,CV,0.2075046530909616
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PA400,agg,CV_biomass,CV,0.0904901131031062
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB008,agg,CV_biomass,CV,0.18708286933869706
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB014,agg,CV_biomass,CV,0.13537214367790226
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB022,agg,CV_biomass,CV,0.22666963592578984
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB030,agg,CV_biomass,CV,0.14649921068213667
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB046,agg,CV_biomass,CV,0.22587697572631282
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB047,agg,CV_biomass,CV,0.1884222879063983
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB052,agg,CV_biomass,CV,0.12654857935310096
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB055,agg,CV_biomass,CV,0.3104382097715547
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB060,agg,CV_biomass,CV,0.15214515486254612
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB067,agg,CV_biomass,CV,0.3320685889744327
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB201,agg,CV_biomass,CV,0.27807877682852566
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB202,agg,CV_biomass,CV,0.13733700902029006
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB206,agg,CV_biomass,CV,0.17388017698576702
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB216,agg,CV_biomass,CV,0.42511515094885177
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB225,agg,CV_biomass,CV,0.23035813005346656
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB242,agg,CV_biomass,CV,0.2919045853075813
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB244,agg,CV_biomass,CV,0.22481638354807928
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB251,agg,CV_biomass,CV,0.23598244905707666
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB254,agg,CV_biomass,CV,0.20535647123189618
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB255,agg,CV_biomass,CV,0.18858219668305243
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB264,agg,CV_biomass,CV,0.15934435979977452
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB267,agg,CV_biomass,CV,0.3375598463435395
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB268,agg,CV_biomass,CV,0.24253562503633297
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB269,agg,CV_biomass,CV,0.062112999374994156
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB271,agg,CV_biomass,CV,0.16457493137561682
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB278,agg,CV_biomass,CV,0.2311103411704426
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB302,agg,CV_biomass,CV,0.10748113749414004
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB316,agg,CV_biomass,CV,0.28712482255302824
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB325,agg,CV_biomass,CV,0.20412414523193148
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB326,agg,CV_biomass,CV,0.19764235376052372
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB331,agg,CV_biomass,CV,0.21932973947038645
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB332,agg,CV_biomass,CV,0.17149858514250885
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB333,agg,CV_biomass,CV,0.16131535657180163
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB335,agg,CV_biomass,CV,0.16423851052029395
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB337,agg,CV_biomass,CV,0.05164568065025158
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB343,agg,CV_biomass,CV,0.14907119849998599
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB346,agg,CV_biomass,CV,0.21935896789058956
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB356,agg,CV_biomass,CV,0.3827128777599428
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB357,agg,CV_biomass,CV,0.24222607082590245
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PB358,agg,CV_biomass,CV,0.24616744157535553
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC001,agg,CV_biomass,CV,0.13357280973959523
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC002,agg,CV_biomass,CV,0.16109486985446064
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC004,agg,CV_biomass,CV,0.18898223650461363
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC005,agg,CV_biomass,CV,0.28040538671699616
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC006,agg,CV_biomass,CV,0.38082964364895466
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC007,agg,CV_biomass,CV,0.3053235565344658
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC008,agg,CV_biomass,CV,0.19569403911989053
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC009,agg,CV_biomass,CV,0.4144506157828075
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC010,agg,CV_biomass,CV,0.04721746185389363
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC011,agg,CV_biomass,CV,0.14390989949130545
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC012,agg,CV_biomass,CV,0.34015067152490375
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC013,agg,CV_biomass,CV,0.23681276011442168
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC014,agg,CV_biomass,CV,0.2347183780864976
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC015,agg,CV_biomass,CV,0.05891972017845603
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC016,agg,CV_biomass,CV,0.24925925763107154
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC017,agg,CV_biomass,CV,0.21979349113192898
+L3-and-birds-wisnoski.csv,13yR9S2y3VS0uevQ0VRvNziy-hbkI8E0n,2009,2013,5,4,local,count,PC018,agg,CV_biomass,CV,0.23543487260621154
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,local,CPUE,AL,comp,BD_h,BD,0.19812731314100898
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,local,CPUE,BM,comp,BD_h,BD,0.2926905666080146
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,local,CPUE,CR,comp,BD_h,BD,0.3788566655801054
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,local,CPUE,SP,comp,BD_h,BD,0.29528942116849827
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,local,CPUE,TR,comp,BD_h,BD,0.21922328647393904
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,local,CPUE,AL,agg,CV_biomass,CV,1.0990655919369734
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,local,CPUE,BM,agg,CV_biomass,CV,1.6266428845495273
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,local,CPUE,CR,agg,CV_biomass,CV,1.3910503660071307
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,local,CPUE,SP,agg,CV_biomass,CV,0.6529183097176297
+L3-ntl-fish-stanleyLottig.csv,0B2P104M94skvOVBOZnIyUGQ1ZVU,1981,2017,37,36,local,CPUE,TR,agg,CV_biomass,CV,0.6101885473011812
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,2-open-east_ltp,comp,BD_h,BD,0.597009013862142
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,2-open-west_ltp,comp,BD_h,BD,0.5567218516693249
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,4-open-east_ltp,comp,BD_h,BD,0.6010121607278378
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,4-open-west_ltp,comp,BD_h,BD,0.5906772254256525
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,6-open-west_ltp,comp,BD_h,BD,0.577731820712856
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,9-open-east_ltp,comp,BD_h,BD,0.5613030393479749
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,9-open-west_ltp,comp,BD_h,BD,0.5442101152298906
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,2-open-east_ltp,agg,CV_biomass,CV,0.8560034416679639
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,2-open-west_ltp,agg,CV_biomass,CV,1.001589420364989
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,4-open-east_ltp,agg,CV_biomass,CV,1.518169780876144
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,4-open-west_ltp,agg,CV_biomass,CV,1.418357928383241
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,6-open-west_ltp,agg,CV_biomass,CV,1.2108648805820064
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,9-open-east_ltp,agg,CV_biomass,CV,1.1312847135492978
+L3-daa-plants-compagnoni.csv,1yV_pKpw2gIgFYFRYrV_QNeJgZ48OeUfM,1983,2015,30,32,local,COUNT,9-open-west_ltp,agg,CV_biomass,CV,1.1513279868942625
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,1_1,comp,BD_h,BD,0.3028584591633019
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,1_2,comp,BD_h,BD,0.22172692019550141
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,2_1,comp,BD_h,BD,0.1897697141402283
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,2_2,comp,BD_h,BD,0.14902352333350477
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,3_1,comp,BD_h,BD,0.25414638450099303
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,3_2,comp,BD_h,BD,0.009503635881794243
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,4_1,comp,BD_h,BD,0.2621658071035797
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,4_2,comp,BD_h,BD,0.0501991170338571
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,5_1,comp,BD_h,BD,0.36484630932649836
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,5_2,comp,BD_h,BD,0.041737208531523594
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,6_1,comp,BD_h,BD,0.10371843801541507
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,6_2,comp,BD_h,BD,0.003446101109772545
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,7_1,comp,BD_h,BD,0.5808794450986725
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,7_2,comp,BD_h,BD,0.3910413053515802
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,8_1,comp,BD_h,BD,0.48806164987109685
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,8_2,comp,BD_h,BD,0.3322425864314852
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,9_1,comp,BD_h,BD,0.013358896292820808
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,9_2,comp,BD_h,BD,0.19746891937487496
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,1_1,agg,CV_biomass,CV,0.9540502578936262
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,1_2,agg,CV_biomass,CV,1.1126631289322768
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,2_1,agg,CV_biomass,CV,1.026284498295521
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,2_2,agg,CV_biomass,CV,0.7478917510103382
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,3_1,agg,CV_biomass,CV,0.9237052393818665
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,3_2,agg,CV_biomass,CV,0.37287682289282453
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,4_1,agg,CV_biomass,CV,0.8086492146380696
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,4_2,agg,CV_biomass,CV,0.4790152492687785
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,5_1,agg,CV_biomass,CV,0.7838192709883124
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,5_2,agg,CV_biomass,CV,0.6765252451982479
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,6_1,agg,CV_biomass,CV,0.7713091624351033
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,6_2,agg,CV_biomass,CV,0.3992491164017724
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,7_1,agg,CV_biomass,CV,0.929468496653473
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,7_2,agg,CV_biomass,CV,1.3474788857262439
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,8_1,agg,CV_biomass,CV,0.8509308406732436
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,8_2,agg,CV_biomass,CV,0.7901893400517997
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,9_1,agg,CV_biomass,CV,0.7992061031174071
+L3-gce-mollusc-compagnoni.csv,1Cy3RdJzAPIfW5euTGUIiHEaCJC8cCQTx,2000,2013,14,13,local,DENSITY,9_2,agg,CV_biomass,CV,0.831500762980825
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_1_N,comp,BD_h,BD,0.3048032786033838
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_1_R,comp,BD_h,BD,0.3656169027148823
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_1_S,comp,BD_h,BD,0.3602600755925395
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_1_V,comp,BD_h,BD,0.28264823194510985
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_2_N,comp,BD_h,BD,0.3253334146704299
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_2_R,comp,BD_h,BD,0.38931868930844515
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_2_S,comp,BD_h,BD,0.2706671340988019
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_2_V,comp,BD_h,BD,0.43497510863856126
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_1_N,agg,CV_biomass,CV,0.5909809646763204
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_1_R,agg,CV_biomass,CV,0.6924355998630859
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_1_S,agg,CV_biomass,CV,0.5410692894317893
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_1_V,agg,CV_biomass,CV,0.5431454433744123
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_2_N,agg,CV_biomass,CV,0.5876305039067568
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_2_R,agg,CV_biomass,CV,0.7279855546750681
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_2_S,agg,CV_biomass,CV,0.437233309447561
+L3-sev-plants-compagnoni.csv,19QVLG4hvOy0kH3e4qzk4CxZc4eWRm1oy,2003,2015,13,12,local,count,P_2_V,agg,CV_biomass,CV,0.5860265117360836
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),a1,comp,BD_h,BD,0
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),a2,comp,BD_h,BD,0
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),a4,comp,BD_h,BD,0
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),b4,comp,BD_h,BD,0
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),b5,comp,BD_h,BD,0
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),g4,comp,BD_h,BD,0
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),g5,comp,BD_h,BD,0
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),i1,comp,BD_h,BD,0
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),i2,comp,BD_h,BD,0
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),i4,comp,BD_h,BD,0
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),a1,agg,CV_biomass,CV,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),a2,agg,CV_biomass,CV,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),a4,agg,CV_biomass,CV,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),b4,agg,CV_biomass,CV,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),b5,agg,CV_biomass,CV,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),g4,agg,CV_biomass,CV,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),g5,agg,CV_biomass,CV,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),i1,agg,CV_biomass,CV,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),i2,agg,CV_biomass,CV,NA
+L3-jrn-plants-compagnoni.csv,1yuqNwBD6TVkdo9UzZeJtHxJjPzHrVVyx,1915,1938,18,23,local,count (average),i4,agg,CV_biomass,CV,NA
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q1-1,comp,BD_h,BD,0.22654533981136046
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q1-3,comp,BD_h,BD,0.3363864806335567
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q1a-1,comp,BD_h,BD,0.23504020857961053
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q1a-2,comp,BD_h,BD,0.3366275760483288
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q1a-3,comp,BD_h,BD,0.2958793009241426
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q3-1,comp,BD_h,BD,0.3451384404027519
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q3-3,comp,BD_h,BD,0.33274897343207743
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2q2-4,comp,BD_h,BD,0.3039841997293818
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2q3-1,comp,BD_h,BD,0.4323456581541668
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2q3a-1,comp,BD_h,BD,0.48375704587643303
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2q3a-2,comp,BD_h,BD,0.3758176540921296
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2qa-1,comp,BD_h,BD,0.22724079439922423
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2qa-2,comp,BD_h,BD,0.28255817499116814
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2qo-7,comp,BD_h,BD,0.19584757729359023
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q1-1,agg,CV_biomass,CV,0.5682247319229536
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q1-3,agg,CV_biomass,CV,0.7242133839671131
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q1a-1,agg,CV_biomass,CV,0.6245084501399216
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q1a-2,agg,CV_biomass,CV,0.6302948236603274
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q1a-3,agg,CV_biomass,CV,0.4498708371633022
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q3-1,agg,CV_biomass,CV,0.6934081183358728
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e1q3-3,agg,CV_biomass,CV,0.5478622131890534
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2q2-4,agg,CV_biomass,CV,0.5764839775021591
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2q3-1,agg,CV_biomass,CV,0.5406861718428589
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2q3a-1,agg,CV_biomass,CV,0.7190892457621237
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2q3a-2,agg,CV_biomass,CV,0.49183384734411567
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2qa-1,agg,CV_biomass,CV,0.7475481402132317
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2qa-2,agg,CV_biomass,CV,0.6948012496805418
+L3-hays-plants-compagnoni.csv,1I3G4PWuQWovgUk1_GQ43Y6snqL72pnBx,38,72,35,34,local,COUNT,e2qo-7,agg,CV_biomass,CV,0.7379993787632426
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,11,comp,BD_h,BD,0.24380569443146877
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,19,comp,BD_h,BD,0.31377027406101965
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,24,comp,BD_h,BD,0.26941079842494625
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,5A,comp,BD_h,BD,0.26716819298435873
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,5B,comp,BD_h,BD,0.22138734246200673
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,7C,comp,BD_h,BD,0.25021770969433527
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,11,agg,CV_biomass,CV,0.27241847922717294
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,19,agg,CV_biomass,CV,0.36677011566992856
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,24,agg,CV_biomass,CV,0.304714814289329
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,5A,agg,CV_biomass,CV,0.23451666867382234
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,5B,agg,CV_biomass,CV,0.26804914769314075
+L3-sgs-plants-compagnoni.csv,1-CvqdA4DCGB51B3geVTwN5uQcvFEBcnr,1995,2008,14,13,local,PERCENT_COVER,7C,agg,CV_biomass,CV,0.28414564890024013
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,C_A,comp,BD_h,BD,0.6887221000361566
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,C_B,comp,BD_h,BD,0.6948099531398327
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,C_C,comp,BD_h,BD,0.6969623612706864
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,C_D,comp,BD_h,BD,0.7024614001995796
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,C_E,comp,BD_h,BD,0.7121872491161713
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,G_A,comp,BD_h,BD,0.7471628311421025
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,G_B,comp,BD_h,BD,0.7047938345662949
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,G_C,comp,BD_h,BD,0.6991752886510427
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,G_D,comp,BD_h,BD,0.7091896505486457
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,G_E,comp,BD_h,BD,0.7579281125675258
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,C_A,agg,CV_biomass,CV,0.22555505832944053
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,C_B,agg,CV_biomass,CV,0.26318178933155106
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,C_C,agg,CV_biomass,CV,0.26126774596246066
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,C_D,agg,CV_biomass,CV,0.2585185300401069
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,C_E,agg,CV_biomass,CV,0.34445873916018027
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,G_A,agg,CV_biomass,CV,0.3475664428384133
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,G_B,agg,CV_biomass,CV,0.3693482199503766
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,G_C,agg,CV_biomass,CV,0.3834663445393584
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,G_D,agg,CV_biomass,CV,0.40257262661788323
+L3-sev-arthropods-compagnoni.csv,1eXE5otabcA87KWGgeid92h7sKy8jKdqN,1992,2004,13,12,local,Average_count,G_E,agg,CV_biomass,CV,0.43506294770556325
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),BOER_1,comp,BD_h,BD,0.2647115545647981
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),BOER_2,comp,BD_h,BD,0.24013543225092046
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),BOER_3,comp,BD_h,BD,0.35810455379620926
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),BOER_4,comp,BD_h,BD,0.356442182850294
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),BOER_5,comp,BD_h,BD,0.26508725116011816
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),LATR_1,comp,BD_h,BD,0.24928484234270204
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),LATR_2,comp,BD_h,BD,0.29574280182012463
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),LATR_3,comp,BD_h,BD,0.2637477507478921
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),LATR_4,comp,BD_h,BD,0.2940070736546715
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),LATR_5,comp,BD_h,BD,0.2972103556491471
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),BOER_1,agg,CV_biomass,CV,0.4648501318922388
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),BOER_2,agg,CV_biomass,CV,0.47948448736811805
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),BOER_3,agg,CV_biomass,CV,0.6261961778859843
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),BOER_4,agg,CV_biomass,CV,0.6969025044964648
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),BOER_5,agg,CV_biomass,CV,0.5656939320245895
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),LATR_1,agg,CV_biomass,CV,0.42919766074174803
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),LATR_2,agg,CV_biomass,CV,0.38602315829961353
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),LATR_3,agg,CV_biomass,CV,0.5217658620494143
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),LATR_4,agg,CV_biomass,CV,0.5666715999187764
+L3-sev-grasshopper-compagnoni.csv,1fvq48jYfqsaCu7I41qaottXkcmdSCQvn,1992,2013,22,21,local,Count (two censuses a year),LATR_5,agg,CV_biomass,CV,0.45468432415476295
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,BASN,comp,BD_h,BD,0.382973118788512
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,CALI,comp,BD_h,BD,0.25512005218817857
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,EAST,comp,BD_h,BD,0.1931509565887311
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,GRAV,comp,BD_h,BD,0.3633996770855055
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,IBPE,comp,BD_h,BD,0.13424048053174098
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,RABB,comp,BD_h,BD,0.18102937246156223
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,SAND,comp,BD_h,BD,0.14869119954724813
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,WELL,comp,BD_h,BD,0.1352831702425022
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,WEST,comp,BD_h,BD,0.49162157216840197
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,BASN,agg,CV_biomass,CV,0.4468982626476674
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,CALI,agg,CV_biomass,CV,0.6464227980682874
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,EAST,agg,CV_biomass,CV,0.4432577912785416
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,GRAV,agg,CV_biomass,CV,0.6097649053952258
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,IBPE,agg,CV_biomass,CV,0.5581953701500177
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,RABB,agg,CV_biomass,CV,0.6791641194757844
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,SAND,agg,CV_biomass,CV,0.5176871642217914
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,WELL,agg,CV_biomass,CV,0.4704594047178516
+L3-jrn-lizards-hope.csv,0B7o8j0RLpcxiYW10X1djMTBGM0U,1990,2005,16,15,local,count,WEST,agg,CV_biomass,CV,0.48874233621768504
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_12,comp,BD_h,BD,0.20894941550350019
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_22,comp,BD_h,BD,0.34761810656495795
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_45,comp,BD_h,BD,0.2427201418897273
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_50,comp,BD_h,BD,0.200283797408099
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_53,comp,BD_h,BD,0.21995813663892336
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_54,comp,BD_h,BD,0.13602281120540755
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_1,comp,BD_h,BD,0.15029633201664144
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_11,comp,BD_h,BD,0.1407512402488329
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_17,comp,BD_h,BD,0.0957845739924477
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_33,comp,BD_h,BD,0.17660630375403738
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_34,comp,BD_h,BD,0.18534412634127617
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_54,comp,BD_h,BD,0.14540855141002193
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_26,comp,BD_h,BD,0.2818570349184959
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_39,comp,BD_h,BD,0.39626941544681765
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_41,comp,BD_h,BD,0.4098859419914952
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_43,comp,BD_h,BD,0.24697175982298408
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_47,comp,BD_h,BD,0.39709517187606663
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_8,comp,BD_h,BD,0.2529997497707905
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_12,agg,CV_biomass,CV,0.34099762931089866
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_22,agg,CV_biomass,CV,0.34127093578309137
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_45,agg,CV_biomass,CV,0.40007956179754933
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_50,agg,CV_biomass,CV,0.3858471083256024
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_53,agg,CV_biomass,CV,0.5397857629365096
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,A_54,agg,CV_biomass,CV,0.4430434011534084
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_1,agg,CV_biomass,CV,0.36054203405186497
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_11,agg,CV_biomass,CV,0.2894012174023534
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_17,agg,CV_biomass,CV,0.359744490592397
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_33,agg,CV_biomass,CV,0.325991434228402
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_34,agg,CV_biomass,CV,0.4016347815189252
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,B_54,agg,CV_biomass,CV,0.2736491468263309
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_26,agg,CV_biomass,CV,0.4283749266129963
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_39,agg,CV_biomass,CV,0.49544756387466704
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_41,agg,CV_biomass,CV,0.49468235803115385
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_43,agg,CV_biomass,CV,0.28055918890696274
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_47,agg,CV_biomass,CV,0.31274406848284575
+L3-cdr-plantsABC-compagnoni.csv,1iJEhY82nu9PVw1yVVxjGr7-hO1DnqjQz,1982,2004,23,22,local,BIOMASS,C_8,agg,CV_biomass,CV,0.3851489073234667
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,local,BIOMASS,D_1,comp,BD_h,BD,0.4992835924277004
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,local,BIOMASS,D_17,comp,BD_h,BD,0.4343309573234866
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,local,BIOMASS,D_36,comp,BD_h,BD,0.4932490482321034
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,local,BIOMASS,D_38,comp,BD_h,BD,0.41942758730628493
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,local,BIOMASS,D_39,comp,BD_h,BD,0.40498563126595916
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,local,BIOMASS,D_1,agg,CV_biomass,CV,0.7527455079226637
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,local,BIOMASS,D_17,agg,CV_biomass,CV,0.4918933779194407
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,local,BIOMASS,D_36,agg,CV_biomass,CV,0.4840472080407743
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,local,BIOMASS,D_38,agg,CV_biomass,CV,0.40487570331329475
+L3-cdr-plantsD-compagnoni.csv,1OK4nBDmHiHgdNwQStwb8F_stVqqsERJm,1982,2004,23,22,local,BIOMASS,D_39,agg,CV_biomass,CV,0.4461328886014118
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL01,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL02,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL03,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL04,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL05,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL06,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL07,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL08,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL09,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL10,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL11,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL12,comp,BD_h,BD,0
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL01,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL02,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL03,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL04,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL05,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL06,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL07,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL08,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL09,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL10,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL11,agg,CV_biomass,CV,NA
+L3-and-plants-mtStHelens.csv,18fEHgvT0mcHuiLY1H3h-bOl41wVEcL5S,1989,2009,21,20,local,PERCENT_COVER,PUPL12,agg,CV_biomass,CV,NA
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,100,comp,BD_h,BD,0.09491005010499266
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,111,comp,BD_h,BD,0.12658389341542203
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,115,comp,BD_h,BD,0.11640248191196192
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,132,comp,BD_h,BD,0.14289035877075099
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,148,comp,BD_h,BD,0.13753233009462928
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,164,comp,BD_h,BD,0.09602123957641234
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,171,comp,BD_h,BD,0.18689782146937303
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,179,comp,BD_h,BD,0.0967773215914678
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,196,comp,BD_h,BD,0.07083007962794267
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,199,comp,BD_h,BD,0.08728748281408938
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,207,comp,BD_h,BD,0.15188246274011458
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,212,comp,BD_h,BD,0.14193540600430024
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,219,comp,BD_h,BD,0.3827198389548202
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,223,comp,BD_h,BD,0.16148823123619227
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,228,comp,BD_h,BD,0.16793535510298582
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,23,comp,BD_h,BD,0.0770074395712056
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,235,comp,BD_h,BD,0.2726498254197298
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,236,comp,BD_h,BD,0.12050533481337308
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,243,comp,BD_h,BD,0.09450661306048051
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,254,comp,BD_h,BD,0.47291714020565945
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,255,comp,BD_h,BD,0.17346465185071253
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,36,comp,BD_h,BD,0.10030525725082029
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,39,comp,BD_h,BD,0.15121161376779704
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,4,comp,BD_h,BD,0.11567045226695825
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,47,comp,BD_h,BD,0.102796649710664
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,55,comp,BD_h,BD,0.19920219452168678
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,60,comp,BD_h,BD,0.12856262282802025
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,68,comp,BD_h,BD,0.1581032897940664
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,7,comp,BD_h,BD,0.20100743210330213
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,84,comp,BD_h,BD,0.23449208826129173
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,100,agg,CV_biomass,CV,1.1547005383827139e-5
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,111,agg,CV_biomass,CV,0.011075951441266848
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,115,agg,CV_biomass,CV,0.021776455963363327
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,132,agg,CV_biomass,CV,7.559343455472847e-6
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,148,agg,CV_biomass,CV,0.0014358428751525942
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,164,agg,CV_biomass,CV,1.825741858348893e-5
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,171,agg,CV_biomass,CV,0.0045262830315424725
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,179,agg,CV_biomass,CV,0.0029428338996090567
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,196,agg,CV_biomass,CV,0.004295046795281309
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,199,agg,CV_biomass,CV,0.006910337274317673
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,207,agg,CV_biomass,CV,0.005763858229451759
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,212,agg,CV_biomass,CV,0.0019094063577863472
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,219,agg,CV_biomass,CV,0.01351133137377984
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,223,agg,CV_biomass,CV,0.010905314740554844
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,228,agg,CV_biomass,CV,1.57360956904888e-5
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,23,agg,CV_biomass,CV,0.011859810592267744
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,235,agg,CV_biomass,CV,0.021871294258767986
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,236,agg,CV_biomass,CV,0.0015200475418672885
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,243,agg,CV_biomass,CV,0.0029426147634234053
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,254,agg,CV_biomass,CV,0.005714631736547082
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,255,agg,CV_biomass,CV,0.007539150845657982
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,36,agg,CV_biomass,CV,0.0074371554650147125
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,39,agg,CV_biomass,CV,0.01809269927576095
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,4,agg,CV_biomass,CV,0.008881036196293867
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,47,agg,CV_biomass,CV,0.0014579518947046245
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,55,agg,CV_biomass,CV,0.0680130187845246
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,60,agg,CV_biomass,CV,0.0019093888611528558
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,68,agg,CV_biomass,CV,0.0038126588501373724
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,7,agg,CV_biomass,CV,0.015920341250474482
+L3-fce-diatoms-catano.csv,1twY-ZsfAkgQDzxXBhbn074O7lDks2KCT,2005,2011,7,6,local,PERCENT,84,agg,CV_biomass,CV,0.004173143909110948
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),100,comp,BD_h,BD,0.2949739076667329
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),139,comp,BD_h,BD,0.18456194474085796
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),142,comp,BD_h,BD,0.16939882590708127
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),145,comp,BD_h,BD,0.2120685319880433
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),148,comp,BD_h,BD,0.09447810253410088
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),151,comp,BD_h,BD,0.09368335694989158
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),190,comp,BD_h,BD,0.15574262354238946
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),193,comp,BD_h,BD,0.08934571368583037
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),196,comp,BD_h,BD,0.22299017029752832
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),199,comp,BD_h,BD,0.28701565138354823
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),202,comp,BD_h,BD,0.16151648172977223
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),241,comp,BD_h,BD,0.2162168072023075
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),244,comp,BD_h,BD,0.19869432138872958
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),247,comp,BD_h,BD,0.2086053332064372
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),250,comp,BD_h,BD,0.169091266721744
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),253,comp,BD_h,BD,0.23176965505653574
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),292,comp,BD_h,BD,0.1491007947873214
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),295,comp,BD_h,BD,0.2312027075675827
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),298,comp,BD_h,BD,0.25849160671280363
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),301,comp,BD_h,BD,0.2002535425051447
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),304,comp,BD_h,BD,0.1685119110709413
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),343,comp,BD_h,BD,0.14186690076044153
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),346,comp,BD_h,BD,0.14624325119745601
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),349,comp,BD_h,BD,0.2442297375439936
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),352,comp,BD_h,BD,0.21726111384648106
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),355,comp,BD_h,BD,0.17795644680382008
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),37,comp,BD_h,BD,0.23332689292006262
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),394,comp,BD_h,BD,0.12744776525222012
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),397,comp,BD_h,BD,0.25377134102966226
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),40,comp,BD_h,BD,0.11149204550203583
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),400,comp,BD_h,BD,0.24390896873015738
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),403,comp,BD_h,BD,0.2574257620957472
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),406,comp,BD_h,BD,0.2883488253851489
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),43,comp,BD_h,BD,0.22631975746804503
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),46,comp,BD_h,BD,0.1996429272717925
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),49,comp,BD_h,BD,0.3924297343893167
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),88,comp,BD_h,BD,0.33359406332608676
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),91,comp,BD_h,BD,0.2855389611283923
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),94,comp,BD_h,BD,0.3109012408320105
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),97,comp,BD_h,BD,0.18430537618154236
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),100,agg,CV_biomass,CV,0.6674524448179436
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),139,agg,CV_biomass,CV,0.7669586779234341
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),142,agg,CV_biomass,CV,0.5321627979625055
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),145,agg,CV_biomass,CV,0.7112003844355801
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),148,agg,CV_biomass,CV,0.30218182254284665
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),151,agg,CV_biomass,CV,0.3767656515403847
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),190,agg,CV_biomass,CV,0.3798248031306587
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),193,agg,CV_biomass,CV,0.3663296833321977
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),196,agg,CV_biomass,CV,0.632510927820333
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),199,agg,CV_biomass,CV,0.7422347754992875
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),202,agg,CV_biomass,CV,0.7005051960513324
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),241,agg,CV_biomass,CV,0.9517266950307317
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),244,agg,CV_biomass,CV,0.8170364709325487
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),247,agg,CV_biomass,CV,0.8267760194119492
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),250,agg,CV_biomass,CV,0.6038523164207082
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),253,agg,CV_biomass,CV,0.7746120843418131
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),292,agg,CV_biomass,CV,0.43188938066870564
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),295,agg,CV_biomass,CV,0.7152009923746985
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),298,agg,CV_biomass,CV,0.5576367314741673
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),301,agg,CV_biomass,CV,0.48435555681151127
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),304,agg,CV_biomass,CV,0.47902099332115
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),343,agg,CV_biomass,CV,0.6308490387570183
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),346,agg,CV_biomass,CV,0.4250145953029771
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),349,agg,CV_biomass,CV,0.5966398049272218
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),352,agg,CV_biomass,CV,0.5752646754848836
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),355,agg,CV_biomass,CV,0.5760861255815091
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),37,agg,CV_biomass,CV,0.5560133113436377
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),394,agg,CV_biomass,CV,0.4989557216653958
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),397,agg,CV_biomass,CV,0.7646050785210362
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),40,agg,CV_biomass,CV,0.34660019257589664
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),400,agg,CV_biomass,CV,0.589581683903358
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),403,agg,CV_biomass,CV,0.8789712731101376
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),406,agg,CV_biomass,CV,0.6286467055997064
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),43,agg,CV_biomass,CV,0.6859531101587636
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),46,agg,CV_biomass,CV,0.434935682963956
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),49,agg,CV_biomass,CV,1.3335054273427573
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),88,agg,CV_biomass,CV,0.5397473120657384
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),91,agg,CV_biomass,CV,0.44370184553452147
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),94,agg,CV_biomass,CV,0.7036013640430774
+L3-luq-snails-compagnoni.csv,11xfteAue9eXtZeCotUCazUMzXraWXiVt,1991,2017,27,26,local,COUNT (yearly mean),97,agg,CV_biomass,CV,0.37207484342039626
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf10,comp,BD_h,BD,0.6120554590229159
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf100,comp,BD_h,BD,0.41295520984869777
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf101,comp,BD_h,BD,0.07340136762890959
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf14,comp,BD_h,BD,0.7867081237094489
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf146,comp,BD_h,BD,0.26549473351885694
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf157,comp,BD_h,BD,0.1698587291917771
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf171,comp,BD_h,BD,0.37566140919646124
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf174,comp,BD_h,BD,0.18218178399191765
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf179,comp,BD_h,BD,0.9087513043165925
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf189,comp,BD_h,BD,0.6585786437626905
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf19,comp,BD_h,BD,0.6291274893884188
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf25,comp,BD_h,BD,0.8683503419072274
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf29,comp,BD_h,BD,0.03485162832988926
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf30,comp,BD_h,BD,0.5350757696766941
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf32,comp,BD_h,BD,0.38509201424301615
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf36,comp,BD_h,BD,0.6266636805602737
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf38,comp,BD_h,BD,0.6775255128608412
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf57,comp,BD_h,BD,0.8292893218813453
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf60,comp,BD_h,BD,0.5613248654051871
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf65,comp,BD_h,BD,0.24841447288552923
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf66,comp,BD_h,BD,0.1690598923241497
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS1,comp,BD_h,BD,0.35229365234254073
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS14,comp,BD_h,BD,0.5378679656440358
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS20,comp,BD_h,BD,0.44350815457758347
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS23,comp,BD_h,BD,0.4808350492470014
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS25,comp,BD_h,BD,0.3843253294014269
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS28,comp,BD_h,BD,0.31519597543821115
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS29,comp,BD_h,BD,0.6613105177998576
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS31,comp,BD_h,BD,0.24998349211733903
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS33,comp,BD_h,BD,0.5511966128287414
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS37,comp,BD_h,BD,0.6960941988739946
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS4,comp,BD_h,BD,0.2910243830645536
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS40,comp,BD_h,BD,0.6337216359640785
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS43,comp,BD_h,BD,0.5537178020011817
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS44,comp,BD_h,BD,0.3051073745830609
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS46,comp,BD_h,BD,0.4195334424713954
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS49,comp,BD_h,BD,0.1875289084094635
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS53,comp,BD_h,BD,0.48405025886636105
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS55,comp,BD_h,BD,0.07411309291195323
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS57,comp,BD_h,BD,0.11526000238083547
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS59,comp,BD_h,BD,0.430228488628346
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS63,comp,BD_h,BD,0.2892298295187432
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS64,comp,BD_h,BD,0.3702501802272653
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS7,comp,BD_h,BD,0.26061976667691067
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS70,comp,BD_h,BD,0.8422649730810374
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS73,comp,BD_h,BD,0.14061079908863972
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS76,comp,BD_h,BD,0.6367006838144548
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS79,comp,BD_h,BD,0.4121330654060528
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS80,comp,BD_h,BD,0.5039758465375341
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS82,comp,BD_h,BD,0.6504370074320823
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS83,comp,BD_h,BD,0.7135024666296741
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS84,comp,BD_h,BD,0.3578394644716407
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf10,agg,CV_biomass,CV,0.5590169943749475
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf100,agg,CV_biomass,CV,0.6448868249648403
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf101,agg,CV_biomass,CV,0.37267799624996495
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf14,agg,CV_biomass,CV,1.2538030789022732
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf146,agg,CV_biomass,CV,1.1737099964255833
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf157,agg,CV_biomass,CV,0.4193699290716955
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf171,agg,CV_biomass,CV,1.3111461811674634
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf174,agg,CV_biomass,CV,0.8749471666213328
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf179,agg,CV_biomass,CV,1.0865337342004415
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf189,agg,CV_biomass,CV,1.0458250331675945
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf19,agg,CV_biomass,CV,0.5046083923495819
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf25,agg,CV_biomass,CV,0.21066252211737155
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf29,agg,CV_biomass,CV,0.7975554366664507
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf30,agg,CV_biomass,CV,0.5134898976610932
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf32,agg,CV_biomass,CV,1.0458250331675945
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf36,agg,CV_biomass,CV,0.5046083923495819
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf38,agg,CV_biomass,CV,0.3440104580768907
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf57,agg,CV_biomass,CV,0.37267799624996495
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf60,agg,CV_biomass,CV,0.46565731465733207
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf65,agg,CV_biomass,CV,0.7424387367168943
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,uf66,agg,CV_biomass,CV,0.6972166887783964
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS1,agg,CV_biomass,CV,1.0540925533894598
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS14,agg,CV_biomass,CV,0.24845199749997662
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS20,agg,CV_biomass,CV,0.7144207271806515
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS23,agg,CV_biomass,CV,0.5160156871153361
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS25,agg,CV_biomass,CV,0.7569125885243729
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS28,agg,CV_biomass,CV,0.7022800573215535
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS29,agg,CV_biomass,CV,0.7817359599705717
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS31,agg,CV_biomass,CV,0.42632831234153096
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS33,agg,CV_biomass,CV,0.15214515486254612
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS37,agg,CV_biomass,CV,0.4979295977319691
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS4,agg,CV_biomass,CV,1.183311775218017
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS40,agg,CV_biomass,CV,0.8498365855987974
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS43,agg,CV_biomass,CV,0.8608119596734803
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS44,agg,CV_biomass,CV,0.5456478433917884
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS46,agg,CV_biomass,CV,0.9381845828080342
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS49,agg,CV_biomass,CV,0.5235475903822738
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS53,agg,CV_biomass,CV,0.31671539586087166
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS55,agg,CV_biomass,CV,0.5624291338579865
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS57,agg,CV_biomass,CV,0.5826944928282044
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS59,agg,CV_biomass,CV,0.6000923289995463
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS63,agg,CV_biomass,CV,0.4914033706918103
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS64,agg,CV_biomass,CV,0.6381639835628189
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS7,agg,CV_biomass,CV,0.33054679890192257
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS70,agg,CV_biomass,CV,0.5590169943749473
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS73,agg,CV_biomass,CV,0.573340843812292
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS76,agg,CV_biomass,CV,0.7382294351771255
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS79,agg,CV_biomass,CV,0.2049425795689608
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS80,agg,CV_biomass,CV,0.668977476599572
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS82,agg,CV_biomass,CV,0.5760122598146589
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS83,agg,CV_biomass,CV,0.6986885432532672
+L3-bes-birds-nilon.csv,1ozkicOn1NPNcpe-s_-6WK8YtgqqmmTQV,2005,2009,5,4,local,count,WS84,agg,CV_biomass,CV,0.5473452081269226
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),21,comp,BD_h,BD,0.21068477136385189
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),24,comp,BD_h,BD,0.22438691445371822
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),26,comp,BD_h,BD,0.34382241475690706
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),27,comp,BD_h,BD,0.28752373682494786
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),32,comp,BD_h,BD,0.34889042421336663
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),35,comp,BD_h,BD,0.28724744345448594
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),39,comp,BD_h,BD,0.20542211089723408
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),4,comp,BD_h,BD,0.2783957747873235
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),40,comp,BD_h,BD,0.2137610674395018
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),41,comp,BD_h,BD,0.18121411700176462
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),44,comp,BD_h,BD,0.18731064429875266
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),45,comp,BD_h,BD,0.23176147853242893
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),47,comp,BD_h,BD,0.20767923315921638
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),5,comp,BD_h,BD,0.27189451329582637
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),53,comp,BD_h,BD,0.24580305734619262
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),70,comp,BD_h,BD,0.20556429657387248
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),72,comp,BD_h,BD,0.25789493377625733
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),76,comp,BD_h,BD,0.4018842734673787
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),77,comp,BD_h,BD,0.31785662370950674
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),21,agg,CV_biomass,CV,0.6877659301381175
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),24,agg,CV_biomass,CV,0.6892513954393016
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),26,agg,CV_biomass,CV,0.578004859547454
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),27,agg,CV_biomass,CV,0.7926857149868145
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),32,agg,CV_biomass,CV,0.9232640958477922
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),35,agg,CV_biomass,CV,0.8415904546037082
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),39,agg,CV_biomass,CV,0.6136746262455093
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),4,agg,CV_biomass,CV,1.3687646046908222
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),40,agg,CV_biomass,CV,0.7125972364132578
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),41,agg,CV_biomass,CV,0.6029897582387287
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),44,agg,CV_biomass,CV,0.7251045679574567
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),45,agg,CV_biomass,CV,0.8456497948321747
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),47,agg,CV_biomass,CV,0.7063140442827114
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),5,agg,CV_biomass,CV,0.8826707619512325
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),53,agg,CV_biomass,CV,0.644878009010484
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),70,agg,CV_biomass,CV,0.7596664294301121
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),72,agg,CV_biomass,CV,0.5636101692933742
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),76,agg,CV_biomass,CV,0.7190279702555971
+L3-cdr-grasshopper-compagnoni.csv,1UzmNyjqOCNrRpagCCLXsHMlSlyM1WJN_,1989,2006,18,17,local,COUNT (monthly sum),77,agg,CV_biomass,CV,0.5486136538370793
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,13NW,comp,BD_h,BD,0.37601134223019717
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,13SW,comp,BD_h,BD,0.3463030816316429
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,24NE,comp,BD_h,BD,0.35060600209652537
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,25NE,comp,BD_h,BD,0.25907410549096377
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,26NW,comp,BD_h,BD,0.30681146602406695
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,27NE,comp,BD_h,BD,0.28094983360993436
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,13NW,agg,CV_biomass,CV,0.5201367337391596
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,13SW,agg,CV_biomass,CV,0.4957134967064001
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,24NE,agg,CV_biomass,CV,0.5309940356606959
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,25NE,agg,CV_biomass,CV,0.36803651833504125
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,26NW,agg,CV_biomass,CV,0.3994887736899105
+L3-sgs-plants-catano.csv,1osf8W0yTs4gYjGBvbgnz92p2vZ5G08lm,1999,2006,8,7,local,PCT_COVER,27NE,agg,CV_biomass,CV,0.4679708693449317
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),001d_a_fl,comp,BD_h,BD,0.2668095401663736
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),001d_b_fl,comp,BD_h,BD,0.18129038817289672
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),002c_a_fl,comp,BD_h,BD,0.195472871633364
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),002c_b_fl,comp,BD_h,BD,0.23234969853332202
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),002d_a_fl,comp,BD_h,BD,0.23439498014544338
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),002d_b_fl,comp,BD_h,BD,0.2450046378196375
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),004b_a_fl,comp,BD_h,BD,0.2982365013185341
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),004b_b_fl,comp,BD_h,BD,0.26962515455551317
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),004f_a_fl,comp,BD_h,BD,0.2543881272924984
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),004f_b_fl,comp,BD_h,BD,0.2918480101559536
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),0spb_a_fl,comp,BD_h,BD,0.19445350103020947
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),0spb_b_fl,comp,BD_h,BD,0.19503498338738767
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),0sub_b_fl,comp,BD_h,BD,0.31915992886233496
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),001d_a_fl,agg,CV_biomass,CV,0.9555930270795877
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),001d_b_fl,agg,CV_biomass,CV,0.6454159018826203
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),002c_a_fl,agg,CV_biomass,CV,0.8770954580418173
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),002c_b_fl,agg,CV_biomass,CV,0.8542377673257389
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),002d_a_fl,agg,CV_biomass,CV,0.7090610160451828
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),002d_b_fl,agg,CV_biomass,CV,0.7308047950373839
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),004b_a_fl,agg,CV_biomass,CV,1.1568971732095077
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),004b_b_fl,agg,CV_biomass,CV,0.8104846863590677
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),004f_a_fl,agg,CV_biomass,CV,0.9081477805969616
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),004f_b_fl,agg,CV_biomass,CV,0.6882101848029802
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),0spb_a_fl,agg,CV_biomass,CV,0.5897852236567526
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),0spb_b_fl,agg,CV_biomass,CV,0.6941836662967564
+L3-knz-grasshopper-compagnoni.csv,1FliDv4JFu732-2VLlfR4f3FIZPGcZrI5,1996,2015,19,19,local,COUNT (average),0sub_b_fl,agg,CV_biomass,CV,0.8831231707706769
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,10_RB,comp,BD_h,BD,0.22110812125056498
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,11_RB,comp,BD_h,BD,0.3089073766570449
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,12_RB,comp,BD_h,BD,0.41867018607845125
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,13_RB,comp,BD_h,BD,0.434658088235101
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,14_RB,comp,BD_h,BD,0.5214842079990061
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,15_RB,comp,BD_h,BD,0.4627619705004099
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,16_RB,comp,BD_h,BD,0.5769078904449131
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,7_RB,comp,BD_h,BD,0.35474256131008697
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,8_RB,comp,BD_h,BD,0.404412885997105
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,9_RB,comp,BD_h,BD,0.29216191865132446
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,10_RB,agg,CV_biomass,CV,0.5631016965877702
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,11_RB,agg,CV_biomass,CV,0.7528507633429457
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,12_RB,agg,CV_biomass,CV,0.6539008478902077
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,13_RB,agg,CV_biomass,CV,0.5562319426257868
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,14_RB,agg,CV_biomass,CV,0.7464610622475276
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,15_RB,agg,CV_biomass,CV,1.3581728920280545
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,16_RB,agg,CV_biomass,CV,0.49366162351442827
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,7_RB,agg,CV_biomass,CV,0.6487970752462578
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,8_RB,agg,CV_biomass,CV,1.1451876594568833
+L3-fce-fish-rehageDry.csv,19_8JhIAxcaBw69OShxlkDfF3i0Ml97GJ,2006,2017,11,11,local,CPUE = (COUNT / DISTANCE (M))*100,9_RB,agg,CV_biomass,CV,0.6038131111334092
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Ave35,comp,BD_h,BD,0.12125963969868697
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Ave67,comp,BD_h,BD,0.12027847534801507
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,BM,comp,BD_h,BD,0.07946483338147543
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Price,comp,BD_h,BD,0.05400823278710952
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Priest,comp,BD_h,BD,0.0882456893887878
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Rio,comp,BD_h,BD,0.054761636529175234
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Tonto,comp,BD_h,BD,0.14679913086910373
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Ave35,agg,CV_biomass,CV,0.3938058742651008
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Ave67,agg,CV_biomass,CV,0.26577644574637044
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,BM,agg,CV_biomass,CV,0.29487256691178265
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Price,agg,CV_biomass,CV,0.34271769487632864
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Priest,agg,CV_biomass,CV,0.4324125453988154
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Rio,agg,CV_biomass,CV,0.5348360063690863
+L3-cap-herps-banville.csv,19Gu7nuSiUmIKUyP2qz0x9MBKMmOJxbFV,2013,2017,5,4,local,count,Tonto,agg,CV_biomass,CV,0.42631131299496317
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,AL,comp,BD_h,BD,0.23086007887304788
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,BM,comp,BD_h,BD,0.22438410268016826
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,CB,comp,BD_h,BD,0.34921606886284107
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,CR,comp,BD_h,BD,0.25455313371819127
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,SP,comp,BD_h,BD,0.22831420068499733
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,TB,comp,BD_h,BD,0.43502710826406155
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,TR,comp,BD_h,BD,0.19521193860691002
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,AL,agg,CV_biomass,CV,0.4457781278503032
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,BM,agg,CV_biomass,CV,0.4358559821799209
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,CB,agg,CV_biomass,CV,0.6634536820461217
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,CR,agg,CV_biomass,CV,0.30846329688089874
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,SP,agg,CV_biomass,CV,0.4776520319418377
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,TB,agg,CV_biomass,CV,1.4107879278642357
+L3-ntl-zooplankton-stanleyLottig.csv,0B2P104M94skvcUl6eGhhSDhtaDA,1982,2015,34,33,local,max annual density; number per liter,TR,agg,CV_biomass,CV,0.3922670733018448
