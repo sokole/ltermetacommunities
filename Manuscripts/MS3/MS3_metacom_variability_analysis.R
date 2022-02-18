@@ -1,6 +1,7 @@
 library(here)
 library(tidyverse)
 library(ggthemes)
+library(patchwork)
 
 theme_set(theme_base() + 
             theme(plot.background = element_blank(),
@@ -23,32 +24,68 @@ local_var <- data_list %>%
   rename(dataset_file_name = l3_filename) %>% 
   left_join(local_var, by = "dataset_file_name")
 
-
 # check for local diversity-stability relationships
-local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism, metric, metric_value) %>% 
+local_divstab_comp_fig <- local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism_group, metric, metric_value) %>% 
   pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
                           
   ggplot(aes(x = site_mean_alpha_div, y = BD)) + 
-  geom_point(mapping = aes(grouping = dataset_id, color = organism), alpha = 0.5) + 
-  geom_smooth(mapping = aes(grouping = dataset_id, color = organism), method = "lm", se = F) + 
-  geom_smooth(method = "lm", se = F, color = "black", size = 2) +
-  labs(x = "Mean alpha-diversity", y = "Local compositional variability (BD)")
+  geom_point(mapping = aes(grouping = dataset_id, color = organism_group), alpha = 0.3) + 
+  geom_smooth(mapping = aes(grouping = dataset_id, color = organism_group), method = "lm", se = F) + 
+  geom_smooth(method = "lm", se = F, color = "black", size = 2, linetype = "dashed") +
+  labs(x = "Mean alpha-diversity", y = "Local compositional variability (BD)", color = "Organism group") + 
+  scale_color_manual(values = pal)
+local_divstab_comp_fig
 
-local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism, metric, metric_value) %>% 
+local_divstab_agg_fig <- local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism_group, metric, metric_value) %>% 
   pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
   
   ggplot(aes(x = site_mean_alpha_div, y = CV)) + 
-  geom_point(mapping = aes(grouping = dataset_id, color = organism), alpha = 0.5) + 
-  geom_smooth(mapping = aes(grouping = dataset_id, color = organism), method = "lm", se = F) + 
+  geom_point(mapping = aes(grouping = dataset_id, color = organism_group), alpha = 0.3) + 
+  geom_smooth(mapping = aes(grouping = dataset_id, color = organism_group), method = "lm", se = F) + 
   geom_smooth(method = "lm", se = F, color = "black", size = 2) +
-  labs(x = "Mean alpha-diversity", y = "Local aggregate variability (CV)")
+  labs(x = "Mean alpha-diversity", y = "Local aggregate variability (CV)", color = "Organism group") + 
+  scale_color_manual(values = pal)
+
+
+local_divstab_regs <- local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism_group, metric, metric_value) %>% 
+  pivot_wider(names_from = "metric", values_from = "metric_value")
+summary(lm(BD ~ site_mean_alpha_div, data = local_divstab_regs))
+summary(lm(CV ~ site_mean_alpha_div, data = local_divstab_regs))
+
+local_divstab_fig <- local_divstab_agg_fig + local_divstab_comp_fig + 
+  plot_layout(ncol = 1, guides = "collect") + plot_annotation(tag_levels = "A")
+ggsave(filename = here("Manuscripts/MS3/figs/local_divstab_fig.png"), plot = local_divstab_fig, dpi = 600, width = 6, height = 6*3/4*2, bg = "white")
+
+
 
 # Relative importance of local and spatial variability for regional variability
-lm_gamma_alpha <- lm(log(gamma_var) ~ log(alpha_var), 
-                     data = h.wide)
-par(mfrow = c(2,2))
-plot(lm_gamma_alpha) # assumptions met
-summary(lm_gamma_alpha)
+metacom_divstab_comp_dat <- metacom_var %>% select(dataset_id, `LTER site`, organism_group, variability_type, standardization_method, metric, metric_value) %>% 
+  filter(standardization_method == "h") %>% 
+  pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
+  left_join(metacom_var %>% 
+              filter(variability_type == "divpart_time_series") %>% 
+              select(dataset_id, metric, metric_value) %>% 
+              pivot_wider(names_from = "metric", values_from = "metric_value"), 
+            by = "dataset_id")
+
+summary(lm(gamma_var_rate ~ gamma_div_mean, data = metacom_divstab_comp_dat))
+summary(lm(phi_var ~ beta_div_mean, data = metacom_divstab_comp_dat))
+summary(lm(alpha_var_rate ~ alpha_div_mean, data = metacom_divstab_comp_dat))
+
+metacom_divstab_agg_dat <- metacom_var %>% select(dataset_id, `LTER site`, organism_group, variability_type, metric, metric_value) %>% 
+  filter(variability_type == "agg") %>% 
+  pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
+  left_join(metacom_var %>% 
+              filter(variability_type == "divpart_time_series") %>% 
+              select(dataset_id, metric, metric_value) %>% 
+              pivot_wider(names_from = "metric", values_from = "metric_value"), 
+            by = "dataset_id")
+
+summary(lm(gamma_var_rate ~ gamma_div_mean, data = metacom_divstab_agg_dat))
+summary(lm(phi_var ~ beta_div_mean, data = metacom_divstab_agg_dat))
+summary(lm(alpha_var_rate ~ alpha_div_mean, data = metacom_divstab_agg_dat))
+
+
 
 (alpha_vs_gamma_var <- ggplot(aes(x = (alpha_var_rate), y = (gamma_var_rate), label = site),
                               data = h.wide) +
