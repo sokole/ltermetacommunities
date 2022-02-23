@@ -2,6 +2,7 @@ library(here)
 library(tidyverse)
 library(ggthemes)
 library(patchwork)
+library(broom)
 
 theme_set(theme_base() + 
             theme(plot.background = element_blank(),
@@ -20,45 +21,18 @@ metacom_var <- data_list %>%
   rename(dataset_file_name = l3_filename) %>% 
   left_join(metacom_var, by = "dataset_file_name")
 
+organism_group_key <- (metacom_var %>% 
+    select(dataset_id, organism_group)) %>% distinct()
+
 local_var <- data_list %>% 
   rename(dataset_file_name = l3_filename) %>% 
   left_join(local_var, by = "dataset_file_name")
 
-# check for local diversity-stability relationships
-local_divstab_comp_fig <- local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism_group, metric, metric_value) %>% 
-  pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
-                          
-  ggplot(aes(x = site_mean_alpha_div, y = BD)) + 
-  geom_point(mapping = aes(grouping = dataset_id, color = organism_group), alpha = 0.3) + 
-  geom_smooth(mapping = aes(grouping = dataset_id, color = organism_group), method = "lm", se = F) + 
-  geom_smooth(method = "lm", se = F, color = "black", size = 2, linetype = "dashed") +
-  labs(x = "Mean alpha-diversity", y = "Local compositional variability (BD)", color = "Organism group") + 
-  scale_color_manual(values = pal)
-local_divstab_comp_fig
+unique(local_var$dataset_id) #33
+unique(metacom_var$dataset_id) #33
 
-local_divstab_agg_fig <- local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism_group, metric, metric_value) %>% 
-  pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
-  
-  ggplot(aes(x = site_mean_alpha_div, y = CV)) + 
-  geom_point(mapping = aes(grouping = dataset_id, color = organism_group), alpha = 0.3) + 
-  geom_smooth(mapping = aes(grouping = dataset_id, color = organism_group), method = "lm", se = F) + 
-  geom_smooth(method = "lm", se = F, color = "black", size = 2) +
-  labs(x = "Mean alpha-diversity", y = "Local aggregate variability (CV)", color = "Organism group") + 
-  scale_color_manual(values = pal)
+# set up data frames
 
-
-local_divstab_regs <- local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism_group, metric, metric_value) %>% 
-  pivot_wider(names_from = "metric", values_from = "metric_value")
-summary(lm(BD ~ site_mean_alpha_div, data = local_divstab_regs))
-summary(lm(CV ~ site_mean_alpha_div, data = local_divstab_regs))
-
-local_divstab_fig <- local_divstab_agg_fig + local_divstab_comp_fig + 
-  plot_layout(ncol = 1, guides = "collect") + plot_annotation(tag_levels = "A")
-ggsave(filename = here("Manuscripts/MS3/figs/local_divstab_fig.png"), plot = local_divstab_fig, dpi = 600, width = 6, height = 6*3/4*2, bg = "white")
-
-
-
-# Relative importance of local and spatial variability for regional variability
 metacom_divstab_comp_dat <- metacom_var %>% select(dataset_id, `LTER site`, organism_group, variability_type, standardization_method, metric, metric_value) %>% 
   filter(standardization_method == "h") %>% 
   pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
@@ -67,10 +41,6 @@ metacom_divstab_comp_dat <- metacom_var %>% select(dataset_id, `LTER site`, orga
               select(dataset_id, metric, metric_value) %>% 
               pivot_wider(names_from = "metric", values_from = "metric_value"), 
             by = "dataset_id")
-
-summary(lm(gamma_var_rate ~ gamma_div_mean, data = metacom_divstab_comp_dat))
-summary(lm(phi_var ~ beta_div_mean, data = metacom_divstab_comp_dat))
-summary(lm(alpha_var_rate ~ alpha_div_mean, data = metacom_divstab_comp_dat))
 
 metacom_divstab_agg_dat <- metacom_var %>% select(dataset_id, `LTER site`, organism_group, variability_type, metric, metric_value) %>% 
   filter(variability_type == "agg") %>% 
@@ -81,93 +51,111 @@ metacom_divstab_agg_dat <- metacom_var %>% select(dataset_id, `LTER site`, organ
               pivot_wider(names_from = "metric", values_from = "metric_value"), 
             by = "dataset_id")
 
-summary(lm(gamma_var_rate ~ gamma_div_mean, data = metacom_divstab_agg_dat))
-summary(lm(phi_var ~ beta_div_mean, data = metacom_divstab_agg_dat))
-summary(lm(alpha_var_rate ~ alpha_div_mean, data = metacom_divstab_agg_dat))
+sum(metacom_divstab_agg_dat$dataset_id %in% metacom_divstab_comp_dat$dataset_id)
+
+local_var <- local_var %>% filter(dataset_id %in% metacom_divstab_agg_dat$dataset_id)
+
+local_divstab_regs <-  local_var %>% 
+  select(dataset_id, `LTER site`, SITE_ID, organism_group, metric, metric_value) %>% 
+  pivot_wider(names_from = "metric", values_from = "metric_value")
+
+
+# 2. LOCAL DIVERSITY STABILITY -----------------------------------------------
+# This shows patterns within metacommunities about local community richness and variability
+# Then compares across all sites, to show that sometimes these local relationships are stronger than others
+
+local_div_stab_comp_alpha_mod <- lm(BD ~ site_mean_alpha_div, data = local_divstab_regs)
+local_div_stab_comp_alpha_fit <- glance(local_div_stab_comp_alpha_mod)
+(p_val <- as.character(round(local_div_stab_comp_alpha_fit$p.value,2))) # 0.16
+(r2 <- as.character(round(local_div_stab_comp_alpha_fit$r.squared,2))) # 0.
+
+
+local_divstab_comp_fig <- local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism_group, metric, metric_value) %>% 
+  pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
+                          
+  ggplot(aes(x = site_mean_alpha_div, y = BD)) + 
+  geom_point(mapping = aes(group = dataset_id, color = organism_group), alpha = 0.3) + 
+  geom_smooth(mapping = aes(group= dataset_id, color = organism_group), method = "lm", se = F, show.legend = FALSE) + 
+  #geom_smooth(method = "lm", se = F, color = "black", size = 2, linetype = "dashed") +
+  labs(x = expression(paste("Mean ", alpha, "-diversity")), y = expression(paste("Comp. ", alpha, "-variability (", BD^h[alpha],")")), color = "Organism group") + 
+  scale_color_manual(values = pal) +
+  annotate("text", x = 40, y = 0.8, label = bquote(atop(paste(R^2, "= 0.004", ),
+                                                        "p = 0.157")))
+local_divstab_comp_fig
+
+
+local_div_stab_agg_alpha_mod <- lm(CV ~ site_mean_alpha_div, data = local_divstab_regs)
+local_div_stab_agg_alpha_fit <- glance(local_div_stab_agg_alpha_mod)
+(p_val <- as.character(round(local_div_stab_agg_alpha_fit$p.value,2))) # 0.
+(r2 <- as.character(round(local_div_stab_agg_alpha_fit$r.squared,2))) # 0.09
+
+local_divstab_agg_fig <- local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism_group, metric, metric_value) %>% 
+  pivot_wider(names_from = "metric", values_from = "metric_value") %>% 
+  
+  ggplot(aes(x = site_mean_alpha_div, y = CV)) + 
+  geom_point(mapping = aes(group = dataset_id, color = organism_group), alpha = 0.3) + 
+  geom_smooth(mapping = aes(group = dataset_id, color = organism_group), method = "lm", se = F, show.legend = FALSE) + 
+  geom_smooth(method = "lm", se = F, color = "black", size = 2) +
+  labs(x = expression(paste("Mean ", alpha, "-diversity")), y = expression(paste("Agg. ", alpha, "-variability (CV)")), color = "Organism group") + 
+  scale_color_manual(values = pal) +
+  annotate("text", x = 40, y = 1.5, label = bquote(atop(paste(R^2, "= 0.09", ),
+                                                          "p < 6e-12")))
+local_divstab_agg_fig
+
+
+local_divstab_fig <- local_divstab_agg_fig + local_divstab_comp_fig + 
+  plot_layout(ncol = 1, guides = "collect") + plot_annotation(tag_levels = "A")
+ggsave(filename = here("Manuscripts/MS3/figs/local_divstab_fig.png"), plot = local_divstab_fig, dpi = 600, width = 6, height = 6*3/4*2, bg = "white")
 
 
 
-(alpha_vs_gamma_var <- ggplot(aes(x = (alpha_var_rate), y = (gamma_var_rate), label = site),
-                              data = h.wide) +
+# 3. REGIONAL DIVERSITY STABILITY ------------------------------------------------
+# What happens when we look at the regional scale?
+# Do we see richness-variability relationships with composition and aggregate at across metacommunities?
+
+div_stab_comp_gamma_mod <- (lm(gamma_var_rate ~ gamma_div_mean, data = metacom_divstab_comp_dat))
+div_stab_comp_beta_mod <- (lm(phi_var ~ beta_div_mean, data = metacom_divstab_comp_dat))
+div_stab_comp_alpha_mod <- (lm(alpha_var_rate ~ alpha_div_mean, data = metacom_divstab_comp_dat))
+div_stab_comp_alpha_gamma_mod <- (lm(gamma_var_rate ~ alpha_div_mean, data = metacom_divstab_comp_dat))
+div_stab_comp_beta_gamma_mod <- (lm(gamma_var_rate ~ beta_div_mean, data = metacom_divstab_comp_dat))
+
+
+
+
+div_stab_agg_gamma_mod <- (lm(gamma_var_rate ~ gamma_div_mean, data = metacom_divstab_agg_dat))
+div_stab_agg_beta_mod <- (lm(phi_var ~ beta_div_mean, data = metacom_divstab_agg_dat))
+div_stab_agg_alpha_mod <- (lm(alpha_var_rate ~ alpha_div_mean, data = metacom_divstab_agg_dat))
+div_stab_agg_alpha_gamma_mod <- (lm(gamma_var_rate ~ alpha_div_mean, data = metacom_divstab_agg_dat))
+div_stab_agg_beta_gamma_mod <- (lm(gamma_var_rate ~ beta_div_mean, data = metacom_divstab_agg_dat))
+
+
+# regional compositional variability
+
+div_stab_comp_gamma_fit <- glance(div_stab_comp_gamma_mod)
+(p_val <- as.character(round(div_stab_comp_gamma_fit$p.value,2))) # 0.05
+(r2 <- as.character(round(div_stab_comp_gamma_fit$r.squared,2))) # 0.17
+
+(div_stab_gamma_h <- metacom_divstab_comp_dat %>% 
+    ggplot(aes(x = gamma_div_mean, y = gamma_var_rate, label = `LTER site`)) +
     stat_smooth(method = "lm", se = T, size = 1, color = "black") +
-    geom_point(size = 2, alpha = 0.7) +
-    geom_label_repel(size = 2) +
-    scale_y_log10() +
-    scale_x_log10() +
-    xlab(expression(paste(alpha, " variability"))) +
-    ylab(expression(paste(gamma," variability"))) +
-    ggsave("Manuscripts/MS3/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
-)
-
-lm_gamma_phi <- lm(log(gamma_var_rate) ~ log(phi_var), data = h.wide)
-par(mfrow = c(2,2))
-plot(lm_gamma_phi) 
-summary(lm_gamma_phi)
-
-(phi_vs_gamma_var <- ggplot(aes(x = phi_var, y = gamma_var_rate, label = site),
-                            data = h.wide) +
-    stat_smooth(method = "lm", se = T, size = 1, color = "black") +
-    geom_point(size = 2, alpha = 0.7) +
-    geom_label_repel(size = 2) +
-    scale_y_log10() +
-    scale_x_log10() +
-    xlab(expression(paste(phi, " variability"))) +
-    ylab(expression(paste(gamma," variability"))) +
-    #annotate("text", x = 0.2, y = 0.6, label = "italic(P) < 0.001", parse = TRUE) +
-    ggsave("Manuscripts/MS3/figs/variability_phi-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
-)
-
-# alpha and phi are independent
-(alpha_vs_phi_var <- ggplot(aes(x = alpha_var_rate, y = phi_var, label = site),
-                            data = h.wide) +
-    stat_smooth(method = "lm", se = T, size = 1, color = "black") +
-    geom_point(size = 2, alpha = 0.7) +
-    geom_label_repel(size = 2) +
-    scale_y_log10() +
-    scale_x_log10() +
-    xlab(expression(paste(alpha, " variability"))) +
-    ylab(expression(paste(phi," variability"))) +
-    ggsave("Manuscripts/MS3/figs/variability_alpha-phi.png", width = 6, height = 4, units = "in", dpi = 600)
-)
-lm_alpha_phi <- lm(log(phi_var) ~ log(alpha_var), data = h.wide)
-par(mfrow = c(2,2))
-plot(lm_alpha_phi) # assumptions met
-summary(lm_alpha_phi)
-
-# DIversity stability 
-#------------------------------------------------------------------------------
-div_stab_comp <- cbind.data.frame(h.wide, div.wide[,c("alpha_div_mean", "beta_div_mean", "gamma_div_mean")]) %>% 
-  filter(gamma_div_mean > 0)
-
-div_stab_gamma_mod <- (lm((gamma_var_rate) ~ log10(gamma_div_mean), data = div_stab_comp))
-modsum <- summary(div_stab_gamma_mod)
-div_stab_gamma_mod <- glance(div_stab_gamma_mod)
-(p_val <- as.character(round(div_stab_gamma_mod$p.value,2)))
-(r2 <- as.character(round(div_stab_gamma_mod$r.squared,2)))
-summary(lm((gamma_var_rate) ~ log10(gamma_div_mean), data = div_stab_comp))
-
-(div_stab_gamma_h <- div_stab_comp %>% 
-    ggplot(aes(x = gamma_div_mean, y = gamma_var_rate, label = site)) +
-    stat_smooth(method = "lm", se = T, size = 1, linetype = "dashed", color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     #geom_label_repel(size = 2) +
     labs(x = expression(paste("Mean ", gamma, "-diversity")),
-         y = expression(paste("Comp. ", gamma, "-variability")),
+         y = expression(paste("Comp. ", gamma, "-variability (", BD^h [gamma], ")")),
          color = "Organism group")  +
-    scale_x_log10() +
+    #scale_x_log10() +
     scale_color_manual(values = pal, drop = FALSE) +
-    annotate("text", x = 10, y = 0.045, label = bquote(atop(paste(r^2, "= 0.13"),
-                                                            "p = 0.07")))
+    annotate("text", x = 10, y = 0.045, label = bquote(atop(paste(R^2, "= 0.17", ),
+                                                            "p = 0.05")))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
-div_stab_alpha_mod <- (lm((alpha_var_rate) ~ log10(alpha_div_mean), data = div_stab_comp))
-modsum2 <- summary(div_stab_alpha_mod)
-div_stab_alpha_mod <- glance(div_stab_alpha_mod)
-div_stab_alpha_mod$p.value
-div_stab_alpha_mod$r.squared
-(div_stab_alpha_h <- div_stab_comp %>% 
-    ggplot(aes(x = alpha_div_mean, y = alpha_var_rate, label = site)) +
+
+div_stab_comp_alpha_fit <- glance(div_stab_comp_alpha_mod)
+(p_val <- as.character(round(div_stab_comp_alpha_fit$p.value,2))) # 0.86
+(r2 <- as.character(round(div_stab_comp_alpha_fit$r.squared,2))) # 0.
+(div_stab_alpha_h <- metacom_divstab_comp_dat %>% 
+    ggplot(aes(x = alpha_div_mean, y = alpha_var_rate, label = `LTER site`)) +
     #stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     #geom_label_repel(size = 2) +
@@ -175,18 +163,17 @@ div_stab_alpha_mod$r.squared
          y = expression(paste("Comp. ", alpha, "-variability")),
          color = "Organism group") +
     scale_color_manual(values = pal, drop = FALSE) +
-    scale_x_log10() +
-    annotate("text", x = 100, y = 0.1, label = bquote("p = 0.40"))
+    #scale_x_log10() +
+    annotate("text", x = 30, y = 0.09, label = "p = 0.863")
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
-div_stab_alpha_gamma_mod <- (lm((gamma_var_rate) ~ log10(alpha_div_mean), data = div_stab_comp))
-modsum3 <- summary(div_stab_alpha_gamma_mod)
-div_stab_alpha_gamma_mod <- glance(div_stab_alpha_gamma_mod)
-div_stab_alpha_gamma_mod$p.value
-div_stab_alpha_gamma_mod$r.squared
-(div_stab_alpha_gamma_h <- div_stab_comp %>% 
-    ggplot(aes(x = alpha_div_mean, y = gamma_var_rate, label = site)) +
+
+div_stab_alpha_gamma_fit <- glance(div_stab_comp_alpha_gamma_mod)
+div_stab_alpha_gamma_fit$p.value # 0.023
+div_stab_alpha_gamma_fit$r.squared # 0.232
+(div_stab_alpha_gamma_h <- metacom_divstab_comp_dat %>% 
+    ggplot(aes(x = alpha_div_mean, y = gamma_var_rate, label = `LTER site`)) +
     stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     #geom_label_repel(size = 2) +
@@ -194,18 +181,16 @@ div_stab_alpha_gamma_mod$r.squared
          y = expression(paste("Comp. ", gamma, "-variability")),
          color = "Organism group") +
     scale_color_manual(values = pal, drop = FALSE) +
-    scale_x_log10()  +
-    annotate("text", x = 3, y = 0.045, label = bquote(atop(paste(r^2, "= 0.15"),
-                                                           "p = 0.05")))  #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
+    #scale_x_log10()  +
+    annotate("text", x = 3, y = 0.045, label = bquote(atop(paste(R^2, "= 0.23"),
+                                                           "p = 0.02")))  #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
-div_stab_beta_mod <- (lm((gamma_var_rate) ~ log10(beta_div_mean), data = div_stab_comp))
-modsum4 <- summary(div_stab_beta_mod)
-div_stab_beta_mod <- glance(div_stab_beta_mod)
-div_stab_beta_mod$p.value
-div_stab_beta_mod$r.squared
-(div_stab_beta_h <- div_stab_comp %>% 
-    ggplot(aes(x = beta_div_mean, y = gamma_var_rate, label = site)) +
+div_stab_beta_gamma_fit <- glance(div_stab_comp_beta_gamma_mod)
+div_stab_beta_gamma_fit$p.value # 0.2
+div_stab_beta_gamma_fit$r.squared
+(div_stab_beta_h <- metacom_divstab_comp_dat %>% 
+    ggplot(aes(x = beta_div_mean, y = gamma_var_rate, label = `LTER site`)) +
     #stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     scale_color_manual(values = pal, drop = FALSE) +
@@ -213,39 +198,32 @@ div_stab_beta_mod$r.squared
     labs(x = expression(paste("Mean ", beta, "-diversity")),
          y = expression(paste("Comp. ", gamma, "-variability")),
          color = "Organism group") +
-    annotate("text", x = 4.75, y = 0.045, label = bquote("p = 0.41"))
+    annotate("text", x = 4.75, y = 0.045, label = bquote("p = 0.2"))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
-div_stab_agg <- cbind.data.frame(agg.wide, div.wide[,c("alpha_div_mean", "beta_div_mean", "gamma_div_mean")]) %>% 
-  filter(gamma_div_mean > 0)
-
-div_stab_gamma_agg_mod <- (lm((gamma_var_rate) ~ log10(gamma_div_mean), data = div_stab_agg))
-modsum5 <- summary(div_stab_gamma_agg_mod)
-div_stab_gamma_agg_mod <- glance(div_stab_gamma_agg_mod)
-div_stab_gamma_agg_mod$p.value
-div_stab_gamma_agg_mod$r.squared
-(div_stab_gamma_agg <- div_stab_agg %>% 
-    ggplot(aes(x = gamma_div_mean, y = gamma_var_rate, label = site)) +
+# regional aggregate variability
+div_stab_gamma_agg_fit <- glance(div_stab_agg_gamma_mod)
+div_stab_gamma_agg_fit$p.value # 0.202
+div_stab_gamma_agg_fit$r.squared # 0.08
+(div_stab_gamma_agg <- metacom_divstab_agg_dat %>% 
+    ggplot(aes(x = gamma_div_mean, y = gamma_var_rate, label = `LTER site`)) +
     #stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     scale_color_manual(values = pal, drop = FALSE) +
     #geom_label_repel(size = 2) +
     labs(x = expression(paste("Mean ", gamma, "-diversity")),
-         y = expression(paste("Agg. ", gamma, "-variability")),
+         y = expression(paste("Agg. ", gamma, "-variability (", CV^2, ")")),
          color = "Organism group") +
-    scale_x_log10() +
-    annotate("text", x = 120, y = 0.04, label = bquote("p = 0.40"))
+    annotate("text", x = 65, y = 0.025, label = bquote("p = 0.20"))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
-div_stab_alpha_agg_mod <- (lm((alpha_var_rate) ~ log10(alpha_div_mean), data = div_stab_agg))
-modsum6 <- summary(div_stab_alpha_agg_mod)
-div_stab_alpha_agg_mod <- glance(div_stab_alpha_agg_mod)
-div_stab_alpha_agg_mod$p.value
-div_stab_alpha_agg_mod$r.squared
-(div_stab_alpha_agg <- div_stab_agg %>% 
-    ggplot(aes(x = alpha_div_mean, y = alpha_var_rate, label = site)) +
+div_stab_alpha_agg_fit <- glance(div_stab_agg_alpha_mod)
+div_stab_alpha_agg_fit$p.value # 0.17
+div_stab_alpha_agg_fit$r.squared # 0.0927
+(div_stab_alpha_agg <- metacom_divstab_agg_dat %>% 
+    ggplot(aes(x = alpha_div_mean, y = alpha_var_rate, label = `LTER site`)) +
     #stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     scale_color_manual(values = pal, drop = FALSE) +
@@ -253,17 +231,16 @@ div_stab_alpha_agg_mod$r.squared
     labs(x = expression(paste("Mean ", alpha, "-diversity")),
          y = expression(paste("Agg. ", alpha, "-variability")),
          color = "Organism group")  +
-    scale_x_log10() +
-    annotate("text", x = 100, y = 0.1, label = bquote("p = 0.10"))
+    # scale_x_log10() +
+    annotate("text", x = 30, y = .09, label = bquote("p = 0.17"))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
-div_stab_alpha_gamma_agg_mod <- (lm((gamma_var_rate) ~ log10(alpha_div_mean), data = div_stab_agg))
-modsum7 <- summary(div_stab_alpha_gamma_agg_mod)
-div_stab_alpha_gamma_agg_mod$p.value
-div_stab_alpha_gamma_agg_mod$r.squared
-(div_stab_alpha_gamma_agg <- div_stab_agg %>% 
-    ggplot(aes(x = alpha_div_mean, y = gamma_var_rate, label = site)) +
+div_stab_alpha_gamma_agg_fit <- glance(div_stab_agg_alpha_gamma_mod)
+div_stab_alpha_gamma_agg_fit$p.value # 0.927
+div_stab_alpha_gamma_agg_fit$r.squared # 0
+(div_stab_alpha_gamma_agg <- metacom_divstab_agg_dat %>% 
+    ggplot(aes(x = alpha_div_mean, y = gamma_var_rate, label = `LTER site`)) +
     #stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     scale_color_manual(values = pal, drop = FALSE) +
@@ -271,17 +248,16 @@ div_stab_alpha_gamma_agg_mod$r.squared
     labs(x = expression(paste("Mean ", alpha, "-diversity")),
          y = expression(paste("Agg. ", gamma, "-variability")),
          color = "Organism group")  +
-    scale_x_log10() +
-    annotate("text", x = 90, y = 0.04, label = bquote("p = 0.88"))
+    #scale_x_log10() +
+    annotate("text", x = 30, y = 0.025, label = "p = 0.927")
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
-div_stab_beta_agg_mod <- (lm((gamma_var_rate) ~ log10(beta_div_mean), data = div_stab_agg))
-modsum8 <- summary(div_stab_beta_agg_mod)
-div_stab_beta_agg_mod$p.value
-div_stab_beta_agg_mod$r.squared
-(div_stab_beta_agg <- div_stab_agg %>% 
-    ggplot(aes(x = beta_div_mean, y = gamma_var_rate, label = site)) +
+div_stab_beta_gamma_agg_fit <- glance(div_stab_agg_beta_gamma_mod)
+div_stab_beta_gamma_agg_fit$p.value # 0.0095
+div_stab_beta_gamma_agg_fit$r.squared # 0.29
+(div_stab_beta_agg <- metacom_divstab_agg_dat %>% 
+    ggplot(aes(x = beta_div_mean, y = gamma_var_rate, label = `LTER site`)) +
     stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     scale_color_manual(values = pal, drop = FALSE) +
@@ -289,49 +265,44 @@ div_stab_beta_agg_mod$r.squared
     labs(x = expression(paste("Mean ", beta, "-diversity")),
          y = expression(paste("Agg. ", gamma, "-variability")),
          color = "Organism group")  + 
-    annotate("text", x = 4.75, y = 0.0375, label = bquote(atop(paste(r^2, "= 0.20"),
-                                                               "p = 0.02")))
+    annotate("text", x = 4.75, y = 0.02, label = bquote(atop(paste(R^2, "= 0.29"),
+                                                               "p = 0.01")))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
 # combine figs
-div_stab_gamma_agg + div_stab_gamma_h +
+div_stab_multipanel_fig <- div_stab_gamma_agg + div_stab_gamma_h +
   div_stab_beta_agg + div_stab_beta_h +
   div_stab_alpha_gamma_agg + div_stab_alpha_gamma_h +
   plot_annotation(tag_levels = "A") +
-  plot_layout(guides = "collect", nrow = 3) +
-  ggsave("Manuscripts/MS3/figs/diversity_variability.png", width = 2.5*4, height = 3*3, units = "in", dpi = 1000)
-
-# plot_grid(div_stab_gamma_agg, div_stab_gamma_h, 
-#           div_stab_beta_agg, div_stab_beta_h,
-#           div_stab_alpha_gamma_agg, div_stab_alpha_gamma_h, 
-#           align = "hv", ncol = 2, labels = "AUTO") +
-#   ggsave("Manuscripts/MS3/figs/diversity_variability.png", width = 2*4, height = 3*3, units = "in", dpi = 600)
+  plot_layout(guides = "collect", nrow = 3)
+ggsave(filename = "Manuscripts/MS3/figs/diversity_variability.png", plot = div_stab_multipanel_fig, width = 2.5*4, height = 3*3, units = "in", dpi = 1000, bg = "white")
 
 
-div_stab_phi_mod <- broom::glance(lm(phi_var ~ (beta_div_mean), data = div_stab_comp))
-div_stab_phi_mod$p.value
-div_stab_phi_mod$r.squared
-(div_stab_phi_h <- div_stab_comp %>% 
-    ggplot(aes(x = beta_div_mean, y = phi_var, label = site)) +
+# 4. COMPARE BETA DIVERSITY WITH PHI, SYNCHRONY
+div_stab_phi_fit <- glance(div_stab_comp_beta_mod)
+div_stab_phi_fit$p.value # 2 e-4
+div_stab_phi_fit$r.squared # 0.49
+(div_stab_phi_h <- metacom_divstab_comp_dat %>% 
+    ggplot(aes(x = beta_div_mean, y = phi_var, label = `LTER site`)) +
     stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     scale_y_continuous(limits = c(0,1)) +
     scale_color_manual(values = pal, drop = FALSE) +
     #geom_label_repel(size = 2) +
     labs(x = expression(paste("Mean ", beta, "-diversity")),
-         y = expression(paste("Comp. Synchrony (", BD[phi], ")")),
+         y = expression(paste("Comp. Synchrony (", BD^h[phi], ")")),
          color = "Organism group")  +
-    annotate("text", x = 4.75, y = 0.9, label = bquote(atop(paste(r^2, "= 0.31"),
-                                                            "p = 0.006")))
+    annotate("text", x = 4.75, y = 0.9, label = bquote(atop(paste(R^2, "= 0.49"),
+                                                            "p = 0.0003")))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
-div_stab_phi_agg_mod <- broom::glance(lm(phi_var ~ (beta_div_mean), data = div_stab_agg))
-div_stab_phi_agg_mod$p.value
-div_stab_phi_agg_mod$r.squared
-(div_stab_phi_agg <- div_stab_agg %>% 
-    ggplot(aes(x = beta_div_mean, y = phi_var, label = site)) +
+div_stab_phi_agg_fit <- glance(div_stab_agg_beta_mod)
+div_stab_phi_agg_fit$p.value # 0.006
+div_stab_phi_agg_fit$r.squared # 0.32
+(div_stab_phi_agg <- metacom_divstab_agg_dat %>% 
+    ggplot(aes(x = beta_div_mean, y = phi_var, label = `LTER site`)) +
     stat_smooth(method = "lm", se = T, size = 1, color = "black") +
     geom_point(size = 2, alpha = 0.7, mapping = aes(color = organism_group)) +
     scale_y_continuous(limits = c(0,1))+
@@ -340,38 +311,26 @@ div_stab_phi_agg_mod$r.squared
     labs(x = expression(paste("Mean ", beta, "-diversity")),
          y = expression(paste("Agg. Synchrony (",phi,")")),
          color = "Organism group") +
-    annotate("text", x = 4.75, y = 0.9, label = bquote(atop(paste(r^2, "= 0.21"),
-                                                            "p = 0.02")))
+    annotate("text", x = 4.75, y = 0.9, label = bquote(atop(paste(R^2, "= 0.32"),
+                                                            "p = 0.006")))
   #ggsave("ESA_2019/figs/variability_alpha-gamma.png", width = 6, height = 4, units = "in", dpi = 600)
 )
 
 
 # combine figs
-(div_stab_phi_agg + labs(x = "")) + div_stab_phi_h + 
+div_stab_phi_beta_fig <- (div_stab_phi_agg) + div_stab_phi_h + 
   plot_annotation(tag_levels = "A") +
-  plot_layout(guides = "collect", nrow = 2) +
-  ggsave("Manuscripts/MS3/figs/beta_phi.png", width = 1.5*4, height = 2*3, units = "in", dpi = 1000)
+  plot_layout(guides = "collect", nrow = 2)
+ggsave(filename = "Manuscripts/MS3/figs/beta_phi.png", plot = div_stab_phi_beta_fig, width = 1.5*4, height = 2*3, units = "in", dpi = 1000, bg = "white")
 
-# plot_grid(div_stab_phi_agg, div_stab_phi_h, 
-#           align = "hv", ncol = 2, labels = "AUTO") +
-#   ggsave("Manuscripts/MS3/figs/beta_phi.png", width = 2*4, height = 3, units = "in", dpi = 600) + 
-#   ggsave("Manuscripts/MS3/figs/beta_phi.pdf", width = 2*4, height = 3, units = "in")
-
-agg.mod <-  lm((gamma_var_rate) ~ log10(gamma_div_mean), data = div_stab_agg)
-comp.mod <- lm((gamma_var_rate) ~ log10(gamma_div_mean), data = div_stab_comp)
-summary(agg.mod)
-summary(comp.mod)
-phi.agg.mod <-  lm(phi_var ~  beta_div_mean, data = div_stab_agg)
-phi.comp.mod <- lm(phi_var ~  beta_div_mean, data = div_stab_comp)
-summary(phi.agg.mod)
-summary(phi.comp.mod)
-
-div_stab_gamma_agg + div_stab_gamma_h +
+# Compare alpha-alpha, beta-beta-, gamma-gamma
+div_stab_multiscale_partition_fig <- 
+  (local_divstab_agg_fig + theme(legend.position = "none")) + (local_divstab_comp_fig + theme(legend.position = "none")) +
   div_stab_phi_agg + div_stab_phi_h +
-  div_stab_alpha_agg + div_stab_alpha_h +
+  div_stab_gamma_agg + div_stab_gamma_h +
   plot_annotation(tag_levels = "A") +
-  plot_layout(guides = "collect", nrow = 3) +
-  ggsave("Manuscripts/MS3/figs/diversity_variability_multiscale.png", width = 2.5*4, height = 3*3, units = "in", dpi = 1000)
+  plot_layout(guides = "collect", nrow = 3)
+ggsave(filename = "Manuscripts/MS3/figs/diversity_variability_multiscale.png",plot = div_stab_multiscale_partition_fig, width = 2.7*4, height = 3.2*3, units = "in", dpi = 1000, bg = "white")
 
 # ## Possible environmental drivers
 # bind_rows(div_stab_agg, div_stab_comp) %>% 
