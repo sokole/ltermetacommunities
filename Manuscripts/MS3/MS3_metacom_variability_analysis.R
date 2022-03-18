@@ -3,6 +3,7 @@ library(tidyverse)
 library(ggthemes)
 library(patchwork)
 library(broom)
+library(ggrepel)
 
 theme_set(theme_base() + 
             theme(plot.background = element_blank(),
@@ -75,7 +76,7 @@ local_divstab_comp_fig <- local_var %>% select(dataset_id, `LTER site`, SITE_ID,
                           
   ggplot(aes(x = site_mean_alpha_div, y = BD)) + 
   geom_point(mapping = aes(group = dataset_id, color = organism_group), alpha = 0.3) + 
-  geom_smooth(mapping = aes(group= dataset_id, color = organism_group), method = "lm", se = F, show.legend = FALSE) + 
+  geom_smooth(mapping = aes(group= dataset_id, color = organism_group), method = "lm",size=0.5, se = F, show.legend = FALSE) + 
   #geom_smooth(method = "lm", se = F, color = "black", size = 2, linetype = "dashed") +
   labs(x = expression(paste("Mean ", alpha, "-diversity")), y = expression(paste("Comp. ", alpha, "-variability (", BD^h[alpha],")")), color = "Organism group") + 
   scale_color_manual(values = pal) +
@@ -94,8 +95,8 @@ local_divstab_agg_fig <- local_var %>% select(dataset_id, `LTER site`, SITE_ID, 
   
   ggplot(aes(x = site_mean_alpha_div, y = CV)) + 
   geom_point(mapping = aes(group = dataset_id, color = organism_group), alpha = 0.3) + 
-  geom_smooth(mapping = aes(group = dataset_id, color = organism_group), method = "lm", se = F, show.legend = FALSE) + 
-  geom_smooth(method = "lm", se = F, color = "black", size = 2) +
+  geom_smooth(mapping = aes(group = dataset_id, color = organism_group), method = "lm", size =0.5, se = F, show.legend = FALSE) + 
+  geom_smooth(method = "lm", se = F, color = "black", size = 1.5) +
   labs(x = expression(paste("Mean ", alpha, "-diversity")), y = expression(paste("Agg. ", alpha, "-variability (CV)")), color = "Organism group") + 
   scale_color_manual(values = pal) +
   annotate("text", x = 40, y = 1.5, label = bquote(atop(paste(R^2, "= 0.09", ),
@@ -332,47 +333,24 @@ div_stab_multiscale_partition_fig <-
   plot_layout(guides = "collect", nrow = 3)
 ggsave(filename = "Manuscripts/MS3/figs/diversity_variability_multiscale.png",plot = div_stab_multiscale_partition_fig, width = 2.7*4, height = 3.2*3, units = "in", dpi = 1000, bg = "white")
 
-# ## Possible environmental drivers
-# bind_rows(div_stab_agg, div_stab_comp) %>% 
-#   mutate(trophic.group = stringr::str_to_sentence(trophic.group)) %>% 
-#   gather(temp_temporal_sd, ndvi_temporal_sd, env_heterogeneity, key = env_var, value = variability) %>% 
-#   mutate(env_var = ifelse(env_var == "temp_temporal_sd", "Temperature Variability (sd)", 
-#                           ifelse(env_var == "ndvi_temporal_sd", "NDVI Variability (sd)", "Spatial Heterogeneity (Geodiversity)"))) %>% 
-#   mutate(variability_type = ifelse(variability_type == "agg", "Aggregate", "Compositional")) %>% 
-#   ggplot(aes(x = variability, y = gamma_var_rate, label = site, color = trophic.group, fill = trophic.group)) + 
-#   geom_point() + 
-#   geom_smooth(method = 'lm', size = 1, se = T) +
-#   theme(strip.background = element_blank(),
-#         strip.placement = "outside",
-#         legend.position = "top", plot.background = element_blank()) +
-#   facet_grid(variability_type ~ env_var, scales = "free_x", switch = "both") +
-#   labs(x = "", y = "Metacommunity Variability") +
-#   scale_color_pander(name = "Trophic Group") +
-#   scale_fill_pander(name = "Trophic Group") +
-#   ggsave("Manuscripts/MS3/figs/environmental_drivers.png", width = 10, height = 7.5, units = "in", dpi = 600)
+
+
+# 4. COMPOSITIONAL VS AGGREGATE VARIABILITY -----------------------------------
 # 
-# summary(lm(log(gamma_var_rate) ~ trophic.group * (env_heterogeneity + ndvi_temporal_sd + temp_temporal_sd), data = cbind.data.frame(div_stab_agg, div_stab_comp)))
 
-## compositional versus aggregate variability
+comp_agg_stab <- left_join(metacom_divstab_agg_dat, metacom_divstab_comp_dat, by = c("dataset_id", "LTER site", "organism_group"), suffix = c("_agg", "_comp"))
 
-comp_agg_stab <- agg.wide[,c("alpha_var_rate", "phi_var", "gamma_var_rate")] 
-names(comp_agg_stab) <- paste0("agg_", names(comp_agg_stab))
-comp_agg_stab <- cbind.data.frame(h.wide, comp_agg_stab) 
-comp_agg_stab
-
-#comp_agg_stab <- comp_agg_stab %>% 
-#  mutate(organism_group = ifelse(organism_group == "sessile invertebrates", "invertebrates", organism_group))
 
 comp_agg_fig <- na.omit(comp_agg_stab) %>% 
-  ggplot(aes(label = site, 
-             color = organism_group, group = paste(site, organism))) + 
-  geom_point(mapping = aes(x = alpha_var_rate, y = agg_alpha_var_rate), alpha = 0.75, size = 3, shape = 22) +
-  geom_point(mapping = aes(x = gamma_var_rate, y = agg_gamma_var_rate), alpha = 0.75, size = 3, shape = 19) +
-  geom_segment(aes(x = alpha_var_rate, xend = gamma_var_rate, 
-                   y = agg_alpha_var_rate, yend = agg_gamma_var_rate),
-               alpha = 0.5, arrow = arrow(length = unit(.2, "cm"))) +
-  geom_text_repel(mapping = aes(x = gamma_var_rate, y = agg_gamma_var_rate), show.legend = F, size = 2) +
-  scale_x_log10() + 
+  ggplot(aes(label = `LTER site`, 
+             color = organism_group, group = paste(`LTER site`, organism_group))) + 
+  geom_point(mapping = aes(x = alpha_var_rate_comp, y = alpha_var_rate_agg), alpha = 0.5, size = 3.5, shape = 22) +
+  geom_point(mapping = aes(x = gamma_var_rate_comp, y = gamma_var_rate_agg), alpha = 0.5, size = 3.5, shape = 19) +
+  geom_segment(aes(x = alpha_var_rate_comp, xend = gamma_var_rate_comp, 
+                   y = alpha_var_rate_agg, yend = gamma_var_rate_agg),
+               alpha = 0.8, arrow = arrow(length = unit(.3, "cm"), type = "open", angle = 15)) +
+  geom_text_repel(mapping = aes(x = gamma_var_rate_comp, y = gamma_var_rate_agg), show.legend = F, size = 2.5, max.overlaps = 10, max.iter = 100000, force_pull = 1, box.padding = .5) +
+  scale_x_log10(limits = c(0.002, 0.2)) + 
   scale_y_log10() +
   #geom_text_repel(size = 2.5) +
   scale_color_manual(values = pal, drop = FALSE) +
@@ -380,102 +358,32 @@ comp_agg_fig <- na.omit(comp_agg_stab) %>%
   coord_fixed() +
   labs(x = "Compositional variability",
        y = "Aggregate variability",
-       color = "Organism group") +
-  ggsave("Manuscripts/MS3/figs/comp_agg_compare.png", width = 4, height = 4, dpi = 600)
-# 
-# (alpha_comp_agg_plot <- comp_agg_stab %>% 
-#   ggplot(aes(x = alpha_var_rate, y = agg_alpha_var_rate, label = paste(site, organism))) + 
-#   geom_point(size = 1) + 
-#   geom_text_repel(size = 2.5) +
-#   scale_x_continuous(limits = c(0,.1)) + 
-#   scale_y_continuous(limits = c(0,.1)) +
-#   labs(x = expression(paste("Compositional ", alpha, "-variability")),
-#        y = expression(paste("Aggregate ", alpha, "-variability"))))
-# (gamma_comp_agg_plot <- comp_agg_stab %>% 
-#   ggplot(aes(x = gamma_var_rate, y = agg_gamma_var_rate, label = paste(site, organism))) + 
-#   geom_point(size = 1) +
-#   geom_text_repel(size = 2.5) +
-#   scale_x_continuous(limits = c(0,.1)) + 
-#   scale_y_continuous(limits = c(0,.1)) +
-#   labs(x = expression(paste("Compositional ", gamma, "-variability")),
-#     y = expression(paste("Aggregate ", gamma, "-variability"))))
-# 
-# plot_grid(alpha_comp_agg_plot, gamma_comp_agg_plot, 
-#           align = "hv", ncol = 2) +
-#   ggsave("ESA_2019/figs/comp_agg_compare.png", width = 10, height = 5, units = "in", dpi = 600)
-
-# # magnitude of change
-# comp_agg_stab %>% 
-#   mutate(name = paste(site, organism),
-#          agg_diff = agg_alpha_var_rate - agg_gamma_var_rate,
-#          comp_diff = alpha_var_rate - gamma_var_rate,
-#          total_diff = sqrt(agg_diff^2 + comp_diff^2)) %>% 
-#   arrange(total_diff) %>% filter(!is.na(total_diff)) %>% 
-#   ggplot(aes(x = total_diff, xend = 0, y = reorder(name, total_diff), yend = reorder(name, total_diff))) +
-#   geom_point() +
-#   geom_segment() +
-#   theme_minimal() +
-#   #geom_vline(xintercept = 0, color = "gray50") 
-#   labs(y = "", x = "Total ")
-
-# # whether stability is aggregate vs comp biased
-# comp_agg_stab %>% 
-#   mutate(ratio = log10(agg_phi_var/phi_var), 
-#          name = paste(site, organism),
-#          agg_diff = agg_alpha_var_rate - agg_gamma_var_rate,
-#          comp_diff = alpha_var_rate - gamma_var_rate,
-#          total_diff = sqrt(1/agg_phi_var + 1/phi_var)) %>% 
-#   arrange(ratio) %>% filter(!is.na(ratio)) %>% 
-#   ggplot(aes(x = ratio, xend = 0, 
-#              y = reorder(name, ratio), yend = reorder(name, ratio))) +
-#   geom_point(mapping = aes(size = total_diff), show.legend = F) +
-#   geom_segment() +
-#   theme_minimal() +
-#   geom_vline(xintercept = 0, color = "gray50") + 
-#   labs(y = "", x = expression(paste("Log"["10"], "(", phi["agg."], "/", phi["comp."], ")"))) +
-#   ggsave("Manuscripts/MS3/figs/phi_ratio.png", width = 7, height = 7*3/4, units = "in", dpi = 600)
-
-tot_stab_fig <- comp_agg_stab %>% 
-  mutate(ratio = log10(agg_phi_var/phi_var), 
-         name = site,
-         agg_diff = log10(agg_alpha_var_rate) - log10(agg_gamma_var_rate),
-         comp_diff = log10(alpha_var_rate) - log10(gamma_var_rate),
-         total_diff = sqrt(agg_diff^2 + comp_diff^2)) %>% 
-  arrange(ratio) %>% filter(!is.na(ratio)) %>% 
-  
-  ggplot(aes(x = ratio, xend = 0, 
-             y = total_diff,  label = site, 
-             color = organism_group, group = paste(site, organism))) +
-  geom_vline(xintercept = 0, alpha = 0.2, linetype = "dashed") +
-  geom_point(size = 3, alpha = 0.75) +
-  scale_color_manual(values = pal, drop = FALSE) +
-  geom_text_repel(show.legend = F, size = 2) +
-  labs(y = bquote(atop("Total spatial stabilization",
-                       scriptstyle(paste("(",
-                                         sqrt(paste("(CV"[alpha]^2 - "CV"[gamma]^2, ")"^2 + 
-                                                      "(BD"[alpha]^"h" - "BD"[gamma]^"h",")"^2)))))),
-       x = expression(paste("Log"["10"], "(", phi["agg."], "/", phi["comp."], ")")),
-       color = "Organism group") +
-  ggsave("Manuscripts/MS3/figs/total_spatial_stabilization.png", width = 7, height = 7, units = "in", dpi = 600)
+       color = "Organism group")
+ggsave(filename = "Manuscripts/MS3/figs/comp_agg_compare.png",plot = comp_agg_fig, bg = "white", width = 6, height = 6, dpi = 600)
+ 
 
 
-phi_compare <- comp_agg_stab %>% 
-  ggplot(aes(y = agg_phi_var,
-             x = phi_var,  label = site, 
-             color = organism_group, group = paste(site, organism))) +
+
+s_rho <- cor(comp_agg_stab$phi_var_comp, comp_agg_stab$phi_var_agg, use = "pairwise.complete", method = "spearman")
+
+phi_compare <- na.omit(comp_agg_stab) %>% 
+  ggplot(aes(y = phi_var_agg,
+             x = phi_var_comp,  label = `LTER site`, 
+             color = organism_group, group = paste(`LTER site`, `organism_group`))) +
   geom_abline(slope = 1, intercept = 0, alpha = 0.25, linetype = "dashed") +
-  geom_point(size = 3, alpha = 0.75) +
+  geom_point(size = 3.5, alpha = 0.5) +
   scale_color_manual(values = pal, drop = FALSE) +
-  geom_text_repel(show.legend = F, size = 2) +
+  geom_text_repel(show.legend = F, size = 3.5) +
   labs(color = "Organism group",
        y = expression(paste("Agg. Spatial Synchrony (",phi,")")),
        x = expression(paste("Comp. Spatial Synchrony (",BD[phi],")"))) +
-  coord_fixed() + 
-  ggsave("Manuscripts/MS3/figs/phi_comparison.png", width = 6, height = 3/4*6, dpi = 600)
+  coord_fixed() +
+  theme(legend.position = "right") +
+  annotate("text", x = .75, y = 0.1, size = 5, label = expression(paste(rho, "= 0.65")))
+ggsave("Manuscripts/MS3/figs/phi_comparison.png",plot = phi_compare, bg = "white", width = 6, height = 3/4*6, dpi = 600)
 
-comp_agg_fig + phi_compare + 
+phi_compare_fig <- comp_agg_fig + phi_compare + 
   plot_annotation(tag_levels = "A") +
-  plot_layout(guides = "collect", nrow = 2) +
-  ggsave("Manuscripts/MS3/figs/agg_comp_panel.png", width = 7, height = 10, dpi = 1000)
+  plot_layout(guides = "collect", nrow = 1)
+ggsave("Manuscripts/MS3/figs/agg_comp_panel.png", plot = phi_compare_fig, bg = "white", width = 12, height = 8, dpi = 600)
 
-cor(comp_agg_stab$phi_var, comp_agg_stab$agg_phi_var, use = "pairwise.complete")
