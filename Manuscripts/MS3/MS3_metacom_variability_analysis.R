@@ -4,6 +4,9 @@ library(ggthemes)
 library(patchwork)
 library(broom)
 library(ggrepel)
+library(lme4)
+library(sjPlot)
+library(MuMIn)
 
 theme_set(theme_base() + 
             theme(plot.background = element_blank(),
@@ -108,6 +111,20 @@ local_divstab_fig <- local_divstab_agg_fig + local_divstab_comp_fig +
   plot_layout(ncol = 1, guides = "collect") + plot_annotation(tag_levels = "A")
 ggsave(filename = here("Manuscripts/MS3/figs/local_divstab_fig.png"), plot = local_divstab_fig, dpi = 600, width = 6, height = 6*3/4*2, bg = "white")
 
+### mixed effects models
+local_dataset_for_mods <- local_var %>% select(dataset_id, `LTER site`, SITE_ID, organism_group, metric, metric_value) %>% 
+  pivot_wider(names_from = "metric", values_from = "metric_value") 
+
+local_comp_mod_lmm <- glmer(BD ~ site_mean_alpha_div + (site_mean_alpha_div|dataset_id), data = local_dataset_for_mods, family = "gaussian")
+summary(local_comp_mod_lmm)
+plot(local_comp_mod_lmm)
+
+local_agg_mod_lmm <- glmer(CV ~ site_mean_alpha_div + (site_mean_alpha_div|dataset_id), data = local_dataset_for_mods, family = "gaussian")
+summary(local_agg_mod_lmm)
+plot(local_agg_mod_lmm)
+
+r.squaredGLMM(local_comp_mod_lmm)
+r.squaredGLMM(local_agg_mod_lmm)
 
 
 # 3. REGIONAL DIVERSITY STABILITY ------------------------------------------------
@@ -344,13 +361,13 @@ comp_agg_stab <- left_join(metacom_divstab_agg_dat, metacom_divstab_comp_dat, by
 comp_agg_fig <- na.omit(comp_agg_stab) %>% 
   ggplot(aes(label = `LTER site`, 
              color = organism_group, group = paste(`LTER site`, organism_group))) + 
-  geom_point(mapping = aes(x = alpha_var_rate_comp, y = alpha_var_rate_agg), alpha = 0.5, size = 3.5, shape = 22) +
-  geom_point(mapping = aes(x = gamma_var_rate_comp, y = gamma_var_rate_agg), alpha = 0.5, size = 3.5, shape = 19) +
+  #geom_point(mapping = aes(x = alpha_var_rate_comp, y = alpha_var_rate_agg), alpha = 0.5, size = 3, shape = 22) +
+  #geom_point(mapping = aes(x = gamma_var_rate_comp, y = gamma_var_rate_agg), alpha = 0.5, size = 3, shape = 19) +
   geom_segment(aes(x = alpha_var_rate_comp, xend = gamma_var_rate_comp, 
                    y = alpha_var_rate_agg, yend = gamma_var_rate_agg),
-               alpha = 0.8, arrow = arrow(length = unit(.3, "cm"), type = "open", angle = 15)) +
-  geom_text_repel(mapping = aes(x = gamma_var_rate_comp, y = gamma_var_rate_agg), show.legend = F, size = 2.5, max.overlaps = 10, max.iter = 100000, force_pull = 1, box.padding = .5) +
-  scale_x_log10(limits = c(0.002, 0.2)) + 
+               alpha = 0.7, arrow = arrow(length = unit(.2, "cm"), type = "closed", angle = 15)) +
+  #geom_text_repel(mapping = aes(x = gamma_var_rate_comp, y = gamma_var_rate_agg), show.legend = F, size = 2, min.segment.length = 0.15, force_pull = 1.2, max.time = 1) +
+  scale_x_log10(limits = c(0.001, NA), breaks = c(0.001, .01, .1)) + 
   scale_y_log10() +
   #geom_text_repel(size = 2.5) +
   scale_color_manual(values = pal, drop = FALSE) +
@@ -371,9 +388,9 @@ phi_compare <- na.omit(comp_agg_stab) %>%
              x = phi_var_comp,  label = `LTER site`, 
              color = organism_group, group = paste(`LTER site`, `organism_group`))) +
   geom_abline(slope = 1, intercept = 0, alpha = 0.25, linetype = "dashed") +
-  geom_point(size = 3.5, alpha = 0.5) +
+  geom_point(size = 3, alpha = 0.5) +
   scale_color_manual(values = pal, drop = FALSE) +
-  geom_text_repel(show.legend = F, size = 3.5) +
+  geom_text_repel(show.legend = F, size = 3) +
   labs(color = "Organism group",
        y = expression(paste("Agg. Spatial Synchrony (",phi,")")),
        x = expression(paste("Comp. Spatial Synchrony (",BD[phi],")"))) +
@@ -385,5 +402,5 @@ ggsave("Manuscripts/MS3/figs/phi_comparison.png",plot = phi_compare, bg = "white
 phi_compare_fig <- comp_agg_fig + phi_compare + 
   plot_annotation(tag_levels = "A") +
   plot_layout(guides = "collect", nrow = 1)
-ggsave("Manuscripts/MS3/figs/agg_comp_panel.png", plot = phi_compare_fig, bg = "white", width = 12, height = 8, dpi = 600)
+ggsave("Manuscripts/MS3/figs/agg_comp_panel.png", plot = phi_compare_fig, bg = "white", width = 8, height = 6, dpi = 600)
 
