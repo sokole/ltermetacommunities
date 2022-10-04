@@ -415,6 +415,7 @@ phi_compare <- na.omit(comp_agg_stab) %>%
        y = expression(paste("Agg. Spatial Synchrony (",phi,")")),
        x = expression(paste("Comp. Spatial Synchrony (",BD[phi],")"))) +
   coord_fixed() +
+  scale_x_continuous(breaks = c(0.2, 0.4, 0.6, 0.8)) + 
   theme(legend.position = "right") +
   annotate("text", x = .75, y = 0.1, size = 5, label = expression(paste(rho, "= 0.65")))
 ggsave("Manuscripts/MS3/figs/phi_comparison.png",plot = phi_compare, bg = "white", width = 6, height = 3/4*6, dpi = 600)
