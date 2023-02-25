@@ -14,7 +14,7 @@
 \usepackage{setspace}
 \usepackage{lineno}
 %\usepackage{figcaps}
-\usepackage[tablesfirst,nolists]{endfloat}
+\usepackage[tablesfirst,nolists,nomarkers]{endfloat}
 \usepackage{authblk}
 \usepackage{csvsimple}
 
@@ -26,7 +26,7 @@
 \newcommand{\wt}{\widetilde}
 \newcommand{\s}{^{(s)}}
 
-\title{Supplemental Methods}
+\title{Appendix S1}
 
 \author[1]{}
 \author[2]{}
@@ -44,197 +44,196 @@ This document briefly describes the data cleaning, subsetting, and aggregation m
 %Table \ref{metadata} shows metadata on the datasets included in the meta-analysis.
 We plot species accumulation curves, spatio-temporal variation in the number of taxa observed, the spatio-temporal sampling effort, and the number of taxa shared by each pairwise combination of plots within the study.
 %We also identify any potential issues with the data.
-We visually evaluated the species accumulation curves and temporal patterns in species abundances. % to screen for changes in sampling methods or data recording methods over the course of the study that could affect results.
-A sudden jump in the cumulative number of taxa, for example, could indicate that taxa were recorded to a finer resolution (not that more taxa appeared  at the site).  
-A species accumulation curve that does not level off could indicate a community undergoing rapid succession, invasion, or environmental change. 
-
-For each dataset, we evaluated whether all sites were observed with equal effort in all years of study and we document any years, sites, sampling occasions,  or species that were droppped from the dataset prior to analysis. 
+% We visually evaluated the species accumulation curves and temporal patterns in species abundances. % to screen for changes in sampling methods or data recording methods over the course of the study that could affect results.
+% A sudden jump in the cumulative number of taxa, for example, could indicate that taxa were recorded to a finer resolution (not that more taxa appeared  at the site).  
+% A species accumulation curve that does not level off could indicate a community undergoing rapid succession, invasion, or environmental change. 
+For each dataset, we evaluated whether all sites were observed with equal effort in all years of study and we document any years, sites, sampling occasions, or species that were dropped from the dataset prior to analysis. 
 We also document the method used to aggregate the data to an annual value for each species at each site.
 We visually evaluated the species accumulation curves and temporal patters in species abundances to screen for changes in sampling methods or data recording methods over the course of the study that could affect results.
 For example, a sudden jump in the number of taxa in a given year could indicate that taxa were recorded to a finer resolution (not that more taxa were actually present at the site).  
 We also checked to be sure an abundance of zero was recorded for each absence (i.e. we made sure zeros were filled in for site-years in which a species was not observed).
-We removed species codes that obviously represent`unknown' species.
-{\bf Do we use cutoff criteria to remove rare species prior to analysis? 
-If so, we  should probably include that code in formatting script for each site so that the Supplemental figures and L3 data product we publish match the data used in analysis.}
-We also include a table of datasets that were considered, and that we prepared into the L3 format, but ultimately were not included in the analysis (Table \ref{not_used}).
+We removed species codes that obviously represent `unknown' species.
+%{\bf Do we use cutoff criteria to remove rare species prior to analysis? 
+% If so, we  should probably include that code in formatting script for each site so that the Supplemental figures and L3 data product we publish match the data used in analysis.}
+%We also include a table of datasets that were considered, and that we prepared into the L3 format, but ultimately were not included in the analysis (Table \ref{not_used}).
 
 
-\begin{table}[h!]
-\scriptsize
-   \centering
-     \caption{Metadata on the data sets included in the meta-analysis. This table is automatically generated directly from the datasets in the L3 folder.} 
-
-\csvautotabular{metadata_table.csv}
-   \label{metadata} 
-\end{table}
+%\begin{table}[h!]
+%\scriptsize
+%  \centering
+%     \caption{Metadata on the data sets included in the meta-analysis. This table is automatically generated directly from the datasets in the L3 folder.} 
+%
+%\csvautotabular{metadata_table.csv}
+%  \label{metadata} 
+%\end{table}
 
 
 %%%%%%%%%%%%%%%%%%%%%
 \section {Marine datasets}
 
-
-\subsection {csun.usvi-coral}
-Data were downloaded from \url{http://mcrlter.msi.ucsb.edu/cgi-bin/showCSUNDataset.cgi?docid=knb-csun-usvi.101.4}.
-Need more metadata for this dataset.
-Margaret is helping.
-Data are in Figure \ref{usvi-coral}.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{usvi-coral-castorani_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{usvi-coral-castorani_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{usvi-coral-castorani_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{usvi-coral-castorani_spp_shared.pdf}
-%\includegraphics[scale = 0.4]{usvi-coral-castorani_species_accumulation_space.pdf}
-\caption{{\bf USVI-corals:} Species accumulation curves (top left),  annual richness (top right), sampling effort (bottom left), and number of shared species (bottom right)  for 34 coral taxa observed at 6 plots on St. John, US Virgin Islands (1990-2005). The black lines represent total site-level values across all plots.}
-\label{usvi-coral}
-\end{figure}
-
-\subsection {sbc-allTaxa}
-Data were downloaded from EDI \citep{sbc}. 
-
-Data are shown in Figures \ref{sbc-algae},  \ref{sbc-sessileInverts}, \ref{sbc-mobileInverts}, and \ref{sbc-fish}.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{sbc-algae-castorani_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{sbc-algae-castorani_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{sbc-algae-castorani_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{sbc-algae-castorani_species_accumulation_space.pdf}
-\includegraphics[scale = 0.4]{sbc-algae-castorani_spp_shared.pdf}
-\caption{{\bf SBC-algae:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 62 algae taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
-\label{sbc-algae}
-\end{figure}
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_species_accumulation_space.pdf}
-%\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_spp_shared.pdf}
-\caption{{\bf SBC-sessile invertebrates:} Species accumulation curves (top left),  annual richness (top right), sampling effort (bottom left), and number of shared species (bottom right)  for 70 sessile invertebrate taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
-\label{sbc-sessileInverts}
-\end{figure}
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_species_accumulation_space.pdf}
-%\includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_spp_shared.pdf}
-\caption{{\bf SBC-mobile invertebrates:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for mobile invertebrate taxa observed at  the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
-\label{sbc-mobileInverts}
-\end{figure}
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{sbc-fish-castorani_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{sbc-fish-castorani_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{sbc-fish-castorani_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{sbc-fish-castorani_species_accumulation_space.pdf}
-%\includegraphics[scale = 0.4]{sbc-fish-castorani_spp_shared.pdf}
-\caption{{\bf SBC-fish:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  observed at the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
-\label{sbc-fish}
-\end{figure}
-
-
-
-
-\subsection {mcr-inverts}
-{\bf Need to get updated data. Need to separate by habitat. Needs data package citation.}
-Data were downloaded from EDI (knb-lter-mcr.7.28).
-Data were aggregated across habitats and transects.
-Thus each of the six sites contains data from very different habitats lumped together (back, fringing, outer reefs) and there is likely very little overlap in the species found in each habitat. 
-This is different than the other datasets, and it would be good to discuss whether or not to separate by habitat.
-Non-relevant taxa and taxa observed outside the quadrat were removed from the dataset.
-Abundance was averaged across subplots, transects, and habitats for each species at each site in each year.
-Data are in Figure \ref{mcr-inverts}.
-It's unclear whether these are mobile inverts, sessile inverts, or both (need to know for comparison with SBC).
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{mcr-inverts-castorani_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{mcr-inverts-castorani_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{mcr-inverts-castorani_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{mcr-inverts-castorani_spp_shared.pdf}
-\caption{{\bf MCR-inverts:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 13 invertebrate taxa observed at six sites on Moorea coral reef LTER (2006-2015). The black lines represent total site-level values across all plots.}
-\label{mcr-inverts}
-\end{figure}
-
-
-\subsection {mcr-fish}
-{\bf Updated data in ecocomdp format on EDI. Need to prepare it for this analysis. Need to separate by habitat. Needs data package citation.}
-%Data were downloaded from EDI (knb-lter-mcr.6.54).
-Data were aggregated across habitats and transects.
-Thus each of the six sites contains data from very different habitats lumped together (backreef, forereef, fringing) and there is likely very little overlap in the species found in each habitat. 
-This is different than the other datasets, and it would be good to discuss whether or not to separate by habitat.
-Non-relevant taxa codes (e.g. ``No fish present") were removed from the dataset.
-Abundance was recorded as dry biomass per 250 $m^2$, averaged across subplots, transects, and habitats for each species at each site in each year.
-Data are in Figure \ref{mcr-fish}.
-Six extra locations in forereef habitats were sampled in 2015.
-These appear to be in addition to the four transects per habitat per site performed as part of the long term data collections, and thus they were removed from the dataset prior to analysis.
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{mcr-fish-castorani_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{mcr-fish-castorani_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{mcr-fish-castorani_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{mcr-fish-castorani_spp_shared.pdf}
-\caption{{\bf MCR-fish:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 377 fish taxa observed at six sites on Moorea coral reef LTER (2006-2015). The black lines represent total site-level values across all plots.}
-\label{mcr-fish}
-\end{figure}
-
-
-\subsection {mcr-coral}
-{\bf Need to get updated data. Need to separate by habitat. Needs data package citation.}
-Data were downloaded from EDI \citep{mcr-coral}.
-The corals are identified to the genus level.
-Data were aggregated across habitats and transects.
-Thus each of the six sites contains data from very different habitats lumped together (back, fringing, outer reefs) and there is likely very little overlap in the species found in each habitat. 
-This is different than the other datasets, and it would be good to discuss whether or not to separate by habitat.
-Non-relevant taxa were removed from the dataset.
-Abundance was averaged across subplots, transects, and habitats for each species at each site in each year.
-Data are in Figure \ref{mcr-coral}.
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{mcr-coral-castorani_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{mcr-coral-castorani_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{mcr-coral-castorani_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{mcr-coral-castorani_spp_shared.pdf}
-\caption{{\bf MCR-coral:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 31 coral taxa observed at six sites on Moorea coral reef LTER (2006-2015). The black lines represent total site-level values across all plots.}
-\label{mcr-coral}
-\end{figure}
-
-
-
-
-\subsection {mcr-algae}
-{\bf Need to get updated data. Need to separate by habitat. Needs data package citation.}
-Data were downloaded from EDI \citep{mcr-algae}.
-Data were aggregated across habitats and transects.
-Thus each of the six sites contains data from very different habitats lumped together (back, fringing, outer reefs) and there is likely very little overlap in the species found in each habitat. 
-This is different than the other datasets, and it would be good to discuss whether or not to separate by habitat.
-Non-relevant taxa were removed from the dataset.
-Abundance was averaged across subplots, transects, and habitats for each species at each site in each year.
-Data are in Figure \ref{mcr-algae}.
-The cumulative number of taxa was still increasing at the end of the time series.
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{mcr-algae-castorani_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{mcr-algae-castorani_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{mcr-algae-castorani_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{mcr-algae-castorani_spp_shared.pdf}
-\caption{{\bf MCR-algae:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 73 algae taxa observed at six sites on Moorea coral reef LTER (2006-2015). The black lines represent total site-level values across all plots.}
-\label{mcr-algae}
-\end{figure}
-
-
+%
+%\subsection {csun.usvi-coral}
+%Data were downloaded from \url{http://mcrlter.msi.ucsb.edu/cgi-bin/showCSUNDataset.cgi?docid=knb-csun-usvi.101.4}.
+%Need more metadata for this dataset.
+%Margaret is helping.
+%Data are in Figure \ref{usvi-coral}.
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{usvi-coral-castorani_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{usvi-coral-castorani_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{usvi-coral-castorani_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{usvi-coral-castorani_spp_shared.pdf}
+%%\includegraphics[scale = 0.4]{usvi-coral-castorani_species_accumulation_space.pdf}
+%\caption{{\bf USVI-corals:} Species accumulation curves (top left),  annual richness (top right), sampling effort (bottom left), and number of shared species (bottom right)  for 34 coral taxa observed at 6 plots on St. John, US Virgin Islands (1990-2005). The black lines represent total site-level values across all plots.}
+%\label{usvi-coral}
+%\end{figure}
+%
+%\subsection {sbc-allTaxa}
+%Data were downloaded from EDI \citep{sbc}. 
+%
+%Data are shown in Figures \ref{sbc-algae},  \ref{sbc-sessileInverts}, \ref{sbc-mobileInverts}, and \ref{sbc-fish}.
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{sbc-algae-castorani_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{sbc-algae-castorani_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{sbc-algae-castorani_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{sbc-algae-castorani_species_accumulation_space.pdf}
+%\includegraphics[scale = 0.4]{sbc-algae-castorani_spp_shared.pdf}
+%\caption{{\bf SBC-algae:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 62 algae taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
+%\label{sbc-algae}
+%\end{figure}
+%
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_species_accumulation_space.pdf}
+%%\includegraphics[scale = 0.4]{sbc-sessileInverts-castorani_spp_shared.pdf}
+%\caption{{\bf SBC-sessile invertebrates:} Species accumulation curves (top left),  annual richness (top right), sampling effort (bottom left), and number of shared species (bottom right)  for 70 sessile invertebrate taxa observed at 11 plots in the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
+%\label{sbc-sessileInverts}
+%\end{figure}
+%
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_species_accumulation_space.pdf}
+%%\includegraphics[scale = 0.4]{sbc-mobileInverts-castorani_spp_shared.pdf}
+%\caption{{\bf SBC-mobile invertebrates:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for mobile invertebrate taxa observed at  the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
+%\label{sbc-mobileInverts}
+%\end{figure}
+%
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{sbc-fish-castorani_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{sbc-fish-castorani_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{sbc-fish-castorani_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{sbc-fish-castorani_species_accumulation_space.pdf}
+%%\includegraphics[scale = 0.4]{sbc-fish-castorani_spp_shared.pdf}
+%\caption{{\bf SBC-fish:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  observed at the Santa Barbara Channel LTER (2001-2016). The black lines represent total site-level values across all plots.}
+%\label{sbc-fish}
+%\end{figure}
+%
+%
+%
+%
+%\subsection {mcr-inverts}
+%{\bf Need to get updated data. Need to separate by habitat. Needs data package citation.}
+%Data were downloaded from EDI (knb-lter-mcr.7.28).
+%Data were aggregated across habitats and transects.
+%Thus each of the six sites contains data from very different habitats lumped together (back, fringing, outer reefs) and there is likely very little overlap in the species found in each habitat. 
+%This is different than the other datasets, and it would be good to discuss whether or not to separate by habitat.
+%Non-relevant taxa and taxa observed outside the quadrat were removed from the dataset.
+%Abundance was averaged across subplots, transects, and habitats for each species at each site in each year.
+%Data are in Figure \ref{mcr-inverts}.
+%It's unclear whether these are mobile inverts, sessile inverts, or both (need to know for comparison with SBC).
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{mcr-inverts-castorani_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{mcr-inverts-castorani_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{mcr-inverts-castorani_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{mcr-inverts-castorani_spp_shared.pdf}
+%\caption{{\bf MCR-inverts:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 13 invertebrate taxa observed at six sites on Moorea coral reef LTER (2006-2015). The black lines represent total site-level values across all plots.}
+%\label{mcr-inverts}
+%\end{figure}
+%
+%
+%\subsection {mcr-fish}
+%{\bf Updated data in ecocomdp format on EDI. Need to prepare it for this analysis. Need to separate by habitat. Needs data package citation.}
+%%Data were downloaded from EDI (knb-lter-mcr.6.54).
+%Data were aggregated across habitats and transects.
+%Thus each of the six sites contains data from very different habitats lumped together (backreef, forereef, fringing) and there is likely very little overlap in the species found in each habitat. 
+%This is different than the other datasets, and it would be good to discuss whether or not to separate by habitat.
+%Non-relevant taxa codes (e.g. ``No fish present") were removed from the dataset.
+%Abundance was recorded as dry biomass per 250 $m^2$, averaged across subplots, transects, and habitats for each species at each site in each year.
+%Data are in Figure \ref{mcr-fish}.
+%Six extra locations in forereef habitats were sampled in 2015.
+%These appear to be in addition to the four transects per habitat per site performed as part of the long term data collections, and thus they were removed from the dataset prior to analysis.
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{mcr-fish-castorani_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{mcr-fish-castorani_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{mcr-fish-castorani_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{mcr-fish-castorani_spp_shared.pdf}
+%\caption{{\bf MCR-fish:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 377 fish taxa observed at six sites on Moorea coral reef LTER (2006-2015). The black lines represent total site-level values across all plots.}
+%\label{mcr-fish}
+%\end{figure}
+%
+%
+%\subsection {mcr-coral}
+%{\bf Need to get updated data. Need to separate by habitat. Needs data package citation.}
+%Data were downloaded from EDI \citep{mcr-coral}.
+%The corals are identified to the genus level.
+%Data were aggregated across habitats and transects.
+%Thus each of the six sites contains data from very different habitats lumped together (back, fringing, outer reefs) and there is likely very little overlap in the species found in each habitat. 
+%This is different than the other datasets, and it would be good to discuss whether or not to separate by habitat.
+%Non-relevant taxa were removed from the dataset.
+%Abundance was averaged across subplots, transects, and habitats for each species at each site in each year.
+%Data are in Figure \ref{mcr-coral}.
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{mcr-coral-castorani_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{mcr-coral-castorani_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{mcr-coral-castorani_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{mcr-coral-castorani_spp_shared.pdf}
+%\caption{{\bf MCR-coral:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 31 coral taxa observed at six sites on Moorea coral reef LTER (2006-2015). The black lines represent total site-level values across all plots.}
+%\label{mcr-coral}
+%\end{figure}
+%
+%
+%
+%
+%\subsection {mcr-algae}
+%{\bf Need to get updated data. Need to separate by habitat. Needs data package citation.}
+%Data were downloaded from EDI \citep{mcr-algae}.
+%Data were aggregated across habitats and transects.
+%Thus each of the six sites contains data from very different habitats lumped together (back, fringing, outer reefs) and there is likely very little overlap in the species found in each habitat. 
+%This is different than the other datasets, and it would be good to discuss whether or not to separate by habitat.
+%Non-relevant taxa were removed from the dataset.
+%Abundance was averaged across subplots, transects, and habitats for each species at each site in each year.
+%Data are in Figure \ref{mcr-algae}.
+%The cumulative number of taxa was still increasing at the end of the time series.
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{mcr-algae-castorani_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{mcr-algae-castorani_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{mcr-algae-castorani_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{mcr-algae-castorani_spp_shared.pdf}
+%\caption{{\bf MCR-algae:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 73 algae taxa observed at six sites on Moorea coral reef LTER (2006-2015). The black lines represent total site-level values across all plots.}
+%\label{mcr-algae}
+%\end{figure}
+%
+%
 \subsection {gce-mollusc}
-{\bf Still organizing data provenance.}
-Data were downloaded from several EDI packages (approx. one per year of study).%\citep{}.
+% {\bf Still organizing data provenance.}
+Data were downloaded from several EDI packages (approx. one per year of study). %\citep{}.
 Data are in Figure \ref{gce-mollusc}.
 
 \begin{figure}[h!]
@@ -243,11 +242,11 @@ Data are in Figure \ref{gce-mollusc}.
 \includegraphics[scale = 0.4]{gce-mollusc-compagnoni_num_taxa_over_time.pdf}
 \includegraphics[scale = 0.4]{gce-mollusc-compagnoni_spatiotemporal_sampling_effort.pdf}
 %\includegraphics[scale = 0.4]{gce-mollusc-compagnoni_spp_shared.pdf}
-\caption{{\bf GCE-mollusc:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 11 mollusc taxa observed at Georgia Coastal Ecosystems LTER (xxxx-xxxx). The black lines represent total site-level values across all plots.}
+\caption{{\bf GCE-mollusc:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for 11 mollusc taxa observed at Georgia Coastal Ecosystems LTER. The black lines represent total site-level values across all plots.}
 \label{gce-mollusc}
 \end{figure}
 
-
+\newpage
 
 %%%%%%%%%%%%%%%%%%%%%%
 \section {Freshwater datasets}
@@ -273,7 +272,7 @@ Data are shown in Figure \ref{fce-diatoms}
 \end{figure}
 
 \subsection {fce-fish}
-{\bf Need to select wet or dry season.}
+% {\bf Need to select wet or dry season.}
 Data were obtained from the PI, and are cataloged on EDI  \citep{fce-fish}.
 Catch per unit effort (CPUE) was calculated as (count/distance)*100
 For each species, the CPUE was aggregated by summing the CPUE measured in each bout (i.e., replicate) within each Creek Number | River | YEAR | Season combination.
@@ -377,20 +376,20 @@ Data are shown in Figure \ref{ntl-fish}.
 %%%%%%%%%%%%%%%%%%%
 \section {Terrestrial datasets}
 
-
-\subsection {and-plants-mtStHelens}
-Data were downloaded from Ecological Archives \citep{and-plants} and are described in \citep{delMoral2005}..
-We used data from the Pumice Plains habitat, which is the longest continuous sampling (about 20 years) for this dataset (Figure \ref{and-plants}).
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{and-plants-mtStHelens_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{and-plants-mtStHelens_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{and-plants-mtStHelens_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{and-plants-mtStHelens_spp_shared.pdf}
-\caption{{\bf AND-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Mt. St. Helens. The black lines represent total site-level values across all plots.}
-\label{and-plants}
-\end{figure}
+%
+%\subsection {and-plants-mtStHelens}
+%Data were downloaded from Ecological Archives \citep{and-plants} and are described in \citep{delMoral2005}..
+%We used data from the Pumice Plains habitat, which is the longest continuous sampling (about 20 years) for this dataset (Figure \ref{and-plants}).
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{and-plants-mtStHelens_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{and-plants-mtStHelens_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{and-plants-mtStHelens_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{and-plants-mtStHelens_spp_shared.pdf}
+%\caption{{\bf AND-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at Mt. St. Helens. The black lines represent total site-level values across all plots.}
+%\label{and-plants}
+%\end{figure}
 
 
 \subsection {cdr-plants}
@@ -454,29 +453,29 @@ Data are shown in Figure \ref{hays-plants}.
 
 
 
-\subsection{jrn-plants}
-Data were downloaded from EDI \citep{jrn-plants}.
-We selected a subsample of 10 quadrats that provided 18 sampling occasions over 24 years (1915-1938). We only kept data from the years where all 10 quadrats were sampled.
-This is a small subsample of the 114 quadrats that make up this incredible dataset. 
-We then dropped or lumped taxonomic identifiers, because several counts were assigned to a genus rather than to a species. 
-For 25 genera contained in this dataset, counts were sometimes assigned to a species (e.g. \textit{Poa secunda}) or to a genus (e.g. \textit{Poa spp.}). 
-In such cases, we calculated the total proportion (within the entire dataset) of counts assigned to a genus level. 
-When the percentage of counts identified to a genus were less than 5$\%$ of the total counts, we discarded the information. 
-However, when the the percentage of counts identified at the genus level was more than 5$\%$, we lumped all of the counts assigned to a species into a single genus. 
-We did this because such high proportion of counts assigned to a genus, rather than a species, suggests high uncertainty in species identification.
-NOTE: the species accumulation curve in this dataset saturated quite rapidly. This is potentially an artifact of "lumping" specific information to the genus level. 
-Data are shown in Figure \ref{jrn-plants}.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_curve.pdf}
-\includegraphics[scale = 0.4]{jrn-plants-compagnoni_num_taxa_over_time.pdf}
-\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
-\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_space.pdf}
-\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spp_shared.pdf}
-\caption{{\bf JRN-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at the Jornada (JRN) LTER. The black lines represent total site-level values across all plots.}
-\label{jrn-plants}
-\end{figure}
+%\subsection{jrn-plants}
+%Data were downloaded from EDI \citep{jrn-plants}.
+%We selected a subsample of 10 quadrats that provided 18 sampling occasions over 24 years (1915-1938). We only kept data from the years where all 10 quadrats were sampled.
+%This is a small subsample of the 114 quadrats that make up this incredible dataset. 
+%We then dropped or lumped taxonomic identifiers, because several counts were assigned to a genus rather than to a species. 
+%For 25 genera contained in this dataset, counts were sometimes assigned to a species (e.g. \textit{Poa secunda}) or to a genus (e.g. \textit{Poa spp.}). 
+%In such cases, we calculated the total proportion (within the entire dataset) of counts assigned to a genus level. 
+%When the percentage of counts identified to a genus were less than 5$\%$ of the total counts, we discarded the information. 
+%However, when the the percentage of counts identified at the genus level was more than 5$\%$, we lumped all of the counts assigned to a species into a single genus. 
+%We did this because such high proportion of counts assigned to a genus, rather than a species, suggests high uncertainty in species identification.
+%NOTE: the species accumulation curve in this dataset saturated quite rapidly. This is potentially an artifact of "lumping" specific information to the genus level. 
+%Data are shown in Figure \ref{jrn-plants}.
+%
+%\begin{figure}[h!]
+%\centering
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_curve.pdf}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_num_taxa_over_time.pdf}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spatiotemporal_sampling_effort.pdf}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_species_accumulation_space.pdf}
+%\includegraphics[scale = 0.4]{jrn-plants-compagnoni_spp_shared.pdf}
+%\caption{{\bf JRN-plants:} Species accumulation curves (top left),  annual richness (top right), and sampling effort (bottom)  for plant species observed at the Jornada (JRN) LTER. The black lines represent total site-level values across all plots.}
+%\label{jrn-plants}
+%\end{figure}
 
 \subsection{sev-plants}
 Data were downloaded from EDI \citep{sev-plants}.
