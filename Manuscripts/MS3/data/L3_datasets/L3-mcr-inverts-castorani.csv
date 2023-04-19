@@ -1,0 +1,1747 @@
+"OBSERVATION_TYPE","SITE_ID","DATE","VARIABLE_NAME","VARIABLE_UNITS","VALUE"
+"SPATIAL_COORDINATE","location1",NA,"LAT","dec. degrees",-17.47913579
+"SPATIAL_COORDINATE","location2",NA,"LAT","dec. degrees",-17.47354064
+"SPATIAL_COORDINATE","location3",NA,"LAT","dec. degrees",-17.51234592
+"SPATIAL_COORDINATE","location4",NA,"LAT","dec. degrees",-17.54184642
+"SPATIAL_COORDINATE","location5",NA,"LAT","dec. degrees",-17.58000273
+"SPATIAL_COORDINATE","location6",NA,"LAT","dec. degrees",-17.51787861
+"SPATIAL_COORDINATE","location1",NA,"LONG","dec. degrees",-149.8377064
+"SPATIAL_COORDINATE","location2",NA,"LONG","dec. degrees",-149.8039267
+"SPATIAL_COORDINATE","location3",NA,"LONG","dec. degrees",-149.7614294
+"SPATIAL_COORDINATE","location4",NA,"LONG","dec. degrees",-149.7669862
+"SPATIAL_COORDINATE","location5",NA,"LONG","dec. degrees",-149.8715382
+"SPATIAL_COORDINATE","location6",NA,"LONG","dec. degrees",-149.9230353
+"TAXON_COUNT","location1",2005,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Diadema savignyi","mean.count.per.1_m2",0.9
+"TAXON_COUNT","location1",2005,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Echinometra mathaei","mean.count.per.1_m2",3.13333333333333
+"TAXON_COUNT","location1",2005,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Echinostrephus aciculatus","mean.count.per.1_m2",1.7
+"TAXON_COUNT","location1",2005,"Echinothrix calamaris","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location1",2005,"Echinothrix diadema","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location1",2005,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2005,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Diadema savignyi","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location1",2006,"Diadema setosum","mean.count.per.1_m2",0.375
+"TAXON_COUNT","location1",2006,"Echinometra mathaei","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Echinostrephus aciculatus","mean.count.per.1_m2",9.625
+"TAXON_COUNT","location1",2006,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2006,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2007,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2007,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location1",2007,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2007,"Diadema setosum","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2007,"Echinometra mathaei","mean.count.per.1_m2",4.0625
+"TAXON_COUNT","location1",2007,"Echinometra oblonga","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2007,"Echinostrephus aciculatus","mean.count.per.1_m2",0.4625
+"TAXON_COUNT","location1",2007,"Echinothrix calamaris","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2007,"Echinothrix diadema","mean.count.per.1_m2",0.0625
+"TAXON_COUNT","location1",2007,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2007,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2007,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2007,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2007,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2007,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2007,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2007,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Acanthaster planci","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location1",2008,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location1",2008,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Echinometra mathaei","mean.count.per.1_m2",2.4
+"TAXON_COUNT","location1",2008,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Echinostrephus aciculatus","mean.count.per.1_m2",0.525
+"TAXON_COUNT","location1",2008,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Echinothrix diadema","mean.count.per.1_m2",0.1
+"TAXON_COUNT","location1",2008,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location1",2008,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2008,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Acanthaster planci","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location1",2009,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Diadema savignyi","mean.count.per.1_m2",0.1875
+"TAXON_COUNT","location1",2009,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Echinometra mathaei","mean.count.per.1_m2",2.625
+"TAXON_COUNT","location1",2009,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Echinostrephus aciculatus","mean.count.per.1_m2",0.475
+"TAXON_COUNT","location1",2009,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Echinothrix diadema","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location1",2009,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Tectus niloticus","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location1",2009,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2009,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Acanthaster planci","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location1",2010,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Diadema savignyi","mean.count.per.1_m2",0.0625
+"TAXON_COUNT","location1",2010,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Echinometra mathaei","mean.count.per.1_m2",3.75
+"TAXON_COUNT","location1",2010,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Echinostrephus aciculatus","mean.count.per.1_m2",0.4125
+"TAXON_COUNT","location1",2010,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Echinothrix diadema","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location1",2010,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2010,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2011,"Acanthaster planci","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location1",2011,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location1",2011,"Diadema savignyi","mean.count.per.1_m2",0.2125
+"TAXON_COUNT","location1",2011,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2011,"Echinometra mathaei","mean.count.per.1_m2",7.5375
+"TAXON_COUNT","location1",2011,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2011,"Echinostrephus aciculatus","mean.count.per.1_m2",1.0375
+"TAXON_COUNT","location1",2011,"Echinothrix calamaris","mean.count.per.1_m2",0.075
+"TAXON_COUNT","location1",2011,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2011,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2011,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2011,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2011,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location1",2011,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2011,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2011,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2011,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2012,"Acanthaster planci","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location1",2012,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location1",2012,"Diadema savignyi","mean.count.per.1_m2",0.1
+"TAXON_COUNT","location1",2012,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2012,"Echinometra mathaei","mean.count.per.1_m2",11.925
+"TAXON_COUNT","location1",2012,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2012,"Echinostrephus aciculatus","mean.count.per.1_m2",2.6625
+"TAXON_COUNT","location1",2012,"Echinothrix calamaris","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location1",2012,"Echinothrix diadema","mean.count.per.1_m2",0.075
+"TAXON_COUNT","location1",2012,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2012,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2012,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2012,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2012,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2012,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2012,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2012,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2013,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2013,"Culcita novaeguineae","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location1",2013,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2013,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2013,"Echinometra mathaei","mean.count.per.1_m2",19.0375
+"TAXON_COUNT","location1",2013,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2013,"Echinostrephus aciculatus","mean.count.per.1_m2",2.25
+"TAXON_COUNT","location1",2013,"Echinothrix calamaris","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location1",2013,"Echinothrix diadema","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2013,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2013,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2013,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2013,"Tectus niloticus","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2013,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2013,"Tripneustes gratilla","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2013,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2013,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Diadema savignyi","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2014,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Echinometra mathaei","mean.count.per.1_m2",12.8125
+"TAXON_COUNT","location1",2014,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Echinostrephus aciculatus","mean.count.per.1_m2",1.7375
+"TAXON_COUNT","location1",2014,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location1",2014,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2014,"Turbo marmoratus","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2015,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Diadema savignyi","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2015,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Echinometra mathaei","mean.count.per.1_m2",3.15
+"TAXON_COUNT","location1",2015,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Echinostrephus aciculatus","mean.count.per.1_m2",1.2
+"TAXON_COUNT","location1",2015,"Echinothrix calamaris","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2015,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2015,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Echinometra mathaei","mean.count.per.1_m2",1.7125
+"TAXON_COUNT","location1",2016,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Echinostrephus aciculatus","mean.count.per.1_m2",0.9875
+"TAXON_COUNT","location1",2016,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2016,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Diadema savignyi","mean.count.per.1_m2",0.1
+"TAXON_COUNT","location1",2017,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Echinometra mathaei","mean.count.per.1_m2",1.575
+"TAXON_COUNT","location1",2017,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Echinostrephus aciculatus","mean.count.per.1_m2",1.275
+"TAXON_COUNT","location1",2017,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2017,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Echinometra mathaei","mean.count.per.1_m2",1.5875
+"TAXON_COUNT","location1",2018,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Echinostrephus aciculatus","mean.count.per.1_m2",1.4375
+"TAXON_COUNT","location1",2018,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2018,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Echinometra mathaei","mean.count.per.1_m2",0.5625
+"TAXON_COUNT","location1",2019,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Echinostrephus aciculatus","mean.count.per.1_m2",0.2625
+"TAXON_COUNT","location1",2019,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Echinothrix diadema","mean.count.per.1_m2",0.3375
+"TAXON_COUNT","location1",2019,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2019,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Echinometra mathaei","mean.count.per.1_m2",0.5
+"TAXON_COUNT","location1",2020,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Echinostrephus aciculatus","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location1",2020,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Echinothrix diadema","mean.count.per.1_m2",0.3125
+"TAXON_COUNT","location1",2020,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2020,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Echinometra mathaei","mean.count.per.1_m2",2.575
+"TAXON_COUNT","location1",2021,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Echinostrephus aciculatus","mean.count.per.1_m2",2.15
+"TAXON_COUNT","location1",2021,"Echinothrix calamaris","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location1",2021,"Echinothrix diadema","mean.count.per.1_m2",0.075
+"TAXON_COUNT","location1",2021,"Lambis truncata","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location1",2021,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location1",2021,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Diadema savignyi","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location2",2005,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Echinometra mathaei","mean.count.per.1_m2",11.5
+"TAXON_COUNT","location2",2005,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Echinostrephus aciculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Echinothrix diadema","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location2",2005,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2005,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Echinometra mathaei","mean.count.per.1_m2",2.34375
+"TAXON_COUNT","location2",2006,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Echinostrephus aciculatus","mean.count.per.1_m2",0.375
+"TAXON_COUNT","location2",2006,"Echinothrix calamaris","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location2",2006,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2006,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Acanthaster planci","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location2",2007,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2007,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Echinometra mathaei","mean.count.per.1_m2",2.8875
+"TAXON_COUNT","location2",2007,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Echinostrephus aciculatus","mean.count.per.1_m2",0.0625
+"TAXON_COUNT","location2",2007,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Echinothrix diadema","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location2",2007,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2007,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Echinometra mathaei","mean.count.per.1_m2",2.275
+"TAXON_COUNT","location2",2008,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Echinostrephus aciculatus","mean.count.per.1_m2",0.1
+"TAXON_COUNT","location2",2008,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Echinothrix diadema","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2008,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2008,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Diadema savignyi","mean.count.per.1_m2",0.15
+"TAXON_COUNT","location2",2009,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Echinometra mathaei","mean.count.per.1_m2",1.8875
+"TAXON_COUNT","location2",2009,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Echinostrephus aciculatus","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location2",2009,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Echinothrix diadema","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2009,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2009,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2009,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Acanthaster planci","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2010,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2010,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Echinometra mathaei","mean.count.per.1_m2",3.0375
+"TAXON_COUNT","location2",2010,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Echinostrephus aciculatus","mean.count.per.1_m2",0.1375
+"TAXON_COUNT","location2",2010,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Echinothrix diadema","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location2",2010,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2010,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Diadema savignyi","mean.count.per.1_m2",0.1
+"TAXON_COUNT","location2",2011,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Echinometra mathaei","mean.count.per.1_m2",5.275
+"TAXON_COUNT","location2",2011,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Echinostrephus aciculatus","mean.count.per.1_m2",0.6
+"TAXON_COUNT","location2",2011,"Echinothrix calamaris","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location2",2011,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Tectus niloticus","mean.count.per.1_m2",0.1
+"TAXON_COUNT","location2",2011,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2011,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2012,"Acanthaster planci","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2012,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2012,"Diadema savignyi","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location2",2012,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2012,"Echinometra mathaei","mean.count.per.1_m2",4.0125
+"TAXON_COUNT","location2",2012,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2012,"Echinostrephus aciculatus","mean.count.per.1_m2",0.7875
+"TAXON_COUNT","location2",2012,"Echinothrix calamaris","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location2",2012,"Echinothrix diadema","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location2",2012,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2012,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2012,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2012,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2012,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2012,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2012,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2012,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2013,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2013,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Echinometra mathaei","mean.count.per.1_m2",4.3125
+"TAXON_COUNT","location2",2013,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Echinostrephus aciculatus","mean.count.per.1_m2",0.675
+"TAXON_COUNT","location2",2013,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Echinothrix diadema","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location2",2013,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Tectus niloticus","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location2",2013,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2013,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2014,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Echinometra mathaei","mean.count.per.1_m2",5.025
+"TAXON_COUNT","location2",2014,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Echinostrephus aciculatus","mean.count.per.1_m2",0.3125
+"TAXON_COUNT","location2",2014,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Tectus niloticus","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location2",2014,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2014,"Turbo marmoratus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2015,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Echinometra mathaei","mean.count.per.1_m2",5.125
+"TAXON_COUNT","location2",2015,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Echinostrephus aciculatus","mean.count.per.1_m2",0.1625
+"TAXON_COUNT","location2",2015,"Echinothrix calamaris","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2015,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2015,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2015,"Turbo marmoratus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2016,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Echinometra mathaei","mean.count.per.1_m2",1.4
+"TAXON_COUNT","location2",2016,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Echinostrephus aciculatus","mean.count.per.1_m2",0.25
+"TAXON_COUNT","location2",2016,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Lambis truncata","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2016,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Tectus niloticus","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location2",2016,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2016,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2017,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Echinometra mathaei","mean.count.per.1_m2",1.275
+"TAXON_COUNT","location2",2017,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Echinostrephus aciculatus","mean.count.per.1_m2",0.1125
+"TAXON_COUNT","location2",2017,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2017,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Echinometra mathaei","mean.count.per.1_m2",1.0625
+"TAXON_COUNT","location2",2018,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Echinostrephus aciculatus","mean.count.per.1_m2",0.075
+"TAXON_COUNT","location2",2018,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Linckia laevigata (1m away)","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2018,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2018,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Echinometra mathaei","mean.count.per.1_m2",1.15
+"TAXON_COUNT","location2",2019,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Echinostrephus aciculatus","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location2",2019,"Echinothrix calamaris","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location2",2019,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2019,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Echinometra mathaei","mean.count.per.1_m2",0.2125
+"TAXON_COUNT","location2",2020,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Echinostrephus aciculatus","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location2",2020,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2020,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Echinometra mathaei","mean.count.per.1_m2",0.825
+"TAXON_COUNT","location2",2021,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Echinostrephus aciculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Echinothrix calamaris","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location2",2021,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location2",2021,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Diadema savignyi","mean.count.per.1_m2",3
+"TAXON_COUNT","location3",2005,"Diadema setosum","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location3",2005,"Echinometra mathaei","mean.count.per.1_m2",4.63333333333333
+"TAXON_COUNT","location3",2005,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Echinostrephus aciculatus","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location3",2005,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2005,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Diadema savignyi","mean.count.per.1_m2",0.583333333333333
+"TAXON_COUNT","location3",2006,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Echinometra mathaei","mean.count.per.1_m2",11.1111111111111
+"TAXON_COUNT","location3",2006,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Echinostrephus aciculatus","mean.count.per.1_m2",0.166666666666667
+"TAXON_COUNT","location3",2006,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2006,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Acanthaster planci","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location3",2007,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Diadema savignyi","mean.count.per.1_m2",0.275
+"TAXON_COUNT","location3",2007,"Diadema setosum","mean.count.per.1_m2",0.0625
+"TAXON_COUNT","location3",2007,"Echinometra mathaei","mean.count.per.1_m2",3.1625
+"TAXON_COUNT","location3",2007,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Echinostrephus aciculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Echinothrix calamaris","mean.count.per.1_m2",0.0625
+"TAXON_COUNT","location3",2007,"Echinothrix diadema","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location3",2007,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2007,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Acanthaster planci","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location3",2008,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Diadema savignyi","mean.count.per.1_m2",0.3125
+"TAXON_COUNT","location3",2008,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Echinometra mathaei","mean.count.per.1_m2",3.1125
+"TAXON_COUNT","location3",2008,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Echinostrephus aciculatus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location3",2008,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Echinothrix diadema","mean.count.per.1_m2",0.1625
+"TAXON_COUNT","location3",2008,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2008,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Acanthaster planci","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location3",2009,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Diadema savignyi","mean.count.per.1_m2",0.4
+"TAXON_COUNT","location3",2009,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Echinometra mathaei","mean.count.per.1_m2",3.975
+"TAXON_COUNT","location3",2009,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Echinostrephus aciculatus","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location3",2009,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Echinothrix diadema","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location3",2009,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2009,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location3",2010,"Diadema savignyi","mean.count.per.1_m2",0.1625
+"TAXON_COUNT","location3",2010,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Echinometra mathaei","mean.count.per.1_m2",4
+"TAXON_COUNT","location3",2010,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Echinostrephus aciculatus","mean.count.per.1_m2",0.075
+"TAXON_COUNT","location3",2010,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Echinothrix diadema","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location3",2010,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2010,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location3",2011,"Diadema savignyi","mean.count.per.1_m2",0.4375
+"TAXON_COUNT","location3",2011,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Echinometra mathaei","mean.count.per.1_m2",9.3
+"TAXON_COUNT","location3",2011,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Echinostrephus aciculatus","mean.count.per.1_m2",0.1375
+"TAXON_COUNT","location3",2011,"Echinothrix calamaris","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location3",2011,"Echinothrix diadema","mean.count.per.1_m2",0.1875
+"TAXON_COUNT","location3",2011,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2011,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2012,"Acanthaster planci","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location3",2012,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location3",2012,"Diadema savignyi","mean.count.per.1_m2",0.7375
+"TAXON_COUNT","location3",2012,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2012,"Echinometra mathaei","mean.count.per.1_m2",12.7
+"TAXON_COUNT","location3",2012,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2012,"Echinostrephus aciculatus","mean.count.per.1_m2",0.3375
+"TAXON_COUNT","location3",2012,"Echinothrix calamaris","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location3",2012,"Echinothrix diadema","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location3",2012,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2012,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2012,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2012,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2012,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2012,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2012,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2012,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Acanthaster planci","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location3",2013,"Culcita novaeguineae","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location3",2013,"Diadema savignyi","mean.count.per.1_m2",0.1625
+"TAXON_COUNT","location3",2013,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Echinometra mathaei","mean.count.per.1_m2",9.575
+"TAXON_COUNT","location3",2013,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Echinostrephus aciculatus","mean.count.per.1_m2",0.15
+"TAXON_COUNT","location3",2013,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2013,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Culcita novaeguineae","mean.count.per.1_m2",0.0166666666666667
+"TAXON_COUNT","location3",2014,"Diadema savignyi","mean.count.per.1_m2",0.233333333333333
+"TAXON_COUNT","location3",2014,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Echinometra mathaei","mean.count.per.1_m2",8.96666666666667
+"TAXON_COUNT","location3",2014,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Echinostrephus aciculatus","mean.count.per.1_m2",0.233333333333333
+"TAXON_COUNT","location3",2014,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Echinothrix diadema","mean.count.per.1_m2",0.0166666666666667
+"TAXON_COUNT","location3",2014,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2014,"Turbo marmoratus","mean.count.per.1_m2",0.0166666666666667
+"TAXON_COUNT","location3",2015,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Diadema savignyi","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location3",2015,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Echinometra mathaei","mean.count.per.1_m2",5.6375
+"TAXON_COUNT","location3",2015,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Echinostrephus aciculatus","mean.count.per.1_m2",0.0875
+"TAXON_COUNT","location3",2015,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2015,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Diadema savignyi","mean.count.per.1_m2",0.1
+"TAXON_COUNT","location3",2016,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Echinometra mathaei","mean.count.per.1_m2",3.0625
+"TAXON_COUNT","location3",2016,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Echinostrephus aciculatus","mean.count.per.1_m2",0.175
+"TAXON_COUNT","location3",2016,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2016,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location3",2017,"Diadema savignyi","mean.count.per.1_m2",0.375
+"TAXON_COUNT","location3",2017,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Echinometra mathaei","mean.count.per.1_m2",9.9875
+"TAXON_COUNT","location3",2017,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Echinostrephus aciculatus","mean.count.per.1_m2",0.175
+"TAXON_COUNT","location3",2017,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Tectus niloticus","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location3",2017,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2017,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Echinometra mathaei","mean.count.per.1_m2",6.5
+"TAXON_COUNT","location3",2018,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Echinostrephus aciculatus","mean.count.per.1_m2",0.3375
+"TAXON_COUNT","location3",2018,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2018,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Echinometra mathaei","mean.count.per.1_m2",3.35
+"TAXON_COUNT","location3",2019,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Echinostrephus aciculatus","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location3",2019,"Echinothrix calamaris","mean.count.per.1_m2",0.0166666666666667
+"TAXON_COUNT","location3",2019,"Echinothrix diadema","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location3",2019,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2019,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Echinometra mathaei","mean.count.per.1_m2",1.66666666666667
+"TAXON_COUNT","location3",2020,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Echinostrephus aciculatus","mean.count.per.1_m2",0.0666666666666667
+"TAXON_COUNT","location3",2020,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Echinothrix diadema","mean.count.per.1_m2",0.0166666666666667
+"TAXON_COUNT","location3",2020,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2020,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Echinometra mathaei","mean.count.per.1_m2",9.35
+"TAXON_COUNT","location3",2021,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Echinostrephus aciculatus","mean.count.per.1_m2",0.25
+"TAXON_COUNT","location3",2021,"Echinothrix calamaris","mean.count.per.1_m2",0.325
+"TAXON_COUNT","location3",2021,"Echinothrix diadema","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location3",2021,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Spirobranchus giganteus","mean.count.per.1_m2",1.825
+"TAXON_COUNT","location3",2021,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Tridacna maxima (1m away)","mean.count.per.1_m2",0.6
+"TAXON_COUNT","location3",2021,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location3",2021,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Diadema savignyi","mean.count.per.1_m2",11.35
+"TAXON_COUNT","location4",2005,"Diadema setosum","mean.count.per.1_m2",0.4
+"TAXON_COUNT","location4",2005,"Echinometra mathaei","mean.count.per.1_m2",4.01666666666667
+"TAXON_COUNT","location4",2005,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Echinostrephus aciculatus","mean.count.per.1_m2",0.6
+"TAXON_COUNT","location4",2005,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2005,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Diadema savignyi","mean.count.per.1_m2",0.5
+"TAXON_COUNT","location4",2006,"Diadema setosum","mean.count.per.1_m2",0.25
+"TAXON_COUNT","location4",2006,"Echinometra mathaei","mean.count.per.1_m2",4.22916666666667
+"TAXON_COUNT","location4",2006,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Echinostrephus aciculatus","mean.count.per.1_m2",0.375
+"TAXON_COUNT","location4",2006,"Echinothrix calamaris","mean.count.per.1_m2",0.3125
+"TAXON_COUNT","location4",2006,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2006,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Diadema savignyi","mean.count.per.1_m2",2.6125
+"TAXON_COUNT","location4",2007,"Diadema setosum","mean.count.per.1_m2",0.1125
+"TAXON_COUNT","location4",2007,"Echinometra mathaei","mean.count.per.1_m2",1.4875
+"TAXON_COUNT","location4",2007,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Echinostrephus aciculatus","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location4",2007,"Echinothrix calamaris","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location4",2007,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location4",2007,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2007,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Acanthaster planci","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location4",2008,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Diadema savignyi","mean.count.per.1_m2",2.925
+"TAXON_COUNT","location4",2008,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Echinometra mathaei","mean.count.per.1_m2",0.4875
+"TAXON_COUNT","location4",2008,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Echinostrephus aciculatus","mean.count.per.1_m2",0.1
+"TAXON_COUNT","location4",2008,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Echinothrix diadema","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location4",2008,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2008,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Acanthaster planci","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location4",2009,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Diadema savignyi","mean.count.per.1_m2",2.25
+"TAXON_COUNT","location4",2009,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Echinometra mathaei","mean.count.per.1_m2",0.3375
+"TAXON_COUNT","location4",2009,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Echinostrephus aciculatus","mean.count.per.1_m2",0.075
+"TAXON_COUNT","location4",2009,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Echinothrix diadema","mean.count.per.1_m2",0.1125
+"TAXON_COUNT","location4",2009,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2009,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Acanthaster planci","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location4",2010,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Diadema savignyi","mean.count.per.1_m2",1.6875
+"TAXON_COUNT","location4",2010,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Echinometra mathaei","mean.count.per.1_m2",0.6
+"TAXON_COUNT","location4",2010,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Echinostrephus aciculatus","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location4",2010,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Echinothrix diadema","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location4",2010,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2010,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Diadema savignyi","mean.count.per.1_m2",1.7125
+"TAXON_COUNT","location4",2011,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Echinometra mathaei","mean.count.per.1_m2",2.2375
+"TAXON_COUNT","location4",2011,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Echinostrephus aciculatus","mean.count.per.1_m2",0.35
+"TAXON_COUNT","location4",2011,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2011,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Diadema savignyi","mean.count.per.1_m2",1.15
+"TAXON_COUNT","location4",2012,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Echinometra mathaei","mean.count.per.1_m2",1.7375
+"TAXON_COUNT","location4",2012,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Echinostrephus aciculatus","mean.count.per.1_m2",0.5625
+"TAXON_COUNT","location4",2012,"Echinothrix calamaris","mean.count.per.1_m2",0.0625
+"TAXON_COUNT","location4",2012,"Echinothrix diadema","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location4",2012,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2012,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location4",2013,"Diadema savignyi","mean.count.per.1_m2",0.5
+"TAXON_COUNT","location4",2013,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Echinometra mathaei","mean.count.per.1_m2",3.725
+"TAXON_COUNT","location4",2013,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Echinostrephus aciculatus","mean.count.per.1_m2",0.5625
+"TAXON_COUNT","location4",2013,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Echinothrix diadema","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location4",2013,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2013,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Diadema savignyi","mean.count.per.1_m2",0.1625
+"TAXON_COUNT","location4",2014,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Echinometra mathaei","mean.count.per.1_m2",3.6125
+"TAXON_COUNT","location4",2014,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Echinostrephus aciculatus","mean.count.per.1_m2",0.55
+"TAXON_COUNT","location4",2014,"Echinothrix calamaris","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location4",2014,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Tripneustes gratilla","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location4",2014,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2014,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Acanthaster planci","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location4",2015,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Diadema savignyi","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location4",2015,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Echinometra mathaei","mean.count.per.1_m2",0.75
+"TAXON_COUNT","location4",2015,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Echinostrephus aciculatus","mean.count.per.1_m2",0.425
+"TAXON_COUNT","location4",2015,"Echinothrix calamaris","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location4",2015,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2015,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Diadema savignyi","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location4",2016,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Echinometra mathaei","mean.count.per.1_m2",1.25
+"TAXON_COUNT","location4",2016,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Echinostrephus aciculatus","mean.count.per.1_m2",0.35
+"TAXON_COUNT","location4",2016,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location4",2016,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2016,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Diadema savignyi","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location4",2017,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Echinometra mathaei","mean.count.per.1_m2",3.625
+"TAXON_COUNT","location4",2017,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Echinostrephus aciculatus","mean.count.per.1_m2",0.4875
+"TAXON_COUNT","location4",2017,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2017,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Echinometra mathaei","mean.count.per.1_m2",3.08333333333333
+"TAXON_COUNT","location4",2018,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Echinostrephus aciculatus","mean.count.per.1_m2",0.666666666666667
+"TAXON_COUNT","location4",2018,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2018,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Echinometra mathaei","mean.count.per.1_m2",1.25
+"TAXON_COUNT","location4",2019,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Echinostrephus aciculatus","mean.count.per.1_m2",0.25
+"TAXON_COUNT","location4",2019,"Echinothrix calamaris","mean.count.per.1_m2",0.0166666666666667
+"TAXON_COUNT","location4",2019,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2019,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Echinometra mathaei","mean.count.per.1_m2",0.6
+"TAXON_COUNT","location4",2020,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Echinostrephus aciculatus","mean.count.per.1_m2",0.1
+"TAXON_COUNT","location4",2020,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Echinothrix diadema","mean.count.per.1_m2",0.0833333333333333
+"TAXON_COUNT","location4",2020,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2020,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Echinometra mathaei","mean.count.per.1_m2",2.4
+"TAXON_COUNT","location4",2021,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Echinostrephus aciculatus","mean.count.per.1_m2",0.175
+"TAXON_COUNT","location4",2021,"Echinothrix calamaris","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location4",2021,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Tridacna maxima (1m away)","mean.count.per.1_m2",0.425
+"TAXON_COUNT","location4",2021,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location4",2021,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Diadema savignyi","mean.count.per.1_m2",0.4
+"TAXON_COUNT","location5",2005,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Echinometra mathaei","mean.count.per.1_m2",10.3
+"TAXON_COUNT","location5",2005,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Echinostrephus aciculatus","mean.count.per.1_m2",1.3
+"TAXON_COUNT","location5",2005,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Echinothrix diadema","mean.count.per.1_m2",0.6
+"TAXON_COUNT","location5",2005,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2005,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Diadema savignyi","mean.count.per.1_m2",0.0833333333333333
+"TAXON_COUNT","location5",2006,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Echinometra mathaei","mean.count.per.1_m2",0.583333333333333
+"TAXON_COUNT","location5",2006,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Echinostrephus aciculatus","mean.count.per.1_m2",3.95833333333333
+"TAXON_COUNT","location5",2006,"Echinothrix calamaris","mean.count.per.1_m2",0.0833333333333333
+"TAXON_COUNT","location5",2006,"Echinothrix diadema","mean.count.per.1_m2",0.416666666666667
+"TAXON_COUNT","location5",2006,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2006,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Acanthaster planci","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location5",2007,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Diadema savignyi","mean.count.per.1_m2",0.075
+"TAXON_COUNT","location5",2007,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Echinometra mathaei","mean.count.per.1_m2",1.1625
+"TAXON_COUNT","location5",2007,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Echinostrephus aciculatus","mean.count.per.1_m2",0.7375
+"TAXON_COUNT","location5",2007,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Echinothrix diadema","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location5",2007,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2007,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location5",2008,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Echinometra mathaei","mean.count.per.1_m2",0.975
+"TAXON_COUNT","location5",2008,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Echinostrephus aciculatus","mean.count.per.1_m2",0.9375
+"TAXON_COUNT","location5",2008,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Echinothrix diadema","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location5",2008,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2008,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Acanthaster planci","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location5",2009,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Diadema savignyi","mean.count.per.1_m2",0.0625
+"TAXON_COUNT","location5",2009,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Echinometra mathaei","mean.count.per.1_m2",1.6375
+"TAXON_COUNT","location5",2009,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Echinostrephus aciculatus","mean.count.per.1_m2",1
+"TAXON_COUNT","location5",2009,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2009,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Diadema savignyi","mean.count.per.1_m2",0.0875
+"TAXON_COUNT","location5",2010,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Echinometra mathaei","mean.count.per.1_m2",1.7
+"TAXON_COUNT","location5",2010,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Echinostrephus aciculatus","mean.count.per.1_m2",0.925
+"TAXON_COUNT","location5",2010,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Echinothrix diadema","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location5",2010,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2010,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location5",2011,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Echinometra mathaei","mean.count.per.1_m2",2.2
+"TAXON_COUNT","location5",2011,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Echinostrephus aciculatus","mean.count.per.1_m2",0.875
+"TAXON_COUNT","location5",2011,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Tectus niloticus","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location5",2011,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2011,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Diadema savignyi","mean.count.per.1_m2",0.0875
+"TAXON_COUNT","location5",2012,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Echinometra mathaei","mean.count.per.1_m2",1.9625
+"TAXON_COUNT","location5",2012,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Echinostrephus aciculatus","mean.count.per.1_m2",1.1125
+"TAXON_COUNT","location5",2012,"Echinothrix calamaris","mean.count.per.1_m2",0.0875
+"TAXON_COUNT","location5",2012,"Echinothrix diadema","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location5",2012,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2012,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Diadema savignyi","mean.count.per.1_m2",0.0625
+"TAXON_COUNT","location5",2013,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Echinometra mathaei","mean.count.per.1_m2",2.05
+"TAXON_COUNT","location5",2013,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Echinostrephus aciculatus","mean.count.per.1_m2",0.975
+"TAXON_COUNT","location5",2013,"Echinothrix calamaris","mean.count.per.1_m2",0.0625
+"TAXON_COUNT","location5",2013,"Echinothrix diadema","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location5",2013,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2013,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Echinometra mathaei","mean.count.per.1_m2",2.4125
+"TAXON_COUNT","location5",2014,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Echinostrephus aciculatus","mean.count.per.1_m2",0.9125
+"TAXON_COUNT","location5",2014,"Echinothrix calamaris","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location5",2014,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location5",2014,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2014,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Diadema savignyi","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location5",2015,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Echinometra mathaei","mean.count.per.1_m2",4.75
+"TAXON_COUNT","location5",2015,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Echinostrephus aciculatus","mean.count.per.1_m2",0.9375
+"TAXON_COUNT","location5",2015,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location5",2015,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2015,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Echinometra mathaei","mean.count.per.1_m2",2.1375
+"TAXON_COUNT","location5",2016,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Echinostrephus aciculatus","mean.count.per.1_m2",0.7625
+"TAXON_COUNT","location5",2016,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2016,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location5",2017,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Echinometra mathaei","mean.count.per.1_m2",1.0875
+"TAXON_COUNT","location5",2017,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Echinostrephus aciculatus","mean.count.per.1_m2",1.1375
+"TAXON_COUNT","location5",2017,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2017,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Echinometra mathaei","mean.count.per.1_m2",1.0625
+"TAXON_COUNT","location5",2018,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Echinostrephus aciculatus","mean.count.per.1_m2",0.95
+"TAXON_COUNT","location5",2018,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Echinothrix diadema","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location5",2018,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2018,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Echinometra mathaei","mean.count.per.1_m2",0.8625
+"TAXON_COUNT","location5",2019,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Echinostrephus aciculatus","mean.count.per.1_m2",0.6
+"TAXON_COUNT","location5",2019,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2019,"Turbo marmoratus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location5",2020,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Echinometra mathaei","mean.count.per.1_m2",0.5125
+"TAXON_COUNT","location5",2020,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Echinostrephus aciculatus","mean.count.per.1_m2",0.3875
+"TAXON_COUNT","location5",2020,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2020,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Echinometra mathaei","mean.count.per.1_m2",0.975
+"TAXON_COUNT","location5",2021,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Echinostrephus aciculatus","mean.count.per.1_m2",0.15
+"TAXON_COUNT","location5",2021,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location5",2021,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Echinometra mathaei","mean.count.per.1_m2",1.38888888888889
+"TAXON_COUNT","location6",2005,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Echinostrephus aciculatus","mean.count.per.1_m2",0.666666666666667
+"TAXON_COUNT","location6",2005,"Echinothrix calamaris","mean.count.per.1_m2",0.111111111111111
+"TAXON_COUNT","location6",2005,"Echinothrix diadema","mean.count.per.1_m2",0.222222222222222
+"TAXON_COUNT","location6",2005,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2005,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Echinometra mathaei","mean.count.per.1_m2",1.33333333333333
+"TAXON_COUNT","location6",2006,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Echinostrephus aciculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2006,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2007,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Echinometra mathaei","mean.count.per.1_m2",0.4
+"TAXON_COUNT","location6",2007,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Echinostrephus aciculatus","mean.count.per.1_m2",0.075
+"TAXON_COUNT","location6",2007,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Echinothrix diadema","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2007,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Tectus niloticus","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location6",2007,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2007,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2008,"Diadema savignyi","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location6",2008,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Echinometra mathaei","mean.count.per.1_m2",0.35
+"TAXON_COUNT","location6",2008,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Echinostrephus aciculatus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2008,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Echinothrix diadema","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location6",2008,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2008,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Diadema savignyi","mean.count.per.1_m2",0.4375
+"TAXON_COUNT","location6",2009,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Echinometra mathaei","mean.count.per.1_m2",0.2875
+"TAXON_COUNT","location6",2009,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Echinostrephus aciculatus","mean.count.per.1_m2",0.075
+"TAXON_COUNT","location6",2009,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Echinothrix diadema","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2009,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Tectus niloticus","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location6",2009,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2009,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2010,"Diadema savignyi","mean.count.per.1_m2",0.1125
+"TAXON_COUNT","location6",2010,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Echinometra mathaei","mean.count.per.1_m2",0.9125
+"TAXON_COUNT","location6",2010,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Echinostrephus aciculatus","mean.count.per.1_m2",0.15
+"TAXON_COUNT","location6",2010,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Echinothrix diadema","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location6",2010,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2010,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Diadema savignyi","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location6",2011,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Echinometra mathaei","mean.count.per.1_m2",1.15
+"TAXON_COUNT","location6",2011,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Echinostrephus aciculatus","mean.count.per.1_m2",0.2625
+"TAXON_COUNT","location6",2011,"Echinothrix calamaris","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2011,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2011,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2012,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2012,"Culcita novaeguineae","mean.count.per.1_m2",0.075
+"TAXON_COUNT","location6",2012,"Diadema savignyi","mean.count.per.1_m2",0.225
+"TAXON_COUNT","location6",2012,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2012,"Echinometra mathaei","mean.count.per.1_m2",1.65
+"TAXON_COUNT","location6",2012,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2012,"Echinostrephus aciculatus","mean.count.per.1_m2",0.4125
+"TAXON_COUNT","location6",2012,"Echinothrix calamaris","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location6",2012,"Echinothrix diadema","mean.count.per.1_m2",0.0375
+"TAXON_COUNT","location6",2012,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2012,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2012,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2012,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2012,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2012,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2012,"Trochus maculatus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2012,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Culcita novaeguineae","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2013,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Echinometra mathaei","mean.count.per.1_m2",4.15
+"TAXON_COUNT","location6",2013,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Echinostrephus aciculatus","mean.count.per.1_m2",0.55
+"TAXON_COUNT","location6",2013,"Echinothrix calamaris","mean.count.per.1_m2",0.05
+"TAXON_COUNT","location6",2013,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Tripneustes gratilla","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2013,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2013,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2014,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Echinometra mathaei","mean.count.per.1_m2",2.7375
+"TAXON_COUNT","location6",2014,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Echinostrephus aciculatus","mean.count.per.1_m2",0.55
+"TAXON_COUNT","location6",2014,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2014,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Acanthaster planci","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2015,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Echinometra mathaei","mean.count.per.1_m2",2.1125
+"TAXON_COUNT","location6",2015,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Echinostrephus aciculatus","mean.count.per.1_m2",0.575
+"TAXON_COUNT","location6",2015,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2015,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Diadema savignyi","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2016,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Echinometra mathaei","mean.count.per.1_m2",0.8375
+"TAXON_COUNT","location6",2016,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Echinostrephus aciculatus","mean.count.per.1_m2",0.3625
+"TAXON_COUNT","location6",2016,"Echinothrix calamaris","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2016,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2016,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Echinometra mathaei","mean.count.per.1_m2",1.4
+"TAXON_COUNT","location6",2017,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Echinostrephus aciculatus","mean.count.per.1_m2",0.175
+"TAXON_COUNT","location6",2017,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Tectus niloticus","mean.count.per.1_m2",0.0125
+"TAXON_COUNT","location6",2017,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2017,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Echinometra mathaei","mean.count.per.1_m2",0.775
+"TAXON_COUNT","location6",2018,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Echinostrephus aciculatus","mean.count.per.1_m2",0.2
+"TAXON_COUNT","location6",2018,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2018,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Echinometra mathaei","mean.count.per.1_m2",0.5875
+"TAXON_COUNT","location6",2019,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Echinostrephus aciculatus","mean.count.per.1_m2",0.1125
+"TAXON_COUNT","location6",2019,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Tectus niloticus","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location6",2019,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2019,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Echinometra mathaei","mean.count.per.1_m2",0.125
+"TAXON_COUNT","location6",2020,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Echinostrephus aciculatus","mean.count.per.1_m2",0.1
+"TAXON_COUNT","location6",2020,"Echinothrix calamaris","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2020,"Turbo marmoratus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Acanthaster planci","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Culcita novaeguineae","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Diadema savignyi","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Diadema setosum","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Echinometra mathaei","mean.count.per.1_m2",0.925
+"TAXON_COUNT","location6",2021,"Echinometra oblonga","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Echinostrephus aciculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Echinothrix calamaris","mean.count.per.1_m2",0.025
+"TAXON_COUNT","location6",2021,"Echinothrix diadema","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Lambis truncata","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Linckia laevigata (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Spirobranchus giganteus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Tectus niloticus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Tridacna maxima (1m away)","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Tripneustes gratilla","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Trochus maculatus","mean.count.per.1_m2",0
+"TAXON_COUNT","location6",2021,"Turbo marmoratus","mean.count.per.1_m2",0

@@ -9,18 +9,68 @@
 library(dplyr)
 library(tidyr)
 
-source("Group2-explore-data/format_data/pull_data_gdrive_fun.R")
-
 
 
 ### MCR Invertebrate Data ###
+# Package ID: knb-lter-mcr.7.33 Cataloging System:https://pasta.edirepository.org.
+# Data set title: MCR LTER: Coral Reef: Long-term Population and Community Dynamics: Other Benthic Invertebrates, ongoing since 2005.
+# Data set creator:    - Moorea Coral Reef LTER 
+# Data set creator:  Robert Carpenter - Moorea Coral Reef LTER 
+# Metadata Provider:    - Moorea Coral Reef LTER 
+# Contact:    - Information Manager Moorea Coral Reef LTER  - mcrlter@msi.ucsb.edu
+# Stylesheet v2.11 for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
+
+inUrl1  <- "https://pasta.lternet.edu/package/data/eml/knb-lter-mcr/7/33/668de777b44a8f656a19c3ca25b737c5" 
+infile1 <- tempfile()
+try(download.file(inUrl1,infile1,method="curl"))
+if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
+
+
+dt1 <-read.csv(infile1,header=F 
+               ,skip=1
+               ,sep=","  
+               ,quot='"' 
+               , col.names=c(
+                 "Year",     
+                 "Date",     
+                 "Location",     
+                 "Site",     
+                 "Habitat",     
+                 "Transect",     
+                 "Quadrat",     
+                 "Taxonomy",     
+                 "Count"    ), check.names=TRUE)
+
+unlink(infile1)
+
+# Fix any interval or ratio columns mistakenly read in as nominal and nominal columns read as numeric or dates read as strings
+
+if (class(dt1$Year)!="factor") dt1$Year<- as.factor(dt1$Year)                                   
+# attempting to convert dt1$Date dateTime string to R date structure (date or POSIXct)                                
+tmpDateFormat<-"%Y-%m-%d"
+tmp1Date<-as.Date(dt1$Date,format=tmpDateFormat)
+# Keep the new dates only if they all converted correctly
+if(length(tmp1Date) == length(tmp1Date[!is.na(tmp1Date)])){dt1$Date <- tmp1Date } else {print("Date conversion failed for dt1$Date. Please inspect the data and do the date conversion yourself.")}                                                                    
+rm(tmpDateFormat,tmp1Date) 
+if (class(dt1$Location)!="factor") dt1$Location<- as.factor(dt1$Location)
+if (class(dt1$Site)!="factor") dt1$Site<- as.factor(dt1$Site)
+if (class(dt1$Habitat)!="factor") dt1$Habitat<- as.factor(dt1$Habitat)
+if (class(dt1$Transect)!="factor") dt1$Transect<- as.factor(dt1$Transect)
+if (class(dt1$Quadrat)!="factor") dt1$Quadrat<- as.factor(dt1$Quadrat)
+if (class(dt1$Taxonomy)!="factor") dt1$Taxonomy<- as.factor(dt1$Taxonomy)
+if (class(dt1$Count)=="factor") dt1$Count <-as.numeric(levels(dt1$Count))[as.integer(dt1$Count) ]               
+if (class(dt1$Count)=="character") dt1$Count <-as.numeric(dt1$Count)
+
+
 
 ## Read in the data
-mcr.inverts <- read_csv_gdrive("0BxUZSA1Gn1HZU2hQdC0wVVNQdDA") %>%
-  tbl_df()
+mcr.inverts <- as_tibble(dt1)
 
-#Google Drive File Stream method:
-mcr.inverts <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-inverts/MCR_LTER_Annual_Survey_Herbiv_Invert_20150330.csv", stringsAsFactors = FALSE)
+# mcr.inverts <- read_csv_gdrive("0BxUZSA1Gn1HZU2hQdC0wVVNQdDA") %>%
+#   tbl_df()
+# 
+# #Google Drive File Stream method:
+# mcr.inverts <- read.csv("~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L0-raw/MCR-inverts/MCR_LTER_Annual_Survey_Herbiv_Invert_20150330.csv", stringsAsFactors = FALSE)
 
 
 
@@ -96,7 +146,7 @@ mcr.inverts_reformat <- mcr.inverts_clean %>%
                 VALUE)
 
 # Write CSV file for cleaned data (L2. Skipping L1 because data are already aggregated by year)
-write.csv(mcr.inverts_reformat, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L2-mcr-inverts-castorani.csv", row.names = F)
+# write.csv(mcr.inverts_reformat, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L2-mcr-inverts-castorani.csv", row.names = F)
 
 
 # --------------------------------------------------------------------------------------------------------------------------------
@@ -143,4 +193,4 @@ spatial.coords <- data.frame(
 mcr.inverts_L3_final <- rbind(spatial.coords, mcr.inverts_L3)
 
 # Write CSV file for cleaned data (L3)
-write.csv(mcr.inverts_L3_final, file = "~/Google Drive File Stream/My Drive/LTER Metacommunities/LTER-DATA/L3-aggregated_by_year_and_space/L3-mcr-inverts-castorani.csv", row.names = F)
+write.csv(mcr.inverts_L3_final, file = "Manuscripts/MS3/data/L3_datasets/L3-mcr-inverts-castorani.csv", row.names = F)
