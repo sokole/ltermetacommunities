@@ -394,12 +394,12 @@ Data are shown in Figure \ref{ntl-fish}.
 
 \subsection {cdr-plants}
 Data were downloaded from EDI \citep{cdr-plants}.
-Annual censuses for dataset are incomplete after 2004, so we only consider data until 2004. 
+Annual censuses are incomplete after 2004, so we only consider data from 1982 until 2004. 
 We used data from control plots only, from all four sites (A, B, C, and D). 
-Fields A, B, and C were considered together as a single dataset, while D was considered a separate datasets because of its unique fire history.
-We cleaned taxonomic data by cleaning clear mistakes (such as `carex sp.' instead of `Carex sp.'), removed non-taxonomic entities (``Miscellaneous litter") and non-plant taxa (`Fungi', and `Mosses \& lichens').
+Fields A, B, and C were considered together as a single dataset, while D was considered a separate dataset because of its unique fire history.
+We prepared taxonomic data by cleaning clear mistakes (such as `carex sp.' instead of `Carex sp.'), removed non-taxonomic entities (``Miscellaneous litter") and non-plant taxa (`Fungi', and `Mosses \& lichens').
 We also lumped or dropped certain taxonomic information. 
-In particular, we lumped taxonomic information to the genus level when more than 1$\%$ (more than a proportion of 0.01) of the biomass of a genus was not identified to the species level. 
+Specifically, we lumped taxonomic information to the genus level when more than 1$\%$ of the biomass of a genus was not identified to the species level. 
 For example, {\it Cyperus} species are usually identified to the genus level (``Cyperus  sp.") rather than species level (``{\it Cyperus schweinitzii}''), with a minority of the biomass (less than 10$\%$) identified at the specific level. We therefore consider only genus information for {\it Cyperus}. 
 We dropped taxonomic information when within a certain genus, biomass is identified to the genus level. 
 For example, in the genus {\it Viola}, more than 99.8$\%$ of biomass was determined to the species level. We therefore dropped from the dataset the instances when biomass is assigned to 'Viola sp.'.
@@ -432,10 +432,10 @@ Data are shown in figures \ref{cdrABC-plants} and \ref{cdrD-plants}.
 
 \subsection{hays-plants}
 Data were downloaded from Ecological Archives \citep{hay_data}.
-We removed unknown species, species categorized as `short grass' and `Fragment', and `Bare ground'. 
+We removed unknown species, and data points categorized as `short grass', `Fragment', and `Bare ground'. 
 Moreover, we identified seven issues with species identification. 
 First, we removed individuals identified a the genus level for \textit{Ambrosia}, \textit{Oxalis}, and \textit{Solidago}. 
-In the genera more than 95\% of individuals were identified at the species level. 
+In these genera more than 95\% of individuals were identified at the species level. 
 Second, we `lumped' to genus level, species belonging to the general \textit{Allium}, \textit{Chamaesyce}, \textit{Opuntia}, \textit{Polygala}. 
 In these genera, more than 5\% of counts were identified at the genus level. 
 Finally, we only retained the 14 plots with continuous replication between 1938 and 1973.
@@ -480,7 +480,7 @@ Data are shown in Figure \ref{hays-plants}.
 \subsection{sev-plants}
 Data were downloaded from EDI \citep{sev-plants}.
 This dataset has a consistent spatio-temporal sampling: quadrats, within four transects (N,S,R,V) within two plots, all at one site, sampled twice a year (spring and fall). 
-There is, however, a third plots (plot number 3) that contains four new transect (A,B,C,D), which contain 5 - rather than 10 - quadrats each. 
+There is, however, a third plot (plot number 3) that contains four new transects (A,B,C,D), which contain 5 - rather than 10 - quadrats each. 
 Moreover, the replicates have been occasionally censused in winter, but not consistently through the years. 
 Therefore, we removed plot 3 and winter censuses.
 We then removed NAs in species counts and species identity, and summed species counts across the 10 quadrats contained in each transect. 
@@ -540,7 +540,7 @@ We downloaded this arthropod data (1992-2004) from EDI \citep{lightfoot_ground_2
 
 
 \subsection {sev-grasshoppers}
-The data were downloaded from the EDI Data Portal \citep{sev-grasshopper}.
+The data (1992-2013) were downloaded from the EDI Data Portal \citep{sev-grasshopper}.
 We retained data from only two habitats (Black grama and Creosotebush) that shared many species, and presented 20 years of temporal replication. This data were collected twice a year, and spatial replication included site, transect, and web. 
 Population (count) data is structured, being collected across sex, age, and substrate. 
 We summed numbers across webs, sex, age, and substrate.
@@ -559,15 +559,14 @@ Data are shown in Figure \ref{sev-grasshoppers}.
 
 
 \subsection{cdr-grasshoppers}
-Data were accessed on EDI \citep{cdr-grasshoppers}.
+Data (1989-2006) were accessed on EDI \citep{cdr-grasshoppers}.
 We removed sites `28' and `11', which were added to the sampling after 1989. 
 Then, we summed the number of individuals across all life stages and all months. 
 We summed across months even if in 2003, June and August samples were lost for some fields. 
 However, as the documentation reports, ``The total counts for these fields were augmented by proportional additions from remaining samples by John Haarstad and crew".
 Taxonomic information is available for only for the {\it Acrididae} family before 1994. 
-We lumped taxonomic identifications to genus level for {\it Conocephalus}, {\it Scudderia}, and {it\ Tetrix}, as too high a proportion of individuals from these genera were not identified at the species level. 
-Similarly, some individuals belonging to the {\it Melanoplus} genus were identified at the genus level only. 
-We removed these records, as they comprised only 6$\%$ of the entire counts in the {\it Melanoplus} genus.
+We lumped taxonomic identifications to genus level for {\it Conocephalus}, {\it Scudderia}, and {\it Tetrix}, as over 5$\%$ of individuals from these genera were not identified at the species level. 
+6$\%$ of individuals belonging to the {\it Melanoplus} genus were identified at the genus level: however, we did not lump this data to the genus level, because {\it Melanoplus} contains 12 out of the 50 species of this dataset. We removed the individuals identified as belonging to {\it Melanoplus} without being identified to species. 
 Data are shown in Figure \ref{cdr-grasshoppers}.
 
 \begin{figure}[h!]
@@ -589,7 +588,7 @@ We retained 13 spatial replicates which provide continuous temporal replicates f
 We lumped taxonomic information level whenever the counts at the genus level made up more than 5$\%$ of the total individuals counted. 
 We did not do this lumping for {\it Melanopus} spp. because it is a hyperdiverse genus. 
 In this case, we dropped all {\it Melanopus} records identified at the genus level. 
-Finally, we average count data across a year, because some spatial replicates could occasionally contain more observations within a year.
+Finally, we averaged count data across a year, because some spatial replicates could occasionally contain more observations within a year.
 Data are shown in Figure \ref{knz-grasshoppers}.
 
 
@@ -605,10 +604,9 @@ Data are shown in Figure \ref{knz-grasshoppers}.
 \end{figure}
 
 \subsection{luq-snails}
-Data were downloaded from EDI \citep{luq-snails}.
+We downloaded these data on snail abundance (1991-2017) from EDI \citep{luq-snails}.
 We averaged number of snails across runs ("Run.ID" in dataset) and seasons ("Seasons" in dataset). 
-There were no codes for unknown or non-living taxa.
-Data are shown in Figure \ref{luq-snails}.
+There were no codes for unknown or non-living taxa. We only retained sites which were present in every year of the dataset. Data are shown in Figure \ref{luq-snails}.
 
 \begin{figure}[h!]
 \centering
